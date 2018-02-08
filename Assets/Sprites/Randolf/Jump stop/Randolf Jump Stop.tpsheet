@@ -1,0 +1,16 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# http://www.codeandweb.com/texturepacker/unity
+#
+# $TexturePacker:SmartUpdate:5e874425d9ba4077cc099d3b5b706da3:671d9069f219d3c09df20e0077f1d69b:c2af3048e4a2113839ef85866e674df2$
+#
+:format=40300
+:texture=Randolf Jump End.png
+:size=256x512
+:pivotpoints=enabled
+:borders=disabled
+
+Rudolf Jump-06;1;64;129;228; 0.2713178294573643;0.5219298245614035; 0;0;0;0; 9;117;213;129;149;75;94;87;59;115;30;70;0;0;90;51;195;60;228; 7;6;3;5;2;6;7;3;4;5;6;2;3;1;2;7;0;1;7;0;7;8
+Rudolf Jump-07;1;294;141;217; 0.06382978723404255;0.8387096774193549; 0;0;0;0; 9;141;141;84;84;91;0;42;0;38;22;0;97;49;139;66;204;124;217; 7;0;7;8;1;5;6;0;6;7;1;4;5;4;1;2;4;2;3;0;1;6
