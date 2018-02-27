@@ -4,7 +4,7 @@ public class GlideController : MonoBehaviour, IRestartable
 {
     public float speed;
 
-    private Vector3 destination;
+    Vector3 destination;
 
     public Vector3 OriginalDestination;
     public Vector3 dest2;
@@ -35,7 +35,6 @@ public class GlideController : MonoBehaviour, IRestartable
 
     public void Restart()
     {
-        
         ReachedFirst = false;
         gameObject.transform.position = OriginalDestination;
         SetDestination(gameObject.transform.position);

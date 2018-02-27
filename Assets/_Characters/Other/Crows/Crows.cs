@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Crows : MonoBehaviour
 {
@@ -22,13 +20,11 @@ public class Crows : MonoBehaviour
             //gameObject.transform.position = new Transform;
             SecondPosition = true;
         }
-
         else if ((!FinalPosition) && (other.tag == "Player"))
         {
             animator.SetBool("SecondTouch", true);
             FinalPosition = true;
         }
-
         else if (other.tag == "Enemy")
         {
             Destroy(gameObject);

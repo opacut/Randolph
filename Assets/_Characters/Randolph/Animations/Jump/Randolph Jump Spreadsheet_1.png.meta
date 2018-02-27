@@ -1,13 +1,15 @@
 fileFormatVersion: 2
-guid: b8f159111bbe09d40987593cba6ceb51
-timeCreated: 1517476813
+guid: c7d8af08324e14549b67506cf3d3cd2b
+timeCreated: 1519738315
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Randolf Climb Spreadsheet_0
-    21300002: Randolf Climb Spreadsheet_1
-    21300004: Randolf Climb Spreadsheet_2
-    21300006: Randolf Climb Spreadsheet_3
+    21300000: Randolph Jump Spreadsheet_0
+    21300002: Randolph Jump Spreadsheet_1
+    21300004: Randolph Jump Spreadsheet_2
+    21300006: Randolph Jump Spreadsheet_3
+    21300008: Randolph Jump Spreadsheet_4
+    21300010: Randolph Jump Spreadsheet_5
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -84,57 +86,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Randolf Climb Spreadsheet_0
+      name: Randolph Jump Spreadsheet_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 310
-        width: 94
-        height: 199
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Randolf Climb Spreadsheet_1
-      rect:
-        serializedVersion: 2
-        x: 107
-        y: 310
-        width: 94
-        height: 199
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Randolf Climb Spreadsheet_2
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 90
-        width: 80
-        height: 210
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Randolf Climb Spreadsheet_3
-      rect:
-        serializedVersion: 2
-        x: 93
-        y: 89
-        width: 84
+        x: 11
+        y: 288
+        width: 111
         height: 212
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Randolph Jump Spreadsheet_1
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 292
+        width: 91
+        height: 212
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Randolph Jump Spreadsheet_2
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 297
+        width: 103
+        height: 207
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Randolph Jump Spreadsheet_3
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 304
+        width: 101
+        height: 205
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Randolph Jump Spreadsheet_4
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 58
+        width: 114
+        height: 211
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Randolph Jump Spreadsheet_5
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 68
+        width: 123
+        height: 204
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

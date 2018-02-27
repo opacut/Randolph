@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114757297167601836}
   - component: {fileID: 70961687271122310}
   m_Layer: 9
-  m_Name: Randolf
+  m_Name: Randolph
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,7 +115,6 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
-  levelManager: {fileID: 0}
 --- !u!212 &212676188040757928
 SpriteRenderer:
   m_ObjectHideFlags: 1

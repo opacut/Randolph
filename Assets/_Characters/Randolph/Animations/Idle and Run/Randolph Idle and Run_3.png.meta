@@ -1,15 +1,16 @@
 fileFormatVersion: 2
-guid: c7d8af08324e14549b67506cf3d3cd2b
-timeCreated: 1517476182
+guid: 6789b60ef5da9284ab1c14f68a20bd59
+timeCreated: 1519738280
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Randolf Jump Spreadsheet_0
-    21300002: Randolf Jump Spreadsheet_1
-    21300004: Randolf Jump Spreadsheet_2
-    21300006: Randolf Jump Spreadsheet_3
-    21300008: Randolf Jump Spreadsheet_4
-    21300010: Randolf Jump Spreadsheet_5
+    21300000: Randolph Idle and Run_0
+    21300002: Randolph Idle and Run_1
+    21300004: Randolph Idle and Run_2
+    21300006: Randolph Idle and Run_3
+    21300008: Randolph Idle and Run_4
+    21300010: Randolph Idle and Run_5
+    21300012: Randolph Idle and Run_6
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -86,85 +87,99 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Randolf Jump Spreadsheet_0
+      name: Randolph Idle and Run_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 288
-        width: 111
+        x: 3
+        y: 281
+        width: 89
+        height: 218
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Randolph Idle and Run_1
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 284
+        width: 97
         height: 212
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Randolf Jump Spreadsheet_1
+      name: Randolph Idle and Run_2
       rect:
         serializedVersion: 2
-        x: 129
-        y: 292
-        width: 91
-        height: 212
+        x: 220
+        y: 289
+        width: 95
+        height: 219
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Randolf Jump Spreadsheet_2
+      name: Randolph Idle and Run_3
       rect:
         serializedVersion: 2
-        x: 229
-        y: 297
-        width: 103
-        height: 207
+        x: 4
+        y: 42
+        width: 85
+        height: 219
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Randolf Jump Spreadsheet_3
+      name: Randolph Idle and Run_4
       rect:
         serializedVersion: 2
-        x: 342
-        y: 304
-        width: 101
-        height: 205
+        x: 99
+        y: 43
+        width: 97
+        height: 214
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Randolf Jump Spreadsheet_4
+      name: Randolph Idle and Run_5
       rect:
         serializedVersion: 2
-        x: 12
-        y: 58
-        width: 114
-        height: 211
+        x: 212
+        y: 56
+        width: 92
+        height: 220
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Randolf Jump Spreadsheet_5
+      name: Randolph Idle and Run_6
       rect:
         serializedVersion: 2
-        x: 144
-        y: 68
-        width: 123
-        height: 204
+        x: 312
+        y: 55
+        width: 89
+        height: 217
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

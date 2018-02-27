@@ -10,22 +10,9 @@ public class LevelManager : MonoBehaviour {
     [SerializeField] PlayerController player;
     [SerializeField] List<Checkpoint> checkpoints = new List<Checkpoint>();
 
-    private Checkpoint reached;
-
-    /*
-     TODO: Singleton pattern
-
-         void Awake() {
-            DontDestroyOnLoad(this);
-
-            if (FindObjectsOfType(GetType()).Length > 1) {
-                Destroy(gameObject);
-            } else levelManager = this;
-
-         }
-    */
-
-    private void Awake() {
+    Checkpoint reached;
+    
+    void Awake() {
         //! Singleton pattern (pass Level Manager between levels; destroy excess ones)
         DontDestroyOnLoad(this);
 
@@ -66,6 +53,12 @@ public class LevelManager : MonoBehaviour {
         reached.RestoreState();
         player.gameObject.SetActive(true);
         player.transform.position = reached.transform.position;
+    }
+
+    public static void ReloadLevel() {
+        //? Back to checkpoint
+        int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentLevelIndex);
     }
 
     public static void LoadNextLevel() {

@@ -7,14 +7,13 @@ public class Checkpoint : MonoBehaviour {
 
     Inventory inventory;
     LevelManager levelManager;
-    List<IRestartable> restartables = new List<IRestartable>();
+    readonly List<IRestartable> restartables = new List<IRestartable>();
     List<InventoryItem> inventoryState = new List<InventoryItem>();
 
     void Awake() {
         inventory = FindObjectOfType<Inventory>();
         levelManager = FindObjectOfType<LevelManager>();
     }
-
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Player") {
