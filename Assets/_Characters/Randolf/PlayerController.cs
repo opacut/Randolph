@@ -5,50 +5,50 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour {
-    [SerializeField] private float skin = 1.3f;
-    [SerializeField] private float climbingSpeed = 6;
-    [SerializeField] private float movementSpeed = 6;
-    [SerializeField] private float jumpForce = 800;
-    [SerializeField] private float fallForce = 50;
-    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] float skin = 1.3f;
+    [SerializeField] float climbingSpeed = 6;
+    [SerializeField] float movementSpeed = 6;
+    [SerializeField] float jumpForce = 800;
+    [SerializeField] float fallForce = 50;
+    [SerializeField] LayerMask groundLayer;
 
-    public LevelManager levelManager;
+    // public LevelManager levelManager;
 
-    private const string ladderTag = "Ladder";
-    private const string pickableTag = "Pickable";
+    const string ladderTag = "Ladder";
+    const string pickableTag = "Pickable";
 
-    private Animator anim;
-    private Rigidbody2D rb;
-    private float gravity = 0;
-    private bool jump = false;
-    private bool climbing = false;
-    private bool onGround = false;
-    private Ladder onLadder = null;
+    Animator animator;
+    Rigidbody2D rbody;
+    float gravity = 0;
+    bool jump = false;
+    bool climbing = false;
+    bool onGround = false;
+    Ladder onLadder = null;
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
-        gravity = rb.gravityScale;
+        animator = GetComponent<Animator>();
+        rbody = GetComponent<Rigidbody2D>();
+        gravity = rbody.gravityScale;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.tag == ladderTag)
+        if (other.tag == ladderTag)
         {
-            onLadder = collision.GetComponent<Ladder>();
+            onLadder = other.GetComponent<Ladder>();
         }
 
-        if (collision.tag == pickableTag)
+        if (other.tag == pickableTag)
         {
-            Debug.Assert(collision.GetComponent<Pickable>());
-            collision.GetComponent<Pickable>().OnPick();
+            Debug.Assert(other.GetComponent<Pickable>());
+            other.GetComponent<Pickable>().OnPick();
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (collision.tag == ladderTag)
+        if (other.tag == ladderTag)
         {
             IgnorePlatformCollision(false);
             onLadder = null;
@@ -80,61 +80,63 @@ public class PlayerController : MonoBehaviour {
     {
         float hSpeed = horizontal * movementSpeed;
 
-        anim.SetBool("Running", onGround && Mathf.Abs(hSpeed) > .001f);
-        anim.SetFloat("RunningSpeed", Mathf.Abs(hSpeed));
+        animator.SetBool("Running", onGround && Mathf.Abs(hSpeed) > 0.001f);
+        animator.SetFloat("RunningSpeed", Mathf.Abs(hSpeed));
 
         if (onGround || !climbing)
         {
-            rb.velocity = new Vector2(hSpeed, rb.velocity.y);
+            rbody.velocity = new Vector2(hSpeed, rbody.velocity.y);
         }
     }
 
     private void Jumping(float vertical)
     {
-        if (jump && onGround && Mathf.Abs(rb.velocity.y) <= .001f)
+        if (jump && onGround && Mathf.Abs(rbody.velocity.y) <= 0.001f)
         {
             jump = false;
-            rb.AddForce(Vector2.up * jumpForce);
-            anim.SetTrigger("Jump");
+            rbody.AddForce(Vector2.up * jumpForce);
+            animator.SetTrigger("Jump");
         }
-        if (!onGround && !climbing && rb.velocity.y < 0)
+        if (!onGround && !climbing && rbody.velocity.y < 0)
         {
-            rb.AddForce(Vector2.down * fallForce);
+            rbody.AddForce(Vector2.down * fallForce);
         }
     }
 
     private void Climbing(float vertical)
     {
-        if (!climbing && onLadder && Mathf.Abs(vertical) > .001f)
+		// TODO: Move from ladder sideways + jump
+		
+        if (!climbing && onLadder && Mathf.Abs(vertical) > 0.001f)
         {
             climbing = true;
-            rb.gravityScale = 0;
+            rbody.gravityScale = 0;
 
             IgnorePlatformCollision(true);
 
-            anim.SetBool("Climbing", true);
-            anim.SetFloat("ClimbingSpeed", 0);
+            animator.SetBool("Climbing", true);
+            animator.SetFloat("ClimbingSpeed", 0);
         }
         if (climbing)
         {
             float vSpeed = vertical * climbingSpeed;
 
-            rb.velocity = new Vector2(0, vSpeed);
+            rbody.velocity = new Vector2(0, vSpeed);
 
-            anim.SetFloat("ClimbingSpeed", vSpeed);
+            animator.SetFloat("ClimbingSpeed", vSpeed);
         }
         if (climbing && (!onLadder || onGround))
         {
             climbing = false;
-            rb.gravityScale = gravity;
+            rbody.gravityScale = gravity;
 
-            anim.SetBool("Climbing", false);
+            animator.SetBool("Climbing", false);
         }
     }
 
     private void Flipping()
     {
-        if ((rb.velocity.x > 0 && transform.localScale.x < 0) || (rb.velocity.x < 0 && transform.localScale.x > 0))
+        if ((rbody.velocity.x > 0 && transform.localScale.x < 0) || (rbody.velocity.x < 0 && transform.localScale.x > 0))
         {
             Vector3 scale = transform.localScale;
             scale.x *= -1;
@@ -145,8 +147,8 @@ public class PlayerController : MonoBehaviour {
     private void GroundCheck()
     {
         Debug.DrawRay(transform.position, Vector2.down * skin, Color.green);
-        Collider2D collider = Physics2D.Raycast(transform.position, Vector2.down, skin, groundLayer).collider;
-        onGround = collider && rb.IsTouching(collider);
+        Collider2D coll = Physics2D.Raycast(transform.position, Vector2.down, skin, groundLayer).collider;
+        onGround = coll && rbody.IsTouching(coll);
     }
 
     private void IgnorePlatformCollision(bool ignore)
@@ -154,9 +156,9 @@ public class PlayerController : MonoBehaviour {
         Physics2D.IgnoreCollision(GetComponent<Collider2D>(), onLadder.attachedPlatform, ignore);
     }
 
-    public void Kill(float delay = 0)
+    public void Kill(float delay = 0.25f)
     {
         gameObject.SetActive(false);
-        levelManager.Invoke("RestartLevel", delay);
+        LevelManager.levelManager.Invoke("RestartLevel", delay);
     }
 }

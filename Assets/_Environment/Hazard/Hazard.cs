@@ -2,26 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hazard : MonoBehaviour, IRestartable
-{
-    public Vector3 InitialPosition;
+public class Hazard : MonoBehaviour, IRestartable {
+    public Vector3 initialPosition;
 
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            collision.GetComponent<PlayerController>().Kill();
+    public void OnTriggerEnter2D(Collider2D other) {
+        if (other.tag == "Player") {
+            other.GetComponent<PlayerController>().Kill();
         }
     }
 
 
-    void Awake()
-    {
-        InitialPosition = gameObject.transform.position;
+    void Awake() {
+        initialPosition = gameObject.transform.position;
     }
 
-    public void Restart()
-    {
-        gameObject.transform.position = InitialPosition;
+    public void Restart() {
+        gameObject.transform.position = initialPosition;
     }
 }

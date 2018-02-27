@@ -21,7 +21,7 @@ public class Squasher : MonoBehaviour, IRestartable
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.tag == "Enemy")
         {
             other.gameObject.GetComponent<Flytrap>().Kill();
         }

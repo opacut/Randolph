@@ -11,7 +11,7 @@ public class Flytrap : MonoBehaviour, IRestartable
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (Active&&(other.gameObject.tag == "Player"))
+        if (Active && (other.tag == "Player"))
         {
             Deactivate();
             other.gameObject.GetComponent<PlayerController>().Kill(1);

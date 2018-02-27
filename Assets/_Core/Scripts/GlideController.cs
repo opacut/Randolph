@@ -59,20 +59,20 @@ public class GlideController : MonoBehaviour, IRestartable
         destination = value;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if ((!ReachedFirst)&&(collision.gameObject.tag == "Player"))
+        if ((!ReachedFirst) && (other.tag == "Player"))
         {
             SetDestination(dest2);
             //ReachedFirst = true;
         }
-        else if (collision.gameObject.tag == "Player")
+        else if (other.tag == "Player")
         {
             SetDestination(dest3);
         }
-        else if (collision.gameObject.tag == "Enemy")
+        else if (other.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<Flytrap>().Invoke("Deactivate", 0);
+            other.gameObject.GetComponent<Flytrap>().Invoke("Deactivate", 0);
             //Destroy(gameObject);
             gameObject.SetActive(false);
         }

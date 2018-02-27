@@ -1,15 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Restart : MonoBehaviour
-{
-	void Update ()
-    {
-        if (Input.GetButtonDown("Restart"))
-        {
-            SceneManager.LoadScene("Level 1");
-        }	
-	}
+public class Restart : MonoBehaviour {
+    void Update() {
+        if (Input.GetButtonDown("Restart")) {
+            int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(currentLevelIndex);
+        }
+    }
+
+    //? Back to checkpoint
 }

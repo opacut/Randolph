@@ -1,47 +1,82 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class LevelManager : MonoBehaviour
-{
-    [SerializeField] private PlayerController player;
-    [SerializeField] private List<Checkpoint> checkpoints = new List<Checkpoint>();
+public class LevelManager : MonoBehaviour {
+
+    public static LevelManager levelManager;
+
+    [SerializeField] PlayerController player;
+    [SerializeField] List<Checkpoint> checkpoints = new List<Checkpoint>();
 
     private Checkpoint reached;
 
-    private void Awake()
-    {
-        Debug.Assert(checkpoints.Any());
-        reached = checkpoints.First();
+    /*
+     TODO: Singleton pattern
+
+         void Awake() {
+            DontDestroyOnLoad(this);
+
+            if (FindObjectsOfType(GetType()).Length > 1) {
+                Destroy(gameObject);
+            } else levelManager = this;
+
+         }
+    */
+
+    private void Awake() {
+        //! Singleton pattern (pass Level Manager between levels; destroy excess ones)
+        DontDestroyOnLoad(this);
+
+        if (FindObjectsOfType(GetType()).Length > 1) {
+            Destroy(gameObject);
+        } else levelManager = this;
+
+        //! Each level
+        SceneManager.sceneLoaded += InitializeLevel;        
     }
 
-    private void Update()
-    {
-        if (Input.GetKey("escape"))
-        {
-            Application.Quit();
+    void Update() {
+        if (Input.GetKey("escape")) {
+            Application.Quit(); // TODO: Overkill; pause, THEN quit (or quit after holding the key)
         }
     }
 
-    private void Start()
-    {
+    void Start() {
         player.transform.position = reached.transform.position;
     }
 
-    public void CheckpointReached(Checkpoint checkpoint)
-    {
+    void InitializeLevel(Scene scene, LoadSceneMode loadSceneMode) {
+        Debug.Assert(checkpoints.Any());
+
+        if (!player) player = FindObjectOfType<PlayerController>();
+        reached = checkpoints.First();
+    }
+
+    public void CheckpointReached(Checkpoint checkpoint) {
         reached = (IsCheckpointVisited(checkpoint)) ? reached : checkpoint;
     }
 
-    private bool IsCheckpointVisited(Checkpoint checkpoint)
-    {
+    bool IsCheckpointVisited(Checkpoint checkpoint) {
         return reached && checkpoints.IndexOf(checkpoint) < checkpoints.IndexOf(reached);
     }
 
-    public void RestartLevel()
-    {
+    public void RestartLevel() {
         reached.RestoreState();
         player.gameObject.SetActive(true);
         player.transform.position = reached.transform.position;
+    }
+
+    public static void LoadNextLevel() {
+        int nextLevelIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        
+        if (SceneManager.sceneCountInBuildSettings > nextLevelIndex) {
+            SceneManager.LoadScene(nextLevelIndex);
+            // TODO: Pass inventory state between levels
+        } else {
+            string s = (SceneManager.sceneCountInBuildSettings > 1) ? "s" : "";
+            Debug.LogError($"Trying to load <color=orange>scene #{nextLevelIndex + 1}</color>, but there's only {SceneManager.sceneCount} scene{s} in total.");
+        }
     }
 }

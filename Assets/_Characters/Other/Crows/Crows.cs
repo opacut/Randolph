@@ -6,30 +6,30 @@ public class Crows : MonoBehaviour
 {
     public bool SecondPosition;
     public bool FinalPosition;
-    private Animator anim;
+    private Animator animator;
     private Transform tr;
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        if ((!SecondPosition)&&(collision.gameObject.tag == "Player"))
+        if ((!SecondPosition) && (other.tag == "Player"))
         {
-            anim.SetBool("FirstTouch", true);
+            animator.SetBool("FirstTouch", true);
             //gameObject.transform.position = new Transform;
             SecondPosition = true;
         }
 
-        else if ((!FinalPosition)&&(collision.gameObject.tag == "Player"))
+        else if ((!FinalPosition) && (other.tag == "Player"))
         {
-            anim.SetBool("SecondTouch", true);
+            animator.SetBool("SecondTouch", true);
             FinalPosition = true;
         }
 
-        else if (collision.gameObject.tag == "Enemy")
+        else if (other.tag == "Enemy")
         {
             Destroy(gameObject);
         }
