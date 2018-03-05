@@ -37,10 +37,8 @@ GameObject:
   m_Component:
   - component: {fileID: 224000011118456402}
   - component: {fileID: 114000011336298686}
-  - component: {fileID: 114000010311134380}
   - component: {fileID: 222000012947267730}
   - component: {fileID: 114000011564244784}
-  - component: {fileID: 114000012963367606}
   m_Layer: 5
   m_Name: Menu Button
   m_TagString: Untagged
@@ -48,19 +46,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &114000010311134380
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012738239590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2c18a92de41a93499a8fd9ede29aea4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  customInstruction: 0
-  sceneToLoad: 
 --- !u!114 &114000011336298686
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -174,23 +159,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Menu
---- !u!114 &114000012963367606
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012738239590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58b043baac0cbd84087d8f300d1d728f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultSprite: {fileID: 21300000, guid: 5547a725b9a7caf4a9042f4acaca1aa4, type: 3}
-  hoverSprite: {fileID: 21300004, guid: 5547a725b9a7caf4a9042f4acaca1aa4, type: 3}
-  clickSprite: {fileID: 21300006, guid: 5547a725b9a7caf4a9042f4acaca1aa4, type: 3}
-  defaultColor: {r: 0.75294125, g: 0.41960788, b: 0.14901961, a: 1}
-  hoverColor: {r: 0.97647065, g: 0.5372549, b: 0.18431373, a: 1}
-  clickColor: {r: 0.3019608, g: 0.15686275, b: 0.07058824, a: 1}
 --- !u!222 &222000012947267730
 CanvasRenderer:
   m_ObjectHideFlags: 1
