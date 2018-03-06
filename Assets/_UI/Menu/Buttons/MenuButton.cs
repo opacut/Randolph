@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 namespace Randolph.UI {
+    /// <summary>Handles swapping sprites of the button and text size, not the actual action on click.</summary>
+    [RequireComponent(typeof(Button))]
     public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler {
 
         // Image change
@@ -11,9 +13,9 @@ namespace Randolph.UI {
         [SerializeField] Sprite clickSprite;
 
         // Text color change
-        [SerializeField] Color defaultColor;
-        [SerializeField] Color hoverColor;
-        [SerializeField] Color clickColor;
+        [SerializeField] Color defaultColor = Color.white;
+        [SerializeField] Color hoverColor = Color.white;
+        [SerializeField] Color clickColor = Color.white;
 
         // Mouse
         bool over;
@@ -23,7 +25,7 @@ namespace Randolph.UI {
         Button thisButton;
         Image buttonImage;
         Text buttonText;
-        float textSizeRatio = 40 / 300.0f;
+        const float TextSizeRatio = 35 / 300.0f;
 
         void Start() {
             thisButton = gameObject.GetComponent<Button>();
@@ -32,15 +34,7 @@ namespace Randolph.UI {
 
             // Text size appropriate to the resolution
             // e.g. width 300 --> 40 pts
-            buttonText.fontSize = (int) (((RectTransform) transform).rect.width * textSizeRatio);
-
-            /*
-            if (gameObject.name == "Continue Button" && (!PlayerPrefs.HasKey(LevelManager.levelKey) || PlayerPrefs.GetInt(LevelManager.levelKey) == 0)) {
-                // brand new game, turn off continue
-                thisButton.interactable = false;
-                buttonText.color /= 1.5f;
-            }
-            */
+            buttonText.fontSize = (int) (((RectTransform) transform).rect.width * TextSizeRatio);            
         }
 
         public void OnPointerEnter(PointerEventData eventData) {
@@ -55,7 +49,7 @@ namespace Randolph.UI {
             over = false;
             if (thisButton.interactable) {
                 if (!click) {
-                    // leave the button without clicking it
+                    // Leave the button without clicking it
                     buttonImage.sprite = defaultSprite;
                     buttonText.color = defaultColor;
                 }
@@ -74,11 +68,11 @@ namespace Randolph.UI {
             click = false;
             if (thisButton.interactable) {
                 if (over) {
-                    // click; technically not necessary, you immediately pass to the next scene
+                    // Click; technically not necessary, you immediately pass to the next scene
                     buttonImage.sprite = hoverSprite;
-                    buttonText.color = hoverColor;
+                    buttonText.color = hoverColor;                    
                 } else {
-                    // holding the button down and moving outside
+                    // Holding the button down and moving outside
                     buttonImage.sprite = defaultSprite;
                     buttonText.color = defaultColor;
                 }
