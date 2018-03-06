@@ -12,16 +12,16 @@
 	* [Machinarium](https://www.youtube.com/watch?v=k0H1C8mD5o0) - Neverhoodovský Steampunk		
 	* [Don’t Starve](https://www.youtube.com/watch?v=pL4snnsZNKk) – Steampunk, macabre, Burtonesque spracovanie
 		
-2. Pixel art
+1. Pixel art
 	
 	* [Axiom Verge](https://www.youtube.com/watch?v=pFTpP-ibg8Y) – pixel art v štýle Nintendo Entertainment System			
 	* [Codename Gordon](https://www.youtube.com/watch?v=yG9TC-6nODs) – ďalší pixel art, s príchuťou Half Life			
 
-3. Filmy, video
+1. Filmy, video
 	
 	* [Lemony Snicket's A Series of Unfortunate Events](http://www.imdb.com/title/tt0339291/) (2004)			
 	* [Atlantis: The Lost Empire](http://www.imdb.com/title/tt0230011/) (2001)			
-	* [Wild Wild West]http://www.imdb.com/title/tt0120891/) (1999)
+	* [Wild Wild West](http://www.imdb.com/title/tt0120891/) (1999)
 	* [The League of Extraordinary Gentlemen](http://www.imdb.com/title/tt0311429/)
 	* [The Prestige](http://www.imdb.com/title/tt0482571/) (2006)
 	* [Van Helsing](http://www.imdb.com/title/tt0338526/) (2004)
@@ -40,7 +40,7 @@
 	* [Ori and the Blind Forest](https://www.youtube.com/watch?v=n0jIUSAik2k)			
 	* [Jazz Jackrabbit](https://www.youtube.com/watch?v=5MqavZTVW2I)			
 
-2. Pomalšia hra, hráč má rozmýšľať nad layoutom levelu a nájsť správnu cestu
+1. Pomalšia hra, hráč má rozmýšľať nad layoutom levelu a nájsť správnu cestu
 
 	* [Machinarium](https://www.youtube.com/watch?v=k0H1C8mD5o0) (adventúra)		
 	* [Another World](https://www.youtube.com/watch?v=wjMf_bEfqIc)		

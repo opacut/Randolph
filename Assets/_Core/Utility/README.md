@@ -6,3 +6,6 @@ Unifies line endings to prevent warnings (Windows, Linux, Unix).
 
 * **Bulk Rename**
 Rename multiple objects at once.
+
+* **Readonly**
+Marks a field as read-only in the inspector.
