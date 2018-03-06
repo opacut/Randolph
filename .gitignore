@@ -36,3 +36,13 @@ sysinfo.txt
 
 # Articy:draft
 Articy/
+
+# RF
+Assets/Plugins/
+Assets/Plugins.meta
+
+# DG
+Assets/Dialoguer/
+Assets/Dialoguer.meta
+Assets/DialoguerOutput/
+Assets/DialoguerOutput.meta

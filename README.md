@@ -8,5 +8,5 @@ The rest of the crew have to tend to the wounded and repair the ship, while Rand
 ## Information
 
 * [Pinterest](https://cz.pinterest.com/tomasjezek1/randolph/) – relevant images
-* [Facebook](https://www.facebook.com/messages/t/1587719634647705) – group conversations
-* [Voting](https://github.com/opacut/Randolph/blob/master/Project_Documents/POLLS.md) – add polls / vote
+* [Facebook](https://www.facebook.com/messages/t/1587719634647705) – group conversation
+* [Inspiration](https://github.com/opacut/Randolph/blob/master/Project_Documents/INSPIRATION.md) – relevant games, movies…

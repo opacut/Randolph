@@ -15,7 +15,7 @@
 	    * [Sourcetree](https://www.sourcetreeapp.com/)
 	    * [Github for Unity](https://unity.github.com/)
 	    * [Smart Git](https://www.syntevo.com/smartgit/)
-		* [GitKraken](https://www.gitkraken.com/github-student-developer-pack)
+		* [GitKraken](https://www.gitkraken.com/github-student-developer-pack) ([+ LFS](https://support.gitkraken.com/git-workflows-and-extensions/Intro-and-requirements))
 
 ### Character 
 
