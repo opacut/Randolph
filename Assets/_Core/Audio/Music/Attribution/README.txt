@@ -1,0 +1,1 @@
+If any of these sounds are used in the final game, each of their respective authors must be included in the credits.
