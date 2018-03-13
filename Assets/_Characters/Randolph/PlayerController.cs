@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Randolph.Levels;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody2D))]
@@ -11,8 +12,6 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] float jumpForce = 800;
     [SerializeField] float fallForce = 50;
     [SerializeField] LayerMask groundLayer;
-
-    // public LevelManager levelManager;
 
     const string ladderTag = "Ladder";
     const string pickableTag = "Pickable";
@@ -156,9 +155,8 @@ public class PlayerController : MonoBehaviour {
         Physics2D.IgnoreCollision(GetComponent<Collider2D>(), onLadder.attachedPlatform, ignore);
     }
 
-    public void Kill(float delay = 0.25f)
-    {
+    public void Kill(float delay = 0.25f) {
+        LevelManager.levelManager.ReturnToCheckpoint(delay);
         gameObject.SetActive(false);
-        LevelManager.levelManager.Invoke("RestartLevel", delay);
     }
 }

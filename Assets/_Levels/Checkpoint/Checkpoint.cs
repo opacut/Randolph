@@ -1,39 +1,49 @@
 ﻿using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))]
-public class Checkpoint : MonoBehaviour {
-    public Transform level;
+namespace Randolph.Levels {
+    [RequireComponent(typeof(Collider2D))]
+    [AddComponentMenu("Randolph/Levels/Checkpoint", 30)]
+    public class Checkpoint : MonoBehaviour {
+        [Help("An area represents all objects which will be reverted back to their initial states after a restart.", MessageType.None)]
+        [SerializeField] Area area;
 
-    Inventory inventory;
-    LevelManager levelManager;
-    readonly List<IRestartable> restartables = new List<IRestartable>();
-    List<InventoryItem> inventoryState = new List<InventoryItem>();
+        Inventory inventory;
+        CheckpointContainer container;
+        readonly List<IRestartable> restartables = new List<IRestartable>();
+        List<InventoryItem> inventoryState = new List<InventoryItem>();
 
-    void Awake() {
-        inventory = FindObjectOfType<Inventory>();
-        levelManager = FindObjectOfType<LevelManager>();
-    }
+        void Awake() {
+            inventory = FindObjectOfType<Inventory>();
+            container = transform.parent?.GetComponent<CheckpointContainer>();
 
-    void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == "Player") {
-            levelManager.CheckpointReached(this);
-            SaveState();
+            if (container == null) {
+                Debug.LogWarning("Checkpoints should be made children of a <b>CheckpointContainter</b>, otherwise they won't work properly.", gameObject);
+            }
+            Debug.Assert(area != null, "The checkpoint isn't linked to any area of the level – therefore is useless.", gameObject);
         }
-    }
 
-    void SaveState() {
-        restartables.Clear();
-        restartables.AddRange(level.GetComponentsInChildren<IRestartable>());
+        void OnTriggerEnter2D(Collider2D other) {
+            if (other.tag == "Player") {
+                container.CheckpointReached(this);
+                SaveState();
+            }
+        }
 
-        inventoryState = inventory.Items;
-    }
+        void SaveState() {
+            restartables.Clear();
+            restartables.AddRange(area.transform.GetComponentsInChildren<IRestartable>());
 
-    public void RestoreState() {
-        inventory.Items = inventoryState;
+            inventoryState = inventory.Items;
+        }
 
-        foreach (IRestartable restartable in restartables) {
-            restartable.Restart();
+        public void RestoreState() {
+            inventory.Items = inventoryState;
+
+            foreach (IRestartable restartable in restartables) {
+                restartable.Restart();
+            }
         }
     }
 }

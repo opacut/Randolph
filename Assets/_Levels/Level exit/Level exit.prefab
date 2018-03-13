@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 61568762841666780}
   - component: {fileID: 114347715044335920}
   m_Layer: 0
-  m_Name: Exit
+  m_Name: Level exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,6 +77,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b521510f885d8234aadc40a5aa84e7bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  animator: {fileID: 0}
   objectives:
   - {fileID: 0}
