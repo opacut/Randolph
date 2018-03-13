@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 124957379934969702}
   - component: {fileID: 81322346632373366}
   - component: {fileID: 82478694535321490}
-  - component: {fileID: 114896851848964938}
+  - component: {fileID: 114450003079259384}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -38,8 +38,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1394957825921830}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.965, y: 6.3, z: -30.2}
-  m_LocalScale: {x: 1.9871346, y: 2.9331412, z: 1}
+  m_LocalPosition: {x: -26.91, y: 0.87, z: -30.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -64,7 +64,7 @@ Camera:
   far clip plane: 1000
   field of view: 46.681202
   orthographic: 1
-  orthographic size: 12.881926
+  orthographic size: 11.482921
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -167,7 +167,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114896851848964938
+--- !u!114 &114450003079259384
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -175,13 +175,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 1394957825921830}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 815246a7d0df49f40a56500a353a865f, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b8c96e2cdc154e848a3d9fe62464d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 4818417802087302, guid: 81423794d48a5544a93de134578b6762, type: 2}
-  leftBump: {fileID: 4952800431154152, guid: 8e2743ea22b4fc04cbcce5209141b692, type: 2}
-  rightBump: {fileID: 4814695120460526, guid: 1b7a5b4ddbdd03a43ad021a2a09f2383, type: 2}
-  smoothing: 5
+  CameraTargets: []
+  CenterTargetOnStart: 0
+  Axis: 0
+  UpdateType: 0
+  FollowHorizontal: 1
+  HorizontalFollowSmoothness: 0.15
+  FollowVertical: 1
+  VerticalFollowSmoothness: 0.15
+  OffsetX: 0
+  OffsetY: -0.65
+  IsRelativeOffset: 1
+  ZoomWithFOV: 0
+  CurrentZoomTriggerID: 0
+  IsCameraPositionLeftBounded: 0
+  IsCameraPositionRightBounded: 0
+  IsCameraPositionTopBounded: 0
+  IsCameraPositionBottomBounded: 0
+  GameCamera: {fileID: 20160739633386284}
 --- !u!124 &124957379934969702
 Behaviour:
   m_ObjectHideFlags: 1
