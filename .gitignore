@@ -36,6 +36,8 @@ sysinfo.txt
 
 # Articy:draft
 Articy/
+Assets/Editor/XPSConvert.cs
+Assets/Editor/XPSConvert.cs.meta
 
 # RF
 Assets/Plugins/

@@ -60,5 +60,25 @@ namespace Randolph.Levels {
         bool IsCheckpointVisited(Checkpoint checkpoint) {
             return reached && checkpoints.IndexOf(checkpoint) <= checkpoints.IndexOf(reached);
         }
+
+        void OnDrawGizmosSelected() {
+            if (checkpoints.Count < 1) return;
+            Gizmos.color = Color.green;
+            float dotRadius = 0.15f;
+
+            Vector3 startPoint = checkpoints[0].transform.position;
+            for (int i = 1; i < checkpoints.Count; i++) {
+                Gizmos.DrawSphere(startPoint, dotRadius);
+                Vector3 endPoint = checkpoints[i].transform.position;
+                Gizmos.DrawLine(startPoint, endPoint);
+                startPoint = endPoint;
+            }
+
+            var levelExit = FindObjectOfType<LevelExit>()?.transform.position;
+            if (levelExit.HasValue) {
+                Gizmos.DrawLine(startPoint, levelExit.Value);
+                Gizmos.DrawSphere(levelExit.Value, dotRadius);
+            }
+        }
     }
 }
