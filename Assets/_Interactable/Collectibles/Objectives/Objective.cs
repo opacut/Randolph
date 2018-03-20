@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Objective : Pickable, IRestartable
+public class Objective : Pickable
 {
-    [SerializeField] private Animator anim;
+    [SerializeField] Animator animator;
 
     public bool IsCompleted { get; internal set; }
 
@@ -13,7 +11,7 @@ public class Objective : Pickable, IRestartable
         IsCompleted = true;
         gameObject.SetActive(false);
 
-        anim.SetTrigger("ObjectiveFound");
+        animator.SetTrigger("ObjectiveFound");
     }
 
     public override void Restart()

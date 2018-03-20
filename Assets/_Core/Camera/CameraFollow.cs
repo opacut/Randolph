@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+
+//! Unused script
 
 [RequireComponent(typeof(Camera))]
 public class CameraFollow : MonoBehaviour

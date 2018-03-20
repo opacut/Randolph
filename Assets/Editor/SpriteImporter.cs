@@ -20,7 +20,7 @@ namespace Randolph.Core {
 		}
 
 		void OnPostprocessTexture(Texture2D texture) {
-			Debug.Log("Postprocessing texture " + assetPath);
+			Debug.Log($"Postprocessing texture <color=orange>{assetPath}</color>", texture);
 
 			if (assetPath.Contains("tile_"))
 				PostprocessTileset(texture);

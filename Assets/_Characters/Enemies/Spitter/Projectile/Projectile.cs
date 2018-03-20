@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 
-public class Projectile : MonoBehaviour
+namespace Randolph.Characters
 {
-    void OnTriggerEnter2D(Collider2D other)
+    public class Projectile : MonoBehaviour
     {
-        if (other.tag == "Player")
+        void OnTriggerEnter2D(Collider2D other)
         {
-            other.gameObject.GetComponent<PlayerController>().Kill();
+            if (other.tag == "Player")
+            {
+                other.gameObject.GetComponent<PlayerController>().Kill();
+            }
         }
     }
 }

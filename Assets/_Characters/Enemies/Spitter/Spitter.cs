@@ -1,36 +1,45 @@
 using System.Collections;
 using UnityEngine;
 
-public class Spitter : MonoBehaviour, IRestartable {
-    [SerializeField] GameObject shot;
-    [SerializeField] Transform shotSpawn;
-    [SerializeField] float fireRate;
-    [SerializeField] float initialDelay;
-    
-    Coroutine shootingCO;
+namespace Randolph.Characters
+{
+    public class Spitter : MonoBehaviour, IEnemy
+    {
+        [SerializeField] GameObject shot;
+        [SerializeField] Transform shotSpawn;
+        [SerializeField] float fireRate;
+        [SerializeField] float initialDelay;
 
-    void Fire() {
-        Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-    }
+        Coroutine shootingCO;
 
-    IEnumerator KeepShooting(float fireRate, float initialDelay) {
-        yield return new WaitForSeconds(initialDelay);
-        while (true) {
-            Fire();
-            yield return new WaitForSeconds(fireRate);
+        void Fire()
+        {
+            Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
         }
-    }
 
-    public void Restart() {
-        return;
-    }
+        IEnumerator KeepShooting(float fireRate, float initialDelay)
+        {
+            yield return new WaitForSeconds(initialDelay);
+            while (true)
+            {
+                Fire();
+                yield return new WaitForSeconds(fireRate);
+            }
+        }
 
-    void OnBecameVisible() {
-        // Shoot only when being onscreen
-        shootingCO = StartCoroutine(KeepShooting(fireRate, initialDelay));
-    }
+        public void Restart() { }
 
-    void OnBecameInvisible() {
-        if (shootingCO != null) StopCoroutine(shootingCO);
+        public void Kill() { }
+
+        void OnBecameVisible()
+        {
+            // Shoot only when being onscreen
+            shootingCO = StartCoroutine(KeepShooting(fireRate, initialDelay));
+        }
+
+        void OnBecameInvisible()
+        {
+            if (shootingCO != null) StopCoroutine(shootingCO);
+        }
     }
 }

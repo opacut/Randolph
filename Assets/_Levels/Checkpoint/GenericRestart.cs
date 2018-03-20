@@ -1,18 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class GenericRestart : MonoBehaviour, IRestartable
-{
-    public Vector3 InitialPosition;
+namespace Randolph.Levels {
+    public class GenericRestart : MonoBehaviour, IRestartable {
 
-    void Awake()
-    {
-        InitialPosition = gameObject.transform.position;
-    }
+        [SerializeField, ReadonlyField] Vector3 initialPosition;
 
-    public void Restart()
-    {
-        gameObject.transform.position = InitialPosition;
+        void Awake() {
+            initialPosition = gameObject.transform.position;
+        }
+
+        public void Restart() {
+            gameObject.transform.position = initialPosition;
+        }
+
     }
 }

@@ -1,21 +1,30 @@
-﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Hazard : MonoBehaviour, IRestartable {
-    public Vector3 initialPosition;
+using Randolph.Characters;
+using Randolph.Levels;
 
-    void Awake() {
-        initialPosition = gameObject.transform.position;
-    }
+namespace Randolph.Environment
+{
+    public class Hazard : MonoBehaviour, IRestartable
+    {
+        public Vector3 initialPosition;
 
-    public void Restart() {
-        gameObject.transform.position = initialPosition;
-    }
+        void Awake()
+        {
+            initialPosition = gameObject.transform.position;
+        }
 
-    public void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == "Player") {
-            other.GetComponent<PlayerController>().Kill();
+        public void Restart()
+        {
+            gameObject.transform.position = initialPosition;
+        }
+
+        public void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.tag == "Player")
+            {
+                other.GetComponent<PlayerController>().Kill();
+            }
         }
     }
 }

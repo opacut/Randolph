@@ -1,39 +1,61 @@
-﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Randolph.Interactable;
 
-public class Flytrap : MonoBehaviour, IRestartable
+namespace Randolph.Characters
 {
-    public bool Active;
-    public Sprite Sleeping;
-    public Sprite Squashed;
-    public Sprite Alive;
-
-    private void OnTriggerEnter2D(Collider2D other)
+    [RequireComponent(typeof(SpriteRenderer))]
+    public class Flytrap : MonoBehaviour, IEnemy
     {
-        if (Active && (other.tag == "Player"))
+        public bool Active { get; private set; } = true;
+
+        Sprite alive;
+        [Space(10), SerializeField] Sprite closed;
+        [SerializeField] Sprite crushed;
+
+        SpriteRenderer spriteRenderer;
+
+        private void Awake()
         {
-            Deactivate();
-            other.gameObject.GetComponent<PlayerController>().Kill(1);
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            alive = spriteRenderer.sprite;
         }
-    }
 
-    public void Deactivate()
-    {
-        gameObject.GetComponent<SpriteRenderer>().sprite = Sleeping;
-        Active = false;
-    }
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (Active)
+            {
+                if (other.tag == "Player")
+                {
+                    Deactivate();
+                    other.gameObject.GetComponent<PlayerController>().Kill(1);
+                }
 
-    public void Kill()
-    {
-        gameObject.GetComponent<SpriteRenderer>().sprite = Squashed;
-        Active = false;
-    }
+                var glider = other.GetComponent<GlideController>();
+                if (glider)
+                {
+                    //! Crows flying into the flytrap
+                    Deactivate();
+                    glider.Kill();
+                }
+            }
+        }
 
-    public void Restart()
-    {
-        Active = true;
-        gameObject.GetComponent<SpriteRenderer>().sprite = Alive;
-        
+        public void Deactivate()
+        {
+            spriteRenderer.sprite = closed;
+            Active = false;
+        }
+
+        public void Kill()
+        {
+            spriteRenderer.sprite = crushed;
+            Active = false;
+        }
+
+        public void Restart()
+        {
+            spriteRenderer.sprite = alive;
+            Active = true;
+        }
     }
 }

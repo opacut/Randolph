@@ -12,7 +12,6 @@ public class Inventory : MonoBehaviour
 
     private List<InventoryIcon> icons = new List<InventoryIcon>();
 
-
     public List<InventoryItem> Items
     {
         get

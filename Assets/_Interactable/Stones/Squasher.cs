@@ -1,29 +1,34 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Squasher : MonoBehaviour, IRestartable
+using Randolph.Characters;
+using Randolph.Levels;
+
+namespace Randolph.Interactable
 {
-    public Vector3 InitialPosition;
-    public Quaternion InitialRotation;
-
-    void Awake()
+    public class Squasher : MonoBehaviour, IRestartable
     {
-        InitialPosition = gameObject.transform.position;
-        InitialRotation = gameObject.transform.rotation;
-    }
+        Vector3 initialPosition;
+        Quaternion initialRotation;
 
-    public void Restart()
-    {
-        gameObject.transform.position = InitialPosition;
-        gameObject.transform.rotation = InitialRotation;
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "Enemy")
+        void Awake()
         {
-            other.gameObject.GetComponent<Flytrap>().Kill();
+            initialPosition = gameObject.transform.position;
+            initialRotation = gameObject.transform.rotation;
+        }
+
+        public void Restart()
+        {
+            gameObject.transform.position = initialPosition;
+            gameObject.transform.rotation = initialRotation;
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            // TODO: If any enemy
+            if (other.tag == "Enemy")
+            {
+                other.gameObject.GetComponent<Flytrap>().Kill();
+            }
         }
     }
 }

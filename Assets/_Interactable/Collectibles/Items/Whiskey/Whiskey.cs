@@ -1,18 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using Randolph.Characters;
 
-public class Whiskey : InventoryItem
+namespace Randolph.Interactable
 {
-    public override bool IsApplicable(GameObject target)
+    public class Whiskey : InventoryItem
     {
-        Flytrap flytrap = target.GetComponent<Flytrap>();
+        public override bool IsApplicable(GameObject target)
+        {
+            Flytrap flytrap = target.GetComponent<Flytrap>();
 
-        return flytrap && flytrap.Active;
-    }
-    
-    public override void OnApply(GameObject target)
-    {
-       target.GetComponent<Flytrap>().Deactivate();
+            return flytrap && flytrap.Active;
+        }
+
+        public override void OnApply(GameObject target)
+        {
+            target.GetComponent<Flytrap>().Deactivate();
+        }
     }
 }
