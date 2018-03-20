@@ -11,7 +11,6 @@ namespace Randolph.Characters {
         [SerializeField] float movementSpeed = 6;
         [SerializeField] float jumpForce = 800;
         [SerializeField] float fallForce = 50;
-        [SerializeField] LayerMask groundLayer;
 
         const string LadderTag = "Ladder";
         const string PickableTag = "Pickable";
@@ -148,7 +147,7 @@ namespace Randolph.Characters {
 
         private void GroundCheck() {
             Debug.DrawRay(transform.position, Vector2.down * skin, Color.green);
-            Collider2D coll = Physics2D.Raycast(transform.position, Vector2.down, skin, groundLayer).collider;
+            Collider2D coll = Physics2D.Raycast(transform.position, Vector2.down, skin, Core.Constants.GroundLayer).collider;
             onGround = coll && rbody.IsTouching(coll);
         }
 

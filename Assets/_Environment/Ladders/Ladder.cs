@@ -1,10 +1,12 @@
 using UnityEditor;
+
 using UnityEngine;
 
 namespace Randolph.Environment {
     [ExecuteInEditMode]
     [RequireComponent(typeof(Collider2D))]
     public class Ladder : MonoBehaviour {
+
         [Help("Move the ladder to a platform to automatically assign a collider.", MessageType.Info)]
         public Collider2D attachedPlatform; // TODO: Convert to one-sided collider
 
@@ -30,7 +32,7 @@ namespace Randolph.Environment {
 
         private Collider2D GetAttachedPlatform() {
             var overlappingColliders = new Collider2D[10];
-            if (collider.OverlapCollider(new ContactFilter2D() { layerMask = LayerMask.NameToLayer("Ground") }, // TODO: Put "Ground" LayerMask somewhere else
+            if (collider.OverlapCollider(new ContactFilter2D() {layerMask = Core.Constants.GroundLayer}, // TODO: Put "Ground" LayerMask somewhere else
                     overlappingColliders)
                 > 0) {
                 foreach (Collider2D col in overlappingColliders) {
@@ -58,6 +60,6 @@ namespace Randolph.Environment {
                 Gizmos.DrawSphere(endPoint, dotRadius);
             }
         }
-    }
 
+    }
 }
