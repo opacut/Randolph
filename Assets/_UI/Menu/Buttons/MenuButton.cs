@@ -25,7 +25,7 @@ namespace Randolph.UI {
         Button thisButton;
         Image buttonImage;
         Text buttonText;
-        const float TextSizeRatio = 35 / 300.0f;
+        //const float TextSizeRatio = 35 / 300.0f;
 
         void Start() {
             thisButton = gameObject.GetComponent<Button>();
@@ -34,7 +34,7 @@ namespace Randolph.UI {
 
             // Text size appropriate to the resolution
             // e.g. width 300 --> 40 pts
-            buttonText.fontSize = (int) (((RectTransform) transform).rect.width * TextSizeRatio);            
+            //buttonText.fontSize = (int) (((RectTransform) transform).rect.width * TextSizeRatio);            
         }
 
         public void OnPointerEnter(PointerEventData eventData) {

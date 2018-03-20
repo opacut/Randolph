@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2fec3c749134b84494a9f107e67e6cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialPosition: {x: 0, y: 0, z: 0}
+  initialPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &114852149937984022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -116,6 +116,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -137,7 +138,7 @@ SpriteRenderer:
   m_SortingLayerID: -1816235093
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 39a9eae51d0d20448b6db77094f37393, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a782d49ee540f4581b3db93c1323cf7e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

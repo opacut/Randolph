@@ -1,10 +1,14 @@
 using System.Collections;
+
+using Randolph.Levels;
+
 using UnityEngine;
 
 namespace Randolph.Characters
 {
-    public class Spitter : MonoBehaviour, IEnemy
+    public class Spitter : MonoBehaviour, IRestartable
     {
+
         [SerializeField] GameObject shot;
         [SerializeField] Transform shotSpawn;
         [SerializeField] float fireRate;
@@ -16,6 +20,7 @@ namespace Randolph.Characters
         {
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
         }
+
 
         IEnumerator KeepShooting(float fireRate, float initialDelay)
         {
@@ -41,5 +46,6 @@ namespace Randolph.Characters
         {
             if (shootingCO != null) StopCoroutine(shootingCO);
         }
-    }
+
+    } 
 }

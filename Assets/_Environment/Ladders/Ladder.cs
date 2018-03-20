@@ -22,7 +22,7 @@ namespace Randolph.Environment {
             if (transform.hasChanged) {
                 if (!collider) collider = GetComponent<Collider2D>();
                 ladderTop = RecalculateLadderTop();
-                attachedPlatform = GetAttachedPlatform();
+                // attachedPlatform = GetAttachedPlatform();
             }
         }
 
@@ -32,9 +32,9 @@ namespace Randolph.Environment {
 
         private Collider2D GetAttachedPlatform() {
             var overlappingColliders = new Collider2D[10];
-            if (collider.OverlapCollider(new ContactFilter2D() {layerMask = Core.Constants.GroundLayer}, // TODO: Put "Ground" LayerMask somewhere else
-                    overlappingColliders)
-                > 0) {
+            if (collider.OverlapCollider(new ContactFilter2D {layerMask = Core.Constants.GroundLayer},
+                    overlappingColliders) >
+                0) {
                 foreach (Collider2D col in overlappingColliders) {
                     if (col && col.OverlapPoint(ladderTop)) return col;
                 }
@@ -44,21 +44,8 @@ namespace Randolph.Environment {
         }
 
         void OnDrawGizmos() {
-            float dotRadius = 0.25f;
-            Vector3 startPoint = ladderTop;
-
-            if (!attachedPlatform) {
-                Gizmos.color = Color.red;
-                Gizmos.DrawSphere(startPoint, dotRadius);
-                return;
-            } else {
-                Gizmos.color = Color.green;
-                Vector3 endPoint = attachedPlatform.transform.position;
-
-                Gizmos.DrawSphere(startPoint, dotRadius);
-                Gizmos.DrawLine(startPoint, endPoint);
-                Gizmos.DrawSphere(endPoint, dotRadius);
-            }
+            Gizmos.color = (attachedPlatform) ? Color.green : Color.red;
+            Gizmos.DrawSphere(ladderTop, Core.Constants.GizmoSphereRadius);
         }
 
     }
