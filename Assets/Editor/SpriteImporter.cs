@@ -1,6 +1,10 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections;
+using System.IO;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 namespace Randolph.Core {
 	public class SpriteImporter : AssetPostprocessor {
@@ -9,30 +13,42 @@ namespace Randolph.Core {
 			Debug.Log("Preprocessing texture " + assetPath);
 
 			TextureImporter textureImporter = (TextureImporter) assetImporter;
-			textureImporter.filterMode = FilterMode.Point;
 
+			if (HasPrefix("old_")) {
+				textureImporter.filterMode = FilterMode.Bilinear;
+				textureImporter.spritePixelsPerUnit = 100;
+				return;
+			}
+
+			textureImporter.filterMode = FilterMode.Point;
 			textureImporter.spritePixelsPerUnit = Constants.pixelsPerUnit;
 			textureImporter.textureCompression = TextureImporterCompression.Uncompressed;
 			textureImporter.textureType = TextureImporterType.Sprite;
 
-			if (assetPath.Contains("tile_"))
+			if (HasPrefix("tile_"))
 				PreprocessTileset();
 		}
 
 		void OnPostprocessTexture(Texture2D texture) {
 			Debug.Log("Postprocessing texture " + assetPath);
 
-			if (assetPath.Contains("tile_"))
+			if (HasPrefix("old_"))
+				return;
+
+			if (HasPrefix("tile_"))
 				PostprocessTileset(texture);
 		}
 
 		void OnPostprocessSprites(Texture2D texture, Sprite[] sprites) {
 			Debug.Log("Postprocessing sprites " + assetPath);
-			if (!assetPath.Contains("tile_"))
+			if (!HasPrefix("tile_"))
 				return;
 			Debug.Log("Postprocessing tilemap's sprites");
 			Debug.Log("Sprites: " + sprites.Length);
+		}
 
+		bool HasPrefix(string prefix) {
+			return Path.GetFileName(assetPath).StartsWith(prefix);
 		}
 
 		#region Tileset
@@ -49,16 +65,11 @@ namespace Randolph.Core {
 		void PostprocessTileset(Texture2D texture) {
 			Debug.Log("Creating tileset " + assetPath);
 			TextureImporter textureImporter = (TextureImporter) assetImporter;
-
 			textureImporter.spriteImportMode = SpriteImportMode.None;
+
 			var autotilePath = Path.Combine(Path.GetDirectoryName(assetPath), Path.GetFileNameWithoutExtension(assetPath) + "_autotile.asset");
-			var autotile = AssetDatabase.LoadAssetAtPath(autotilePath, typeof(Autotile)) as Autotile;
-			if (autotile == null) {
-				autotile = ScriptableObject.CreateInstance<Autotile>();
-				AssetDatabase.CreateAsset(autotile, autotilePath);
-			} else {
-				EditorUtility.CopySerialized(ScriptableObject.CreateInstance<Autotile>(), autotile);
-			}
+			var autotile = CreateOrReplaceAssetWith(ScriptableObject.CreateInstance<Autotile>(), autotilePath);
+			autotile.colliderType = Tile.ColliderType.Grid;
 
 			for (int i = 0; i < Constants.Tilemap.tileCount; ++i) {
 				autotile.sprites[i] = SpriteFromSlices(i, texture, autotile);
@@ -66,24 +77,46 @@ namespace Randolph.Core {
 			autotile.sprite = autotile.sprites[Constants.Tilemap.tileCount - 1];
 		}
 
-		private Sprite SpriteFromSlices(int i, Texture2D texture, Autotile autotile) {
-			var newTexture = new Texture2D(tSize * 2, tSize * 2);
-			newTexture.name = "texture_" + i.ToString("00");
-			newTexture.filterMode = FilterMode.Point;
-			newTexture.SetPixels(0, tSize, tSize, tSize, texture.GetPixels(tileRects[tileQuarters[i, 0]]), 0);
-			newTexture.SetPixels(tSize, tSize, tSize, tSize, texture.GetPixels(tileRects[tileQuarters[i, 1]]), 0);
-			newTexture.SetPixels(0, 0, tSize, tSize, texture.GetPixels(tileRects[tileQuarters[i, 2]]), 0);
-			newTexture.SetPixels(tSize, 0, tSize, tSize, texture.GetPixels(tileRects[tileQuarters[i, 3]]), 0);
-			newTexture.Apply();
-			UnityEditor.AssetDatabase.AddObjectToAsset(newTexture, autotile);
+		private Sprite SpriteFromSlices(int i, Texture2D baseTexture, Autotile autotile) {
+			var texture = new Texture2D(tSize * 2, tSize * 2);
+			texture.name = "texture_" + i.ToString("00");
+			texture.filterMode = FilterMode.Point;
+			texture.SetPixels(0, tSize, tSize, tSize, baseTexture.GetPixels(tileRects[tileQuarters[i, 0]]), 0);
+			texture.SetPixels(tSize, tSize, tSize, tSize, baseTexture.GetPixels(tileRects[tileQuarters[i, 1]]), 0);
+			texture.SetPixels(0, 0, tSize, tSize, baseTexture.GetPixels(tileRects[tileQuarters[i, 2]]), 0);
+			texture.SetPixels(tSize, 0, tSize, tSize, baseTexture.GetPixels(tileRects[tileQuarters[i, 3]]), 0);
+			texture.Apply();
+			texture = CreateOrReplaceAssetWith(texture, autotile);
 
-			var sprite = Sprite.Create(newTexture, new Rect(0.0f, 0.0f, tSize * 2, tSize * 2), new Vector2(0.5f, 0.5f), Constants.pixelsPerUnit);
+			var sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, tSize * 2, tSize * 2), new Vector2(0.5f, 0.5f), Constants.pixelsPerUnit);
 			sprite.name = "sprite_" + i.ToString("00");
-			UnityEditor.AssetDatabase.AddObjectToAsset(sprite, autotile);
+			sprite = CreateOrReplaceAssetWith(sprite, autotile);
+
 			UnityEditor.AssetDatabase.SaveAssets();
 			return sprite;
 		}
 		#endregion
+
+		private T CreateOrReplaceAssetWith<T>(T obj, string path) where T : UnityEngine.Object {
+			var assetObj = AssetDatabase.LoadMainAssetAtPath(path) as T;
+			if (assetObj == null) {
+				AssetDatabase.CreateAsset(obj, path);
+			} else {
+				EditorUtility.CopySerialized(obj, assetObj);
+			}
+			return assetObj;
+		}
+
+		private T CreateOrReplaceAssetWith<T, U>(T obj, U parent) where T : UnityEngine.Object where U : UnityEngine.Object {
+			var assets = AssetDatabase.LoadAllAssetsAtPath(AssetDatabase.GetAssetPath(parent)).ToArray();
+			var assetObj = Array.Find(assets, x => x.GetType() == obj.GetType() && x.name == obj.name) as T;
+			if (assetObj == null) {
+				AssetDatabase.AddObjectToAsset(obj, parent);
+			} else {
+				EditorUtility.CopySerialized(obj, assetObj);
+			}
+			return assetObj;
+		}
 
 	}
 }
