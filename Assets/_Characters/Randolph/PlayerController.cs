@@ -1,10 +1,9 @@
-﻿using UnityEngine;
-using Randolph.Levels;
+﻿using Randolph.Levels;
+using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerController : MonoBehaviour
-{
+public class PlayerController : MonoBehaviour {
     [SerializeField] float skin = 1.3f;
     [SerializeField] float climbingSpeed = 6;
     [SerializeField] float movementSpeed = 6;
@@ -26,50 +25,41 @@ public class PlayerController : MonoBehaviour
     Ladder currentLadder = null;
     bool climbing = false;
 
-    private void Awake()
-    {
+    private void Awake() {
         animator = GetComponent<Animator>();
         rbody = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
         gravity = rbody.gravityScale;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == LadderTag)
-        {
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.tag == LadderTag) {
             var ladder = other.GetComponent<Ladder>();
             Debug.Assert(ladder, "An object with a Ladder tag doesn't have a Ladder script attached.", other.gameObject);
             currentLadder = ladder;
         }
 
-        if (other.tag == PickableTag)
-        {
+        if (other.tag == PickableTag) {
             var pickable = other.GetComponent<Pickable>();
             Debug.Assert(pickable, "An object with a Pickable tag doesn't have a Pickable script attached", other.gameObject);
             pickable.OnPick();
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.tag == LadderTag)
-        {
+    private void OnTriggerExit2D(Collider2D other) {
+        if (other.tag == LadderTag) {
             IgnoreCollision(currentLadder.attachedPlatform, false);
             currentLadder = null;
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetButtonDown("Jump"))
-        {
+    private void Update() {
+        if (Input.GetButtonDown("Jump")) {
             jump = true;
         }
     }
 
-    private void FixedUpdate()
-    {
+    private void FixedUpdate() {
         GroundCheck();
 
         float vertical = Input.GetAxisRaw("Vertical");
@@ -81,48 +71,40 @@ public class PlayerController : MonoBehaviour
         Flipping();
     }
 
-    private void Moving(float horizontal)
-    {
+    private void Moving(float horizontal) {
         float hSpeed = horizontal * movementSpeed;
 
         animator.SetBool("Running", onGround && !Mathf.Approximately(hSpeed, 0f));
         animator.SetFloat("RunningSpeed", Mathf.Abs(hSpeed));
 
-        if (onGround || !climbing)
-        {
+        if (onGround || !climbing) {
             // Left and right movement on the ground
             rbody.velocity = new Vector2(hSpeed, rbody.velocity.y);
         }
     }
 
-    private void Jumping(float vertical)
-    {
-        if (jump && (climbing || onGround && Mathf.Approximately(rbody.velocity.y, 0f)))
-        {
+    private void Jumping(float vertical) {
+        if (jump && (climbing || onGround && Mathf.Approximately(rbody.velocity.y, 0f))) {
             // Jumping while on ground or climbing
             StopClimbing();
             JumpUp();
         }
 
-        if (!onGround && !climbing && rbody.velocity.y < 0)
-        {
+        if (!onGround && !climbing && rbody.velocity.y < 0) {
             rbody.AddForce(Vector2.down * fallForce);
         }
     }
 
-    private void JumpUp()
-    {
+    private void JumpUp() {
         jump = onGround = false;
         rbody.AddForce(Vector2.up * jumpForce);
         animator.SetTrigger("Jump");
     }
 
-    void Climbing(float vertical, float horizontal = 0f)
-    {
+    void Climbing(float vertical, float horizontal = 0f) {
         // TODO: Move from ladder sideways
 
-        if (!climbing && currentLadder && Mathf.Abs(vertical) > 0.001f)
-        {
+        if (!climbing && currentLadder && Mathf.Abs(vertical) > 0.001f) {
             climbing = true;
             rbody.gravityScale = 0;
 
@@ -132,8 +114,7 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("ClimbingSpeed", 0);
         }
 
-        if (climbing)
-        {
+        if (climbing) {
             float vSpeed = vertical * climbingSpeed;
             float hSpeed = horizontal * climbingSpeed;
 
@@ -141,15 +122,13 @@ public class PlayerController : MonoBehaviour
 
             animator.SetFloat("ClimbingSpeed", vSpeed);
 
-            if (!currentLadder || onGround)
-            {
+            if (!currentLadder || onGround) {
                 StopClimbing(vSpeed);
             }
         }
     }
 
-    private void StopClimbing(float vSpeed = 1f)
-    {
+    private void StopClimbing(float vSpeed = 1f) {
         climbing = false;
         rbody.gravityScale = gravity;
         if (!onGround) rbody.AddForce(Vector2.up * vSpeed);
@@ -157,30 +136,25 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Climbing", false);
     }
 
-    private void Flipping()
-    {
-        if ((rbody.velocity.x > 0 && transform.localScale.x < 0) || (rbody.velocity.x < 0 && transform.localScale.x > 0))
-        {
+    private void Flipping() {
+        if ((rbody.velocity.x > 0 && transform.localScale.x < 0) || (rbody.velocity.x < 0 && transform.localScale.x > 0)) {
             Vector3 scale = transform.localScale;
             scale.x *= -1;
             transform.localScale = scale;
         }
     }
 
-    private void GroundCheck()
-    {
+    private void GroundCheck() {
         Debug.DrawRay(transform.position, Vector2.down * skin, Color.green);
         Collider2D coll = Physics2D.Raycast(transform.position, Vector2.down, skin, groundLayer).collider;
         onGround = coll && rbody.IsTouching(coll);
     }
 
-    private void IgnoreCollision(Collider2D other, bool ignore)
-    {
+    private void IgnoreCollision(Collider2D other, bool ignore) {
         Physics2D.IgnoreCollision(collider, other, ignore);
     }
 
-    public void Kill(float delay = 0.25f)
-    {
+    public void Kill(float delay = 0.25f) {
         LevelManager.levelManager.ReturnToCheckpoint(delay);
         gameObject.SetActive(false);
     }

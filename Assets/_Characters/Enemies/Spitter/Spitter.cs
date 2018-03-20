@@ -6,7 +6,7 @@ public class Spitter : MonoBehaviour, IRestartable {
     [SerializeField] Transform shotSpawn;
     [SerializeField] float fireRate;
     [SerializeField] float initialDelay;
-    
+
     Coroutine shootingCO;
 
     void Fire() {

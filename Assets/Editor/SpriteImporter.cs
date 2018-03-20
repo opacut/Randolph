@@ -88,7 +88,7 @@ namespace Randolph.Core {
 			texture.Apply();
 			texture = CreateOrReplaceAssetWith(texture, autotile);
 
-			var sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, tSize * 2, tSize * 2), new Vector2(0.5f, 0.5f), Constants.pixelsPerUnit);
+			var sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, tSize * 2, tSize * 2), new Vector2(0.5f, 0.5f), Constants.pixelsPerUnit, 0, SpriteMeshType.Tight);
 			sprite.name = "sprite_" + i.ToString("00");
 			sprite = CreateOrReplaceAssetWith(sprite, autotile);
 

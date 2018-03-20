@@ -48,6 +48,7 @@ namespace Randolph.Core {
 				neighbors |= Ne.Right;
 
 			tileData.sprite = ByNeighbors(neighbors);
+			tileData.colliderType = ColliderType.Sprite;
 		}
 
 		private Sprite ByNeighbors(Ne neighbors) {
