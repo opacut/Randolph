@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: Masaryk University
   productName: The Early Academic Expeditions of Randolph T. Lewis Jr.
-  defaultCursor: {fileID: 2800000, guid: a055b7ea7cec36d4caf44e2bc87047b5, type: 3}
+  defaultCursor: {fileID: 2800000, guid: 3d9e7051c125caa4ea9de1f1c820ab15, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_ShowUnitySplashScreen: 1
