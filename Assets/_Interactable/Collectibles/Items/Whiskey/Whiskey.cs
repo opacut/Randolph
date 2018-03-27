@@ -7,7 +7,7 @@ namespace Randolph.Interactable
     {
         public override bool IsApplicable(GameObject target)
         {
-            Flytrap flytrap = target.GetComponent<Flytrap>();
+            var flytrap = target.GetComponent<Flytrap>();
 
             return flytrap && flytrap.Active;
         }

@@ -1,58 +1,44 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Image))]
 [RequireComponent(typeof(CanvasGroup))]
 [RequireComponent(typeof(LayoutElement))]
-public class InventoryIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
-{
-    private Vector2 positionToReturnTo;
-    private Inventory inventory;
-    private InventoryItem item;
+public class InventoryIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
 
-    public InventoryItem Item { get { return item; } }
+    Vector2 positionToReturnTo;
+    Inventory inventory;
+    InventoryItem item;
 
-    public void Init(Inventory inventory, InventoryItem item)
-    {
+    public InventoryItem Item {
+        get { return item; }
+    }
+
+    public void Init(Inventory inventory, InventoryItem item) {
         this.inventory = inventory;
         this.item = item;
 
         GetComponent<Image>().sprite = item.icon;
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
-    {
+    public void OnBeginDrag(PointerEventData eventData) {
         positionToReturnTo = transform.position;
         GetComponent<CanvasGroup>().blocksRaycasts = false;
         GetComponent<LayoutElement>().ignoreLayout = true;
     }
 
-    public void OnDrag(PointerEventData eventData)
-    {
+    public void OnDrag(PointerEventData eventData) {
         transform.position = Input.mousePosition;
 
-        if (FindApplicableTarget())
-        {
-            GetComponent<Image>().sprite = item.iconOK;
-        }
-        else
-        {
-            GetComponent<Image>().sprite = item.iconNOK;
-        }
+        GetComponent<Image>().sprite = (FindApplicableTarget()) ? item.iconOK : item.iconNOK;
     }
 
-    public void OnEndDrag(PointerEventData eventData)
-    {
+    public void OnEndDrag(PointerEventData eventData) {
         GameObject target = FindApplicableTarget();
-        if (target)
-        {
+        if (target) {
             inventory.ApplyTo(item, target);
-        }
-        else
-        {
+        } else {
             transform.position = positionToReturnTo;
             GetComponent<Image>().sprite = item.icon;
             GetComponent<CanvasGroup>().blocksRaycasts = true;
@@ -60,15 +46,14 @@ public class InventoryIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
     }
 
-    private GameObject FindApplicableTarget()
-    {
+    GameObject FindApplicableTarget() {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        foreach(RaycastHit2D hit in Physics2D.RaycastAll(ray.origin, ray.direction))
-        {
-            if (inventory.IsApplicableTo(item, hit.collider.gameObject))
-                return hit.collider.gameObject;
+        foreach (RaycastHit2D hit in Physics2D.RaycastAll(ray.origin, ray.direction)) {
+            if (inventory.IsApplicableTo(item, hit.collider.gameObject)) return hit.collider.gameObject;
         }
+
         return null;
     }
+
 }

@@ -1,16 +1,14 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-//using UnityEditor;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private float applicableDistance = 3;
-    [SerializeField] private Rigidbody2D player;
-    [SerializeField] private InventoryIcon iconPrefab;
+    [SerializeField] float applicableDistance = 3;
+    [SerializeField] Rigidbody2D player;
+    [SerializeField] InventoryIcon iconPrefab;
 
-    private List<InventoryIcon> icons = new List<InventoryIcon>();
+    List<InventoryIcon> icons = new List<InventoryIcon>();
 
     public List<InventoryItem> Items
     {
@@ -37,7 +35,7 @@ public class Inventory : MonoBehaviour
 
     public void Awake()
     {
-        Debug.Assert(iconPrefab);
+        Debug.Assert(iconPrefab, "The prefab for an inventory icon is missing!", gameObject);
         Debug.Assert(player);
     }
 

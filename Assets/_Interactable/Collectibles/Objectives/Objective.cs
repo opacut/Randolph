@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 
-public class Objective : Pickable
-{
+public class Objective : Pickable {
+
     [SerializeField] Animator animator;
 
     void Start() {
-        if (!animator) {            
+        if (!animator) {
             animator = FindObjectOfType<Canvas>()?.GetComponent<Animator>();
             if (animator) Debug.Log("Temporary assigning an animator from the Canvas.");
             else Debug.LogWarning("The objective is missing an animator.", gameObject);
@@ -14,17 +14,16 @@ public class Objective : Pickable
 
     public bool IsCompleted { get; internal set; }
 
-    public override void OnPick()
-    {
+    public override void OnPick() {
         IsCompleted = true;
         gameObject.SetActive(false);
 
         animator.SetTrigger("ObjectiveFound");
     }
 
-    public override void Restart()
-    {
+    public override void Restart() {
         IsCompleted = false;
         base.Restart();
     }
+
 }

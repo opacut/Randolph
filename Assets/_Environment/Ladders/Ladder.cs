@@ -26,7 +26,7 @@ namespace Randolph.Environment {
             }
         }
 
-        private Vector3 RecalculateLadderTop() {
+        Vector3 RecalculateLadderTop() {
             return collider.bounds.center + (collider.bounds.size.y / 2f) * Vector3.up;
         }
 
