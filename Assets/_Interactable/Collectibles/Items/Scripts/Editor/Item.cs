@@ -1,30 +1,15 @@
-﻿using System.IO;
-
-using UnityEditor;
-
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Randolph.Interactable {
-	[CreateAssetMenu(fileName = "Item", menuName = "Randolph/Inventory/Item", order = 33)]
-	public class Item : ScriptableObject {
-		
-		[SerializeField] GameObject prefab;
-        
-	    public void Initialize() {
-	        // TODO: Create folder + empty prefab + Add itself to the database	        
-	        string assetPath = AssetDatabase.GetAssetPath(Selection.activeObject);
-            string parentFolder = Path.GetDirectoryName(assetPath);
+    [CreateAssetMenu(fileName = "Item", menuName = "Randolph/Inventory/Item", order = 33)]
+    public class Item : ScriptableObject {
 
-            AssetDatabase.CreateFolder(parentFolder, name);
-	        string newFolder = $"{parentFolder}/{name}";
-            AssetDatabase.MoveAsset(assetPath, $"{newFolder}/{name}.asset");
+        [SerializeField] GameObject prefab;
+        [SerializeField] bool initialized = false;
 
-            ItemExtensions.CreateItemScript(name, newFolder);
+        public bool IsInitialized() {
+            return initialized;
+        }
 
-	        var itemPrefab = (GameObject) PrefabUtility.CreateEmptyPrefab($"{newFolder}/{name}.prefab");
-	        itemPrefab.AddComponent<SpriteRenderer>();
-	        itemPrefab.AddComponent<CapsuleCollider2D>();
-	    }
-
-	}
+    }
 }

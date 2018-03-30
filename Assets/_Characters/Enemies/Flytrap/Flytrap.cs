@@ -30,7 +30,7 @@ namespace Randolph.Characters
                     other.gameObject.GetComponent<PlayerController>().Kill(1);
                 }
 
-                var glider = other.GetComponent<GlideController>();
+                var glider = other.GetComponent<Glider>();
                 if (glider)
                 {
                     //! Crows flying into the flytrap

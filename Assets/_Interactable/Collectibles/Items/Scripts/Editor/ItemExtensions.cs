@@ -1,6 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
+
+using JetBrains.Annotations;
+
+using UnityEditor;
+
 using UnityEngine;
 
 namespace Randolph.Interactable {
@@ -40,13 +47,32 @@ namespace Randolph.Interactable {
                 numberedItemList[i].id = i;
             }
         }
-
-        public static void CreateItemScript(string name, string folder) {
+        
+        public static bool CreateItemScript(string name, string folder) {
             TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
             string scriptName = textInfo.ToTitleCase(name).Replace("-","_").Replace(" ", "");
             string scriptPath = $"{folder}/{scriptName}.cs";
-
+            
             Debug.Log("Creating Classfile: " + scriptPath);
+            if (File.Exists(scriptPath) == false) {
+                using (var outfile = new StreamWriter(scriptPath)) {
+                    outfile.WriteLine("using UnityEngine;");
+                    outfile.WriteLine("\n");
+                    outfile.WriteLine($"namespace {nameof(Randolph.Interactable)} {{");
+                    outfile.WriteLine($"\tpublic class {name} : {nameof(InventoryItem)} {{");
+                    outfile.WriteLine();
+                    outfile.WriteLine("\t\tpublic override bool IsApplicable(GameObject target) { }");
+                    outfile.WriteLine();
+                    outfile.WriteLine("\t\tpublic override void OnApply(GameObject target) { }");
+                    outfile.WriteLine();
+                    outfile.WriteLine("\t}");
+                    outfile.WriteLine("}");
+                }
+
+                AssetDatabase.Refresh();
+
+                return true;
+            } else return false;
         }
 
     }

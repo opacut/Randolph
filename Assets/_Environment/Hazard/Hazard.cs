@@ -3,28 +3,24 @@ using UnityEngine;
 using Randolph.Characters;
 using Randolph.Levels;
 
-namespace Randolph.Environment
-{
-    public class Hazard : MonoBehaviour, IRestartable
-    {
-        public Vector3 initialPosition;
+namespace Randolph.Environment {
+    public class Hazard : MonoBehaviour, IRestartable {
 
-        void Awake()
-        {
+        [SerializeField, ReadonlyField] Vector2 initialPosition;
+
+        void Awake() {
             initialPosition = gameObject.transform.position;
         }
 
-        public void Restart()
-        {
+        public void Restart() {
             gameObject.transform.position = initialPosition;
         }
 
-        public void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.tag == "Player")
-            {
+        public void OnTriggerEnter2D(Collider2D other) {
+            if (other.tag == "Player") {
                 other.GetComponent<PlayerController>().Kill();
             }
         }
+
     }
 }

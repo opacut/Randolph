@@ -5,40 +5,40 @@ using UnityEngine;
 using Randolph.Levels;
 
 namespace Randolph.Characters {
-    public class GlideController : MonoBehaviour, IRestartable {
+    public class Glider : MonoBehaviour, IRestartable {
 
-        [SerializeField] float speed;
-
+        [SerializeField] float speed = 20;
         [SerializeField] List<Vector2> destinations = new List<Vector2>();
+
         Queue<Vector2> destinationQueue = new Queue<Vector2>();
         Vector2 currentDestination;
 
         Vector3 initialPosition;
 
         [SerializeField] bool loop = false;
-        [SerializeField] bool moveIndependently = false; // Doesn't need the player to move
-        private bool disturbed = false;
+        [SerializeField] bool continuous = false;
+        bool disturbed = false;
 
         public delegate void OnGlidingEnd(Vector3 position);
 
         public event OnGlidingEnd onGlidingEnd;
 
-        private void Start() {
+        void Start() {
             initialPosition = transform.position;
             CreateDestinationQueue();
         }
 
-        private void Update() {
+        void Update() {
             // If the object is not at the target destination
             if ((Vector2) transform.position != currentDestination) {
                 // Move towards the destination each frame until the object reaches it
                 IncrementPosition();
-            } else if (moveIndependently && disturbed) {
+            } else if (continuous && disturbed) {
                 SetNextDestination();
             }
         }
 
-        private void OnTriggerEnter2D(Collider2D other) {
+        void OnTriggerEnter2D(Collider2D other) {
             if (other.tag == "Player") {
                 disturbed = true;
                 SetNextDestination();
@@ -52,10 +52,11 @@ namespace Randolph.Characters {
         public void Restart() {
             transform.position = initialPosition;
             CreateDestinationQueue();
+            disturbed = false;
             gameObject.SetActive(true);
         }
 
-        private void CreateDestinationQueue() {
+        void CreateDestinationQueue() {
             // Add all destinations to queue
             destinationQueue = new Queue<Vector2>(destinations);
 
@@ -64,7 +65,7 @@ namespace Randolph.Characters {
         }
 
         /// <summary>Moves the object one step towards its destination.</summary>
-        private void IncrementPosition() {
+        void IncrementPosition() {
             // Calculate the next position
             float delta = speed * Time.deltaTime;
 
@@ -73,12 +74,12 @@ namespace Randolph.Characters {
         }
 
         /// <summary>Set the destination to cause the object to smoothly glide to the specified location.</summary>
-        private void SetDestination(Vector2 value) {
+        void SetDestination(Vector2 value) {
             currentDestination = value;
         }
 
         /// <summary>Sets the destination to the next one.</summary>
-        private void SetNextDestination() {
+        void SetNextDestination() {
             if (destinationQueue.Count > 0) {
                 SetDestination(destinationQueue.Dequeue());
             } else if (loop) {

@@ -9,12 +9,13 @@ namespace Randolph.Interactable {
 
         public static ItemDatabase itemDatabase;
 
+        //! Renaming private variables needs to be done in the ItemDatabaseEditor as well
         [SerializeField] List<NumberedItem> numberedItemList = new List<NumberedItem>();
 
         [SerializeField] Sprite defaultBackground;
         [SerializeField] Sprite activeBackground;
         [SerializeField] Sprite passiveBackground;
-
+        
         void OnEnable() {
             if (itemDatabase != null && itemDatabase != this) {
                 Debug.LogWarning($"A duplicate ItemDatabase found. Try searching for <b>t:ItemDatabase</b> and merge them.");

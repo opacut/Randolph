@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEditor;
 
 using UnityEditorInternal;
+using Randolph.Core;
 
 namespace Randolph.Interactable {
     [CustomEditor(typeof(ItemDatabase))]
@@ -15,8 +16,8 @@ namespace Randolph.Interactable {
         SerializedProperty passiveBackground;
         bool spriteFold = true;
 
-        private void OnEnable() {
-            InitializeNumberedItemList();
+        void OnEnable() {
+            InitializeReorderableList();
             InitializeSpriteFields();
         }
 
@@ -26,9 +27,9 @@ namespace Randolph.Interactable {
             passiveBackground = serializedObject.FindProperty(nameof(passiveBackground));
         }
 
-        void InitializeNumberedItemList() {
+        void InitializeReorderableList() {
             numberedItemList = new ReorderableList(serializedObject,
-                    serializedObject.FindProperty("numberedItemList"),
+                    serializedObject.FindProperty(nameof(numberedItemList)),
                     true, true, true, true);
 
             numberedItemList.drawHeaderCallback = (Rect rect) => { EditorGUI.LabelField(rect, "Item database"); };

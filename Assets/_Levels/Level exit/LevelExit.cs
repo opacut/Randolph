@@ -1,10 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+
 using UnityEngine;
+
+using Randolph.Interactable;
+
 
 namespace Randolph.Levels {
     [RequireComponent(typeof(Collider2D))]
     public class LevelExit : MonoBehaviour {
+
         [SerializeField] Animator animator;
         [SerializeField] List<Objective> objectives = new List<Objective>();
 
@@ -17,5 +22,6 @@ namespace Randolph.Levels {
                 animator.SetTrigger("ObjectiveNotFound");
             }
         }
-    } 
+
+    }
 }
