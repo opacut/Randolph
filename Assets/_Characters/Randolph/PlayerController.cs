@@ -15,7 +15,6 @@ namespace Randolph.Characters {
 
         Animator animator;
         Rigidbody2D rbody;
-        new Collider2D collider;
 
         float gravity = 0;
         bool jump = false;
@@ -27,7 +26,6 @@ namespace Randolph.Characters {
         private void Awake() {
             animator = GetComponent<Animator>();
             rbody = GetComponent<Rigidbody2D>();
-            collider = GetComponent<Collider2D>();
             gravity = rbody.gravityScale;
         }
 
@@ -94,7 +92,7 @@ namespace Randolph.Characters {
         }
 
         private void Jumping(float vertical) {
-            if (jump && (climbing || onGround)) {
+            if (jump && onGround) {
                 // Jumping while on ground or climbing
                 StopClimbing();
                 JumpUp();
