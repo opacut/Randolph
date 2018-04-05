@@ -41942,7 +41942,7 @@ Prefab:
     - target: {fileID: 114934034716131544, guid: 2cf4f1403084fb540b2fc1dfca75987a,
         type: 2}
       propertyPath: destinations.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4545614191761702, guid: 2cf4f1403084fb540b2fc1dfca75987a, type: 2}
       propertyPath: m_LocalPosition.x
@@ -41979,22 +41979,22 @@ Prefab:
     - target: {fileID: 114934034716131544, guid: 2cf4f1403084fb540b2fc1dfca75987a,
         type: 2}
       propertyPath: destinations.Array.data[0].x
-      value: 27.44
-      objectReference: {fileID: 0}
-    - target: {fileID: 114934034716131544, guid: 2cf4f1403084fb540b2fc1dfca75987a,
-        type: 2}
-      propertyPath: destinations.Array.data[0].y
-      value: -7.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114934034716131544, guid: 2cf4f1403084fb540b2fc1dfca75987a,
-        type: 2}
-      propertyPath: destinations.Array.data[1].x
       value: 39.92
       objectReference: {fileID: 0}
     - target: {fileID: 114934034716131544, guid: 2cf4f1403084fb540b2fc1dfca75987a,
         type: 2}
-      propertyPath: destinations.Array.data[1].y
+      propertyPath: destinations.Array.data[0].y
       value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114934034716131544, guid: 2cf4f1403084fb540b2fc1dfca75987a,
+        type: 2}
+      propertyPath: destinations.Array.data[1].x
+      value: 57.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114934034716131544, guid: 2cf4f1403084fb540b2fc1dfca75987a,
+        type: 2}
+      propertyPath: destinations.Array.data[1].y
+      value: 7.3
       objectReference: {fileID: 0}
     - target: {fileID: 114934034716131544, guid: 2cf4f1403084fb540b2fc1dfca75987a,
         type: 2}
