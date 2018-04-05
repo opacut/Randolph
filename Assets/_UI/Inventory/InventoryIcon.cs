@@ -1,8 +1,7 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using Randolph.Interactable;
+using UnityEngine;
 using UnityEngine.EventSystems;
-
-using Randolph.Interactable;
+using UnityEngine.UI;
 
 namespace Randolph.UI {
     [RequireComponent(typeof(Image))]
@@ -12,11 +11,7 @@ namespace Randolph.UI {
 
         Vector2 positionToReturnTo;
         Inventory inventory;
-        InventoryItem item;
-
-        public InventoryItem Item {
-            get { return item; }
-        }
+        public InventoryItem item { get; private set; }
 
         public void Init(Inventory inventory, InventoryItem item) {
             this.inventory = inventory;
@@ -27,14 +22,14 @@ namespace Randolph.UI {
 
         public void OnBeginDrag(PointerEventData eventData) {
             positionToReturnTo = transform.position;
+            GetComponent<Image>().sprite = item.icon;
             GetComponent<CanvasGroup>().blocksRaycasts = false;
             GetComponent<LayoutElement>().ignoreLayout = true;
         }
 
         public void OnDrag(PointerEventData eventData) {
-            transform.position = Input.mousePosition;
-
-            GetComponent<Image>().sprite = (FindApplicableTarget()) ? item.iconOK : item.iconNOK;
+            var mouesPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            transform.position = new Vector3(mouesPos.x, mouesPos.y, 100);
         }
 
         public void OnEndDrag(PointerEventData eventData) {
