@@ -1,30 +1,31 @@
 ﻿using UnityEngine;
 
-public class Objective : Pickable
-{
-    [SerializeField] Animator animator;
+namespace Randolph.Interactable {
+    public class Objective : Pickable {
 
-    void Start() {
-        if (!animator) {            
-            animator = FindObjectOfType<Canvas>()?.GetComponent<Animator>();
-            if (animator) Debug.Log("Temporary assigning an animator from the Canvas.");
-            else Debug.LogWarning("The objective is missing an animator.", gameObject);
+        [SerializeField] Animator animator;
+
+        void Start() {
+            if (!animator) {
+                animator = FindObjectOfType<Canvas>()?.GetComponent<Animator>();
+                if (animator) Debug.Log("Temporary assigning an animator from the Canvas.");
+                else Debug.LogWarning("The objective is missing an animator.", gameObject);
+            }
         }
-    }
 
-    public bool IsCompleted { get; internal set; }
+        public bool IsCompleted { get; internal set; }
 
-    public override void OnPick()
-    {
-        IsCompleted = true;
-        gameObject.SetActive(false);
+        public override void OnPick() {
+            IsCompleted = true;
+            gameObject.SetActive(false);
 
-        animator.SetTrigger("ObjectiveFound");
-    }
+            animator.SetTrigger("ObjectiveFound");
+        }
 
-    public override void Restart()
-    {
-        IsCompleted = false;
-        base.Restart();
+        public override void Restart() {
+            IsCompleted = false;
+            base.Restart();
+        }
+
     }
 }

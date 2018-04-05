@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class TranslateObject : MonoBehaviour {
+namespace Assets.PixelWeather {
+    public class TranslateObject : MonoBehaviour {
 	
-	void Update() {
-		transform.position = new Vector3(Mathf.PingPong(Time.time*2, 14)-7, transform.position.y, transform.position.z);
-	}
+        void Update() {
+            transform.position = new Vector3(Mathf.PingPong(Time.time*2, 14)-7, transform.position.y, transform.position.z);
+        }
 
+    }
 }
