@@ -1,16 +1,17 @@
-﻿using System.Linq;
-using System.Collections.Generic;
-
-using UnityEngine;
-
+﻿using System.Collections.Generic;
+using System.Linq;
 using Randolph.Interactable;
+using UnityEngine;
 
 namespace Randolph.UI {
     public class Inventory : MonoBehaviour {
 
-        [SerializeField] float applicableDistance = 3;
-        [SerializeField] Rigidbody2D player;
-        [SerializeField] InventoryIcon iconPrefab;
+        [SerializeField]
+        float applicableDistance = 3;
+        [SerializeField]
+        Rigidbody2D player;
+        [SerializeField]
+        InventoryIcon iconPrefab;
 
         List<InventoryIcon> icons = new List<InventoryIcon>();
 
@@ -28,7 +29,6 @@ namespace Randolph.UI {
                 }
             }
         }
-
 
         public void Awake() {
             Debug.Assert(iconPrefab, "The prefab for an inventory icon is missing!", gameObject);
@@ -52,7 +52,6 @@ namespace Randolph.UI {
         public bool Contains(InventoryItem item) {
             return icons.Any(ico => ico.Item == item);
         }
-
 
         public bool IsApplicableTo(InventoryItem item, GameObject target) {
             if (Contains(item) && DistanceCheck(target)) return item.IsApplicable(target);

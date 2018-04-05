@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using Randolph.Tiles;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -68,6 +69,7 @@ namespace Randolph.Core {
 
             var autotilePath = Path.Combine(Path.GetDirectoryName(assetPath), Path.GetFileNameWithoutExtension(assetPath) + "_autotile.asset");
             var autotile = CreateOrReplaceAssetWith(ScriptableObject.CreateInstance<Autotile>(), autotilePath);
+            autotile.familyName = Path.GetFileNameWithoutExtension(assetPath);
             autotile.colliderType = Tile.ColliderType.Grid;
 
             for (int i = 0; i < Constants.Tilemap.tileCount; ++i) {
