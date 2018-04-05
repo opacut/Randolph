@@ -1,4 +1,5 @@
 ﻿using Randolph.Core;
+using Randolph.Interactable;
 using Randolph.Levels;
 using UnityEngine;
 
