@@ -104,11 +104,11 @@ namespace Randolph.Core {
             var assetObj = AssetDatabase.LoadMainAssetAtPath(path) as T;
             if (assetObj == null) {
                 AssetDatabase.CreateAsset(obj, path);
+                return obj;
             } else {
                 EditorUtility.CopySerialized(obj, assetObj);
+                return assetObj;
             }
-
-            return assetObj;
         }
 
         private T CreateOrReplaceAssetWith<T, U>(T obj, U parent) where T : UnityEngine.Object where U : UnityEngine.Object {
@@ -116,11 +116,11 @@ namespace Randolph.Core {
             var assetObj = Array.Find(assets, x => x.GetType() == obj.GetType() && x.name == obj.name) as T;
             if (assetObj == null) {
                 AssetDatabase.AddObjectToAsset(obj, parent);
+                return obj;
             } else {
                 EditorUtility.CopySerialized(obj, assetObj);
+                return assetObj;
             }
-
-            return assetObj;
         }
     }
 }

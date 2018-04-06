@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4415396988519296}
   - component: {fileID: 212343789206549010}
   - component: {fileID: 50938186083755728}
-  - component: {fileID: 61752270482141320}
   - component: {fileID: 114913872848154276}
+  - component: {fileID: 60662322684848308}
   m_Layer: 8
   m_Name: Block
   m_TagString: Restartable
@@ -37,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1265674313000296}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20.289078, y: -11.132874, z: 0.09330711}
-  m_LocalScale: {x: 2.428409, y: 2.4284103, z: 2.4284103}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -63,8 +63,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61752270482141320
-BoxCollider2D:
+--- !u!60 &60662322684848308
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -79,15 +79,20 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.1, y: 1.1}
+    oldSize: {x: 1.875, y: 4}
     newSize: {x: 2.1, y: 1.1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.1, y: 1.1}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.15937614, y: 2}
+      - {x: -0.94062614, y: 1.0612488}
+      - {x: -0.69, y: -2}
+      - {x: 0.67, y: -2}
+      - {x: 0.9699993, y: 1.001874}
+      - {x: 0.3, y: 2}
 --- !u!114 &114913872848154276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -99,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4893ba7ee6adac418d3630c9c39d652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialPosition: {x: 0, y: 0, z: 0}
+  initialPosition: {x: 0, y: 0, z: 0}
 --- !u!212 &212343789206549010
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -113,6 +118,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -132,9 +138,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1816235093
-  m_SortingLayer: 2
+  m_SortingLayer: -2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8579cb5a8155a9d4aa5c32e841e59cc8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2f2ffa4ab614a4f5fa77710fef0870f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
