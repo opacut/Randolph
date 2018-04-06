@@ -1,9 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-
+using Randolph.Tiles;
 using UnityEditor;
-
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -11,8 +10,6 @@ namespace Randolph.Core {
     public class SpriteImporter : AssetPostprocessor {
 
         void OnPreprocessTexture() {
-            // Debug.Log("Preprocessing texture " + assetPath, AssetDatabase.LoadMainAssetAtPath(assetPath));
-
             TextureImporter textureImporter = (TextureImporter) assetImporter;
 
             if (HasPrefix("old_")) {
@@ -25,24 +22,28 @@ namespace Randolph.Core {
             textureImporter.spritePixelsPerUnit = Constants.pixelsPerUnit;
             textureImporter.textureCompression = TextureImporterCompression.Uncompressed;
             textureImporter.textureType = TextureImporterType.Sprite;
-            if (HasPrefix("cursor_")) textureImporter.textureType = TextureImporterType.Cursor;
 
-            if (HasPrefix("tile_")) PreprocessTileset();
+            if (HasPrefix("cursor_")) {
+                textureImporter.textureType = TextureImporterType.Cursor;
+            }
+
+            if (HasPrefix("tile_")) {
+                PreprocessTileset();
+            }
         }
 
         void OnPostprocessTexture(Texture2D texture) {
-            // Debug.Log("Postprocessing texture " + assetPath, AssetDatabase.LoadMainAssetAtPath(assetPath));
+            if (HasPrefix("old_")) {
+                return;
+            }
 
-            if (HasPrefix("old_")) return;
-
-            if (HasPrefix("tile_")) PostprocessTileset(texture);
+            if (HasPrefix("tile_")) {
+                PostprocessTileset(texture);
+            }
         }
 
         void OnPostprocessSprites(Texture2D texture, Sprite[] sprites) {
-            // Debug.Log("Postprocessing sprites " + assetPath, AssetDatabase.LoadMainAssetAtPath(assetPath));
             if (!HasPrefix("tile_")) return;
-            // Debug.Log("Postprocessing tilemap's sprites");
-            // Debug.Log("Sprites: " + sprites.Length);
         }
 
         bool HasPrefix(string prefix) {
@@ -52,8 +53,8 @@ namespace Randolph.Core {
         #region Tileset
 
         static int tSize = 8;
-        static int[,] tileQuarters = new int[47, 4] {{13, 14, 17, 18}, {2, 14, 17, 18}, {13, 3, 17, 18}, {2, 3, 17, 18}, {13, 14, 17, 7}, {2, 14, 17, 7}, {13, 3, 17, 7}, {2, 3, 17, 7}, {13, 14, 6, 18}, {2, 14, 6, 18}, {13, 3, 6, 18}, {2, 3, 6, 18}, {13, 14, 6, 7}, {2, 14, 6, 7}, {13, 3, 6, 7}, {2, 3, 6, 7}, {12, 14, 16, 18}, {12, 3, 16, 18}, {12, 14, 16, 7}, {12, 3, 16, 7}, {9, 10, 17, 18}, {9, 10, 17, 7}, {9, 10, 6, 18}, {9, 10, 6, 7}, {13, 15, 17, 19}, {13, 15, 6, 19}, {2, 15, 17, 19}, {2, 15, 6, 19}, {13, 14, 21, 22}, {2, 14, 21, 22}, {13, 3, 21, 22}, {2, 3, 21, 22}, {12, 15, 16, 19}, {9, 10, 21, 22}, {8, 9, 12, 18}, {8, 9, 12, 7}, {10, 11, 17, 15}, {10, 11, 6, 15}, {13, 19, 22, 23}, {2, 19, 22, 23}, {16, 14, 20, 21}, {16, 3, 20, 21}, {8, 11, 12, 15}, {8, 9, 20, 21}, {16, 19, 20, 23}, {10, 11, 22, 23}, {8, 11, 20, 23}};
-        static Rect[] tileRects = new Rect[24] {new Rect(0, 40, 8, 8), new Rect(8, 40, 8, 8), new Rect(16, 40, 8, 8), new Rect(24, 40, 8, 8), new Rect(0, 32, 8, 8), new Rect(8, 32, 8, 8), new Rect(16, 32, 8, 8), new Rect(24, 32, 8, 8), new Rect(0, 24, 8, 8), new Rect(8, 24, 8, 8), new Rect(16, 24, 8, 8), new Rect(24, 24, 8, 8), new Rect(0, 16, 8, 8), new Rect(8, 16, 8, 8), new Rect(16, 16, 8, 8), new Rect(24, 16, 8, 8), new Rect(0, 8, 8, 8), new Rect(8, 8, 8, 8), new Rect(16, 8, 8, 8), new Rect(24, 8, 8, 8), new Rect(0, 0, 8, 8), new Rect(8, 0, 8, 8), new Rect(16, 0, 8, 8), new Rect(24, 0, 8, 8)};
+        static int[, ] tileQuarters = new int[47, 4] { { 13, 14, 17, 18 }, { 2, 14, 17, 18 }, { 13, 3, 17, 18 }, { 2, 3, 17, 18 }, { 13, 14, 17, 7 }, { 2, 14, 17, 7 }, { 13, 3, 17, 7 }, { 2, 3, 17, 7 }, { 13, 14, 6, 18 }, { 2, 14, 6, 18 }, { 13, 3, 6, 18 }, { 2, 3, 6, 18 }, { 13, 14, 6, 7 }, { 2, 14, 6, 7 }, { 13, 3, 6, 7 }, { 2, 3, 6, 7 }, { 12, 14, 16, 18 }, { 12, 3, 16, 18 }, { 12, 14, 16, 7 }, { 12, 3, 16, 7 }, { 9, 10, 17, 18 }, { 9, 10, 17, 7 }, { 9, 10, 6, 18 }, { 9, 10, 6, 7 }, { 13, 15, 17, 19 }, { 13, 15, 6, 19 }, { 2, 15, 17, 19 }, { 2, 15, 6, 19 }, { 13, 14, 21, 22 }, { 2, 14, 21, 22 }, { 13, 3, 21, 22 }, { 2, 3, 21, 22 }, { 12, 15, 16, 19 }, { 9, 10, 21, 22 }, { 8, 9, 12, 18 }, { 8, 9, 12, 7 }, { 10, 11, 17, 15 }, { 10, 11, 6, 15 }, { 13, 19, 22, 23 }, { 2, 19, 22, 23 }, { 16, 14, 20, 21 }, { 16, 3, 20, 21 }, { 8, 11, 12, 15 }, { 8, 9, 20, 21 }, { 16, 19, 20, 23 }, { 10, 11, 22, 23 }, { 8, 11, 20, 23 } };
+        static Rect[] tileRects = new Rect[24] { new Rect(0, 40, 8, 8), new Rect(8, 40, 8, 8), new Rect(16, 40, 8, 8), new Rect(24, 40, 8, 8), new Rect(0, 32, 8, 8), new Rect(8, 32, 8, 8), new Rect(16, 32, 8, 8), new Rect(24, 32, 8, 8), new Rect(0, 24, 8, 8), new Rect(8, 24, 8, 8), new Rect(16, 24, 8, 8), new Rect(24, 24, 8, 8), new Rect(0, 16, 8, 8), new Rect(8, 16, 8, 8), new Rect(16, 16, 8, 8), new Rect(24, 16, 8, 8), new Rect(0, 8, 8, 8), new Rect(8, 8, 8, 8), new Rect(16, 8, 8, 8), new Rect(24, 8, 8, 8), new Rect(0, 0, 8, 8), new Rect(8, 0, 8, 8), new Rect(16, 0, 8, 8), new Rect(24, 0, 8, 8) };
 
         void PreprocessTileset() {
             TextureImporter textureImporter = (TextureImporter) assetImporter;
@@ -68,6 +69,7 @@ namespace Randolph.Core {
 
             var autotilePath = Path.Combine(Path.GetDirectoryName(assetPath), Path.GetFileNameWithoutExtension(assetPath) + "_autotile.asset");
             var autotile = CreateOrReplaceAssetWith(ScriptableObject.CreateInstance<Autotile>(), autotilePath);
+            autotile.familyName = Path.GetFileNameWithoutExtension(assetPath);
             autotile.colliderType = Tile.ColliderType.Grid;
 
             for (int i = 0; i < Constants.Tilemap.tileCount; ++i) {

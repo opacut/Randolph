@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using Randolph.Characters;
+﻿using Randolph.Characters;
+using UnityEngine;
 
 namespace Randolph.Interactable {
     public class Whiskey : InventoryItem {

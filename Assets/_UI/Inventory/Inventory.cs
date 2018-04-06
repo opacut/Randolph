@@ -1,21 +1,22 @@
-﻿using System.Linq;
-using System.Collections.Generic;
-
-using UnityEngine;
-
+﻿using System.Collections.Generic;
+using System.Linq;
 using Randolph.Interactable;
+using UnityEngine;
 
 namespace Randolph.UI {
     public class Inventory : MonoBehaviour {
 
-        [SerializeField] float applicableDistance = 3;
-        [SerializeField] Rigidbody2D player;
-        [SerializeField] InventoryIcon iconPrefab;
+        [SerializeField]
+        float applicableDistance = 3;
+        [SerializeField]
+        Rigidbody2D player;
+        [SerializeField]
+        InventoryIcon iconPrefab;
 
         List<InventoryIcon> icons = new List<InventoryIcon>();
 
         public List<InventoryItem> Items {
-            get { return new List<InventoryItem>(icons.Select(icon => icon.Item)); }
+            get { return new List<InventoryItem>(icons.Select(icon => icon.item)); }
             set {
                 foreach (InventoryIcon icon in icons) {
                     Destroy(icon.gameObject);
@@ -29,7 +30,6 @@ namespace Randolph.UI {
             }
         }
 
-
         public void Awake() {
             Debug.Assert(iconPrefab, "The prefab for an inventory icon is missing!", gameObject);
             Debug.Assert(player);
@@ -42,7 +42,7 @@ namespace Randolph.UI {
         }
 
         public void Remove(InventoryItem item) {
-            InventoryIcon icon = icons.Find(ico => ico.Item == item);
+            InventoryIcon icon = icons.Find(ico => ico.item == item);
             if (icon) {
                 icons.Remove(icon);
                 Destroy(icon.gameObject);
@@ -50,9 +50,8 @@ namespace Randolph.UI {
         }
 
         public bool Contains(InventoryItem item) {
-            return icons.Any(ico => ico.Item == item);
+            return icons.Any(ico => ico.item == item);
         }
-
 
         public bool IsApplicableTo(InventoryItem item, GameObject target) {
             if (Contains(item) && DistanceCheck(target)) return item.IsApplicable(target);

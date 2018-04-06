@@ -1,12 +1,12 @@
-using UnityEngine;
-
 using Randolph.Characters;
 using Randolph.Levels;
+using UnityEngine;
 
 namespace Randolph.Environment {
     public class Hazard : MonoBehaviour, IRestartable {
 
-        [SerializeField, ReadonlyField] Vector2 initialPosition;
+        [SerializeField, ReadonlyField]
+        Vector2 initialPosition;
 
         void Awake() {
             initialPosition = gameObject.transform.position;

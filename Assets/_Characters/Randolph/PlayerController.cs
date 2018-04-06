@@ -1,50 +1,44 @@
-﻿using UnityEngine;
-
-using Randolph.Environment;
+﻿using Randolph.Core;
 using Randolph.Interactable;
 using Randolph.Levels;
+using UnityEngine;
 
 namespace Randolph.Characters {
     [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(Rigidbody2D))]
     public class PlayerController : MonoBehaviour {
 
-        [SerializeField] float skin = 1.3f;
         [SerializeField] float climbingSpeed = 6;
         [SerializeField] float movementSpeed = 6;
         [SerializeField] float jumpForce = 800;
         [SerializeField] float fallForce = 50;
-        [SerializeField] LayerMask groundLayer;
-
-        const string LadderTag = "Ladder";
-        const string PickableTag = "Pickable";
 
         Animator animator;
         Rigidbody2D rbody;
-        new Collider2D collider;
 
         float gravity = 0;
         bool jump = false;
         bool onGround = false;
 
-        Ladder currentLadder = null;
+        int currentLadder = 0;
         bool climbing = false;
 
         private void Awake() {
             animator = GetComponent<Animator>();
             rbody = GetComponent<Rigidbody2D>();
-            collider = GetComponent<Collider2D>();
             gravity = rbody.gravityScale;
         }
 
         private void OnTriggerEnter2D(Collider2D other) {
-            if (other.tag == LadderTag) {
-                var ladder = other.GetComponent<Ladder>();
-                Debug.Assert(ladder, "An object with a Ladder tag doesn't have a Ladder script attached.", other.gameObject);
-                currentLadder = ladder;
+            if (other.tag == Constants.Tag.Ladder) {
+                ++currentLadder;
             }
 
-            if (other.tag == PickableTag) {
+            if (other.tag == Constants.Tag.Deadly) {
+                Kill();
+            }
+
+            if (other.tag == Constants.Tag.Pickable) {
                 var pickable = other.GetComponent<Pickable>();
                 Debug.Assert(pickable, "An object with a Pickable tag doesn't have a Pickable script attached", other.gameObject);
                 pickable.OnPick();
@@ -52,21 +46,30 @@ namespace Randolph.Characters {
         }
 
         private void OnTriggerExit2D(Collider2D other) {
-            if (other.tag == LadderTag) {
-                IgnoreCollision(currentLadder.attachedPlatform, false);
-                currentLadder = null;
+            if (other.tag == Constants.Tag.Ladder) {
+                --currentLadder;
+                if (currentLadder <= 0)
+                    IgnoreCollision(false);
+            }
+        }
+
+        private void OnCollisionEnter2D(Collision2D other) {
+            if (other.gameObject.layer == Constants.Layer.Ground) {
+                onGround = true;
+            }
+        }
+
+        private void OnCollisionExit2D(Collision2D other) {
+            if (other.gameObject.layer == Constants.Layer.Ground) {
+                onGround = false;
             }
         }
 
         private void Update() {
-            if (Input.GetButtonDown("Jump")) {
-                jump = true;
-            }
+            jump = Input.GetButton("Jump");
         }
 
         private void FixedUpdate() {
-            GroundCheck();
-
             float vertical = Input.GetAxisRaw("Vertical");
             float horizontal = Input.GetAxisRaw("Horizontal");
 
@@ -89,7 +92,7 @@ namespace Randolph.Characters {
         }
 
         private void Jumping(float vertical) {
-            if (jump && (climbing || onGround && Mathf.Approximately(rbody.velocity.y, 0f))) {
+            if (jump && onGround) {
                 // Jumping while on ground or climbing
                 StopClimbing();
                 JumpUp();
@@ -107,13 +110,11 @@ namespace Randolph.Characters {
         }
 
         void Climbing(float vertical, float horizontal = 0f) {
-            // TODO: Move from ladder sideways
-
-            if (!climbing && currentLadder && Mathf.Abs(vertical) > 0.001f) {
+            if (!climbing && currentLadder > 0 && Mathf.Abs(vertical) > 0.001f) {
                 climbing = true;
                 rbody.gravityScale = 0;
 
-                IgnoreCollision(currentLadder.attachedPlatform, true);
+                IgnoreCollision(true);
 
                 animator.SetBool("Climbing", true);
                 animator.SetFloat("ClimbingSpeed", 0);
@@ -127,7 +128,7 @@ namespace Randolph.Characters {
 
                 animator.SetFloat("ClimbingSpeed", vSpeed);
 
-                if (!currentLadder || onGround) {
+                if (currentLadder <= 0 || onGround) {
                     StopClimbing(vSpeed);
                 }
             }
@@ -136,8 +137,9 @@ namespace Randolph.Characters {
         private void StopClimbing(float vSpeed = 1f) {
             climbing = false;
             rbody.gravityScale = gravity;
-            if (!onGround) rbody.AddForce(Vector2.up * vSpeed);
-
+            if (!onGround) {
+                rbody.AddForce(Vector2.up * vSpeed);
+            }
             animator.SetBool("Climbing", false);
         }
 
@@ -149,14 +151,8 @@ namespace Randolph.Characters {
             }
         }
 
-        private void GroundCheck() {
-            Debug.DrawRay(transform.position, Vector2.down * skin, Color.green);
-            Collider2D coll = Physics2D.Raycast(transform.position, Vector2.down, skin, Randolph.Core.Constants.GroundLayer).collider;
-            onGround = coll && rbody.IsTouching(coll);
-        }
-
-        private void IgnoreCollision(Collider2D other, bool ignore) {
-            Physics2D.IgnoreCollision(collider, other, ignore);
+        private void IgnoreCollision(bool ignore) {
+            Physics2D.IgnoreLayerCollision(Constants.Layer.Player, Constants.Layer.Ground, ignore);
         }
 
         public void Kill(float delay = 0.25f) {

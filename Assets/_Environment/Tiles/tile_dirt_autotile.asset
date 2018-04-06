@@ -33,6 +33,7 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
   m_ColliderType: 2
+  familyName: tile_dirt
   sprites:
   - {fileID: 213800196962486328}
   - {fileID: 213048037507693758}

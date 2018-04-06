@@ -1,13 +1,10 @@
-﻿using UnityEngine;
-
-using Randolph.UI;
+﻿using Randolph.UI;
+using UnityEngine;
 
 namespace Randolph.Interactable {
     public abstract class InventoryItem : Pickable {
 
         public Sprite icon;
-        public Sprite iconOK;
-        public Sprite iconNOK;
         Inventory inventory;
 
         private void Awake() {
@@ -20,7 +17,6 @@ namespace Randolph.Interactable {
         }
 
         public abstract bool IsApplicable(GameObject target);
-
         public abstract void OnApply(GameObject target);
 
     }

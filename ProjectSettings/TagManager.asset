@@ -11,6 +11,7 @@ TagManager:
   - Whiskey
   - Wood
   - LevelManager
+  - Deadly
   layers:
   - Default
   - TransparentFX

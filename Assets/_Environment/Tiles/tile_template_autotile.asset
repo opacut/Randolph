@@ -33,6 +33,7 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
   m_ColliderType: 2
+  familyName: tile_template
   sprites:
   - {fileID: 213192894004886224}
   - {fileID: 213897474628217996}
