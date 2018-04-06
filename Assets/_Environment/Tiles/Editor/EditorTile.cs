@@ -7,7 +7,7 @@ namespace Randolph.Tiles {
 		public override void GetTileData(Vector3Int position, ITilemap tilemap, ref TileData tileData) {
 			base.GetTileData(position, tilemap, ref tileData);
 			tileData.colliderType = ColliderType.Grid;
-			if (Application.isEditor && !Application.isPlaying) {
+			if (Application.isEditor) {
 				tileData.sprite = sprite;
 				return;
 			}

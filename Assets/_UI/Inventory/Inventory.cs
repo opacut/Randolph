@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Randolph.Core;
 using Randolph.Interactable;
 using UnityEngine;
 
@@ -43,10 +44,12 @@ namespace Randolph.UI {
 
         public void Remove(InventoryItem item) {
             InventoryIcon icon = icons.Find(ico => ico.item == item);
-            if (icon) {
-                icons.Remove(icon);
-                Destroy(icon.gameObject);
+            if (icon == null) {
+                return;
             }
+
+            Destroy(icon.gameObject);
+            icons.Remove(icon);
         }
 
         public bool Contains(InventoryItem item) {

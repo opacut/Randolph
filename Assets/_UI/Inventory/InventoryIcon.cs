@@ -9,8 +9,8 @@ namespace Randolph.UI {
     [RequireComponent(typeof(LayoutElement))]
     public class InventoryIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
 
-        Vector2 positionToReturnTo;
         Inventory inventory;
+        Vector2 position;
         public InventoryItem item { get; private set; }
 
         public void Init(Inventory inventory, InventoryItem item) {
@@ -21,7 +21,7 @@ namespace Randolph.UI {
         }
 
         public void OnBeginDrag(PointerEventData eventData) {
-            positionToReturnTo = transform.position;
+            position = transform.position;
             GetComponent<CanvasGroup>().blocksRaycasts = false;
             GetComponent<LayoutElement>().ignoreLayout = true;
         }
@@ -36,7 +36,7 @@ namespace Randolph.UI {
             if (target) {
                 inventory.ApplyTo(item, target);
             } else {
-                transform.position = positionToReturnTo;
+                transform.position = position;
                 GetComponent<Image>().sprite = item.icon;
                 GetComponent<CanvasGroup>().blocksRaycasts = true;
                 GetComponent<LayoutElement>().ignoreLayout = false;
