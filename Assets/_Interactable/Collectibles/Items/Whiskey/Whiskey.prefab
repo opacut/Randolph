@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4842268154107098}
   - component: {fileID: 212514413828074514}
-  - component: {fileID: 70012658808674984}
   - component: {fileID: 114149222963326280}
+  - component: {fileID: 61144728917451352}
   m_Layer: 0
   m_Name: Whiskey
   m_TagString: Pickable
@@ -42,8 +42,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &70012658808674984
-CapsuleCollider2D:
+--- !u!61 &61144728917451352
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -55,8 +55,18 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
-  m_Direction: 0
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.375, y: 0.875}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.375, y: 0.875}
+  m_EdgeRadius: 0
 --- !u!114 &114149222963326280
 MonoBehaviour:
   m_ObjectHideFlags: 1
