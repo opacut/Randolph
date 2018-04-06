@@ -22,14 +22,13 @@ namespace Randolph.UI {
 
         public void OnBeginDrag(PointerEventData eventData) {
             positionToReturnTo = transform.position;
-            GetComponent<Image>().sprite = item.icon;
             GetComponent<CanvasGroup>().blocksRaycasts = false;
             GetComponent<LayoutElement>().ignoreLayout = true;
         }
 
         public void OnDrag(PointerEventData eventData) {
             var mouesPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            transform.position = new Vector3(mouesPos.x, mouesPos.y, 100);
+            transform.position = new Vector3(mouesPos.x, mouesPos.y, 0);
         }
 
         public void OnEndDrag(PointerEventData eventData) {

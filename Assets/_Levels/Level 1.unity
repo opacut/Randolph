@@ -355,7 +355,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4105591577024224, guid: 9411aa96bd09a13479980152bf1ec8d6, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4105591577024224, guid: 9411aa96bd09a13479980152bf1ec8d6, type: 2}
       propertyPath: m_LocalRotation.x
@@ -388,6 +388,11 @@ Prefab:
     - target: {fileID: 4105591577024224, guid: 9411aa96bd09a13479980152bf1ec8d6, type: 2}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212984757690837850, guid: 9411aa96bd09a13479980152bf1ec8d6,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9411aa96bd09a13479980152bf1ec8d6, type: 2}
@@ -464,6 +469,7 @@ GameObject:
   - component: {fileID: 634624951}
   - component: {fileID: 634624953}
   - component: {fileID: 634624952}
+  - component: {fileID: 634624959}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -496,7 +502,7 @@ MonoBehaviour:
   FollowVertical: 1
   VerticalFollowSmoothness: 0.15
   OffsetX: 0
-  OffsetY: -0.2
+  OffsetY: -0.5
   IsRelativeOffset: 1
   ZoomWithFOV: 0
   CurrentZoomTriggerID: 0
@@ -739,8 +745,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
+  near clip plane: 0
+  far clip plane: 100
   field of view: 46.681202
   orthographic: 1
   orthographic size: 16.09375
@@ -773,6 +779,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &634624959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 634624950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ba4e7c9ccf634257ad7d8b2a2501c9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pc2D: {fileID: 634624951}
+  _contentFitterMode: 1
+  _useLetterOrPillarboxing: 0
+  _targetHeight: 5.625
+  _targetWidth: 40
+  _targetAspectRatio: 1.7777778
+  VerticalAlignment: 0
+  HorizontalAlignment: 0
 --- !u!1001 &856492373
 Prefab:
   m_ObjectHideFlags: 0
@@ -60817,7 +60842,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4860790054235760, guid: ef711db1dfd16034f8a5597e54008724, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 35.919
+      value: 35.889
       objectReference: {fileID: 0}
     - target: {fileID: 4860790054235760, guid: ef711db1dfd16034f8a5597e54008724, type: 2}
       propertyPath: m_LocalPosition.y
@@ -61073,6 +61098,46 @@ Prefab:
       propertyPath: m_RenderMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114635764576653882, guid: 5f2c6cf0c833eae48bccffc331bd8ab3,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114635764576653882, guid: 5f2c6cf0c833eae48bccffc331bd8ab3,
+        type: 2}
+      propertyPath: m_UiScaleMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114635764576653882, guid: 5f2c6cf0c833eae48bccffc331bd8ab3,
+        type: 2}
+      propertyPath: m_ReferencePixelsPerUnit
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 114635764576653882, guid: 5f2c6cf0c833eae48bccffc331bd8ab3,
+        type: 2}
+      propertyPath: m_ScaleFactor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 223955007248001530, guid: 5f2c6cf0c833eae48bccffc331bd8ab3,
+        type: 2}
+      propertyPath: m_PixelPerfect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224236843724284554, guid: 5f2c6cf0c833eae48bccffc331bd8ab3,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224236843724284554, guid: 5f2c6cf0c833eae48bccffc331bd8ab3,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224236843724284554, guid: 5f2c6cf0c833eae48bccffc331bd8ab3,
+        type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f2c6cf0c833eae48bccffc331bd8ab3, type: 2}
   m_IsPrefabParent: 0
@@ -61095,7 +61160,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4860790054235760, guid: ef711db1dfd16034f8a5597e54008724, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 35.92
+      value: 35.89
       objectReference: {fileID: 0}
     - target: {fileID: 4860790054235760, guid: ef711db1dfd16034f8a5597e54008724, type: 2}
       propertyPath: m_LocalPosition.y
@@ -61207,7 +61272,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4860790054235760, guid: ef711db1dfd16034f8a5597e54008724, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 35.92
+      value: 35.89
       objectReference: {fileID: 0}
     - target: {fileID: 4860790054235760, guid: ef711db1dfd16034f8a5597e54008724, type: 2}
       propertyPath: m_LocalPosition.y
