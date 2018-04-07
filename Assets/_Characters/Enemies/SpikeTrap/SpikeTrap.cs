@@ -24,7 +24,7 @@ public class SpikeTrap : MonoBehaviour
         spriteRenderer.sprite = On ? Active : Disabled;
     }
 
-    public void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerStay2D(Collider2D other)
     {
         if (On&&(other.tag == "Player"))
         {
