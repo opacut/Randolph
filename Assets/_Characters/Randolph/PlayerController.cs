@@ -21,6 +21,7 @@ namespace Randolph.Characters {
         Animator animator;
         Rigidbody2D rbody;
         DistanceJoint2D grapplingJoint;
+        LineRenderer grappleRopeRenderer;
 
         float gravity = 0;
         bool jump = false;
@@ -35,6 +36,7 @@ namespace Randolph.Characters {
             animator = GetComponent<Animator>();
             rbody = GetComponent<Rigidbody2D>();
             grapplingJoint = GetComponent<DistanceJoint2D>();
+            grappleRopeRenderer = GetComponent<LineRenderer>();
             gravity = rbody.gravityScale;
         }
 
@@ -175,18 +177,21 @@ namespace Randolph.Characters {
             grapplingJoint.connectedAnchor = obj.transform.position;
             grapplingJoint.enabled = true;
             grapplingJoint.distance = Vector2.Distance(transform.position, obj.transform.position);
+            grappleRopeRenderer.enabled = true;
+            grappleRopeRenderer.SetPositions(new Vector3[] { transform.position, obj.transform.position });
         }
 
         private void Grappling(float vertical, float horizontal = 0f) {
             if (!isGrappled) {
                 return;
             }
-            Debug.DrawLine(transform.position, grapplingJoint.connectedAnchor);
             grapplingJoint.distance -= vertical * 0.2f;
+            grappleRopeRenderer.SetPosition(0, transform.position);
         }
 
         private void StopGrappling() {
             grapplingJoint.enabled = false;
+            grappleRopeRenderer.enabled = false;
         }
         #endregion
 
