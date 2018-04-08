@@ -15,8 +15,6 @@ namespace Randolph.Characters {
         float movementSpeed = 6;
         [SerializeField]
         float jumpForce = 800;
-        [SerializeField]
-        float fallForce = 50;
 
         Animator animator;
         Rigidbody2D rbody;
@@ -25,7 +23,10 @@ namespace Randolph.Characters {
 
         float gravity = 0;
         bool jump = false;
+
         bool isOnGround = false;
+        public Transform groundCheck;
+        float groundRadius = 0.2f;
 
         bool isGrappled { get { return grapplingJoint.isActiveAndEnabled; } }
 
@@ -64,18 +65,6 @@ namespace Randolph.Characters {
             }
         }
 
-        private void OnCollisionEnter2D(Collision2D other) {
-            if (other.gameObject.layer == Constants.Layer.Ground) {
-                isOnGround = true;
-            }
-        }
-
-        private void OnCollisionExit2D(Collision2D other) {
-            if (other.gameObject.layer == Constants.Layer.Ground) {
-                isOnGround = false;
-            }
-        }
-
         private void Update() {
             jump = Input.GetButton("Jump");
         }
@@ -84,8 +73,10 @@ namespace Randolph.Characters {
             float vertical = Input.GetAxisRaw("Vertical");
             float horizontal = Input.GetAxisRaw("Horizontal");
 
+            isOnGround = Physics2D.OverlapCircle(groundCheck.position, groundRadius, Constants.GroundLayerMask);
+
             Moving(horizontal);
-            Jumping(vertical);
+            Jumping();
             Climbing(vertical, horizontal);
             Grappling(vertical, horizontal);
             Flipping();
@@ -114,7 +105,7 @@ namespace Randolph.Characters {
         #endregion
 
         #region Jump
-        private void Jumping(float vertical) {
+        private void Jumping() {
             if (!jump) {
                 return;
             }
@@ -123,14 +114,10 @@ namespace Randolph.Characters {
                 StopGrappling();
                 JumpUp();
             }
-
-            if (!isOnGround && !isClimbing && rbody.velocity.y < 0) {
-                rbody.AddForce(Vector2.down * fallForce);
-            }
         }
 
         private void JumpUp() {
-            jump = isOnGround = false;
+            jump = false;
             rbody.AddForce(Vector2.up * jumpForce);
             animator.SetTrigger("Jump");
         }
@@ -157,7 +144,7 @@ namespace Randolph.Characters {
                 animator.SetFloat("ClimbingSpeed", vSpeed);
 
                 if (currentLadder <= 0 || isOnGround) {
-                    StopClimbing(vSpeed);
+                    StopClimbing();
                 }
             }
         }
@@ -165,9 +152,6 @@ namespace Randolph.Characters {
         private void StopClimbing(float vSpeed = 1f) {
             isClimbing = false;
             rbody.gravityScale = gravity;
-            if (!isOnGround) {
-                rbody.AddForce(Vector2.up * vSpeed);
-            }
             animator.SetBool("Climbing", false);
         }
         #endregion
