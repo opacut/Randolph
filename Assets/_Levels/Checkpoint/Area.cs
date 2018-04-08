@@ -3,5 +3,5 @@
 namespace Randolph.Levels {
     public class Area : MonoBehaviour {
 
-    } 
+    }
 }

@@ -15,6 +15,5 @@ namespace Randolph.Interactable {
         }
 
         public abstract void OnPick();
-
     }
 }

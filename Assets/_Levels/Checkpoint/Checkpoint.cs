@@ -1,10 +1,7 @@
 ﻿using System.Collections.Generic;
-
-using UnityEngine;
-
 using Randolph.Interactable;
 using Randolph.UI;
-
+using UnityEngine;
 
 namespace Randolph.Levels {
     [RequireComponent(typeof(Collider2D))]

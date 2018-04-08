@@ -37,7 +37,6 @@ namespace Randolph.UI {
                 inventory.ApplyTo(item, target);
             } else {
                 transform.position = position;
-                GetComponent<Image>().sprite = item.icon;
                 GetComponent<CanvasGroup>().blocksRaycasts = true;
                 GetComponent<LayoutElement>().ignoreLayout = false;
             }
@@ -47,7 +46,8 @@ namespace Randolph.UI {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             foreach (RaycastHit2D hit in Physics2D.RaycastAll(ray.origin, ray.direction)) {
-                if (inventory.IsApplicableTo(item, hit.collider.gameObject)) return hit.collider.gameObject;
+                if (inventory.IsApplicableTo(item, hit.collider.gameObject))
+                    return hit.collider.gameObject;
             }
 
             return null;

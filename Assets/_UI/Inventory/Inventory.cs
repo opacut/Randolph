@@ -62,7 +62,8 @@ namespace Randolph.UI {
         }
 
         public bool ApplyTo(InventoryItem item, GameObject target) {
-            if (!IsApplicableTo(item, target)) return false;
+            if (!IsApplicableTo(item, target))
+                return false;
 
             item.OnApply(target);
             Remove(item);
@@ -76,13 +77,5 @@ namespace Randolph.UI {
             ColliderDistance2D result = player.Distance(target.GetComponent<Collider2D>());
             return result.isValid && Mathf.Abs(result.distance) < applicableDistance;
         }
-
-        /*
-        private void OnDrawGizmos()
-        {
-            Handles.color = Color.red;
-            Handles.DrawWireDisc(player.transform.position, Vector3.back, applicableDistance);
-        }*/
-
     }
 }

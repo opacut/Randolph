@@ -1,38 +1,33 @@
-using UnityEngine;
 using Randolph.Interactable;
+using UnityEngine;
 
-namespace Randolph.Characters
-{
+namespace Randolph.Characters {
     [RequireComponent(typeof(SpriteRenderer))]
-    public class Flytrap : MonoBehaviour, IEnemy
-    {
+    public class Flytrap : MonoBehaviour, IEnemy {
         public bool Active { get; private set; } = true;
 
         Sprite alive;
-        [Space(10), SerializeField] Sprite closed;
-        [SerializeField] Sprite crushed;
+        [Space(10), SerializeField]
+        Sprite closed;
+        [SerializeField]
+        Sprite crushed;
 
         SpriteRenderer spriteRenderer;
 
-        private void Awake()
-        {
+        private void Awake() {
             spriteRenderer = GetComponent<SpriteRenderer>();
             alive = spriteRenderer.sprite;
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (Active)
-            {
-                if (other.tag == "Player")
-                {
+        private void OnTriggerEnter2D(Collider2D other) {
+            if (Active) {
+                if (other.tag == "Player") {
                     Deactivate();
                     other.gameObject.GetComponent<PlayerController>().Kill(1);
                 }
 
                 var glider = other.GetComponent<Glider>();
-                if (glider)
-                {
+                if (glider) {
                     //! Crows flying into the flytrap
                     Deactivate();
                     glider.Kill();
@@ -40,20 +35,17 @@ namespace Randolph.Characters
             }
         }
 
-        public void Deactivate()
-        {
+        public void Deactivate() {
             spriteRenderer.sprite = closed;
             Active = false;
         }
 
-        public void Kill()
-        {
+        public void Kill() {
             spriteRenderer.sprite = crushed;
             Active = false;
         }
 
-        public void Restart()
-        {
+        public void Restart() {
             spriteRenderer.sprite = alive;
             Active = true;
         }
