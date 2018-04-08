@@ -66,7 +66,9 @@ namespace Randolph.UI {
                 return false;
 
             item.OnApply(target);
-            Remove(item);
+            if (item.isSingleUse) {
+                Remove(item);
+            }
             return true;
         }
 

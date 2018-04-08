@@ -4,6 +4,7 @@ namespace Randolph.Interactable {
     public class Objective : Pickable {
 
         [SerializeField] Animator animator;
+        public override bool isSingleUse { get { return false; } }
 
         void Start() {
             if (!animator) {

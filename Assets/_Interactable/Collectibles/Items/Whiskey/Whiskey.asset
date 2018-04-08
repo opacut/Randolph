@@ -11,4 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c50aafc69e63e4294daa8177ec4b88, type: 3}
   m_Name: Whiskey
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 1331681327032480, guid: 7f12a75ef4672b34eb814608f31b4c5d, type: 2}
+  initialized: 0

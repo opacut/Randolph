@@ -35,11 +35,11 @@ namespace Randolph.UI {
             GameObject target = FindApplicableTarget();
             if (target) {
                 inventory.ApplyTo(item, target);
-            } else {
-                transform.position = position;
-                GetComponent<CanvasGroup>().blocksRaycasts = true;
-                GetComponent<LayoutElement>().ignoreLayout = false;
             }
+
+            transform.position = position;
+            GetComponent<CanvasGroup>().blocksRaycasts = true;
+            GetComponent<LayoutElement>().ignoreLayout = false;
         }
 
         GameObject FindApplicableTarget() {

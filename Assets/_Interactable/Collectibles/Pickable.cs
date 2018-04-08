@@ -4,6 +4,7 @@ namespace Randolph.Interactable {
     public abstract class Pickable : MonoBehaviour, IPickable {
 
         private Vector3 initialPosition;
+        public abstract bool isSingleUse { get; }
 
         private void Awake() {
             initialPosition = transform.position;
