@@ -2,21 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Switch : MonoBehaviour {
-    public bool On;
-    public List<SpikeTrap> Spikes;
+namespace Randolph.Environment {
+    [RequireComponent(typeof(SpriteRenderer))]
+    public class Switch : MonoBehaviour {
+        public bool Powered;
+        public List<SpikeTrap> Spikes;
+        public Sprite activeSprite;
+        public Sprite inactiveSprite;
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        On = !On;
-        Spikes.ForEach(y => y.Toggle());
-    }
-    // Use this for initialization
-    void Start() {
+        private void OnTriggerEnter2D(Collider2D other) {
+            Powered = !Powered;
 
-    }
-
-    // Update is called once per frame
-    void Update() {
-
+            GetComponent<SpriteRenderer>().sprite = Powered ? inactiveSprite : activeSprite;
+            Spikes.ForEach(y => y.Toggle());
+        }
     }
 }
