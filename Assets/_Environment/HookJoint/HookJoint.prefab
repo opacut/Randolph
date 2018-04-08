@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212010769689193444}
   - component: {fileID: 61420722875569448}
   - component: {fileID: 114599971829048626}
+  - component: {fileID: 114502450507395724}
   m_Layer: 0
   m_Name: HookJoint
   m_TagString: Untagged
@@ -67,6 +68,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114502450507395724
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1122946237054668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []
 --- !u!114 &114599971829048626
 MonoBehaviour:
   m_ObjectHideFlags: 1
