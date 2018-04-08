@@ -6,12 +6,12 @@ namespace Randolph.Interactable {
         private Vector3 initialPosition;
         public abstract bool isSingleUse { get; }
 
-        private void Awake() {
+        protected virtual void Awake() {
             initialPosition = transform.position;
         }
 
         public virtual void Restart() {
-            gameObject.transform.position = initialPosition;
+            transform.position = initialPosition;
             gameObject.SetActive(true);
         }
 

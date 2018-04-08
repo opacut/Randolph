@@ -7,7 +7,8 @@ namespace Randolph.Interactable {
         public Sprite icon;
         Inventory inventory;
 
-        private void Awake() {
+        protected override void Awake() {
+            base.Awake();
             inventory = FindObjectOfType<Inventory>();
         }
 
