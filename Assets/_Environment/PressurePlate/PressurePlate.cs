@@ -2,32 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PressurePlate : MonoBehaviour {
+namespace Randolph.Environment {
+    [RequireComponent(typeof(SpriteRenderer))]
+    public class PressurePlate : MonoBehaviour {
+        public bool Powered { get { return holding == 0; } }
+        public List<SpikeTrap> Spikes;
+        public Sprite activeSprite;
+        public Sprite inactiveSprite;
 
-    public bool On;
+        private int holding = 0;
 
-    public List<SpikeTrap> Spikes;
+        private void OnTriggerEnter2D(Collider2D other) {
+            if (holding == 0) {
+                Spikes.ForEach(s => s.Toggle());
+                GetComponent<SpriteRenderer>().sprite = inactiveSprite;
+            }
+            ++holding;
+        }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        On = !On;
-        Spikes.ForEach(y => y.Toggle());
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        On = !On;
-        Spikes.ForEach(y => y.Toggle());
-    }
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        private void OnTriggerExit2D(Collider2D collision) {
+            --holding;
+            if (holding == 0) {
+                Spikes.ForEach(s => s.Toggle());
+                GetComponent<SpriteRenderer>().sprite = activeSprite;
+            }
+        }
     }
 }
