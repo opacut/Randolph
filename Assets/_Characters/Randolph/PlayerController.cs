@@ -67,6 +67,27 @@ namespace Randolph.Characters {
 
         private void Update() {
             jump = Input.GetButton("Jump");
+
+            //! Debug
+            if (Input.GetKeyDown(KeyCode.PageDown)) {
+                // DEBUG: Go to the next room
+                var checkpoinContainer = FindObjectOfType<CheckpointContainer>();
+                Checkpoint nextCheckpoint = checkpoinContainer.GetNext();
+                if (nextCheckpoint) {
+                    transform.position = nextCheckpoint.transform.position;
+                    checkpoinContainer.SetReached(nextCheckpoint);
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.PageUp)) {
+                // DEBUG: Go to the previous room
+                var checkpoinContainer = FindObjectOfType<CheckpointContainer>();
+                Checkpoint previousCheckpoint = checkpoinContainer.GetPrevious();
+                if (previousCheckpoint) {
+                    transform.position = previousCheckpoint.transform.position;
+                    checkpoinContainer.SetReached(previousCheckpoint);
+                }
+            }
         }
 
         private void FixedUpdate() {
@@ -118,6 +139,7 @@ namespace Randolph.Characters {
 
         private void JumpUp() {
             jump = false;
+            rbody.velocity = new Vector2(rbody.velocity.x, 0);
             rbody.AddForce(Vector2.up * jumpForce);
             animator.SetTrigger("Jump");
         }
@@ -188,6 +210,11 @@ namespace Randolph.Characters {
             StopClimbing();
             LevelManager.levelManager.ReturnToCheckpoint(delay);
             gameObject.SetActive(false);
+        }
+
+        public void OnDrawGizmosSelected() {
+            Gizmos.color = (isOnGround) ? Color.green : Color.gray;
+            Methods.GizmosDrawCircle(groundCheck.position, groundRadius);
         }
 
     }

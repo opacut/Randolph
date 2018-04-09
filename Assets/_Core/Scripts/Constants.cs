@@ -19,6 +19,7 @@ namespace Randolph.Core {
         public static class Layer {
             public static readonly int Ground = LayerMask.NameToLayer("Ground");
             public static readonly int Player = LayerMask.NameToLayer("Player");
+            public static readonly int Dead = LayerMask.NameToLayer("Dead");
         }
 
         /// <summary>The optimal size for drawing dots with <see cref="Gizmos.DrawSphere"/>.</summary>

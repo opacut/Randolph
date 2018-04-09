@@ -9,11 +9,14 @@ namespace Randolph.Levels {
     [ExecuteInEditMode]
     [AddComponentMenu("Randolph/Levels/Checkpoint Container", 20)]
     public class CheckpointContainer : MonoBehaviour {
+
+        [SerializeField, ReadonlyField] Checkpoint reached;
+
         [SerializeField, ReadonlyField] List<Checkpoint> checkpoints = new List<Checkpoint>();
         public const string checkpointKey = "ReachedCheckpointIndex";
 
         PlayerController player;
-        Checkpoint reached;
+        
 
         void Awake() {
             Debug.Assert(FindObjectsOfType(GetType()).Length == 1, "There is always supposed to be only one <b>CheckpointContainer</b> in a level.", gameObject);
@@ -54,6 +57,19 @@ namespace Randolph.Levels {
                 reached = checkpoint;
                 PlayerPrefs.SetInt(checkpointKey, checkpoints.IndexOf(reached));
             }
+        }
+
+        public Checkpoint GetNext() {
+            return checkpoints.SkipWhile(checkpoint => checkpoint != reached).Skip(1).FirstOrDefault();
+        }
+
+        public Checkpoint GetPrevious() {
+            return checkpoints.TakeWhile(x => x != reached).LastOrDefault();
+        }
+
+        public void SetReached(Checkpoint checkpoint) {
+            if (checkpoint == null) return;
+            else reached = checkpoint;
         }
 
         bool IsCheckpointVisited(Checkpoint checkpoint) {

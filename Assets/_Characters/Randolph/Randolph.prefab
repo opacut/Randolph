@@ -142,7 +142,6 @@ MonoBehaviour:
   climbingSpeed: 6
   movementSpeed: 6
   jumpForce: 800
-  fallForce: 50
   groundCheck: {fileID: 4500516805160474}
 --- !u!120 &120051364200380746
 LineRenderer:

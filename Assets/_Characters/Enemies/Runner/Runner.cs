@@ -1,17 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Randolph.Characters;
+﻿using UnityEngine;
+
 using Randolph.Core;
 using Randolph.Interactable;
-using Randolph.Levels;
-using UnityEngine;
 
 namespace Randolph.Characters {
     [RequireComponent(typeof(SpriteRenderer))]
     [RequireComponent(typeof(Animator))]
     public class Runner : MonoBehaviour, IEnemy {
-        public float speed;
-        public Sprite dead;
+
+        [SerializeField] Sprite dead;
+        [SerializeField] float speed = 10f;        
 
         bool alive = true;
         int goingRight;
@@ -34,14 +32,12 @@ namespace Randolph.Characters {
         }
 
         void Update() {
-            if (!alive)
-                return;
+            if (!alive) return;
             transform.Translate(goingRight * Vector2.right * speed * Time.deltaTime);
         }
 
         private void OnTriggerEnter2D(Collider2D other) {
-            if (!alive || other.isTrigger || other.GetComponent<Squasher>() != null || other.tag == Constants.Tag.Player)
-                return;
+            if (!alive || other.isTrigger || other.GetComponent<Boulder>() != null || other.tag == Constants.Tag.Player) return;
             Turn();
         }
 
@@ -53,14 +49,21 @@ namespace Randolph.Characters {
             if (alive) {
                 if (collider.tag == "Player") {
                     collider.gameObject.GetComponent<PlayerController>().Kill(1);
-                } else if (collider.gameObject.GetComponent<Squasher>() != null) {
-                    Kill();
+                } else {
+                    var squasher = collider.gameObject.GetComponent<Boulder>();
+                    if (squasher != null) {
+                        if (squasher.HitFromAbove(collision)) {
+                            Kill();
+                        } else {
+                            squasher.Push(collision);
+                            Turn();
+                        }
+                    }
                 }
             }
         }
 
         void Turn() {
-            Debug.Log("Turning");
             goingRight *= -1;
 
             Vector3 scale = transform.localScale;
@@ -72,6 +75,8 @@ namespace Randolph.Characters {
             alive = false;
             animator.SetBool("Alive", false);
             spriteRenderer.sprite = dead;
+            // TODO: Collider size
+            gameObject.layer = Constants.Layer.Dead;
         }
 
         public void Restart() {
@@ -80,5 +85,6 @@ namespace Randolph.Characters {
             alive = true;
             animator.SetBool("Alive", true);
         }
+
     }
 }
