@@ -9,12 +9,16 @@ namespace Randolph.Characters {
     public class GlideControllerEditor : Editor {
 
         ReorderableList destinationsList;
+        SerializedProperty straightLines;
         Glider glider;
 
         SerializedProperty destinations;
         SerializedProperty speed;
+        SerializedProperty movesFromStart;
         SerializedProperty loop;
         SerializedProperty continuous;
+
+
 
         void OnEnable() {
             glider = (Glider) target;
@@ -25,8 +29,10 @@ namespace Randolph.Characters {
         void FindProperties() {
             destinations = serializedObject.FindProperty(nameof(destinations));
             speed = serializedObject.FindProperty(nameof(speed));
+            movesFromStart = serializedObject.FindProperty(nameof(movesFromStart));
             loop = serializedObject.FindProperty(nameof(loop));
             continuous = serializedObject.FindProperty(nameof(continuous));
+            straightLines = serializedObject.FindProperty(nameof(straightLines));
         }
 
         protected virtual void OnSceneGUI() {
@@ -51,8 +57,10 @@ namespace Randolph.Characters {
             DisplayScriptField();
             EditorGUILayout.PropertyField(speed);
             DisplayToggles();
+            EditorGUILayout.Space();
+            StraightLinesToggle();
             destinationsList.DoLayoutList();
-            
+
             serializedObject.ApplyModifiedProperties();
         }
 
@@ -69,7 +77,7 @@ namespace Randolph.Characters {
                         SerializedProperty element = destinationsList.serializedProperty.GetArrayElementAtIndex(index);
                         rect.y += 2;
 
-                        EditorGUI.BeginDisabledGroup(true);
+                        EditorGUI.BeginDisabledGroup(straightLines.boolValue == false);
                         EditorGUI.PropertyField(
                                 new Rect(rect.x + 30, rect.y, rect.width - (30), EditorGUIUtility.singleLineHeight),
                                 element, GUIContent.none);
@@ -85,8 +93,49 @@ namespace Randolph.Characters {
         }
 
         void DisplayToggles() {
+            movesFromStart.boolValue = EditorGUILayout.ToggleLeft(new GUIContent("Moves from start", "Does the glider move without being touched first?"), movesFromStart.boolValue);
             loop.boolValue = EditorGUILayout.ToggleLeft(new GUIContent("Loop", "Return to the initial position from the last one?"), loop.boolValue);
             continuous.boolValue = EditorGUILayout.ToggleLeft(new GUIContent("Continuous flight", "Stop at each destination?"), continuous.boolValue);
+        }
+
+        void StraightLinesToggle() {
+            bool currentLines = straightLines.boolValue;
+
+            bool newLines = EditorGUILayout.ToggleLeft(new GUIContent("Straight lines", "Allow movement only along straight lines?"), straightLines.boolValue);
+            if (!currentLines && newLines) {
+                if (EditorUtility.DisplayDialog("Only Allow Straight Lines", "This is potentially a destructive action, as it will snap destinations.", "Confirm", "Cancel")) {
+                    straightLines.boolValue = true;
+                }
+            } else {
+                straightLines.boolValue = newLines;
+            }
+
+            if (!Application.isPlaying && straightLines.boolValue) {
+                StraightenLines();
+            }
+        }
+
+        void StraightenLines() {
+            if (destinationsList != null && destinationsList.serializedProperty.arraySize > 0) {
+                Vector2 previous = glider.transform.position;
+                for (int index = 0; index < destinationsList.serializedProperty.arraySize; index++) {
+                    var destination = destinationsList.serializedProperty.GetArrayElementAtIndex(index);
+                    Vector2 current = destination.vector2Value;                                        
+                    destination.vector2Value = AlignPoints(current, previous);
+                    previous = destination.vector2Value;
+                }
+
+                if (loop.boolValue) glider.transform.position = AlignPoints(glider.transform.position, previous);
+            }
+        }
+
+        Vector2 AlignPoints(Vector2 current, Vector2 previous) {
+            Vector2 difference = previous - current;
+            bool xIsMin = Mathf.Abs(difference.x) < Mathf.Abs(difference.y);
+            if (xIsMin) current.x = previous.x;
+            else current.y = previous.y;
+
+            return current;
         }
 
     }

@@ -1,6 +1,7 @@
 ﻿using Randolph.Core;
 using Randolph.Interactable;
 using Randolph.Levels;
+
 using UnityEngine;
 
 namespace Randolph.Characters {
@@ -9,12 +10,9 @@ namespace Randolph.Characters {
     [RequireComponent(typeof(DistanceJoint2D))]
     public class PlayerController : MonoBehaviour {
 
-        [SerializeField]
-        float climbingSpeed = 6;
-        [SerializeField]
-        float movementSpeed = 6;
-        [SerializeField]
-        float jumpForce = 800;
+        [SerializeField] float climbingSpeed = 6;
+        [SerializeField] float movementSpeed = 6;
+        [SerializeField] float jumpForce = 800;
 
         Animator animator;
         Rigidbody2D rbody;
@@ -28,7 +26,9 @@ namespace Randolph.Characters {
         public Transform groundCheck;
         float groundRadius = 0.2f;
 
-        bool isGrappled { get { return grapplingJoint.isActiveAndEnabled; } }
+        bool isGrappled {
+            get { return grapplingJoint.isActiveAndEnabled; }
+        }
 
         int currentLadder = 0;
         bool isClimbing = false;
@@ -60,8 +60,7 @@ namespace Randolph.Characters {
         private void OnTriggerExit2D(Collider2D other) {
             if (other.tag == Constants.Tag.Ladder) {
                 --currentLadder;
-                if (currentLadder <= 0)
-                    IgnoreCollision(false);
+                if (currentLadder <= 0) IgnoreCollision(false);
             }
         }
 
@@ -104,6 +103,7 @@ namespace Randolph.Characters {
         }
 
         #region Move
+
         private void Moving(float horizontal) {
             float hSpeed = horizontal * movementSpeed;
 
@@ -123,9 +123,11 @@ namespace Randolph.Characters {
                 transform.localScale = scale;
             }
         }
+
         #endregion
 
         #region Jump
+
         private void Jumping() {
             if (!jump) {
                 return;
@@ -143,9 +145,11 @@ namespace Randolph.Characters {
             rbody.AddForce(Vector2.up * jumpForce);
             animator.SetTrigger("Jump");
         }
+
         #endregion
 
         #region Climb
+
         void Climbing(float vertical, float horizontal = 0f) {
             if (!isClimbing && currentLadder > 0 && Mathf.Abs(vertical) > 0.001f) {
                 isClimbing = true;
@@ -176,21 +180,24 @@ namespace Randolph.Characters {
             rbody.gravityScale = gravity;
             animator.SetBool("Climbing", false);
         }
+
         #endregion
 
         #region Grapple
+
         public void GrappleTo(GameObject obj) {
             grapplingJoint.connectedAnchor = obj.transform.position;
             grapplingJoint.enabled = true;
             grapplingJoint.distance = Vector2.Distance(transform.position, obj.transform.position);
             grappleRopeRenderer.enabled = true;
-            grappleRopeRenderer.SetPositions(new Vector3[] { transform.position, obj.transform.position });
+            grappleRopeRenderer.SetPositions(new Vector3[] {transform.position, obj.transform.position});
         }
 
         private void Grappling(float vertical, float horizontal = 0f) {
             if (!isGrappled) {
                 return;
             }
+
             grapplingJoint.distance -= vertical * 0.2f;
             grappleRopeRenderer.SetPosition(0, transform.position);
         }
@@ -199,6 +206,7 @@ namespace Randolph.Characters {
             grapplingJoint.enabled = false;
             grappleRopeRenderer.enabled = false;
         }
+
         #endregion
 
         private void IgnoreCollision(bool ignore) {
@@ -212,7 +220,7 @@ namespace Randolph.Characters {
             gameObject.SetActive(false);
         }
 
-        public void OnDrawGizmosSelected() {
+        public void OnDrawGizmos() {
             Gizmos.color = (isOnGround) ? Color.green : Color.gray;
             Methods.GizmosDrawCircle(groundCheck.position, groundRadius);
         }

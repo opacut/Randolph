@@ -1,20 +1,23 @@
 ﻿using System.Collections.Generic;
-
+#pragma warning disable 414
 using UnityEngine;
 
 using Randolph.Levels;
 
 namespace Randolph.Characters {
+    [RequireComponent(typeof(Collider2D))]
     public class Glider : MonoBehaviour, IRestartable {
 
         [SerializeField] float speed = 20;
         [SerializeField] List<Vector2> destinations = new List<Vector2>();
+        [SerializeField] bool straightLines = false;
 
         Queue<Vector2> destinationQueue = new Queue<Vector2>();
         Vector2 currentDestination;
 
         Vector3 initialPosition;
 
+        [SerializeField] bool movesFromStart = false;
         [SerializeField] bool loop = false;
         [SerializeField] bool continuous = false;
         bool disturbed = false;
@@ -25,7 +28,10 @@ namespace Randolph.Characters {
 
         void Start() {
             initialPosition = transform.position;
+            if (movesFromStart) destinations.Insert(0, initialPosition);
+
             CreateDestinationQueue();
+            if (movesFromStart) StartMoving();
         }
 
         void Update() {
@@ -38,11 +44,21 @@ namespace Randolph.Characters {
             }
         }
 
-        void OnTriggerEnter2D(Collider2D other) {
-            if (other.tag == "Player") {
-                disturbed = true;
-                SetNextDestination();
+        void OnCollisionEnter2D(Collision2D collision) {
+            if (collision.gameObject.tag == "Player" && (!disturbed || !continuous)) {
+                StartMoving();
             }
+        }
+
+        void OnTriggerEnter2D(Collider2D other) {
+            if (other.tag == "Player" && (!disturbed || !continuous)) {
+                StartMoving();
+            }
+        }
+
+        void StartMoving() {
+            disturbed = true;
+            SetNextDestination();
         }
 
         public void Kill() {
@@ -57,7 +73,7 @@ namespace Randolph.Characters {
         }
 
         void CreateDestinationQueue() {
-            // Add all destinations to queue
+            // Add all destinations to queue            
             destinationQueue = new Queue<Vector2>(destinations);
 
             // Set the destination to be the object's initial position so it will not start off moving            

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Randolph.Characters;
+using Randolph.Core;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -60,11 +62,11 @@ namespace Randolph.Levels {
         }
 
         public Checkpoint GetNext() {
-            return checkpoints.SkipWhile(checkpoint => checkpoint != reached).Skip(1).FirstOrDefault();
+            return checkpoints.GetNextItem(reached);
         }
 
         public Checkpoint GetPrevious() {
-            return checkpoints.TakeWhile(x => x != reached).LastOrDefault();
+            return checkpoints.GetPreviousItem(reached);
         }
 
         public void SetReached(Checkpoint checkpoint) {
