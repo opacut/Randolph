@@ -18,7 +18,7 @@ namespace Randolph.Tiles {
 			Corners = TopRight | TopLeft | DownRight | DownLeft
 		}
 
-		public Sprite[] sprites = new Sprite[Constants.Tilemap.tileCount];
+		public Sprite[] sprites = new Sprite[Constants.Tilemap.TileCount];
 
 		public override void GetTileData(Vector3Int position, ITilemap tilemap, ref TileData tileData) {
 			Ne neighbors = 0;

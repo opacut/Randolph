@@ -19,7 +19,7 @@ namespace Randolph.Core {
             }
 
             textureImporter.filterMode = FilterMode.Point;
-            textureImporter.spritePixelsPerUnit = Constants.pixelsPerUnit;
+            textureImporter.spritePixelsPerUnit = Constants.PixelsPerUnit;
             textureImporter.textureCompression = TextureImporterCompression.Uncompressed;
             textureImporter.textureType = TextureImporterType.Sprite;
 
@@ -72,11 +72,11 @@ namespace Randolph.Core {
             autotile.familyName = Path.GetFileNameWithoutExtension(assetPath);
             autotile.colliderType = Tile.ColliderType.Grid;
 
-            for (int i = 0; i < Constants.Tilemap.tileCount; ++i) {
+            for (int i = 0; i < Constants.Tilemap.TileCount; ++i) {
                 autotile.sprites[i] = SpriteFromSlices(i, texture, autotile);
             }
 
-            autotile.sprite = autotile.sprites[Constants.Tilemap.tileCount - 1];
+            autotile.sprite = autotile.sprites[Constants.Tilemap.TileCount - 1];
         }
 
         private Sprite SpriteFromSlices(int i, Texture2D baseTexture, Autotile autotile) {
@@ -90,7 +90,7 @@ namespace Randolph.Core {
             texture.Apply();
             texture = CreateOrReplaceAssetWith(texture, autotile);
 
-            var sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, tSize * 2, tSize * 2), new Vector2(0.5f, 0.5f), Constants.pixelsPerUnit, 0, SpriteMeshType.Tight);
+            var sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, tSize * 2, tSize * 2), new Vector2(0.5f, 0.5f), Constants.PixelsPerUnit, 0, SpriteMeshType.Tight);
             sprite.name = "sprite_" + i.ToString("00");
             sprite = CreateOrReplaceAssetWith(sprite, autotile);
 

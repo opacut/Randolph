@@ -88,7 +88,7 @@ namespace Randolph.Characters {
         void DisplayScriptField() {
             EditorGUI.BeginDisabledGroup(true);
             MonoScript script = MonoScript.FromMonoBehaviour(target as Glider);
-            script = EditorGUILayout.ObjectField(script, typeof(MonoScript), false) as MonoScript;
+            script = EditorGUILayout.ObjectField("Script", script, typeof(MonoScript), false) as MonoScript;
             EditorGUI.EndDisabledGroup();
         }
 

@@ -2,6 +2,7 @@
 
 using UnityEngine;
 
+
 namespace Randolph.Core {
     public static class Methods {
 
@@ -34,23 +35,6 @@ namespace Randolph.Core {
             if (collision.contacts.Length == 0) return 90f;
             Vector2 normal = collision.contacts[0].normal;
             return Vector2.Angle(direction, -normal);
-        }
-
-        public static string GetPath(this Transform current) {
-            if (current.parent == null) return "/" + current.name;
-            return current.parent.GetPath() + "/" + current.name;
-        }
-
-        public static string GetPath(this Component component) {
-            return component.transform.GetPath() + "/" + component.GetType().ToString();
-        }
-
-        public static float RemapRange(this float value, float from1, float to1, float from2, float to2) {
-            return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
-        }
-
-        public static float RemapRange(this float value, Tuple<float, float> from, Tuple<float, float> to) {
-            return (value - from.Item1) / (from.Item2 - from.Item1) * (to.Item2 - to.Item1) + to.Item1;
         }
 
     }

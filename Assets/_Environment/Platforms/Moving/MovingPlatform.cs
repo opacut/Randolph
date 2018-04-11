@@ -39,6 +39,7 @@ namespace Randolph.Environment {
             if (attachedPlayer != null) {
                 Vector2 positionChange = GetPositionChange();
                 if (positionChange != Vector2.zero) {
+                    // TODO: Not if there's input
                     attachedPlayer.position += new Vector3(positionChange.x, positionChange.y, 0f);
                 }
 

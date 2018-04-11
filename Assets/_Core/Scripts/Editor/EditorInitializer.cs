@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Reflection;
+﻿using System.Linq;
 
 using Randolph.Interactable;
 
@@ -9,14 +7,15 @@ using UnityEditor;
 using UnityEngine;
 
 namespace Randolph.Core {
+    /// <summary>Defines actions to be called after each compilation or starting the editor.</summary>
     [InitializeOnLoad]
     public static class EditorInitializer {
 
-        // After each compilation or starting the editor
         static EditorInitializer() {
-            CheckItemDatabase();
+            CheckItemDatabase(); 
+            CheckSpriteRenderers();
         }
-
+        
 
         #region Items
 
@@ -33,6 +32,20 @@ namespace Randolph.Core {
             } else if (itemDatabases.Length > 1) {
                 // Duplicates are handled inside the ItemDatabase class
             }
+        }
+
+        #endregion
+
+        #region Sprites
+
+        ///<summary>Checks prefabs with sprite renderer</summary>
+        static void CheckSpriteRenderers() { 
+            var spriteRendererOfPrefabs = EditorMethods.FindComponentsOfPrefabs<SpriteRenderer>(); 
+            spriteRendererOfPrefabs.ForEach(PixelPerfectSprite);
+        }
+
+        static void PixelPerfectSprite(SpriteRenderer spriteRederer) {
+            // TODO: Set pixel perfect material
         }
 
         #endregion
