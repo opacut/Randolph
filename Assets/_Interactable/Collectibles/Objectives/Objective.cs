@@ -9,7 +9,7 @@ namespace Randolph.Interactable {
         void Start() {
             if (!animator) {
                 animator = FindObjectOfType<Canvas>()?.GetComponent<Animator>();
-                if (animator) Debug.Log("Temporary assigning an animator from the Canvas.");
+                if (animator) Debug.Log("Temporarily assigning an animator from the Canvas.", gameObject);
                 else Debug.LogWarning("The objective is missing an animator.", gameObject);
             }
         }

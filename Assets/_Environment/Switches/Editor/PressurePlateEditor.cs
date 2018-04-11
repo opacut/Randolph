@@ -1,46 +1,43 @@
-﻿using System.Collections.Generic;
-
-using Randolph.Environment;
+﻿using UnityEngine;
+using UnityEditor;
+using System.Collections.Generic;
 using Randolph.Levels;
 
-using UnityEditor;
+namespace Randolph.Environment {
+    [CustomEditor(typeof(PressurePlate))]
+    public class PressurePlateEditor : Editor {
 
-using UnityEngine;
+        PressurePlate pressurePlate;
 
+        SerializedProperty Spikes;
 
-[CustomEditor(typeof(PressurePlate))]
-public class PressurePlateEditor : Editor {
+        void OnEnable() {
+            pressurePlate = (PressurePlate) target;
+            Spikes = serializedObject.FindProperty(nameof(Spikes));
+        }
 
-    PressurePlate pressurePlate;
+        public override void OnInspectorGUI() {
+            serializedObject.Update();
 
-    SerializedProperty Spikes;
+            DrawDefaultInspector();
 
-    void OnEnable() {
-        pressurePlate = (PressurePlate) target;
-        Spikes = serializedObject.FindProperty(nameof(Spikes));
-    }
+            // This must be *after* DrawDefaultInspector, or the changes will be overwritten
+            GetAreaSpikesButton();
 
-    public override void OnInspectorGUI() {
-        serializedObject.Update();
+            serializedObject.ApplyModifiedProperties();
+        }
 
-        DrawDefaultInspector();
-
-        // This must be *after* DrawDefaultInspector, or the changes will be overwritten
-        GetAreaSpikesButton();
-
-        serializedObject.ApplyModifiedProperties();
-    }
-
-    void GetAreaSpikesButton() {
-        if (GUILayout.Button("Get all spikes in the current area")) {
-            var area = pressurePlate.GetComponentInParent<Area>();
-            List<SpikeTrap> areaSpikes = area.GetAreaSpikes();
-            Spikes.ClearArray();
-            Spikes.arraySize = areaSpikes.Count;
-            for (int i = 0; i < areaSpikes.Count; i++) {
-                Spikes.GetArrayElementAtIndex(i).objectReferenceValue = areaSpikes[i];
+        void GetAreaSpikesButton() {
+            if (GUILayout.Button("Get all spikes in the current area")) {
+                var area = pressurePlate.GetComponentInParent<Area>();
+                List<SpikeTrap> areaSpikes = area.GetAreaSpikes();
+                Spikes.ClearArray();
+                Spikes.arraySize = areaSpikes.Count;
+                for (int i = 0; i < areaSpikes.Count; i++) {
+                    Spikes.GetArrayElementAtIndex(i).objectReferenceValue = areaSpikes[i];
+                }
             }
         }
-    }
 
+    }
 }

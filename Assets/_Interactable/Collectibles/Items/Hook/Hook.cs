@@ -1,5 +1,5 @@
-﻿using Randolph.Characters;
-using UnityEngine;
+﻿using UnityEngine;
+using Randolph.Environment;
 
 namespace Randolph.Interactable {
     public class Hook : InventoryItem {
@@ -7,11 +7,11 @@ namespace Randolph.Interactable {
         public override bool isSingleUse { get { return false; } }
 
         public override bool IsApplicable(GameObject target) {
-            return target.GetComponent<HookJoint>();
+            return target.GetComponent<HookEye>();
         }
 
         public override void OnApply(GameObject target) {
-            target.GetComponent<HookJoint>().Activate();
+            target.GetComponent<HookEye>().Activate();
         }
     }
 }

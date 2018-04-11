@@ -27,7 +27,6 @@ GameObject:
   - component: {fileID: 114439651723681566}
   - component: {fileID: 114325058347477524}
   - component: {fileID: 114728767508982640}
-  - component: {fileID: 114744513604462832}
   - component: {fileID: 114937774556929832}
   m_Layer: 0
   m_Name: Main Camera
@@ -88,7 +87,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1394957825921830}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.09, y: 4.82, z: -1}
+  m_LocalPosition: {x: 0, y: 4, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4190242014010816}
@@ -129,7 +128,7 @@ Camera:
   far clip plane: 100
   field of view: 46.681202
   orthographic: 1
-  orthographic size: 1.6022727
+  orthographic size: 0.9791667
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -139,7 +138,7 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -165,7 +164,7 @@ Camera:
   far clip plane: 100
   field of view: 46.681202
   orthographic: 1
-  orthographic size: 0.92763156
+  orthographic size: 0.9791667
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -175,7 +174,7 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -211,7 +210,7 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -500,27 +499,6 @@ MonoBehaviour:
   _targetAspectRatio: 1.7777778
   VerticalAlignment: 0
   HorizontalAlignment: 0
---- !u!114 &114744513604462832
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1394957825921830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17577239430844efcbdda516df8c1f8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _pc2D: {fileID: 114450003079259384}
-  PixelsPerUnit: 16
-  ViewportAutoScale: 3
-  TargetViewportSizeInPixels: {x: 40, y: 30}
-  Zoom: 1
-  SnapMovementToGrid: 0
-  SnapCameraToGrid: 1
-  DrawGrid: 0
-  GridColor: {r: 1, g: 0, b: 0, a: 0.1}
-  GridDensity: 0
 --- !u!114 &114937774556929832
 MonoBehaviour:
   m_ObjectHideFlags: 1

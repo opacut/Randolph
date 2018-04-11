@@ -79,8 +79,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   On: 1
-  Active: {fileID: 21300000, guid: 77b014abf722d457bb1b93e4874b5fa4, type: 3}
-  Disabled: {fileID: 21300000, guid: 8a72f54d112ad46e0b343760f1ba5b39, type: 3}
+  active: {fileID: 21300000, guid: 800cdf30db53bd048aeb6ef475773253, type: 3}
+  disabled: {fileID: 21300002, guid: 800cdf30db53bd048aeb6ef475773253, type: 3}
 --- !u!212 &212636666385176058
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -96,7 +96,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 39e6bcd5e8eded14595d4f41b3f2313d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -116,7 +116,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 77b014abf722d457bb1b93e4874b5fa4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 800cdf30db53bd048aeb6ef475773253, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

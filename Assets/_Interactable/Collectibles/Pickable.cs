@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Randolph.Levels;
+using UnityEngine;
 
 namespace Randolph.Interactable {
     public abstract class Pickable : MonoBehaviour, IPickable {

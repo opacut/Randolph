@@ -1,10 +1,8 @@
-﻿using System.Linq;
-
-using Randolph.Interactable;
-
+﻿using UnityEngine;
 using UnityEditor;
-
-using UnityEngine;
+using System.Collections.Generic;
+using PixelPerfectSprite = Com.LuisPedroFonseca.ProCamera2D.ProCamera2DPixelPerfectSprite;
+using Randolph.Interactable;
 
 namespace Randolph.Core {
     /// <summary>Defines actions to be called after each compilation or starting the editor.</summary>
@@ -12,10 +10,10 @@ namespace Randolph.Core {
     public static class EditorInitializer {
 
         static EditorInitializer() {
-            CheckItemDatabase(); 
+            CheckItemDatabase();
             CheckSpriteRenderers();
         }
-        
+
 
         #region Items
 
@@ -39,13 +37,26 @@ namespace Randolph.Core {
         #region Sprites
 
         ///<summary>Checks prefabs with sprite renderer</summary>
-        static void CheckSpriteRenderers() { 
-            var spriteRendererOfPrefabs = EditorMethods.FindComponentsOfPrefabs<SpriteRenderer>(); 
+        static void CheckSpriteRenderers() {
+            List<SpriteRenderer> spriteRendererOfPrefabs = EditorMethods.FindComponentsOfPrefabs<SpriteRenderer>();
             spriteRendererOfPrefabs.ForEach(PixelPerfectSprite);
         }
 
         static void PixelPerfectSprite(SpriteRenderer spriteRederer) {
-            // TODO: Set pixel perfect material
+            Material pixelSnapMaterial = EditorConstants.Sprites.PixelSnapMaterial;
+            if (pixelSnapMaterial && spriteRederer.sharedMaterial != pixelSnapMaterial) {
+                spriteRederer.sharedMaterial = pixelSnapMaterial;
+            }
+
+            // var ppSpiteComponent = spriteRederer.GetComponent<PixelPerfectSprite>();                    
+            // if (ppSpiteComponent == null) {
+
+            // TODO: Add Pixel Perfect Sprite component
+
+            // Move it up to the SpriteRenderer | …IndexOf(spriteRenderer)
+            // UnityEditorInternal.ComponentUtility.MoveComponentUp(someComponent);
+            // UnityEditorInternal.ComponentUtility.MoveComponentDown(someComponent);
+            // }
         }
 
         #endregion

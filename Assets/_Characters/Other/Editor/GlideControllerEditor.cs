@@ -1,4 +1,6 @@
-﻿using UnityEditor;
+﻿using System.Runtime.CompilerServices;
+
+using UnityEditor;
 
 using UnityEditorInternal;
 
@@ -17,7 +19,6 @@ namespace Randolph.Characters {
         SerializedProperty movesFromStart;
         SerializedProperty loop;
         SerializedProperty continuous;
-
 
 
         void OnEnable() {
@@ -78,9 +79,25 @@ namespace Randolph.Characters {
                         rect.y += 2;
 
                         EditorGUI.BeginDisabledGroup(straightLines.boolValue == false);
-                        EditorGUI.PropertyField(
-                                new Rect(rect.x + 30, rect.y, rect.width - (30), EditorGUIUtility.singleLineHeight),
-                                element, GUIContent.none);
+
+                        EditorGUILayout.BeginHorizontal();
+                        Vector2 destinationVector = element.vector2Value;
+                        destinationVector.x = EditorGUI.DelayedFloatField(
+                                new Rect(rect.x + 30, rect.y, ((rect.width - 30) / 2f) - 2.5f, EditorGUIUtility.singleLineHeight),
+                                GUIContent.none,
+                                element.vector2Value.x);
+                        destinationVector.y = EditorGUI.DelayedFloatField(
+                                new Rect(rect.x + 30 + ((rect.width - 30) / 2f) + 2.5f, rect.y, ((rect.width - 30) / 2f) - 2.5f, EditorGUIUtility.singleLineHeight),
+                                GUIContent.none,
+                                element.vector2Value.y);
+                        element.vector2Value = destinationVector;
+                        EditorGUILayout.EndHorizontal();
+
+                        //! Not delayed field (values are submitted during writing)
+                        // EditorGUI.PropertyField(
+                        //         new Rect(rect.x + 30, rect.y, rect.width - (30), EditorGUIUtility.singleLineHeight),
+                        //         element, GUIContent.none);
+
                         EditorGUI.EndDisabledGroup();
                     };
         }
@@ -120,7 +137,7 @@ namespace Randolph.Characters {
                 Vector2 previous = glider.transform.position;
                 for (int index = 0; index < destinationsList.serializedProperty.arraySize; index++) {
                     var destination = destinationsList.serializedProperty.GetArrayElementAtIndex(index);
-                    Vector2 current = destination.vector2Value;                                        
+                    Vector2 current = destination.vector2Value;
                     destination.vector2Value = AlignPoints(current, previous);
                     previous = destination.vector2Value;
                 }

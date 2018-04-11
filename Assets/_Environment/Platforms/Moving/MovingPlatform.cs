@@ -1,23 +1,22 @@
-﻿using Randolph.Characters;
-
-using UnityEngine;
-using UnityEngine.Networking;
+﻿using UnityEngine;
+using Randolph.Characters;
 
 namespace Randolph.Environment {
     [RequireComponent(typeof(Glider))]
     public class MovingPlatform : MonoBehaviour {
+
         [SerializeField] GameObject chainLink;
         [SerializeField] Sprite chainCorner;
         [SerializeField] bool visibleChain = false;
-        Transform chainHolder;                
+        Transform chainHolder;
 
         Transform attachedPlayer;
         Animator animator;
         Vector2 lastPosition;
-        
+
 
         // [ExecuteInEditMode]
-        void Awake() {          
+        void Awake() {
             animator = GetComponent<Animator>();
             lastPosition = transform.position;
 
@@ -33,7 +32,7 @@ namespace Randolph.Environment {
                     Destroy(transform.GetChild(i));
                 }
             }
-        }        
+        }
 
         void FixedUpdate() {
             if (attachedPlayer != null) {
@@ -42,10 +41,9 @@ namespace Randolph.Environment {
                     // TODO: Not if there's input
                     attachedPlayer.position += new Vector3(positionChange.x, positionChange.y, 0f);
                 }
-
-                animator.SetBool("Move", positionChange != Vector2.zero); // Move animation when moving
             }
 
+            animator.SetBool("Move", lastPosition != (Vector2) transform.position); // Move animation when moving
             lastPosition = transform.position;
         }
 

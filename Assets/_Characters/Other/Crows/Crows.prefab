@@ -104,6 +104,8 @@ MonoBehaviour:
   - {x: 22.03, y: -7.7}
   - {x: 33.8, y: 0.8}
   - {x: 54.3, y: 4.2}
+  straightLines: 0
+  movesFromStart: 0
   loop: 1
   continuous: 0
 --- !u!212 &212545606783568906
@@ -121,7 +123,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 39e6bcd5e8eded14595d4f41b3f2313d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
