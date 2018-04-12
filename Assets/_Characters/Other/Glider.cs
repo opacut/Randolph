@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
-#pragma warning disable 414
 using UnityEngine;
-
+using Randolph.Core;
 using Randolph.Levels;
+
+#pragma warning disable 414
 
 namespace Randolph.Characters {
     [RequireComponent(typeof(Collider2D))]
     public class Glider : MonoBehaviour, IRestartable {
-
+        
         [SerializeField] float speed = 20;
         [SerializeField] List<Vector2> destinations = new List<Vector2>();
         [SerializeField] bool straightLines = false;
@@ -20,11 +21,16 @@ namespace Randolph.Characters {
         [SerializeField] bool movesFromStart = false;
         [SerializeField] bool loop = false;
         [SerializeField] bool continuous = false;
-        bool disturbed = false;
+        public bool Disturbed { get; private set; } = false;
 
-        public delegate void OnGlidingEnd(Vector3 position);
+        public delegate void GlidingEnd(Vector2 position);
+        public event GlidingEnd OnGlidingEnd;
 
-        public event OnGlidingEnd onGlidingEnd;
+        public delegate void DestinationChange(Vector2 position, Vector2 nextDestination);
+        public event DestinationChange OnDestinationChange;
+
+        public delegate void PlayerDisturbed(PlayerController player);
+        public event PlayerDisturbed OnPlayerDisturbed;
 
         void Start() {
             initialPosition = transform.position;
@@ -39,25 +45,27 @@ namespace Randolph.Characters {
             if ((Vector2) transform.position != currentDestination) {
                 // Move towards the destination each frame until the object reaches it
                 IncrementPosition();
-            } else if (continuous && disturbed) {
+            } else if (continuous && Disturbed) {
                 SetNextDestination();
             }
         }
 
         void OnCollisionEnter2D(Collision2D collision) {
-            if (collision.gameObject.tag == "Player" && (!disturbed || !continuous)) {
+            if ((collision.gameObject.tag == Constants.Tag.Player) && (!Disturbed || !continuous)) {
+                OnPlayerDisturbed?.Invoke(collision.gameObject.GetComponent<PlayerController>());
                 StartMoving();
             }
         }
 
         void OnTriggerEnter2D(Collider2D other) {
-            if (other.tag == "Player" && (!disturbed || !continuous)) {
+            if ((other.tag == Constants.Tag.Player) && (!Disturbed || !continuous)) {
+                OnPlayerDisturbed?.Invoke(other.GetComponent<PlayerController>());
                 StartMoving();
             }
         }
 
         void StartMoving() {
-            disturbed = true;
+            Disturbed = true;
             SetNextDestination();
         }
 
@@ -68,7 +76,7 @@ namespace Randolph.Characters {
         public void Restart() {
             transform.position = initialPosition;
             CreateDestinationQueue();
-            disturbed = false;
+            Disturbed = false;
             gameObject.SetActive(true);
         }
 
@@ -98,11 +106,13 @@ namespace Randolph.Characters {
         void SetNextDestination() {
             if (destinationQueue.Count > 0) {
                 SetDestination(destinationQueue.Dequeue());
+                OnDestinationChange?.Invoke(transform.position, currentDestination);
             } else if (loop) {
                 CreateDestinationQueue();
+                OnDestinationChange?.Invoke(transform.position, currentDestination);
             } else {
                 // Invoke the event of ended gliding
-                onGlidingEnd?.Invoke(transform.position);
+                OnGlidingEnd?.Invoke(transform.position);
             }
         }
 

@@ -47,7 +47,7 @@ namespace Randolph.Characters {
             Vector3 center = collider.bounds.center;
 
             if (alive) {
-                if (collider.tag == "Player") {
+                if (collider.tag == Constants.Tag.Player) {
                     collider.gameObject.GetComponent<PlayerController>().Kill(1);
                 } else {
                     var squasher = collider.gameObject.GetComponent<Boulder>();

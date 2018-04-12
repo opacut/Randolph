@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using Randolph.Characters;
+using Randolph.Core;
+using Randolph.Levels;
 
 namespace Randolph.Environment {
     [RequireComponent(typeof(Glider))]
-    public class MovingPlatform : MonoBehaviour {
+    public class MovingPlatform : MonoBehaviour, IRestartable {
 
         [SerializeField] GameObject chainLink;
         [SerializeField] Sprite chainCorner;
@@ -13,14 +15,18 @@ namespace Randolph.Environment {
         Transform attachedPlayer;
         Animator animator;
         Vector2 lastPosition;
-
-
-        // [ExecuteInEditMode]
+        
         void Awake() {
             animator = GetComponent<Animator>();
             lastPosition = transform.position;
 
             if (visibleChain) ConstructChain();
+        }
+
+        public void Restart() {
+            // Position handled by the glider
+            attachedPlayer = null;
+            animator.SetBool("Move", false);
         }
 
         void ConstructChain() {
@@ -48,13 +54,13 @@ namespace Randolph.Environment {
         }
 
         void OnCollisionEnter2D(Collision2D collision) {
-            if (collision.gameObject.tag == "Player") {
+            if (collision.gameObject.tag == Constants.Tag.Player) {
                 attachedPlayer = collision.transform;
             }
         }
 
         void OnCollisionExit2D(Collision2D collision) {
-            if (collision.gameObject.tag == "Player") {
+            if (collision.gameObject.tag == Constants.Tag.Player) {
                 attachedPlayer = null;
             }
         }

@@ -1,4 +1,5 @@
 using Randolph.Characters;
+using Randolph.Core;
 using Randolph.Levels;
 using UnityEngine;
 
@@ -17,7 +18,7 @@ namespace Randolph.Environment {
         }
 
         public void OnTriggerEnter2D(Collider2D other) {
-            if (other.tag == "Player") {
+            if (other.tag == Constants.Tag.Player) {
                 other.GetComponent<PlayerController>().Kill();
             }
         }

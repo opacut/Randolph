@@ -1,16 +1,15 @@
-using Randolph.Interactable;
 using UnityEngine;
+using Randolph.Core;
 
 namespace Randolph.Characters {
     [RequireComponent(typeof(SpriteRenderer))]
     public class Flytrap : MonoBehaviour, IEnemy {
+
         public bool Active { get; private set; } = true;
 
         Sprite alive;
-        [Space(10), SerializeField]
-        Sprite closed;
-        [SerializeField]
-        Sprite crushed;
+        [Space(10), SerializeField] Sprite closed;
+        [SerializeField] Sprite crushed;
 
         SpriteRenderer spriteRenderer;
 
@@ -21,7 +20,7 @@ namespace Randolph.Characters {
 
         private void OnTriggerEnter2D(Collider2D other) {
             if (Active) {
-                if (other.tag == "Player") {
+                if (other.tag == Constants.Tag.Player) {
                     Deactivate();
                     other.gameObject.GetComponent<PlayerController>().Kill(1);
                 }
@@ -49,5 +48,6 @@ namespace Randolph.Characters {
             spriteRenderer.sprite = alive;
             Active = true;
         }
+
     }
 }

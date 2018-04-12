@@ -9,18 +9,15 @@ namespace Randolph.Characters {
     [RequireComponent(typeof(DistanceJoint2D))]
     public class PlayerController : MonoBehaviour {
 
-        [Header("Movement")] [SerializeField] float climbingSpeed = 6;
+        [Header("Movement")]
+        [SerializeField] float climbingSpeed = 6;
         [SerializeField] float movementSpeed = 6;
         [SerializeField] float jumpForce = 800;
 
         [Header("Jumping")]
         //[SerializeField] CollisionInfo collisions;
-        [SerializeField]
-        LayerMask groundLayers;
-
-        [SerializeField, Range(2, 12), Tooltip("Number of rays to check the ground with")]
-        int groundRayCount = 4;
-
+        [SerializeField] LayerMask groundLayers;
+        [SerializeField, Range(2, 12)] int groundRayCount = 4;
         float groundRaySpacing;
         const float SkinWidth = 0.015f; // overlapping tolerance    
         RaycastOrigins2D raycastOrigins;
@@ -45,17 +42,21 @@ namespace Randolph.Characters {
         int currentLadder = 0;
         bool isClimbing = false;
 
-        private void Awake() {
+        void Awake() {
+            GetComponents();
+            gravity = rbody.gravityScale;
+            CalculateRaySpacing();
+        }
+
+        void GetComponents() {
             animator = GetComponent<Animator>();
             rbody = GetComponent<Rigidbody2D>();
             collider = GetComponent<Collider2D>();
             grapplingJoint = GetComponent<DistanceJoint2D>();
             grappleRopeRenderer = GetComponent<LineRenderer>();
-            gravity = rbody.gravityScale;
-            CalculateRaySpacing();
         }
 
-        private void Update() {
+        void Update() {
             jump = Input.GetButton("Jump");
 
             //! Debug
@@ -94,8 +95,18 @@ namespace Randolph.Characters {
         private void OnTriggerExit2D(Collider2D other) {
             if (other.tag == Constants.Tag.Ladder) {
                 --currentLadder;
-                if (currentLadder <= 0) IgnoreCollision(false);
+                if (currentLadder <= 0) {                    
+                    rbody.velocity = new Vector2(rbody.velocity.x, 0); // Stop hopping at the end of a ladder
+                    IgnoreCollision(false);
+                }
             }
+        }
+
+        public void Kill(float delay = 0.25f) {
+            StopGrappling();
+            StopClimbing();
+            LevelManager.levelManager.ReturnToCheckpoint(delay);
+            gameObject.SetActive(false);
         }
 
         #region Move
@@ -188,7 +199,7 @@ namespace Randolph.Characters {
         #region Climb
 
         void Climbing(float vertical, float horizontal = 0f) {
-            if (!isClimbing && currentLadder > 0 && Mathf.Abs(vertical) > 0.001f) {
+            if (!isClimbing && currentLadder > 0 && Mathf.Abs(vertical) > Mathf.Epsilon) {
                 isClimbing = true;
                 rbody.gravityScale = 0;
 
@@ -218,6 +229,10 @@ namespace Randolph.Characters {
             if (gameObject.activeSelf) animator.SetBool("Climbing", false);
         }
 
+        void IgnoreCollision(bool ignore) {
+            Methods.IgnoreLayerMaskCollision(Constants.Layer.Player, groundLayers, ignore);
+        }
+
         #endregion
 
         #region Grapple
@@ -245,17 +260,6 @@ namespace Randolph.Characters {
         }
 
         #endregion
-
-        void IgnoreCollision(bool ignore) {
-            Methods.IgnoreLayerMaskCollision(Constants.Layer.Player, groundLayers, ignore);            
-        }
-
-        public void Kill(float delay = 0.25f) {
-            StopGrappling();
-            StopClimbing();
-            LevelManager.levelManager.ReturnToCheckpoint(delay);
-            gameObject.SetActive(false);
-        }
 
         #region Debug
 

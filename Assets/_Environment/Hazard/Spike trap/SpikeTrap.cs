@@ -1,5 +1,5 @@
 ﻿using Randolph.Characters;
-
+using Randolph.Core;
 using UnityEngine;
 
 namespace Randolph.Environment {
@@ -23,7 +23,7 @@ namespace Randolph.Environment {
         }
 
         public void OnTriggerStay2D(Collider2D other) {
-            if (On && (other.tag == "Player")) {
+            if (On && (other.tag == Constants.Tag.Player)) {
                 other.GetComponent<PlayerController>().Kill();
             }
         }

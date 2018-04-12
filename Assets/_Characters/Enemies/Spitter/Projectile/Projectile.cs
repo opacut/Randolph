@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Randolph.Core;
+using UnityEngine;
 
 namespace Randolph.Characters {
     public class Projectile : MonoBehaviour {
@@ -16,11 +17,11 @@ namespace Randolph.Characters {
         }
 
         void OnTriggerEnter2D(Collider2D other) {
-            if (other.tag == "Player") {
+            if (other.tag == Constants.Tag.Player) {
                 other.gameObject.GetComponent<PlayerController>().Kill();
             }
 
-            if (other.tag != "Ladder") {
+            if (other.tag != Constants.Tag.Ladder) {
                 Destroy(gameObject);
             }
         }

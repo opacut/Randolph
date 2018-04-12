@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-
+using Randolph.Core;
 using UnityEngine;
 
 using Randolph.Interactable;
@@ -14,7 +14,7 @@ namespace Randolph.Levels {
         [SerializeField] List<Objective> objectives = new List<Objective>();
 
         void OnCollisionEnter2D(Collision2D collision) {
-            if (collision.gameObject.tag != "Player") return;
+            if (collision.gameObject.tag != Constants.Tag.Player) return;
 
             if (objectives.All(objective => objective.IsCompleted)) {
                 LevelManager.LoadNextLevel();

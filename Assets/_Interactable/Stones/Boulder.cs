@@ -26,9 +26,8 @@ namespace Randolph.Interactable {
             gameObject.transform.rotation = initialRotation;
         }
 
-        private void OnTriggerEnter2D(Collider2D other) {
-            // TODO: If any enemy
-            if (other.tag == "Enemy") {
+        private void OnTriggerEnter2D(Collider2D other) {            
+            if (other.tag == Constants.Tag.Enemy) {
                 other.gameObject.GetComponent<Flytrap>()?.Kill();
             }
         }

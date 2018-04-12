@@ -2,10 +2,9 @@
 
 namespace Randolph.Levels {
     public class GenericRestart : MonoBehaviour, IRestartable {
-        [SerializeField, ReadonlyField]
-        Vector3 initialPosition;
-        [SerializeField, ReadonlyField]
-        Quaternion initialRotation;
+
+        [SerializeField, ReadonlyField] Vector2 initialPosition;
+        [SerializeField, ReadonlyField] Quaternion initialRotation;
 
         void Awake() {
             initialPosition = transform.position;
