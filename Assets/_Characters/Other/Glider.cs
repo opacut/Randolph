@@ -8,7 +8,7 @@ using Randolph.Levels;
 namespace Randolph.Characters {
     [RequireComponent(typeof(Collider2D))]
     public class Glider : MonoBehaviour, IRestartable {
-        
+
         [SerializeField] float speed = 20;
         [SerializeField] List<Vector2> destinations = new List<Vector2>();
         [SerializeField] bool straightLines = false;
@@ -16,7 +16,7 @@ namespace Randolph.Characters {
         Queue<Vector2> destinationQueue = new Queue<Vector2>();
         Vector2 currentDestination;
 
-        Vector3 initialPosition;
+        Vector3 initialPosition;        
 
         [SerializeField] bool movesFromStart = false;
         [SerializeField] bool loop = false;
@@ -24,12 +24,15 @@ namespace Randolph.Characters {
         public bool Disturbed { get; private set; } = false;
 
         public delegate void GlidingEnd(Vector2 position);
+
         public event GlidingEnd OnGlidingEnd;
 
         public delegate void DestinationChange(Vector2 position, Vector2 nextDestination);
+
         public event DestinationChange OnDestinationChange;
 
         public delegate void PlayerDisturbed(PlayerController player);
+
         public event PlayerDisturbed OnPlayerDisturbed;
 
         void Start() {
@@ -77,6 +80,7 @@ namespace Randolph.Characters {
             transform.position = initialPosition;
             CreateDestinationQueue();
             Disturbed = false;
+            if (movesFromStart) StartMoving();
             gameObject.SetActive(true);
         }
 
@@ -117,14 +121,13 @@ namespace Randolph.Characters {
         }
 
         void OnDrawGizmosSelected() {
-            initialPosition = transform.position;
             var queueCopy = new Queue<Vector2>(destinations);
-            if (loop) queueCopy.Enqueue(initialPosition);
+            if (loop) queueCopy.Enqueue(transform.position);
 
             if (queueCopy.Count > 0) {
                 Gizmos.color = Color.cyan;
 
-                Vector2 startPoint = initialPosition;
+                Vector2 startPoint = transform.position;
                 while (queueCopy.Count > 0) {
                     Vector2 destination = queueCopy.Dequeue();
 

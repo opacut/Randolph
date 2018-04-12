@@ -7,7 +7,6 @@ AnimatorController:
   m_PrefabInternal: {fileID: 0}
   m_Name: Crows
   serializedVersion: 5
-<<<<<<< Updated upstream
   m_AnimatorParameters:
   - m_Name: Flying
     m_Type: 4
@@ -146,7 +145,3 @@ AnimatorStateMachine:
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 1102569191752543660}
-=======
-  m_AnimatorParameters: []
-  m_AnimatorLayers: []
->>>>>>> Stashed changes

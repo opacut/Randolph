@@ -9,14 +9,15 @@ namespace Randolph.Characters {
     [RequireComponent(typeof(DistanceJoint2D))]
     public class PlayerController : MonoBehaviour {
 
-        [Header("Movement")]
-        [SerializeField] float climbingSpeed = 6;
+        [Header("Movement")] [SerializeField] float climbingSpeed = 6;
         [SerializeField] float movementSpeed = 6;
         [SerializeField] float jumpForce = 800;
 
         [Header("Jumping")]
         //[SerializeField] CollisionInfo collisions;
-        [SerializeField] LayerMask groundLayers;
+        [SerializeField]
+        LayerMask groundLayers;
+
         [SerializeField, Range(2, 12)] int groundRayCount = 4;
         float groundRaySpacing;
         const float SkinWidth = 0.015f; // overlapping tolerance    
@@ -95,8 +96,8 @@ namespace Randolph.Characters {
         private void OnTriggerExit2D(Collider2D other) {
             if (other.tag == Constants.Tag.Ladder) {
                 --currentLadder;
-                if (currentLadder <= 0) {                    
-                    rbody.velocity = new Vector2(rbody.velocity.x, 0); // Stop hopping at the end of a ladder
+                if (currentLadder <= 0) {
+                    //rbody.velocity = new Vector2(rbody.velocity.x, 0); // Stop hopping at the end of a ladder
                     IgnoreCollision(false);
                 }
             }
@@ -157,6 +158,13 @@ namespace Randolph.Characters {
 
         #region Raycasting
 
+        public struct RaycastOrigins2D {
+
+            public Vector2 bottomLeft;
+            public Vector2 bottomRight;
+
+        }
+
         public bool GroundCheck(Vector2 point, float radius, int layerMask) {
             UpdateRaycastOrigins();
 
@@ -165,7 +173,10 @@ namespace Randolph.Characters {
             for (int i = 0; i < groundRayCount; i++) {
                 RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, rayLength, layerMask);
                 // Debug.DrawRay(rayOrigin, Vector2.down * rayLength, Color.red);
-                if (hit.collider) return true;
+                if (hit.collider) {
+                    return true;
+                }
+
                 rayOrigin.x += groundRaySpacing;
             }
 
@@ -185,13 +196,6 @@ namespace Randolph.Characters {
 
             raycastOrigins.bottomLeft = new Vector2(bounds.min.x, bounds.min.y);
             raycastOrigins.bottomRight = new Vector2(bounds.max.x, bounds.min.y);
-        }
-
-        public struct RaycastOrigins2D {
-
-            public Vector2 bottomLeft;
-            public Vector2 bottomRight;
-
         }
 
         #endregion
@@ -283,11 +287,6 @@ namespace Randolph.Characters {
                     checkpoinContainer.SetReached(previousCheckpoint);
                 }
             }
-        }
-
-        public void OnDrawGizmos() {
-            Gizmos.color = (isOnGround) ? Color.green : Color.gray;
-            Methods.GizmosDrawCircle(groundCheck.position, groundCheckRadius);
         }
 
         #endregion
