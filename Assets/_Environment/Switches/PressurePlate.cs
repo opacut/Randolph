@@ -4,26 +4,30 @@ using System.Linq;
 using Randolph.Core;
 
 using UnityEngine;
-// TODO: Derive from abstract class
+// TODO: Derive from abstract class, IRestartable
 namespace Randolph.Environment {
     [RequireComponent(typeof(SpriteRenderer))]
     public class PressurePlate : MonoBehaviour {
-        public bool Powered { get { return holding == 0; } }
+        
+        [Header("Pressure Plate")]
         [SerializeField] List<SpikeTrap> Spikes;
-        [SerializeField] Sprite activeSprite;
+        [SerializeField] AudioClip switchSound;
+        AudioSource audioSource;
+        public bool Powered { get { return holding == 0; } }
+        [Header("Sprites")] [SerializeField] Sprite activeSprite;
         [SerializeField] Sprite inactiveSprite;
 
         SpriteRenderer spriteRederer;
         int holding = 0;
 
-        void Awake() {
+        void Start() {
             spriteRederer = GetComponent<SpriteRenderer>();
+            audioSource = AudioPlayer.audioPlayer.AddLocalAudioSource(gameObject);
         }
 
         void OnTriggerEnter2D(Collider2D other) {
             if (holding == 0) {
-                Spikes.ForEach(s => s.Toggle());
-                spriteRederer.sprite = inactiveSprite;
+                Flip(false);
             }
             ++holding;
         }
@@ -31,9 +35,14 @@ namespace Randolph.Environment {
         void OnTriggerExit2D(Collider2D collision) {
             --holding;
             if (holding == 0) {
-                Spikes.ForEach(s => s.Toggle());
-                spriteRederer.sprite = activeSprite;
+                Flip(true);
             }
+        }
+
+        void Flip(bool active) {
+            Spikes.ForEach(s => s.Toggle());
+            AudioPlayer.audioPlayer.PlayLocalSound(audioSource, switchSound);
+            spriteRederer.sprite = (active) ? activeSprite : inactiveSprite;
         }
 
         void OnDrawGizmosSelected() {

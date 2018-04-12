@@ -8,17 +8,21 @@ namespace Randolph.Characters {
         public bool Active { get; private set; } = true;
 
         Sprite alive;
-        [Space(10), SerializeField] Sprite closed;
+        [Header("Sprites")][SerializeField] Sprite closed;
         [SerializeField] Sprite crushed;
+        [Header("Audio")] [SerializeField] AudioClip closeSound;
+        [SerializeField] AudioClip crushSound;        
 
         SpriteRenderer spriteRenderer;
+        AudioSource audioSource;
 
-        private void Awake() {
-            spriteRenderer = GetComponent<SpriteRenderer>();
+        void Start() {
+            spriteRenderer = GetComponent<SpriteRenderer>();        
+            audioSource = AudioPlayer.audioPlayer.AddLocalAudioSource(gameObject);
             alive = spriteRenderer.sprite;
         }
 
-        private void OnTriggerEnter2D(Collider2D other) {
+        void OnTriggerEnter2D(Collider2D other) {
             if (Active) {
                 if (other.tag == Constants.Tag.Player) {
                     Deactivate();
@@ -36,11 +40,13 @@ namespace Randolph.Characters {
 
         public void Deactivate() {
             spriteRenderer.sprite = closed;
+            AudioPlayer.audioPlayer.PlayLocalSound(audioSource, closeSound);
             Active = false;
         }
 
         public void Kill() {
             spriteRenderer.sprite = crushed;
+            AudioPlayer.audioPlayer.PlayLocalSound(audioSource, crushSound);
             Active = false;
         }
 

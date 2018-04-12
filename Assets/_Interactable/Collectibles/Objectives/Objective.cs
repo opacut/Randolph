@@ -1,10 +1,15 @@
 ﻿using UnityEngine;
+using Randolph.Core;
 
 namespace Randolph.Interactable {
     public class Objective : Pickable {
 
+        [SerializeField] AudioClip collectSound;
         [SerializeField] Animator animator;
-        public override bool isSingleUse { get { return false; } }
+
+        public override bool isSingleUse {
+            get { return false; }
+        }
 
         void Start() {
             if (!animator) {
@@ -18,6 +23,7 @@ namespace Randolph.Interactable {
 
         public override void OnPick() {
             IsCompleted = true;
+            AudioPlayer.audioPlayer.PlayGlobalSound(collectSound);
             gameObject.SetActive(false);
 
             animator.SetTrigger("ObjectiveFound");

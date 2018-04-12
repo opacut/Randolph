@@ -44,7 +44,5 @@ namespace Randolph.Core {
             Gizmos.DrawLine(position, lastPosition);
         }
 
-        
-
     }
 }

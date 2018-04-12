@@ -14,24 +14,28 @@ namespace Randolph.Levels {
         public PlayerController Player { get; private set; }
         public CheckpointContainer Checkpoints { get; private set; }
 
+        public delegate void NewLevel(Scene scene, PlayerController player);
+        /// <summary>An event invoked at the start of each level containing a <see cref="PlayerController"/>.</summary>
+        public static event NewLevel OnNewLevel;
+
+
         void Awake() {
-            //! Singleton pattern (pass Level Manager between levels; destroy excess ones)
+            //! Pass Level Manager between levels; destroy excess ones
             DontDestroyOnLoad(this);
 
             if (FindObjectsOfType(GetType()).Length > 1) {
                 Destroy(gameObject);
             } else levelManager = this;
 
-            //! Each level
             SceneManager.sceneLoaded += InitializeLevel;
         }
 
         void InitializeLevel(Scene scene, LoadSceneMode loadSceneMode) {
             Player = FindObjectOfType<PlayerController>();
-
             if (Player) {
                 PlayerPrefs.SetInt(levelKey, SceneManager.GetActiveScene().buildIndex);
                 Checkpoints = FindObjectOfType<CheckpointContainer>();
+                OnNewLevel?.Invoke(scene, Player);
             }
         }
 

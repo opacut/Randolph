@@ -7,7 +7,14 @@ namespace Randolph.Core {
 
         public static class Audio {
 
-            public static readonly Vector2 AudioListener = Camera.main.transform.position;
+            public const float FullVolume = 1.0f;
+            public const float BackgroundVolume = 0.33f;
+            public const float SilentVolume = 0.0f;
+
+            /// <summary>Returns the current position of the audio listener.</summary>
+            public static Vector2 AudioListener {
+                get { return Camera.main.transform.position; }
+            }
 
         }
 
@@ -39,6 +46,9 @@ namespace Randolph.Core {
         public const float GizmoSphereRadius = 0.25f;
 
         public static readonly LayerMask GroundLayerMask = 1 << Layer.Ground;
+
+        const float RaycastSkinWidth = 0.015f; // overlapping tolerance
+        public const float RaycastBoundsShrinkage = RaycastSkinWidth * -2;
 
     }
 }

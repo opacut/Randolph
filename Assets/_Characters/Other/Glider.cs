@@ -24,15 +24,12 @@ namespace Randolph.Characters {
         public bool Disturbed { get; private set; } = false;
 
         public delegate void GlidingEnd(Vector2 position);
-
         public event GlidingEnd OnGlidingEnd;
 
         public delegate void DestinationChange(Vector2 position, Vector2 nextDestination);
-
         public event DestinationChange OnDestinationChange;
 
         public delegate void PlayerDisturbed(PlayerController player);
-
         public event PlayerDisturbed OnPlayerDisturbed;
 
         void Start() {

@@ -1,23 +1,44 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-
 using Randolph.Core;
-
 using UnityEngine;
-// TODO: Derive from abstract class
+
+// TODO: Derive from abstract class, IRestartable
 namespace Randolph.Environment {
     [RequireComponent(typeof(SpriteRenderer))]
     public class Switch : MonoBehaviour {
 
-        [SerializeField] bool Powered;
+        [Header("Switch")]
         [SerializeField] List<SpikeTrap> Spikes;
+        [SerializeField] bool Powered;
+        [SerializeField] AudioClip switchSound;
+        AudioSource audioSource;
+
+        [Header("Sprites")]
         [SerializeField] Sprite activeSprite;
         [SerializeField] Sprite inactiveSprite;
 
-        void OnTriggerEnter2D(Collider2D other) {
-            Powered = !Powered;
+        SpriteRenderer spriteRederer;
 
-            GetComponent<SpriteRenderer>().sprite = Powered ? inactiveSprite : activeSprite;
+
+        void Awake() {
+            spriteRederer = GetComponent<SpriteRenderer>();
+            audioSource = AudioPlayer.audioPlayer.AddLocalAudioSource(gameObject);
+        }
+
+        void OnTriggerEnter2D(Collider2D other) {
+            // Powered = !Powered;
+
+            // spriteRederer.sprite = Powered ? inactiveSprite : activeSprite;
+            // Spikes.ForEach(s => s.Toggle());
+            Flip(Powered);
+        }
+
+        void Flip(bool active) {
+            Powered = !active;
+
+            spriteRederer.sprite = (active) ? activeSprite : inactiveSprite;
+            AudioPlayer.audioPlayer.PlayLocalSound(audioSource, switchSound);
             Spikes.ForEach(s => s.Toggle());
         }
 

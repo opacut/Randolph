@@ -1,11 +1,11 @@
 fileFormatVersion: 2
 guid: 4c0450b3d4e929d48b4b1ac09e337159
-timeCreated: 1517589767
-licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - collectSound: {fileID: 8300000, guid: cb4fb9eae5b94c24393ebd3868416246, type: 3}
+  - animator: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

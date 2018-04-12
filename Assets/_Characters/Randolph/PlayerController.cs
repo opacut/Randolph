@@ -9,16 +9,16 @@ namespace Randolph.Characters {
     [RequireComponent(typeof(DistanceJoint2D))]
     public class PlayerController : MonoBehaviour {
 
-        [Header("Movement")] [SerializeField] float climbingSpeed = 6;
+        [Header("Movement")]
+        [SerializeField] AudioClip deathSound;
+        [SerializeField] float climbingSpeed = 6;
         [SerializeField] float movementSpeed = 6;
         [SerializeField] float jumpForce = 800;
 
-        [Header("Jumping")]
-        //[SerializeField] CollisionInfo collisions;
-        [SerializeField]
-        LayerMask groundLayers;
-
+        [Header("Jumping")]        
+        [SerializeField] LayerMask groundLayers;
         [SerializeField, Range(2, 12)] int groundRayCount = 4;
+        [SerializeField] float groundCheckRayLength = 0.2f;
         float groundRaySpacing;
         const float SkinWidth = 0.015f; // overlapping tolerance    
         RaycastOrigins2D raycastOrigins;
@@ -28,10 +28,11 @@ namespace Randolph.Characters {
         bool jump = false;
         float gravity = 0;
 
-        public Transform groundCheck;
-        float groundCheckRadius = 0.2f;
+        int currentLadder = 0;
+        bool isClimbing = false;
 
         Animator animator;
+        AudioSource audioSource;
         Rigidbody2D rbody;
         DistanceJoint2D grapplingJoint;
         LineRenderer grappleRopeRenderer;
@@ -39,9 +40,6 @@ namespace Randolph.Characters {
         bool IsGrappled {
             get { return grapplingJoint.isActiveAndEnabled; }
         }
-
-        int currentLadder = 0;
-        bool isClimbing = false;
 
         void Awake() {
             GetComponents();
@@ -51,6 +49,7 @@ namespace Randolph.Characters {
 
         void GetComponents() {
             animator = GetComponent<Animator>();
+            audioSource = AudioPlayer.audioPlayer.AddLocalAudioSource(gameObject);
             rbody = GetComponent<Rigidbody2D>();
             collider = GetComponent<Collider2D>();
             grapplingJoint = GetComponent<DistanceJoint2D>();
@@ -68,7 +67,7 @@ namespace Randolph.Characters {
             float vertical = Input.GetAxisRaw("Vertical");
             float horizontal = Input.GetAxisRaw("Horizontal");
 
-            isOnGround = GroundCheck(groundCheck.position, groundCheckRadius, groundLayers);
+            isOnGround = GroundCheck(groundCheckRayLength, groundLayers);
 
             Moving(horizontal);
             Jumping();
@@ -106,6 +105,7 @@ namespace Randolph.Characters {
         public void Kill(float delay = 0.25f) {
             StopGrappling();
             StopClimbing();
+            AudioPlayer.audioPlayer.PlayLocalSound(audioSource, deathSound);
             LevelManager.levelManager.ReturnToCheckpoint(delay);
             gameObject.SetActive(false);
         }
@@ -165,10 +165,9 @@ namespace Randolph.Characters {
 
         }
 
-        public bool GroundCheck(Vector2 point, float radius, int layerMask) {
+        public bool GroundCheck(float rayLength, int layerMask) {
             UpdateRaycastOrigins();
 
-            float rayLength = radius;
             Vector2 rayOrigin = raycastOrigins.bottomLeft;
             for (int i = 0; i < groundRayCount; i++) {
                 RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, rayLength, layerMask);
@@ -185,14 +184,14 @@ namespace Randolph.Characters {
 
         public void CalculateRaySpacing() {
             Bounds bounds = collider.bounds;
-            bounds.Expand(SkinWidth * -2);
+            bounds.Expand(Constants.RaycastBoundsShrinkage);
 
             groundRaySpacing = bounds.size.x / (groundRayCount - 1);
         }
 
         void UpdateRaycastOrigins() {
             Bounds bounds = collider.bounds;
-            bounds.Expand(SkinWidth * -2);
+            bounds.Expand(Constants.RaycastBoundsShrinkage);
 
             raycastOrigins.bottomLeft = new Vector2(bounds.min.x, bounds.min.y);
             raycastOrigins.bottomRight = new Vector2(bounds.max.x, bounds.min.y);

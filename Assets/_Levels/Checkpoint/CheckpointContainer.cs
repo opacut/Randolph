@@ -13,12 +13,10 @@ namespace Randolph.Levels {
     public class CheckpointContainer : MonoBehaviour {
 
         [SerializeField, ReadonlyField] Checkpoint reached;
-
+        [SerializeField, Tooltip("Aligns the player's position to the first checkpoint in the list.")] bool alignPlayer = true;
         [SerializeField, ReadonlyField] List<Checkpoint> checkpoints = new List<Checkpoint>();
         public const string checkpointKey = "ReachedCheckpointIndex";
-
         PlayerController player;
-        
 
         void Awake() {
             Debug.Assert(FindObjectsOfType(GetType()).Length == 1, "There is always supposed to be only one <b>CheckpointContainer</b> in a level.", gameObject);
@@ -29,7 +27,10 @@ namespace Randolph.Levels {
                 Debug.Assert(checkpoints.Any(), "There are no checkpoints in the container!", gameObject);
                 reached = checkpoints.First();
                 PlayerPrefs.SetInt(checkpointKey, checkpoints.IndexOf(reached));
-                player.transform.position = reached.transform.position;
+                if (alignPlayer) {
+                    player.transform.position = reached.transform.position;
+                    player.transform.AlignToGround();
+                }
             }
         }
 
