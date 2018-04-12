@@ -1,8 +1,7 @@
-﻿using Randolph.Core;
+﻿using UnityEngine;
+using Randolph.Core;
 using Randolph.Interactable;
 using Randolph.Levels;
-
-using UnityEngine;
 
 namespace Randolph.Characters {
     [RequireComponent(typeof(Animator))]
@@ -10,23 +9,36 @@ namespace Randolph.Characters {
     [RequireComponent(typeof(DistanceJoint2D))]
     public class PlayerController : MonoBehaviour {
 
-        [SerializeField] float climbingSpeed = 6;
+        [Header("Movement")] [SerializeField] float climbingSpeed = 6;
         [SerializeField] float movementSpeed = 6;
         [SerializeField] float jumpForce = 800;
+
+        [Header("Jumping")]
+        //[SerializeField] CollisionInfo collisions;
+        [SerializeField]
+        LayerMask groundLayers;
+
+        [SerializeField, Range(2, 12), Tooltip("Number of rays to check the ground with")]
+        int groundRayCount = 4;
+
+        float groundRaySpacing;
+        const float SkinWidth = 0.015f; // overlapping tolerance    
+        RaycastOrigins2D raycastOrigins;
+        new Collider2D collider;
+
+        bool isOnGround = false;
+        bool jump = false;
+        float gravity = 0;
+
+        public Transform groundCheck;
+        float groundCheckRadius = 0.2f;
 
         Animator animator;
         Rigidbody2D rbody;
         DistanceJoint2D grapplingJoint;
         LineRenderer grappleRopeRenderer;
 
-        float gravity = 0;
-        bool jump = false;
-
-        bool isOnGround = false;
-        public Transform groundCheck;
-        float groundRadius = 0.2f;
-
-        bool isGrappled {
+        bool IsGrappled {
             get { return grapplingJoint.isActiveAndEnabled; }
         }
 
@@ -36,9 +48,31 @@ namespace Randolph.Characters {
         private void Awake() {
             animator = GetComponent<Animator>();
             rbody = GetComponent<Rigidbody2D>();
+            collider = GetComponent<Collider2D>();
             grapplingJoint = GetComponent<DistanceJoint2D>();
             grappleRopeRenderer = GetComponent<LineRenderer>();
             gravity = rbody.gravityScale;
+            CalculateRaySpacing();
+        }
+
+        private void Update() {
+            jump = Input.GetButton("Jump");
+
+            //! Debug
+            DebugCommands();
+        }
+
+        void FixedUpdate() {
+            float vertical = Input.GetAxisRaw("Vertical");
+            float horizontal = Input.GetAxisRaw("Horizontal");
+
+            isOnGround = GroundCheck(groundCheck.position, groundCheckRadius, groundLayers);
+
+            Moving(horizontal);
+            Jumping();
+            Climbing(vertical, horizontal);
+            Grappling(vertical, horizontal);
+            Flipping();
         }
 
         private void OnTriggerEnter2D(Collider2D other) {
@@ -62,44 +96,6 @@ namespace Randolph.Characters {
                 --currentLadder;
                 if (currentLadder <= 0) IgnoreCollision(false);
             }
-        }
-
-        private void Update() {
-            jump = Input.GetButton("Jump");
-
-            //! Debug
-            if (Input.GetKeyDown(KeyCode.PageDown)) {
-                // DEBUG: Go to the next room
-                var checkpoinContainer = FindObjectOfType<CheckpointContainer>();
-                Checkpoint nextCheckpoint = checkpoinContainer.GetNext();
-                if (nextCheckpoint) {
-                    transform.position = nextCheckpoint.transform.position;
-                    checkpoinContainer.SetReached(nextCheckpoint);
-                }
-            }
-
-            if (Input.GetKeyDown(KeyCode.PageUp)) {
-                // DEBUG: Go to the previous room
-                var checkpoinContainer = FindObjectOfType<CheckpointContainer>();
-                Checkpoint previousCheckpoint = checkpoinContainer.GetPrevious();
-                if (previousCheckpoint) {
-                    transform.position = previousCheckpoint.transform.position;
-                    checkpoinContainer.SetReached(previousCheckpoint);
-                }
-            }
-        }
-
-        private void FixedUpdate() {
-            float vertical = Input.GetAxisRaw("Vertical");
-            float horizontal = Input.GetAxisRaw("Horizontal");
-
-            isOnGround = Physics2D.OverlapCircle(groundCheck.position, groundRadius, Constants.GroundLayerMask);
-
-            Moving(horizontal);
-            Jumping();
-            Climbing(vertical, horizontal);
-            Grappling(vertical, horizontal);
-            Flipping();
         }
 
         #region Move
@@ -133,7 +129,7 @@ namespace Randolph.Characters {
                 return;
             }
 
-            if (isOnGround || isGrappled) {
+            if (isOnGround || IsGrappled) {
                 StopGrappling();
                 JumpUp();
             }
@@ -144,6 +140,47 @@ namespace Randolph.Characters {
             rbody.velocity = new Vector2(rbody.velocity.x, 0);
             rbody.AddForce(Vector2.up * jumpForce);
             animator.SetTrigger("Jump");
+        }
+
+        #endregion
+
+        #region Raycasting
+
+        public bool GroundCheck(Vector2 point, float radius, int layerMask) {
+            UpdateRaycastOrigins();
+
+            float rayLength = radius;
+            Vector2 rayOrigin = raycastOrigins.bottomLeft;
+            for (int i = 0; i < groundRayCount; i++) {
+                RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, rayLength, layerMask);
+                // Debug.DrawRay(rayOrigin, Vector2.down * rayLength, Color.red);
+                if (hit.collider) return true;
+                rayOrigin.x += groundRaySpacing;
+            }
+
+            return false;
+        }
+
+        public void CalculateRaySpacing() {
+            Bounds bounds = collider.bounds;
+            bounds.Expand(SkinWidth * -2);
+
+            groundRaySpacing = bounds.size.x / (groundRayCount - 1);
+        }
+
+        void UpdateRaycastOrigins() {
+            Bounds bounds = collider.bounds;
+            bounds.Expand(SkinWidth * -2);
+
+            raycastOrigins.bottomLeft = new Vector2(bounds.min.x, bounds.min.y);
+            raycastOrigins.bottomRight = new Vector2(bounds.max.x, bounds.min.y);
+        }
+
+        public struct RaycastOrigins2D {
+
+            public Vector2 bottomLeft;
+            public Vector2 bottomRight;
+
         }
 
         #endregion
@@ -175,10 +212,10 @@ namespace Randolph.Characters {
             }
         }
 
-        private void StopClimbing(float vSpeed = 1f) {
+        void StopClimbing(float vSpeed = 1f) {
             isClimbing = false;
             rbody.gravityScale = gravity;
-            animator.SetBool("Climbing", false);
+            if (gameObject.activeSelf) animator.SetBool("Climbing", false);
         }
 
         #endregion
@@ -194,7 +231,7 @@ namespace Randolph.Characters {
         }
 
         private void Grappling(float vertical, float horizontal = 0f) {
-            if (!isGrappled) {
+            if (!IsGrappled) {
                 return;
             }
 
@@ -209,8 +246,8 @@ namespace Randolph.Characters {
 
         #endregion
 
-        private void IgnoreCollision(bool ignore) {
-            Physics2D.IgnoreLayerCollision(Constants.Layer.Player, Constants.Layer.Ground, ignore);
+        void IgnoreCollision(bool ignore) {
+            Methods.IgnoreLayerMaskCollision(Constants.Layer.Player, groundLayers, ignore);            
         }
 
         public void Kill(float delay = 0.25f) {
@@ -220,10 +257,36 @@ namespace Randolph.Characters {
             gameObject.SetActive(false);
         }
 
+        #region Debug
+
+        void DebugCommands() {
+            if (Input.GetKeyDown(KeyCode.PageDown)) {
+                // DEBUG: Go to the next room
+                var checkpoinContainer = FindObjectOfType<CheckpointContainer>();
+                Checkpoint nextCheckpoint = checkpoinContainer.GetNext();
+                if (nextCheckpoint) {
+                    transform.position = nextCheckpoint.transform.position;
+                    checkpoinContainer.SetReached(nextCheckpoint);
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.PageUp)) {
+                // DEBUG: Go to the previous room
+                var checkpoinContainer = FindObjectOfType<CheckpointContainer>();
+                Checkpoint previousCheckpoint = checkpoinContainer.GetPrevious();
+                if (previousCheckpoint) {
+                    transform.position = previousCheckpoint.transform.position;
+                    checkpoinContainer.SetReached(previousCheckpoint);
+                }
+            }
+        }
+
         public void OnDrawGizmos() {
             Gizmos.color = (isOnGround) ? Color.green : Color.gray;
-            Methods.GizmosDrawCircle(groundCheck.position, groundRadius);
+            Methods.GizmosDrawCircle(groundCheck.position, groundCheckRadius);
         }
+
+        #endregion
 
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-
-using UnityEngine;
+﻿using UnityEngine;
 
 
 namespace Randolph.Core {
@@ -9,6 +7,23 @@ namespace Randolph.Core {
         public static bool IsEmptyGameObject(GameObject obj) {
             Component[] allComponents = obj.GetComponents<Component>();
             return allComponents.Length == 1 && obj.transform.childCount == 0;
+        }
+
+        /// <summary>Gets the angle between a direction and a collision normal.</summary>
+        /// <returns>Collision angle, 90f if there was no point of contact.</returns>
+        public static float GetCollisionAngle(Collision2D collision, Vector2 direction) {
+            if (collision.contacts.Length == 0) return 90f;
+            Vector2 normal = collision.contacts[0].normal;
+            return Vector2.Angle(direction, -normal);
+        }
+
+        public static void IgnoreLayerMaskCollision(int layer, LayerMask layers, bool ignore) {
+            uint layerBits = (uint) layers.value;
+            for (int i = 31; layerBits > 0; i--)
+                if ((layerBits >> i) > 0) {
+                    layerBits = ((layerBits << 32 - i) >> 32 - i);
+                    Physics2D.IgnoreLayerCollision(layer, i, ignore);
+                }
         }
 
         public static void GizmosDrawCircle(Vector2 center, float radius, float step = 0.1f) {
@@ -29,13 +44,7 @@ namespace Randolph.Core {
             Gizmos.DrawLine(position, lastPosition);
         }
 
-        /// <summary>Gets the angle between a direction and a collision normal.</summary>
-        /// <returns>Collision angle, 90f if there was no point of contact.</returns>
-        public static float GetCollisionAngle(Collision2D collision, Vector2 direction) {
-            if (collision.contacts.Length == 0) return 90f;
-            Vector2 normal = collision.contacts[0].normal;
-            return Vector2.Angle(direction, -normal);
-        }
+        
 
     }
 }

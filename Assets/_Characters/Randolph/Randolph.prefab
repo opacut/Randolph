@@ -37,10 +37,10 @@ GameObject:
   - component: {fileID: 212676188040757928}
   - component: {fileID: 95467619944741654}
   - component: {fileID: 50256416751730378}
-  - component: {fileID: 70961687271122310}
-  - component: {fileID: 114757297167601836}
   - component: {fileID: 232961190563193066}
   - component: {fileID: 120051364200380746}
+  - component: {fileID: 70961687271122310}
+  - component: {fileID: 114757297167601836}
   m_Layer: 9
   m_Name: Randolph
   m_TagString: Player
@@ -68,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1930887738408268}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.9409218, y: -7.33, z: 0}
+  m_LocalPosition: {x: -0.8, y: -8.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4500516805160474}
@@ -107,8 +107,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.9, y: 2.4}
+  m_Offset: {x: 0, y: 0.039545655}
+  m_Size: {x: 0.9, y: 2.3209088}
   m_Direction: 0
 --- !u!95 &95467619944741654
 Animator:
