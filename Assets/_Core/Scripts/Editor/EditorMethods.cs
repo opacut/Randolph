@@ -32,5 +32,21 @@ namespace Randolph.Core {
             return prefabsGUIDs.Select(guid => AssetDatabase.LoadAssetAtPath<GameObject>(AssetDatabase.GUIDToAssetPath(guid))).ToList();
         }
 
+        /// <summary>Displays a default readonly script field inside the editor Inspector.</summary>
+        public static void DisplayScriptField(MonoBehaviour monoBehaviour) {
+            EditorGUI.BeginDisabledGroup(true);
+            MonoScript script = MonoScript.FromMonoBehaviour(monoBehaviour);
+            script = EditorGUILayout.ObjectField("Script", script, typeof(MonoScript), false) as MonoScript;
+            EditorGUI.EndDisabledGroup();
+        }
+
+        /// <summary>Displays a default readonly script field inside the editor Inspector.</summary>
+        public static void DisplayScriptField(ScriptableObject scriptableObject) {
+            EditorGUI.BeginDisabledGroup(true);
+            MonoScript script = MonoScript.FromScriptableObject(scriptableObject);
+            script = EditorGUILayout.ObjectField("Script", script, typeof(MonoScript), false) as MonoScript;
+            EditorGUI.EndDisabledGroup();
+        }
+
     }
 }

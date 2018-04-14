@@ -16,12 +16,12 @@ namespace Randolph.Characters {
         Coroutine shootingCO;
 
         void Start() {
-            audioSource = AudioPlayer.audioPlayer.AddLocalAudioSource(gameObject);
+            audioSource = AudioPlayer.audioPlayer.AddAudioSource(gameObject);
         }
 
         void Fire() {
             AudioPlayer.audioPlayer.PlayLocalSound(audioSource, shotSound);
-            Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+            Instantiate(shot, shotSpawn.position, shotSpawn.rotation, transform);
         }
 
 

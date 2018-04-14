@@ -14,7 +14,7 @@ namespace Randolph.Characters {
 
         private void Awake() {
             animator = GetComponent<Animator>();
-            audioSource = AudioPlayer.audioPlayer.AddLocalAudioSource(gameObject);
+            audioSource = AudioPlayer.audioPlayer.AddAudioSource(gameObject);
             glider = GetComponent<Glider>();
 
             glider.OnPlayerDisturbed += OnPlayerDisturbed;

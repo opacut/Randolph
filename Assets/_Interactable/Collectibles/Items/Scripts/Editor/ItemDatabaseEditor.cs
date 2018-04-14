@@ -9,6 +9,8 @@ namespace Randolph.Interactable {
     [CustomEditor(typeof(ItemDatabase))]
     public class ItemDatabaseEditor : Editor {
 
+        ItemDatabase itemDatabase;
+
         ReorderableList numberedItemList;
 
         SerializedProperty defaultBackground;
@@ -17,6 +19,8 @@ namespace Randolph.Interactable {
         bool spriteFold = true;
 
         void OnEnable() {
+            itemDatabase = (ItemDatabase) target;
+            
             InitializeReorderableList();
             InitializeSpriteFields();
         }
@@ -56,7 +60,7 @@ namespace Randolph.Interactable {
         public override void OnInspectorGUI() {
             serializedObject.Update();
 
-            DisplayScriptField();
+            EditorMethods.DisplayScriptField(itemDatabase);
             DisplayPruneButton();
             DisplaySpriteFields();
             numberedItemList.DoLayoutList();
@@ -91,13 +95,6 @@ namespace Randolph.Interactable {
 
             GUI.backgroundColor = originalColor;
             EditorGUILayout.EndHorizontal();
-        }
-
-        void DisplayScriptField() {
-            EditorGUI.BeginDisabledGroup(true);
-            MonoScript script = MonoScript.FromScriptableObject(target as ItemDatabase);
-            script = EditorGUILayout.ObjectField(script, typeof(MonoScript), false) as MonoScript;
-            EditorGUI.EndDisabledGroup();
         }
 
     }

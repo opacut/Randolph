@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using Randolph.Core;
+using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
 
@@ -51,7 +52,7 @@ namespace Randolph.Characters {
         public override void OnInspectorGUI() {
             serializedObject.Update();
 
-            DisplayScriptField();
+            EditorMethods.DisplayScriptField(glider);
             EditorGUILayout.PropertyField(speed);
             DisplayToggles();
             EditorGUILayout.Space();
@@ -96,13 +97,6 @@ namespace Randolph.Characters {
 
                         EditorGUI.EndDisabledGroup();
                     };
-        }
-
-        void DisplayScriptField() {
-            EditorGUI.BeginDisabledGroup(true);
-            MonoScript script = MonoScript.FromMonoBehaviour(glider);
-            script = EditorGUILayout.ObjectField("Script", script, typeof(MonoScript), false) as MonoScript;
-            EditorGUI.EndDisabledGroup();
         }
 
         void DisplayToggles() {

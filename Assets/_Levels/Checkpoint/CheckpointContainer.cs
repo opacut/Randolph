@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Randolph.Characters;
 using Randolph.Core;
-
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,35 +12,42 @@ namespace Randolph.Levels {
     public class CheckpointContainer : MonoBehaviour {
 
         [SerializeField, ReadonlyField] Checkpoint reached;
-        [SerializeField, Tooltip("Aligns the player's position to the first checkpoint in the list.")] bool alignPlayer = true;
+
+        [SerializeField, Tooltip("Aligns the player's position to the first checkpoint in the list.")]
+        bool alignPlayer = true;
+
         [SerializeField, ReadonlyField] List<Checkpoint> checkpoints = new List<Checkpoint>();
         public const string checkpointKey = "ReachedCheckpointIndex";
         PlayerController player;
 
         void Awake() {
-            Debug.Assert(FindObjectsOfType(GetType()).Length == 1, "There is always supposed to be only one <b>CheckpointContainer</b> in a level.", gameObject);
+            LevelManager.OnNewLevel += OnNewLevel;
+        }
 
-            player = FindObjectOfType<PlayerController>();
-            if (!player) Debug.LogError($"There is no player in scene <b>{SceneManager.GetActiveScene().name}</b>.");
-            else {
-                Debug.Assert(checkpoints.Any(), "There are no checkpoints in the container!", gameObject);
-                reached = checkpoints.First();
-                PlayerPrefs.SetInt(checkpointKey, checkpoints.IndexOf(reached));
-                if (alignPlayer) {
-                    player.transform.position = reached.transform.position;
-                    player.transform.AlignToGround();
-                }
+        /// <summary>Setup the checkpoints and (optionally) move the player to the first one.</summary>        
+        void OnNewLevel(Scene scene, PlayerController playerController) {
+            Debug.Assert(FindObjectsOfType(GetType()).Length == 1, "There is always supposed to be only one <b>CheckpointContainer</b> in a level.", gameObject);
+            player = playerController;
+            RefreshCheckpointList();
+            Debug.Assert(checkpoints.Any(), "There are no checkpoints in the container!", gameObject);
+
+            reached = checkpoints.First();
+            PlayerPrefs.SetInt(checkpointKey, checkpoints.IndexOf(reached));
+            if (alignPlayer) {
+                player.transform.position = reached.transform.position;
+                player.transform.AlignToGround();
             }
         }
 
         void Update() {
             if (transform.hasChanged) {
-                checkpoints.Clear();
-                foreach (Transform child in transform) {
-                    var checkpoint = child.GetComponent<Checkpoint>();
-                    if (checkpoint) checkpoints.Add(checkpoint);
-                }
+                RefreshCheckpointList();
             }
+        }
+
+        void RefreshCheckpointList() {
+            checkpoints.Clear();
+            GetComponentsInChildren(checkpoints);
         }
 
         public IEnumerator ReturnToCheckpoint(float delay) {
@@ -95,5 +101,6 @@ namespace Randolph.Levels {
                 Gizmos.DrawLine(startPoint, levelExit.Value);
             }
         }
+
     }
 }

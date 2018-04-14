@@ -18,7 +18,7 @@ namespace Randolph.Characters {
 
         void Start() {
             spriteRenderer = GetComponent<SpriteRenderer>();        
-            audioSource = AudioPlayer.audioPlayer.AddLocalAudioSource(gameObject);
+            audioSource = AudioPlayer.audioPlayer.AddAudioSource(gameObject);
             alive = spriteRenderer.sprite;
         }
 

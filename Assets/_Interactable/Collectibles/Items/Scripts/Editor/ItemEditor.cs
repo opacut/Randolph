@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-
+using Randolph.Core;
 using UnityEditor;
 
 using UnityEngine;
@@ -9,9 +9,12 @@ namespace Randolph.Interactable {
     [CustomEditor(typeof(Item))]
     public class ItemEditor : Editor {
 
+        Item item;
+
         SerializedProperty initialized;
 
         void OnEnable() {
+            item = (Item) target;
             initialized = serializedObject.FindProperty(nameof(initialized));
         }
 
@@ -23,7 +26,7 @@ namespace Randolph.Interactable {
                 DisplayInitializeButton();
             }
 
-            DisplayScriptField();
+            EditorMethods.DisplayScriptField(item);
 
             if (GUILayout.Button("Item database")) {
                 Selection.activeObject = ItemDatabase.itemDatabase;
@@ -57,13 +60,6 @@ namespace Randolph.Interactable {
             }
 
             GUI.backgroundColor = originalColor;
-        }
-
-        void DisplayScriptField() {
-            EditorGUI.BeginDisabledGroup(true);
-            MonoScript script = MonoScript.FromScriptableObject(target as Item);
-            script = EditorGUILayout.ObjectField(script, typeof(MonoScript), false) as MonoScript;
-            EditorGUI.EndDisabledGroup();
         }
 
         void Initialize() {            

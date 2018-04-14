@@ -24,7 +24,7 @@ GameObject:
   m_Layer: 0
   m_Name: Audio Player
   m_TagString: Untagged
-  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4519467737704662}
   - component: {fileID: 82712016552097764}
   m_Layer: 0
-  m_Name: Music
+  m_Name: Global Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 4808473308948694}
   - component: {fileID: 82139920015658100}
   m_Layer: 0
-  m_Name: Sound
+  m_Name: Global Sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,7 +127,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 10
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -312,5 +312,6 @@ MonoBehaviour:
   musicSource: {fileID: 82712016552097764}
   soundSource: {fileID: 82139920015658100}
   pitchRange: {x: 0.9454546, y: 1.0454543}
-  global: 0
   audioListener: {fileID: 81352219742508254}
+  audioPlayerMode: 1
+  currentArea: {fileID: 0}

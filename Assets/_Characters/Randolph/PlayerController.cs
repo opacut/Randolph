@@ -49,7 +49,7 @@ namespace Randolph.Characters {
 
         void GetComponents() {
             animator = GetComponent<Animator>();
-            audioSource = AudioPlayer.audioPlayer.AddLocalAudioSource(gameObject);
+            audioSource = AudioPlayer.audioPlayer.AddAudioSource(gameObject);
             rbody = GetComponent<Rigidbody2D>();
             collider = GetComponent<Collider2D>();
             grapplingJoint = GetComponent<DistanceJoint2D>();

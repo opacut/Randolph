@@ -1,26 +1,28 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class ClickToQuit : MonoBehaviour {
+namespace Randolph.UI {
+    public class ClickToQuit : MonoBehaviour {
 
-    Button button;
+        Button button;
 
-    void Start() {
-        button = GetComponent<Button>();
-        button.onClick.AddListener(QuitGame);
+        void Start() {
+            button = GetComponent<Button>();
+            button.onClick.AddListener(QuitGame);
 
-        if (!DoesQuittingWork()) {
-            gameObject.SetActive(false);
+            if (!DoesQuittingWork()) {
+                gameObject.SetActive(false);
+            }
         }
-    }
 
-    void QuitGame() {
-        Application.Quit();
-        button.gameObject.SetActive(false);
-    }
+        void QuitGame() {
+            Application.Quit();
+            button.gameObject.SetActive(false);
+        }
 
-    bool DoesQuittingWork() {
-        return !(Application.platform == RuntimePlatform.WebGLPlayer || Application.isEditor);
-    }
+        bool DoesQuittingWork() {
+            return !(Application.platform == RuntimePlatform.WebGLPlayer || Application.isEditor);
+        }
 
+    }
 }
