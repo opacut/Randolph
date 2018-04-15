@@ -48,5 +48,11 @@ namespace Randolph.Core {
             EditorGUI.EndDisabledGroup();
         }
 
+        /// <summary>Checks whether a target object is a prefab (e.g. in an Inspector).</summary>
+        public static bool IsPrefab(Object target) {
+            // return PrefabUtility.GetPrefabParent(target) == null && PrefabUtility.GetPrefabObject(target) != null;
+            return PrefabUtility.GetPrefabType(target) == PrefabType.Prefab;
+        }
+
     }
 }

@@ -4,6 +4,14 @@ using System;
 
 public class EditorGUIExtension {
 
+    ///<summary>Custom GUILayout progress bar.</summary>
+    void ProgressBar(float value, string label) {
+        // Get a rect for the progress bar using the same margins as a textfield:
+        Rect rect = GUILayoutUtility.GetRect(18, 18, "TextField");
+        EditorGUI.ProgressBar(rect, value, label);
+        EditorGUILayout.Space();
+    }
+
     /// <summary>
     /// Creates an array foldout like in inspectors for SerializedProperty of array type.
     /// Counterpart for standard EditorGUILayout.PropertyField which doesn't support SerializedProperty of array type.
@@ -125,19 +133,19 @@ public class EditorGUIExtension {
         if (outBool) return !state;
         else return state;
     }
-	
-	// Show child property of parent serializedProperty
-	void ShowRelativeProperty(SerializedProperty serializedProperty, string propertyName) {
-		SerializedProperty property = serializedProperty.FindPropertyRelative(propertyName);
-		if (property != null) {
-			EditorGUI.indentLevel++;
-			EditorGUI.BeginChangeCheck();
-			EditorGUILayout.PropertyField(property, true);
-			if (EditorGUI.EndChangeCheck()) serializedProperty.serializedObject.ApplyModifiedProperties();
-			// EditorGUIUtility.LookLikeControls();
-			EditorGUI.indentLevel--;
-		}
-	}
+
+    // Show child property of parent serializedProperty
+    void ShowRelativeProperty(SerializedProperty serializedProperty, string propertyName) {
+        SerializedProperty property = serializedProperty.FindPropertyRelative(propertyName);
+        if (property != null) {
+            EditorGUI.indentLevel++;
+            EditorGUI.BeginChangeCheck();
+            EditorGUILayout.PropertyField(property, true);
+            if (EditorGUI.EndChangeCheck()) serializedProperty.serializedObject.ApplyModifiedProperties();
+            // EditorGUIUtility.LookLikeControls();
+            EditorGUI.indentLevel--;
+        }
+    }
 
     public class ModalPopupWindow : EditorWindow {
 

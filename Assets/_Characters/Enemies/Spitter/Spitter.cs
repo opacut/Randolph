@@ -12,18 +12,19 @@ namespace Randolph.Characters {
         [SerializeField] float fireRate;
         [SerializeField] float initialDelay;
         AudioSource audioSource;
+        Transform currentArea;
 
         Coroutine shootingCO;
 
         void Start() {
             audioSource = AudioPlayer.audioPlayer.AddAudioSource(gameObject);
+            currentArea = GetComponentInParent<Area>()?.transform;
         }
 
         void Fire() {
             AudioPlayer.audioPlayer.PlayLocalSound(audioSource, shotSound);
-            Instantiate(shot, shotSpawn.position, shotSpawn.rotation, transform);
+            Instantiate(shot, shotSpawn.position, shotSpawn.rotation, currentArea);
         }
-
 
         IEnumerator KeepShooting(float fireRate, float initialDelay) {
             yield return new WaitForSeconds(initialDelay);

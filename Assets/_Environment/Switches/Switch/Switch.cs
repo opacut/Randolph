@@ -1,18 +1,20 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Randolph.Core;
+using Randolph.Levels;
 using UnityEngine;
 
 // TODO: Derive from abstract class, IRestartable
 namespace Randolph.Environment {
     [RequireComponent(typeof(SpriteRenderer))]
-    public class Switch : MonoBehaviour {
+    public class Switch : MonoBehaviour, IRestartable {
 
         [Header("Switch")]
         [SerializeField] List<SpikeTrap> Spikes;
         [SerializeField] bool Powered;
         [SerializeField] AudioClip switchSound;
         AudioSource audioSource;
+        bool initialPowered;
 
         [Header("Sprites")]
         [SerializeField] Sprite activeSprite;
@@ -20,10 +22,15 @@ namespace Randolph.Environment {
 
         SpriteRenderer spriteRederer;
 
-
         void Awake() {
             spriteRederer = GetComponent<SpriteRenderer>();
+            spriteRederer.sprite = (Powered) ? activeSprite : inactiveSprite;
+            initialPowered = Powered;
             audioSource = AudioPlayer.audioPlayer.AddAudioSource(gameObject);
+        }
+
+        public void Restart() {
+            Powered = initialPowered;
         }
 
         void OnTriggerEnter2D(Collider2D other) {

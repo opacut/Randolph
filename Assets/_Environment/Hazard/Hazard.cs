@@ -6,14 +6,15 @@ using UnityEngine;
 namespace Randolph.Environment {
     public class Hazard : MonoBehaviour, IRestartable {
 
-        [SerializeField, ReadonlyField]
-        Vector2 initialPosition;
+        [SerializeField, ReadonlyField] Vector2 initialPosition;
+        
+        // TODO: Harmful to: layer/tag | Destroyed by: layer/tag
 
         void Awake() {
             initialPosition = gameObject.transform.position;
         }
 
-        public void Restart() {
+        public void Restart() {           
             gameObject.transform.position = initialPosition;
         }
 

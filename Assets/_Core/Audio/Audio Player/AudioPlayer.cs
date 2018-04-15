@@ -108,8 +108,8 @@ namespace Randolph.Core {
         /// <summary>Plays multiple local sounds, one after each other with (optionally) a randomly altered pitch.</summary>
         public void PlayLocalSounds(AudioSource audioSource, bool randomPitch = true, params AudioClip[] sounds) {            
             if (audioPlayerMode == AudioPlayerMode.Rooms) {
-                //! No current area or an outside audio source
                 if (!audioSource.transform.IsChildOf(transform) && (currentArea == null || !currentArea.Contains(audioSource.gameObject))) {                    
+                    //! Not a global sound or no current area or an outside audio source --> block
                     return;
                 } else {
                     //! Play sound

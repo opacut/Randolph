@@ -22,6 +22,7 @@ namespace Randolph.Environment {
 
         void Start() {
             spriteRederer = GetComponent<SpriteRenderer>();
+            //spriteRederer.sprite = (Powered) ? activeSprite : inactiveSprite;
             audioSource = AudioPlayer.audioPlayer.AddAudioSource(gameObject);
         }
 
@@ -40,7 +41,7 @@ namespace Randolph.Environment {
         }
 
         void Flip(bool active) {
-            Spikes.ForEach(s => s.Toggle());
+            Spikes.ForEach(s => s.Toggle(active));
             AudioPlayer.audioPlayer.PlayLocalSound(audioSource, switchSound);
             spriteRederer.sprite = (active) ? activeSprite : inactiveSprite;
         }

@@ -110,6 +110,8 @@ namespace Randolph.Characters {
             gameObject.SetActive(false);
         }
 
+        // TODO: Break into components
+
         #region Move
 
         private void Moving(float horizontal) {

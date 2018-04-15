@@ -3,7 +3,7 @@ guid: 800cdf30db53bd048aeb6ef475773253
 TextureImporter:
   fileIDToRecycleName:
     21300000: Spike trap_active
-    21300002: Spike trap_disabled
+    21300002: Spike trap_inactive
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spike trap_disabled
+      name: Spike trap_inactive
       rect:
         serializedVersion: 2
         x: 16

@@ -5,7 +5,7 @@ namespace Randolph.Characters {
     public class Projectile : MonoBehaviour {
 
         // TODO: Object pool
-
+        
         [SerializeField] float speed = 8.5f;
 
         Rigidbody2D rbody;
