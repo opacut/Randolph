@@ -61,6 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 973de689206da9848ae3f0ff3e03bb2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  outOfReachMaterial: {fileID: 2100000, guid: 75626bb8614082441b47ff56abd6fbdd, type: 2}
 --- !u!114 &114799500421160084
 MonoBehaviour:
   m_ObjectHideFlags: 1

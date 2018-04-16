@@ -46,7 +46,7 @@ namespace Randolph.Characters {
 
         public void Kill() {
             spriteRenderer.sprite = crushed;
-            AudioPlayer.audioPlayer.PlayLocalSound(audioSource, crushSound);
+            AudioPlayer.audioPlayer.PlayLocalSound(audioSource, crushSound, volume: 0.5f);
             Active = false;
         }
 
