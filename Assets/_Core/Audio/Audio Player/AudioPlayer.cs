@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Com.LuisPedroFonseca.ProCamera2D;
 using Randolph.Characters;
 using Randolph.Levels;
@@ -106,10 +107,10 @@ namespace Randolph.Core {
         }
 
         /// <summary>Plays multiple local sounds, one after each other with (optionally) a randomly altered pitch.</summary>
-        public void PlayLocalSounds(AudioSource audioSource, bool randomPitch = true, params AudioClip[] sounds) {            
+        public void PlayLocalSounds(AudioSource audioSource, bool randomPitch = true, float volume = 1.0f, params AudioClip[] sounds) {
             if (audioPlayerMode == AudioPlayerMode.Rooms) {
-                if (!audioSource.transform.IsChildOf(transform) && (currentArea == null || !currentArea.Contains(audioSource.gameObject))) {                    
-                    //! Not a global sound or no current area or an outside audio source --> block
+                if (!audioSource.transform.IsChildOf(transform) && (currentArea == null || !currentArea.Contains(audioSource.gameObject))) {
+                    //! Not a global sound, player sound or no current area or an outside audio source --> block
                     return;
                 } else {
                     //! Play sound
@@ -133,54 +134,61 @@ namespace Randolph.Core {
             }
 
             if (playingSounds[audioSource].PlayingCoroutine == null) {
-                playingSounds[audioSource].PlayingCoroutine = StartCoroutine(PlayQueue(audioSource, playingSounds[audioSource], randomPitch));
+                playingSounds[audioSource].PlayingCoroutine = StartCoroutine(PlayQueue(audioSource, playingSounds[audioSource], randomPitch, volume));
             }
         }
 
-        /// <summary>The method processing all sounds played by the central audio source.</summary>        
-        IEnumerator PlayQueue(AudioSource audioSource, SoundQueue soundQueue, bool randomPitch) {
+        /// <summary>The coroutine processing all sounds played by the central audio source.</summary>        
+        IEnumerator PlayQueue(AudioSource audioSource, SoundQueue soundQueue, bool randomPitch, float volume = 1.0f) {
             float initialSoundPitch = audioSource.pitch;
             while (soundQueue.SoundsQueue.Count > 0) {
                 AudioClip sound = soundQueue.SoundsQueue.Dequeue();
                 if (randomPitch) audioSource.pitch = Random.Range(pitchRange.x, pitchRange.y);
+                audioSource.volume = volume.Clamp01();
                 audioSource.clip = sound;
                 audioSource.Play();
                 yield return new WaitForSecondsRealtime(sound.length);
+                audioSource.clip = null;
             }
             if (randomPitch) audioSource.pitch = initialSoundPitch;
             soundQueue.PlayingCoroutine = null;
         }
 
-        // Global sounds → use the AudioPlayer's audio source
+        // Global sounds → use the AudioPlayer's audio source (e.g. should always play, even when an object becomes inactive)
         // Local sounds → use the current object's audio source (add it first with AudioPlayer.audioPlayer.AddAudioListener)
 
         #region Overloaded methods
 
         /// <summary>Plays a local sound after the current one finishes playing.</summary>
-        public void PlayLocalSound(AudioSource audioSource, AudioClip sound, bool randomPitch = true) {
-            PlayLocalSounds(audioSource, true, sound);
+        public void PlayLocalSound(AudioSource audioSource, AudioClip sound, bool randomPitch = true, float volume = 1.0f) {
+            PlayLocalSounds(audioSource, true, volume, sound);
         }
 
         /// <summary>Plays a random local sound out of the given sounds with (optionally) a randomly altered pitch.</summary>
-        public void PlayRandomLocalSound(AudioSource audioSource, bool randomPitch = true, params AudioClip[] sounds) {
+        public void PlayRandomLocalSound(AudioSource audioSource, bool randomPitch = true, float volume = 1.0f, params AudioClip[] sounds) {
             int randomIndex = Random.Range(0, sounds.Length);
-            PlayLocalSound(audioSource, sounds[randomIndex]);
+            PlayLocalSound(audioSource, sounds[randomIndex], randomPitch, volume);
         }
 
         /// <summary>Plays a global sound using the <see cref="soundSource"/> after the current one finishes playing.</summary>
-        public void PlayGlobalSound(AudioClip sound, bool randomPitch = true) {
-            PlayLocalSound(soundSource, sound, randomPitch);
+        public void PlayGlobalSound(AudioClip sound, bool randomPitch = true, float volume = 1.0f) {
+            if (soundSource.clip != sound) PlayLocalSound(soundSource, sound, randomPitch, volume);
         }
 
         /// <summary>Plays a random global sound out of the given sounds using the <see cref="soundSource"/> with (optionally) a randomly altered pitch.</summary>
-        public void PlayRandomGlobalSound(bool randomPitch = true, params AudioClip[] sounds) {
-            PlayRandomLocalSound(soundSource, randomPitch, sounds);
+        public void PlayRandomGlobalSound(bool randomPitch = true, float volume = 1.0f, params AudioClip[] sounds) {
+            sounds = sounds.Where(sound => soundSource.clip != sound).ToArray(); // avoid playing the same thing multiple times
+            PlayRandomLocalSound(soundSource, randomPitch, volume, sounds);
         }
 
         /// <summary>Plays multiple global sounds, one after each other using the <see cref="soundSource"/> with (optionally) a randomly altered pitch.</summary>
-        public void PlayGlobalSounds(bool randomPitch = true, params AudioClip[] sounds) {
-            PlayLocalSounds(soundSource, randomPitch, sounds);
+        public void PlayGlobalSounds(bool randomPitch = true, float volume = 1.0f, params AudioClip[] sounds) {
+            sounds = sounds.Where(sound => soundSource.clip != sound).ToArray(); // avoid playing the same thing multiple times
+            PlayLocalSounds(soundSource, randomPitch, volume, sounds);
         }
+
+        /// <summary>Clears the sound queue and plays the given sound immediately.</summary>
+        //public void PlayGlobalSoundNow(bool randomPitch = true, float volume = 1.0f, para1)
 
         #endregion
 

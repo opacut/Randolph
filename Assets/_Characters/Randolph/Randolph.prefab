@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82462bf5ac001d64cab6dd2dd2586ae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathSound: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: 2f3191692858eaa4abfbdddea9fac71f, type: 3}
   climbingSpeed: 6
   movementSpeed: 6
   jumpForce: 800

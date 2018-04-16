@@ -51,6 +51,27 @@ namespace Randolph.Core {
             return ((Vector3) vector).Abs();
         }
 
+        /// <summary>Checks whether a number in within given bounds.</summary>
+        public static bool IsRange(this float value, float lowerBound, float upperBound) {
+            return value >= lowerBound && value <= upperBound;
+        }
+
+        /// <summary>Checks whether a number in more than zero and less than one.</summary>
+        public static bool IsRange01(this float value) {
+            return value.IsRange(0, 1);
+        }
+
+        /// <summary>Clamps a number within given bounds.</summary>
+        public static float Clamp(this float value, float min, float max) {
+            return Mathf.Clamp(value, min, max);
+        }
+
+        /// <summary>Clamps a number within zero to one range.</summary>
+        public static float Clamp01(this float value) {
+            return Mathf.Clamp01(value);
+        }
+
+
         public static float RoundToDigits(this float value, int decimalDigits) {
             var unit = Mathf.Pow(10, decimalDigits);
             return Mathf.Round(value * unit) / unit;

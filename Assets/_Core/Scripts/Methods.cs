@@ -38,7 +38,7 @@ namespace Randolph.Core {
 
         public static Vector3 GetMeanVector(Vector3[] positions) {
             Vector3 meanVector = Vector3.zero;
-            if (positions.Length == 0) return meanVector;            
+            if (positions.Length == 0) return meanVector;
             foreach (Vector3 position in positions) {
                 meanVector.x += position.x;
                 meanVector.y += position.y;
@@ -64,7 +64,7 @@ namespace Randolph.Core {
             float theta = 0.0f;
             float x = radius * Mathf.Cos(theta);
             float y = radius * Mathf.Sin(theta);
-            Vector2 position = center + new Vector2(x, y);            
+            Vector2 position = center + new Vector2(x, y);
             Vector2 lastPosition = position;
             for (theta = step; theta < Mathf.PI * 2; theta += step) {
                 x = radius * Mathf.Cos(theta);

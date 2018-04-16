@@ -32,7 +32,6 @@ namespace Randolph.Characters {
         bool isClimbing = false;
 
         Animator animator;
-        AudioSource audioSource;
         Rigidbody2D rbody;
         DistanceJoint2D grapplingJoint;
         LineRenderer grappleRopeRenderer;
@@ -49,7 +48,6 @@ namespace Randolph.Characters {
 
         void GetComponents() {
             animator = GetComponent<Animator>();
-            audioSource = AudioPlayer.audioPlayer.AddAudioSource(gameObject);
             rbody = GetComponent<Rigidbody2D>();
             collider = GetComponent<Collider2D>();
             grapplingJoint = GetComponent<DistanceJoint2D>();
@@ -105,7 +103,7 @@ namespace Randolph.Characters {
         public void Kill(float delay = 0.25f) {
             StopGrappling();
             StopClimbing();
-            AudioPlayer.audioPlayer.PlayLocalSound(audioSource, deathSound);
+            AudioPlayer.audioPlayer.PlayGlobalSound(deathSound);
             LevelManager.levelManager.ReturnToCheckpoint(delay);
             gameObject.SetActive(false);
         }
