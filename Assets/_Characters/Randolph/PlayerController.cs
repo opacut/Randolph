@@ -267,7 +267,12 @@ namespace Randolph.Characters {
         #region Debug
 
         void DebugCommands() {
-            if (Input.GetKeyDown(KeyCode.PageDown)) {
+            if (Input.GetKeyDown(KeyCode.R)) {
+                // DEBUG: Restart
+                Kill();
+            }
+
+            if (Input.GetKeyDown(KeyCode.KeypadPlus)) {
                 // DEBUG: Go to the next room
                 var checkpoinContainer = FindObjectOfType<CheckpointContainer>();
                 Checkpoint nextCheckpoint = checkpoinContainer.GetNext();
@@ -277,7 +282,7 @@ namespace Randolph.Characters {
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.PageUp)) {
+            if (Input.GetKeyDown(KeyCode.KeypadMinus)) {
                 // DEBUG: Go to the previous room
                 var checkpoinContainer = FindObjectOfType<CheckpointContainer>();
                 Checkpoint previousCheckpoint = checkpoinContainer.GetPrevious();

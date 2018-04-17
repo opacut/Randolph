@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Randolph.Characters;
+﻿using Randolph.Characters;
 using UnityEditor;
 using UnityEngine;
 using Randolph.Core;
@@ -16,15 +11,14 @@ namespace Randolph.UI {
         SerializedProperty applicableDistance;
 
         void OnEnable() {
-            // inventory = (Inventory) target;
+            // inventory = (Inventory) target;            
             applicableDistance = serializedObject.FindProperty(nameof(applicableDistance));
         }
 
         void OnSceneGUI() {
             serializedObject.Update();
-
             DrawApplicableDistanceHandle();
-
+                
             serializedObject.ApplyModifiedProperties();
         }
 
