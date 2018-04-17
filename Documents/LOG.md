@@ -39,4 +39,37 @@
 
 ---
 
-## 6. 3. 2018
+## 17. 4. 2018
+
+### BUGS
+
+* Velocity predmetov je zachovaná pri restarte
+* V Runner lvl je možné dostať sa do stavu odkiaľ sa hra nedá prejsť
+* Na moving platform sa Randolph trasie
+
+### TODO
+
+* Načítání (nepoznačil som si bližšie, čo sme tým mysleli)
+* Odstrániť oranžové bloky
+* Tutorial lvl
+* Animácia crows
+* Ubrať zhora 5 tiles
+* Nahoru dát zeď
+* Vnútro lode - hub
+* Pickup predmetov - myšou
+* Namiesto spikes v Runner lvl použiť pomaly sa otvárajúcu bránu
+* Hook - naučiť hráča ako ho používať
+* Hook - (optional) prychitiť na rebrík
+* Hook - (optional) použiť na stiahnutie kameňa v Runner lvl
+* Optimalizovať radius predmetov
+* Viac levelov!
+* (optional) Suicide button
+
+### Notes
+* Jeden level bude rozsahom (počet obrazoviek) veľký asi ako Horizontal Slice
+* Predbežná schéma kôl hry:
+	1. Skaly
+	2. Džungľa
+	3. Chrám
+	4. Chrám
+* Návrh na vertikálny lvl, kde napr. uteká smerom hore pred záhubou, viz [Fossil Echo](https://youtu.be/jEOV6CNi3So?t=2m14s)
