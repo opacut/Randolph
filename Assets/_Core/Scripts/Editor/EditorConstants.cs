@@ -37,5 +37,7 @@ namespace Randolph.Core {
 
         }
 
+        public const float AngleHandleSize = 1.5f;
+
     }
 }

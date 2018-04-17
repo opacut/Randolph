@@ -5,7 +5,7 @@ namespace Com.LuisPedroFonseca.ProCamera2D
 {
     [System.Serializable]
 #if UNITY_5_3_OR_NEWER
-    //[CreateAssetMenu(menuName = "ProCamera2D/Constant Shake Preset", order = 100)]
+    [CreateAssetMenu(menuName = "ProCamera2D/Constant Shake Preset")]
 #endif
     public class ConstantShakePreset : ScriptableObject
     {

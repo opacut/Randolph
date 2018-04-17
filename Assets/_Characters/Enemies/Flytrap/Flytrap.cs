@@ -8,16 +8,15 @@ namespace Randolph.Characters {
         public bool Active { get; private set; } = true;
 
         Sprite alive;
-        [Header("Sprites")][SerializeField] Sprite closed;
+        [Header("Sprites")] [SerializeField] Sprite closed;
         [SerializeField] Sprite crushed;
-        [Header("Audio")] [SerializeField] AudioClip closeSound;
-        [SerializeField] AudioClip crushSound;        
+        [Header("Audio")] [SerializeField] AudioClip closeSound;       
 
         SpriteRenderer spriteRenderer;
         AudioSource audioSource;
 
         void Start() {
-            spriteRenderer = GetComponent<SpriteRenderer>();        
+            spriteRenderer = GetComponent<SpriteRenderer>();
             audioSource = AudioPlayer.audioPlayer.AddAudioSource(gameObject);
             alive = spriteRenderer.sprite;
         }
@@ -46,7 +45,6 @@ namespace Randolph.Characters {
 
         public void Kill() {
             spriteRenderer.sprite = crushed;
-            AudioPlayer.audioPlayer.PlayLocalSound(audioSource, crushSound, volume: 0.5f);
             Active = false;
         }
 

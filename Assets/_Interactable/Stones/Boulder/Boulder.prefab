@@ -90,7 +90,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030096a8b88da09499da0ecc71747968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxFallAngle: 30
+  crushSound: {fileID: 8300000, guid: 6b1178d9c186efe4e83641bfd6b09c1c, type: 3}
+  maxFallAngle: 60
   maxPushAngle: 45
 --- !u!114 &114847664431437722
 MonoBehaviour:

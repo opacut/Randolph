@@ -8,7 +8,7 @@ namespace Randolph.Core {
         public static class Audio {
 
             public const float FullVolume = 1.0f;
-            public const float BackgroundVolume = 0.33f;
+            public const float BackgroundVolume = 0.5f;
             public const float SilentVolume = 0.0f;
 
             /// <summary>Returns the current position of the audio listener.</summary>

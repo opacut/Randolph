@@ -45,7 +45,7 @@ namespace Randolph.Environment {
             Powered = !active;
 
             spriteRederer.sprite = (active) ? activeSprite : inactiveSprite;
-            AudioPlayer.audioPlayer.PlayLocalSound(audioSource, switchSound, volume: 0.5f);
+            AudioPlayer.audioPlayer.PlayLocalSound(audioSource, switchSound, volume: Constants.Audio.BackgroundVolume);
             Spikes.ForEach(s => s.Toggle());
         }
 

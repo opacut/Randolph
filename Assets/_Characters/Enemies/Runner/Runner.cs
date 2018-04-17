@@ -50,12 +50,13 @@ namespace Randolph.Characters {
                 if (collider.tag == Constants.Tag.Player) {
                     collider.gameObject.GetComponent<PlayerController>().Kill(1);
                 } else {
-                    var squasher = collider.gameObject.GetComponent<Boulder>();
-                    if (squasher != null) {
-                        if (squasher.HitFromAbove(collision)) {
+                    var boulder = collider.gameObject.GetComponent<Boulder>();
+                    if (boulder != null) {
+                        if (boulder.HitFromAbove(collision)) {
+                            boulder.PlayCrushSound();
                             Kill();
                         } else {
-                            squasher.Push(collision);
+                            boulder.Push(collision);
                             Turn();
                         }
                     }
@@ -75,7 +76,7 @@ namespace Randolph.Characters {
             alive = false;
             animator.SetBool("Alive", false);
             spriteRenderer.sprite = dead;
-            // TODO: Collider size
+            //? Collider size
             gameObject.layer = Constants.Layer.Dead;
         }
 

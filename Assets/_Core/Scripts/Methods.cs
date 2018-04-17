@@ -60,6 +60,18 @@ namespace Randolph.Core {
             return Rect.MinMaxRect(minXY.x, minXY.y, maxXY.x, maxXY.y);
         }
 
+
+        /// <summary>Gets the next point on a circle after rotating for an angle.</summary>
+        /// <param name="center">The original position.</param>
+        /// <param name="angle">The angle in degrees.</param>
+        /// <param name="radius">The circle radius.</param>        
+        public static Vector2 GetCirclePoint(Vector2 center, int angle, float radius) {
+            Vector2 position;
+            position.x = center.x + radius * Mathf.Sin(angle * Mathf.Deg2Rad);
+            position.y = center.y + radius * Mathf.Cos(angle * Mathf.Deg2Rad);
+            return position;
+        }
+
         public static void GizmosDrawCircle(Vector2 center, float radius, float step = 0.1f) {
             float theta = 0.0f;
             float x = radius * Mathf.Cos(theta);

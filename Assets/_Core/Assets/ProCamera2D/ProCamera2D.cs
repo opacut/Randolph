@@ -17,7 +17,7 @@ namespace Com.LuisPedroFonseca.ProCamera2D
     public class ProCamera2D : MonoBehaviour, ISerializationCallbackReceiver
     {
 		public const string Title = "Pro Camera 2D";
-        public static readonly Version Version = new Version("2.6.0");
+        public static readonly Version Version = new Version("2.6.1");
 
         #region Inspector Variables
 
@@ -1108,7 +1108,7 @@ namespace Com.LuisPedroFonseca.ProCamera2D
 
         void OnDrawGizmos()
         {
-            // HACK to prevent Unity bug on startup: http://forum.unity3d.com/threads/screen-position-out-of-view-frustum.9918/
+            // A HACK to prevent Unity bug on startup: http://forum.unity3d.com/threads/screen-position-out-of-view-frustum.9918/
             _drawGizmosCounter++;
             if (_drawGizmosCounter < 5 && UnityEditor.EditorApplication.timeSinceStartup < 60f)
                 return;

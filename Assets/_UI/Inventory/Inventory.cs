@@ -34,8 +34,9 @@ namespace Randolph.UI {
         }
 
         void Awake() {
-            /*
-            // Would have to have a custom canvas
+            // TODO: Pass along with a canvas
+            
+            /*           
             //! Pass Inventory between levels; destroy excess ones
             DontDestroyOnLoad(this);
 

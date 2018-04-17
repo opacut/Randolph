@@ -51,6 +51,14 @@ namespace Randolph.Core {
             return ((Vector3) vector).Abs();
         }
 
+        public static Vector3 Multiply(this Vector3 vector, Vector3 multiplier) {
+            vector.Scale(multiplier);
+            return vector;
+        }
+        public static Vector2 Multiply(this Vector2 vector, Vector2 multiplier) {
+            return ((Vector3) vector).Multiply(multiplier);
+        }
+
         /// <summary>Checks whether a number in within given bounds.</summary>
         public static bool IsRange(this float value, float lowerBound, float upperBound) {
             return value >= lowerBound && value <= upperBound;

@@ -62,8 +62,8 @@ namespace Randolph.Characters {
         }
 
         void FixedUpdate() {
-            float vertical = Input.GetAxisRaw("Vertical");
             float horizontal = Input.GetAxisRaw("Horizontal");
+            float vertical = Input.GetAxisRaw("Vertical");      
 
             isOnGround = GroundCheck(groundCheckRayLength, groundLayers);
 
