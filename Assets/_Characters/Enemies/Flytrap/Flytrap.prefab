@@ -68,10 +68,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b7ee36e7ec198949858b9d6991d12a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closed: {fileID: 21300002, guid: 999e294dec536e049bfa10f4624bc0cd, type: 3}
-  crushed: {fileID: 21300004, guid: 999e294dec536e049bfa10f4624bc0cd, type: 3}
+  closed: {fileID: 21300008, guid: 999e294dec536e049bfa10f4624bc0cd, type: 3}
+  crushed: {fileID: 21300010, guid: 999e294dec536e049bfa10f4624bc0cd, type: 3}
   closeSound: {fileID: 8300000, guid: b987a60a58e2a6f48b5066592d3da48d, type: 3}
-  crushSound: {fileID: 8300000, guid: 6b1178d9c186efe4e83641bfd6b09c1c, type: 3}
 --- !u!212 &212474487302465716
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -107,12 +106,12 @@ SpriteRenderer:
   m_SortingLayerID: -1816235093
   m_SortingLayer: -2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 999e294dec536e049bfa10f4624bc0cd, type: 3}
+  m_Sprite: {fileID: 21300006, guid: 999e294dec536e049bfa10f4624bc0cd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.63, y: 2.64}
+  m_Size: {x: 3, y: 2.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
