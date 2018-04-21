@@ -119,7 +119,7 @@ namespace Randolph.Characters {
             animator.SetBool("Running", isOnGround && !Mathf.Approximately(hSpeed, 0f));
             animator.SetFloat("RunningSpeed", Mathf.Abs(hSpeed));
 
-            if (isOnGround || !isClimbing) {
+            if (!isClimbing && !IsGrappled) {
                 // Left and right movement on the ground
                 rbody.velocity = new Vector2(hSpeed, rbody.velocity.y);
             }
@@ -202,7 +202,7 @@ namespace Randolph.Characters {
 
         #region Climb
 
-        void Climbing(float vertical, float horizontal = 0f) {
+        void Climbing(float vertical, float horizontal) {
             if (!isClimbing && currentLadder > 0 && Mathf.Abs(vertical) > Mathf.Epsilon) {
                 isClimbing = true;
                 rbody.gravityScale = 0;
@@ -243,12 +243,14 @@ namespace Randolph.Characters {
             grappleRopeRenderer.SetPositions(new Vector3[] { transform.position, obj.transform.position });
         }
 
-        private void Grappling(float vertical, float horizontal = 0f) {
+        private void Grappling(float vertical, float horizontal) {
             if (!IsGrappled) {
                 return;
             }
 
-            grapplingJoint.distance -= vertical * 0.2f;
+            rbody.velocity = new Vector2(rbody.velocity.x + horizontal * 0.2f, rbody.velocity.y);
+            rbody.velocity -= new Vector2(rbody.velocity.x * 0.01f, rbody.velocity.y * 0.01f);
+            grapplingJoint.distance -= vertical * 0.1f;
             grappleRopeRenderer.SetPosition(0, transform.position);
         }
 
