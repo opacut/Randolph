@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using Randolph.Core;
+﻿using Randolph.Core;
 using Randolph.Interactable;
 using Randolph.Levels;
+using UnityEngine;
 
 namespace Randolph.Characters {
     [RequireComponent(typeof(Animator))]
@@ -13,9 +13,9 @@ namespace Randolph.Characters {
         [SerializeField] AudioClip deathSound;
         [SerializeField] float climbingSpeed = 6;
         [SerializeField] float movementSpeed = 6;
-        [SerializeField] float jumpForce = 800;
+        [SerializeField] float jumpForce = 600;
 
-        [Header("Jumping")]        
+        [Header("Jumping")]
         [SerializeField] LayerMask groundLayers;
         [SerializeField, Range(2, 12)] int groundRayCount = 4;
         [SerializeField] float groundCheckRayLength = 0.2f;
@@ -55,7 +55,7 @@ namespace Randolph.Characters {
         }
 
         void Update() {
-            jump = Input.GetButton("Jump");
+            jump = Input.GetButtonDown("Jump");
 
             //! Debug
             DebugCommands();
@@ -63,7 +63,7 @@ namespace Randolph.Characters {
 
         void FixedUpdate() {
             float horizontal = Input.GetAxisRaw("Horizontal");
-            float vertical = Input.GetAxisRaw("Vertical");      
+            float vertical = Input.GetAxisRaw("Vertical");
 
             isOnGround = GroundCheck(groundCheckRayLength, groundLayers);
 
@@ -96,6 +96,7 @@ namespace Randolph.Characters {
                 if (currentLadder <= 0) {
                     //rbody.velocity = new Vector2(rbody.velocity.x, 0); // Stop hopping at the end of a ladder
                     IgnoreCollision(false);
+                    StopClimbing();
                 }
             }
         }
@@ -215,14 +216,8 @@ namespace Randolph.Characters {
             if (isClimbing) {
                 float vSpeed = vertical * climbingSpeed;
                 float hSpeed = horizontal * climbingSpeed;
-
                 rbody.velocity = new Vector2(hSpeed, vSpeed);
-
                 animator.SetFloat("ClimbingSpeed", vSpeed);
-
-                if (currentLadder <= 0 || isOnGround) {
-                    StopClimbing();
-                }
             }
         }
 
@@ -245,7 +240,7 @@ namespace Randolph.Characters {
             grapplingJoint.enabled = true;
             grapplingJoint.distance = Vector2.Distance(transform.position, obj.transform.position);
             grappleRopeRenderer.enabled = true;
-            grappleRopeRenderer.SetPositions(new Vector3[] {transform.position, obj.transform.position});
+            grappleRopeRenderer.SetPositions(new Vector3[] { transform.position, obj.transform.position });
         }
 
         private void Grappling(float vertical, float horizontal = 0f) {
@@ -274,21 +269,21 @@ namespace Randolph.Characters {
 
             if (Input.GetKeyDown(KeyCode.KeypadPlus)) {
                 // DEBUG: Go to the next room
-                var checkpoinContainer = FindObjectOfType<CheckpointContainer>();
-                Checkpoint nextCheckpoint = checkpoinContainer.GetNext();
+                var checkpointContainer = FindObjectOfType<CheckpointContainer>();
+                Checkpoint nextCheckpoint = checkpointContainer.GetNext();
                 if (nextCheckpoint) {
                     transform.position = nextCheckpoint.transform.position;
-                    checkpoinContainer.SetReached(nextCheckpoint);
+                    checkpointContainer.SetReached(nextCheckpoint);
                 }
             }
 
             if (Input.GetKeyDown(KeyCode.KeypadMinus)) {
                 // DEBUG: Go to the previous room
-                var checkpoinContainer = FindObjectOfType<CheckpointContainer>();
-                Checkpoint previousCheckpoint = checkpoinContainer.GetPrevious();
+                var checkpointContainer = FindObjectOfType<CheckpointContainer>();
+                Checkpoint previousCheckpoint = checkpointContainer.GetPrevious();
                 if (previousCheckpoint) {
                     transform.position = previousCheckpoint.transform.position;
-                    checkpoinContainer.SetReached(previousCheckpoint);
+                    checkpointContainer.SetReached(previousCheckpoint);
                 }
             }
         }
