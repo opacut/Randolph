@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
+using Randolph.Core;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace Randolph.Core {
-	public class Autotile : Tile {
+namespace Randolph.Tiles {
+	public class Autotile : ConnectedTile {
 		[Flags]
 		enum Ne {
 			TopRight = 1, Top = 2, TopLeft = 4, Left = 8, DownLeft = 16, Down = 32, DownRight = 64, Right = 128,
@@ -17,34 +15,25 @@ namespace Randolph.Core {
 			Corners = TopRight | TopLeft | DownRight | DownLeft
 		}
 
-		public Sprite[] sprites = new Sprite[Constants.Tilemap.tileCount];
-
-		public override void RefreshTile(Vector3Int position, ITilemap tilemap) {
-			for (int j = -1; j <= 1; ++j)
-				for (int i = -1; i <= 1; ++i) {
-					var neighborPos = new Vector3Int(position.x + i, position.y + j, position.z);
-					if (IsAutotile(tilemap, neighborPos))
-						tilemap.RefreshTile(neighborPos);
-				}
-		}
+		public Sprite[] sprites = new Sprite[Constants.Tilemap.TileCount];
 
 		public override void GetTileData(Vector3Int position, ITilemap tilemap, ref TileData tileData) {
 			Ne neighbors = 0;
-			if (IsAutotile(tilemap, new Vector3Int(position.x + 1, position.y + 1, position.z)))
+			if (CanConnect(tilemap, new Vector3Int(position.x + 1, position.y + 1, position.z)))
 				neighbors |= Ne.TopRight;
-			if (IsAutotile(tilemap, new Vector3Int(position.x, position.y + 1, position.z)))
+			if (CanConnect(tilemap, new Vector3Int(position.x, position.y + 1, position.z)))
 				neighbors |= Ne.Top;
-			if (IsAutotile(tilemap, new Vector3Int(position.x - 1, position.y + 1, position.z)))
+			if (CanConnect(tilemap, new Vector3Int(position.x - 1, position.y + 1, position.z)))
 				neighbors |= Ne.TopLeft;
-			if (IsAutotile(tilemap, new Vector3Int(position.x - 1, position.y, position.z)))
+			if (CanConnect(tilemap, new Vector3Int(position.x - 1, position.y, position.z)))
 				neighbors |= Ne.Left;
-			if (IsAutotile(tilemap, new Vector3Int(position.x - 1, position.y - 1, position.z)))
+			if (CanConnect(tilemap, new Vector3Int(position.x - 1, position.y - 1, position.z)))
 				neighbors |= Ne.DownLeft;
-			if (IsAutotile(tilemap, new Vector3Int(position.x, position.y - 1, position.z)))
+			if (CanConnect(tilemap, new Vector3Int(position.x, position.y - 1, position.z)))
 				neighbors |= Ne.Down;
-			if (IsAutotile(tilemap, new Vector3Int(position.x + 1, position.y - 1, position.z)))
+			if (CanConnect(tilemap, new Vector3Int(position.x + 1, position.y - 1, position.z)))
 				neighbors |= Ne.DownRight;
-			if (IsAutotile(tilemap, new Vector3Int(position.x + 1, position.y, position.z)))
+			if (CanConnect(tilemap, new Vector3Int(position.x + 1, position.y, position.z)))
 				neighbors |= Ne.Right;
 
 			tileData.sprite = ByNeighbors(neighbors);
@@ -146,10 +135,6 @@ namespace Randolph.Core {
 				return sprites[45];
 			else
 				return sprites[46];
-		}
-
-		private bool IsAutotile(ITilemap tilemap, Vector3Int pos) {
-			return tilemap.GetTile(pos) == this;
 		}
 
 		private bool Matches(Ne lhs, Ne rhs) {

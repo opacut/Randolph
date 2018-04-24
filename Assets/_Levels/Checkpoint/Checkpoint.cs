@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
-
-using UnityEngine;
-
+using Randolph.Core;
 using Randolph.Interactable;
 using Randolph.UI;
-
+using UnityEngine;
 
 namespace Randolph.Levels {
     [RequireComponent(typeof(Collider2D))]
@@ -31,7 +29,7 @@ namespace Randolph.Levels {
         }
 
         void OnTriggerEnter2D(Collider2D other) {
-            if (other.tag == "Player") {
+            if (other.tag == Constants.Tag.Player) {
                 container.CheckpointReached(this);
                 SaveState();
             }

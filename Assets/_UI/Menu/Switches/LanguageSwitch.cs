@@ -12,7 +12,7 @@ namespace Randolph.UI {
         }
 
         public override void OnPointerDown(PointerEventData pointerEventData) {
-            // TODO: Fill
+            // TODO: Language Switch
            /*
             if (TextManager.textManager.Language == Languages.English) {
                 TextManager.textManager.Language = Languages.Česky;

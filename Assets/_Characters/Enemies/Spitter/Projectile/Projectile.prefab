@@ -21,9 +21,8 @@ GameObject:
   - component: {fileID: 4474509507601308}
   - component: {fileID: 212722560993710856}
   - component: {fileID: 50607237082853124}
-  - component: {fileID: 70656943917875794}
   - component: {fileID: 114561886488964792}
-  - component: {fileID: 114122321334448708}
+  - component: {fileID: 61083717563926146}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -38,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1242791482981112}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 32.867, y: 11.031, z: 0}
-  m_LocalScale: {x: 2.0751934, y: 2.0751944, z: 2.0751944}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -64,8 +63,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &70656943917875794
-CapsuleCollider2D:
+--- !u!61 &61083717563926146
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -76,21 +75,19 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.23, y: 0.12}
-  m_Direction: 0
---- !u!114 &114122321334448708
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1242791482981112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2fec3c749134b84494a9f107e67e6cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialPosition: {x: 0, y: 0}
+  m_Offset: {x: 0.09407425, y: 0.00012302399}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.5625, y: 0.3125}
+    newSize: {x: 0.23, y: 0.12}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.3743515, y: 0.18655396}
+  m_EdgeRadius: 0
 --- !u!114 &114561886488964792
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -118,7 +115,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 39e6bcd5e8eded14595d4f41b3f2313d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -137,8 +134,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1816235093
   m_SortingLayer: -2
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a782d49ee540f4581b3db93c1323cf7e, type: 3}
+  m_SortingOrder: -10
+  m_Sprite: {fileID: 21300000, guid: d680b316d17e5417e82ffe88da033561, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

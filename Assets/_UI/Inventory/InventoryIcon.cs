@@ -1,8 +1,7 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using Randolph.Interactable;
+using UnityEngine;
 using UnityEngine.EventSystems;
-
-using Randolph.Interactable;
+using UnityEngine.UI;
 
 namespace Randolph.UI {
     [RequireComponent(typeof(Image))]
@@ -10,43 +9,56 @@ namespace Randolph.UI {
     [RequireComponent(typeof(LayoutElement))]
     public class InventoryIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
 
-        Vector2 positionToReturnTo;
-        Inventory inventory;
-        InventoryItem item;
+        [SerializeField] Material outOfReachMaterial;
+        Material initialMaterial;
+        Image image;
 
-        public InventoryItem Item {
-            get { return item; }
-        }
+        Inventory inventory;
+        Vector2 position;
+        public InventoryItem item { get; private set; }
 
         public void Init(Inventory inventory, InventoryItem item) {
             this.inventory = inventory;
             this.item = item;
 
-            GetComponent<Image>().sprite = item.icon;
+            this.image = GetComponent<Image>();
+            initialMaterial = image.material;            
+            image.sprite = item.icon;
         }
 
         public void OnBeginDrag(PointerEventData eventData) {
-            positionToReturnTo = transform.position;
+            position = transform.position;
             GetComponent<CanvasGroup>().blocksRaycasts = false;
             GetComponent<LayoutElement>().ignoreLayout = true;
         }
 
         public void OnDrag(PointerEventData eventData) {
-            transform.position = Input.mousePosition;
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            GetComponent<Image>().sprite = (FindApplicableTarget()) ? item.iconOK : item.iconNOK;
+            if (outOfReachMaterial && !IsCursorWithinApplicableDistance(mousePosition)) {
+                // Too far to apply the item -> set an appropriate material
+                image.material = outOfReachMaterial;
+            } else if (image.material != initialMaterial) {
+                // Can apply the item
+                image.material = initialMaterial;
+            }
+            transform.position = new Vector3(mousePosition.x, mousePosition.y, 0);
         }
 
         public void OnEndDrag(PointerEventData eventData) {
             GameObject target = FindApplicableTarget();
             if (target) {
                 inventory.ApplyTo(item, target);
-            } else {
-                transform.position = positionToReturnTo;
-                GetComponent<Image>().sprite = item.icon;
-                GetComponent<CanvasGroup>().blocksRaycasts = true;
-                GetComponent<LayoutElement>().ignoreLayout = false;
             }
+
+            transform.position = position;
+            image.material = initialMaterial;
+            GetComponent<CanvasGroup>().blocksRaycasts = true;
+            GetComponent<LayoutElement>().ignoreLayout = false;
+        }
+
+        bool IsCursorWithinApplicableDistance(Vector2 mousePosition) {
+            return inventory.IsWithinApplicableDistance(mousePosition);
         }
 
         GameObject FindApplicableTarget() {

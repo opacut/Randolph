@@ -50,6 +50,9 @@ namespace Com.LuisPedroFonseca.ProCamera2D
 		{
 			base.OnEnable();
 
+			if(ProCamera2D == null)
+				return;
+
 			if (_triggerEnabled)
 				Toggle(true);
 		}

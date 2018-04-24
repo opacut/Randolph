@@ -1,27 +1,31 @@
-﻿using UnityEngine;
-
+﻿using Randolph.Core;
 using Randolph.UI;
+using UnityEngine;
 
 namespace Randolph.Interactable {
     public abstract class InventoryItem : Pickable {
 
         public Sprite icon;
-        public Sprite iconOK;
-        public Sprite iconNOK;
+        [SerializeField] AudioClip collectSound;
+        [SerializeField] AudioClip applySound;
         Inventory inventory;
 
-        private void Awake() {
+        protected override void Awake() {
+            base.Awake();
             inventory = FindObjectOfType<Inventory>();
         }
 
         public override void OnPick() {
             inventory.Add(this);
+            AudioPlayer.audioPlayer.PlayGlobalSound(collectSound);
             gameObject.SetActive(false);
         }
 
         public abstract bool IsApplicable(GameObject target);
 
-        public abstract void OnApply(GameObject target);
+        public virtual void OnApply(GameObject target) {
+            AudioPlayer.audioPlayer.PlayGlobalSound(applySound);
+        }
 
     }
 }

@@ -1,32 +1,34 @@
 using System.Collections;
-
+using Randolph.Core;
 using Randolph.Levels;
-
 using UnityEngine;
 
-namespace Randolph.Characters
-{
-    public class Spitter : MonoBehaviour, IRestartable
-    {
+namespace Randolph.Characters {
+    public class Spitter : MonoBehaviour, IRestartable {
 
         [SerializeField] GameObject shot;
         [SerializeField] Transform shotSpawn;
+        [SerializeField] AudioClip shotSound;
         [SerializeField] float fireRate;
         [SerializeField] float initialDelay;
+        AudioSource audioSource;
+        Transform currentArea;
 
         Coroutine shootingCO;
 
-        void Fire()
-        {
-            Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+        void Start() {
+            audioSource = AudioPlayer.audioPlayer.AddAudioSource(gameObject);
+            currentArea = GetComponentInParent<Area>()?.transform;
         }
 
+        void Fire() {
+            AudioPlayer.audioPlayer.PlayLocalSound(audioSource, shotSound);
+            Instantiate(shot, shotSpawn.position, shotSpawn.rotation, currentArea);
+        }
 
-        IEnumerator KeepShooting(float fireRate, float initialDelay)
-        {
+        IEnumerator KeepShooting(float fireRate, float initialDelay) {
             yield return new WaitForSeconds(initialDelay);
-            while (true)
-            {
+            while (true) {
                 Fire();
                 yield return new WaitForSeconds(fireRate);
             }
@@ -36,16 +38,14 @@ namespace Randolph.Characters
 
         public void Kill() { }
 
-        void OnBecameVisible()
-        {
+        void OnBecameVisible() {
             // Shoot only when being onscreen
             shootingCO = StartCoroutine(KeepShooting(fireRate, initialDelay));
         }
 
-        void OnBecameInvisible()
-        {
+        void OnBecameInvisible() {
             if (shootingCO != null) StopCoroutine(shootingCO);
         }
 
-    } 
+    }
 }

@@ -1,50 +1,89 @@
 ﻿using UnityEngine;
-
-using Randolph.Environment;
+using Randolph.Core;
 using Randolph.Interactable;
 using Randolph.Levels;
 
 namespace Randolph.Characters {
     [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(DistanceJoint2D))]
     public class PlayerController : MonoBehaviour {
 
-        [SerializeField] float skin = 1.3f;
+        [Header("Movement")]
+        [SerializeField] AudioClip deathSound;
         [SerializeField] float climbingSpeed = 6;
         [SerializeField] float movementSpeed = 6;
         [SerializeField] float jumpForce = 800;
-        [SerializeField] float fallForce = 50;
-        [SerializeField] LayerMask groundLayer;
 
-        const string LadderTag = "Ladder";
-        const string PickableTag = "Pickable";
+        [Header("Jumping")]        
+        [SerializeField] LayerMask groundLayers;
+        [SerializeField, Range(2, 12)] int groundRayCount = 4;
+        [SerializeField] float groundCheckRayLength = 0.2f;
+        float groundRaySpacing;
+        const float SkinWidth = 0.015f; // overlapping tolerance    
+        RaycastOrigins2D raycastOrigins;
+        new Collider2D collider;
+
+        bool isOnGround = false;
+        bool jump = false;
+        float gravity = 0;
+
+        int currentLadder = 0;
+        bool isClimbing = false;
 
         Animator animator;
         Rigidbody2D rbody;
-        new Collider2D collider;
+        DistanceJoint2D grapplingJoint;
+        LineRenderer grappleRopeRenderer;
 
-        float gravity = 0;
-        bool jump = false;
-        bool onGround = false;
+        bool IsGrappled {
+            get { return grapplingJoint.isActiveAndEnabled; }
+        }
 
-        Ladder currentLadder = null;
-        bool climbing = false;
+        void Awake() {
+            GetComponents();
+            gravity = rbody.gravityScale;
+            CalculateRaySpacing();
+        }
 
-        private void Awake() {
+        void GetComponents() {
             animator = GetComponent<Animator>();
             rbody = GetComponent<Rigidbody2D>();
             collider = GetComponent<Collider2D>();
-            gravity = rbody.gravityScale;
+            grapplingJoint = GetComponent<DistanceJoint2D>();
+            grappleRopeRenderer = GetComponent<LineRenderer>();
+        }
+
+        void Update() {
+            jump = Input.GetButton("Jump");
+
+            //! Debug
+            DebugCommands();
+        }
+
+        void FixedUpdate() {
+            float horizontal = Input.GetAxisRaw("Horizontal");
+            float vertical = Input.GetAxisRaw("Vertical");      
+
+            isOnGround = GroundCheck(groundCheckRayLength, groundLayers);
+
+            Moving(horizontal);
+            Jumping();
+            Climbing(vertical, horizontal);
+            Grappling(vertical, horizontal);
+            Flipping();
         }
 
         private void OnTriggerEnter2D(Collider2D other) {
-            if (other.tag == LadderTag) {
-                var ladder = other.GetComponent<Ladder>();
-                Debug.Assert(ladder, "An object with a Ladder tag doesn't have a Ladder script attached.", other.gameObject);
-                currentLadder = ladder;
+            if (other.tag == Constants.Tag.Ladder) {
+                ++currentLadder;
             }
 
-            if (other.tag == PickableTag) {
+            if (other.tag == Constants.Tag.Deadly) {
+                Kill();
+            }
+
+            if (other.tag == Constants.Tag.Pickable) {
                 var pickable = other.GetComponent<Pickable>();
                 Debug.Assert(pickable, "An object with a Pickable tag doesn't have a Pickable script attached", other.gameObject);
                 pickable.OnPick();
@@ -52,93 +91,37 @@ namespace Randolph.Characters {
         }
 
         private void OnTriggerExit2D(Collider2D other) {
-            if (other.tag == LadderTag) {
-                IgnoreCollision(currentLadder.attachedPlatform, false);
-                currentLadder = null;
-            }
-        }
-
-        private void Update() {
-            if (Input.GetButtonDown("Jump")) {
-                jump = true;
-            }
-        }
-
-        private void FixedUpdate() {
-            GroundCheck();
-
-            float vertical = Input.GetAxisRaw("Vertical");
-            float horizontal = Input.GetAxisRaw("Horizontal");
-
-            Moving(horizontal);
-            Jumping(vertical);
-            Climbing(vertical, horizontal);
-            Flipping();
-        }
-
-        private void Moving(float horizontal) {
-            float hSpeed = horizontal * movementSpeed;
-
-            animator.SetBool("Running", onGround && !Mathf.Approximately(hSpeed, 0f));
-            animator.SetFloat("RunningSpeed", Mathf.Abs(hSpeed));
-
-            if (onGround || !climbing) {
-                // Left and right movement on the ground
-                rbody.velocity = new Vector2(hSpeed, rbody.velocity.y);
-            }
-        }
-
-        private void Jumping(float vertical) {
-            if (jump && (climbing || onGround && Mathf.Approximately(rbody.velocity.y, 0f))) {
-                // Jumping while on ground or climbing
-                StopClimbing();
-                JumpUp();
-            }
-
-            if (!onGround && !climbing && rbody.velocity.y < 0) {
-                rbody.AddForce(Vector2.down * fallForce);
-            }
-        }
-
-        private void JumpUp() {
-            jump = onGround = false;
-            rbody.AddForce(Vector2.up * jumpForce);
-            animator.SetTrigger("Jump");
-        }
-
-        void Climbing(float vertical, float horizontal = 0f) {
-            // TODO: Move from ladder sideways
-
-            if (!climbing && currentLadder && Mathf.Abs(vertical) > 0.001f) {
-                climbing = true;
-                rbody.gravityScale = 0;
-
-                IgnoreCollision(currentLadder.attachedPlatform, true);
-
-                animator.SetBool("Climbing", true);
-                animator.SetFloat("ClimbingSpeed", 0);
-            }
-
-            if (climbing) {
-                float vSpeed = vertical * climbingSpeed;
-                float hSpeed = horizontal * climbingSpeed;
-
-                rbody.velocity = new Vector2(hSpeed, vSpeed);
-
-                animator.SetFloat("ClimbingSpeed", vSpeed);
-
-                if (!currentLadder || onGround) {
-                    StopClimbing(vSpeed);
+            if (other.tag == Constants.Tag.Ladder) {
+                --currentLadder;
+                if (currentLadder <= 0) {
+                    //rbody.velocity = new Vector2(rbody.velocity.x, 0); // Stop hopping at the end of a ladder
+                    IgnoreCollision(false);
                 }
             }
         }
 
-        private void StopClimbing(float vSpeed = 1f) {
-            climbing = false;
-            rbody.gravityScale = gravity;
-            if (!onGround) rbody.AddForce(Vector2.up * vSpeed);
+        public void Kill(float delay = 0.25f) {
+            StopGrappling();
+            StopClimbing();
+            AudioPlayer.audioPlayer.PlayGlobalSound(deathSound);
+            LevelManager.levelManager.ReturnToCheckpoint(delay);
+            gameObject.SetActive(false);
+        }
 
-            animator.SetBool("Climbing", false);
+        // TODO: Break into components
+
+        #region Move
+
+        private void Moving(float horizontal) {
+            float hSpeed = horizontal * movementSpeed;
+
+            animator.SetBool("Running", isOnGround && !Mathf.Approximately(hSpeed, 0f));
+            animator.SetFloat("RunningSpeed", Mathf.Abs(hSpeed));
+
+            if (isOnGround || !isClimbing) {
+                // Left and right movement on the ground
+                rbody.velocity = new Vector2(hSpeed, rbody.velocity.y);
+            }
         }
 
         private void Flipping() {
@@ -149,20 +132,168 @@ namespace Randolph.Characters {
             }
         }
 
-        private void GroundCheck() {
-            Debug.DrawRay(transform.position, Vector2.down * skin, Color.green);
-            Collider2D coll = Physics2D.Raycast(transform.position, Vector2.down, skin, Randolph.Core.Constants.GroundLayer).collider;
-            onGround = coll && rbody.IsTouching(coll);
+        #endregion
+
+        #region Jump
+
+        private void Jumping() {
+            if (!jump) {
+                return;
+            }
+
+            if (isOnGround || IsGrappled) {
+                StopGrappling();
+                JumpUp();
+            }
         }
 
-        private void IgnoreCollision(Collider2D other, bool ignore) {
-            Physics2D.IgnoreCollision(collider, other, ignore);
+        private void JumpUp() {
+            jump = false;
+            rbody.velocity = new Vector2(rbody.velocity.x, 0);
+            rbody.AddForce(Vector2.up * jumpForce);
+            animator.SetTrigger("Jump");
         }
 
-        public void Kill(float delay = 0.25f) {
-            LevelManager.levelManager.ReturnToCheckpoint(delay);
-            gameObject.SetActive(false);
+        #endregion
+
+        #region Raycasting
+
+        public struct RaycastOrigins2D {
+
+            public Vector2 bottomLeft;
+            public Vector2 bottomRight;
+
         }
+
+        public bool GroundCheck(float rayLength, int layerMask) {
+            UpdateRaycastOrigins();
+
+            Vector2 rayOrigin = raycastOrigins.bottomLeft;
+            for (int i = 0; i < groundRayCount; i++) {
+                RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, rayLength, layerMask);
+                // Debug.DrawRay(rayOrigin, Vector2.down * rayLength, Color.red);
+                if (hit.collider) {
+                    return true;
+                }
+
+                rayOrigin.x += groundRaySpacing;
+            }
+
+            return false;
+        }
+
+        public void CalculateRaySpacing() {
+            Bounds bounds = collider.bounds;
+            bounds.Expand(Constants.RaycastBoundsShrinkage);
+
+            groundRaySpacing = bounds.size.x / (groundRayCount - 1);
+        }
+
+        void UpdateRaycastOrigins() {
+            Bounds bounds = collider.bounds;
+            bounds.Expand(Constants.RaycastBoundsShrinkage);
+
+            raycastOrigins.bottomLeft = new Vector2(bounds.min.x, bounds.min.y);
+            raycastOrigins.bottomRight = new Vector2(bounds.max.x, bounds.min.y);
+        }
+
+        #endregion
+
+        #region Climb
+
+        void Climbing(float vertical, float horizontal = 0f) {
+            if (!isClimbing && currentLadder > 0 && Mathf.Abs(vertical) > Mathf.Epsilon) {
+                isClimbing = true;
+                rbody.gravityScale = 0;
+
+                IgnoreCollision(true);
+
+                animator.SetBool("Climbing", true);
+                animator.SetFloat("ClimbingSpeed", 0);
+            }
+
+            if (isClimbing) {
+                float vSpeed = vertical * climbingSpeed;
+                float hSpeed = horizontal * climbingSpeed;
+
+                rbody.velocity = new Vector2(hSpeed, vSpeed);
+
+                animator.SetFloat("ClimbingSpeed", vSpeed);
+
+                if (currentLadder <= 0 || isOnGround) {
+                    StopClimbing();
+                }
+            }
+        }
+
+        void StopClimbing(float vSpeed = 1f) {
+            isClimbing = false;
+            rbody.gravityScale = gravity;
+            if (gameObject.activeSelf) animator.SetBool("Climbing", false);
+        }
+
+        void IgnoreCollision(bool ignore) {
+            Methods.IgnoreLayerMaskCollision(Constants.Layer.Player, groundLayers, ignore);
+        }
+
+        #endregion
+
+        #region Grapple
+
+        public void GrappleTo(GameObject obj) {
+            grapplingJoint.connectedAnchor = obj.transform.position;
+            grapplingJoint.enabled = true;
+            grapplingJoint.distance = Vector2.Distance(transform.position, obj.transform.position);
+            grappleRopeRenderer.enabled = true;
+            grappleRopeRenderer.SetPositions(new Vector3[] {transform.position, obj.transform.position});
+        }
+
+        private void Grappling(float vertical, float horizontal = 0f) {
+            if (!IsGrappled) {
+                return;
+            }
+
+            grapplingJoint.distance -= vertical * 0.2f;
+            grappleRopeRenderer.SetPosition(0, transform.position);
+        }
+
+        private void StopGrappling() {
+            grapplingJoint.enabled = false;
+            grappleRopeRenderer.enabled = false;
+        }
+
+        #endregion
+
+        #region Debug
+
+        void DebugCommands() {
+            if (Input.GetKeyDown(KeyCode.R)) {
+                // DEBUG: Restart
+                Kill();
+            }
+
+            if (Input.GetKeyDown(KeyCode.KeypadPlus)) {
+                // DEBUG: Go to the next room
+                var checkpoinContainer = FindObjectOfType<CheckpointContainer>();
+                Checkpoint nextCheckpoint = checkpoinContainer.GetNext();
+                if (nextCheckpoint) {
+                    transform.position = nextCheckpoint.transform.position;
+                    checkpoinContainer.SetReached(nextCheckpoint);
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.KeypadMinus)) {
+                // DEBUG: Go to the previous room
+                var checkpoinContainer = FindObjectOfType<CheckpointContainer>();
+                Checkpoint previousCheckpoint = checkpoinContainer.GetPrevious();
+                if (previousCheckpoint) {
+                    transform.position = previousCheckpoint.transform.position;
+                    checkpoinContainer.SetReached(previousCheckpoint);
+                }
+            }
+        }
+
+        #endregion
 
     }
 }

@@ -1,28 +1,32 @@
-﻿using UnityEngine;
+﻿using Randolph.Core;
+using Randolph.Levels;
+using UnityEngine;
 
 namespace Randolph.Characters {
-    public class Crows : MonoBehaviour {
+    [RequireComponent(typeof(Glider))]
+    public class Crows : MonoBehaviour, IRestartable {
 
-        public bool SecondPosition;
-        public bool FinalPosition;
-        private Animator animator;
-        private Transform tr;
+        Animator animator;
+        AudioSource audioSource;
+        Glider glider;
+
+        [SerializeField] AudioClip cawingSound;
 
         private void Awake() {
             animator = GetComponent<Animator>();
+            audioSource = AudioPlayer.audioPlayer.AddAudioSource(gameObject);
+            glider = GetComponent<Glider>();
+
+            glider.OnPlayerDisturbed += OnPlayerDisturbed;
         }
 
-        public void OnTriggerEnter2D(Collider2D other) {
-            if ((!SecondPosition) && (other.tag == "Player")) {
-                animator.SetBool("FirstTouch", true);
-                //gameObject.transform.position = new Transform;
-                SecondPosition = true;
-            } else if ((!FinalPosition) && (other.tag == "Player")) {
-                animator.SetBool("SecondTouch", true);
-                FinalPosition = true;
-            } else if (other.tag == "Enemy") {
-                Destroy(gameObject);
-            }
+        public void Restart() {
+            animator.SetBool("Flying", false);
+        }
+
+        void OnPlayerDisturbed(PlayerController player) {
+            animator.SetBool("Flying", true);
+            AudioPlayer.audioPlayer.PlayLocalSound(audioSource, cawingSound);
         }
 
     }

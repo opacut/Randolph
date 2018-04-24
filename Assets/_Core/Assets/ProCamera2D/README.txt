@@ -37,6 +37,11 @@ Twitter - http://www.twitter.com/lpfonseca
 
 ## CHANGELOG ##
 
+2.6.1
+- PanAndZoom - Replaced platform dependent compilation with touch support verification for improved compatibility
+- PanAndZoom - Added Pan start and finish events
+- Triggers - Improved support for multi-scenes setups
+
 2.6.0
 - Unity 2018.1 - Added support for the latest beta
 - Timeline - Added Timeline actions for adding and removing camera targets
