@@ -5,6 +5,9 @@ TextureImporter:
     21300000: Flytrap_open
     21300002: Flytrap_closed
     21300004: Flytrap_crushed
+    21300006: Flytrap_0
+    21300008: Flytrap_1
+    21300010: Flytrap_2
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -107,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Flytrap_open
+      name: Flytrap_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 48
-        height: 48
+        height: 44
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,19 +124,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71a4fb3a881b8fa43ae218572d425276
+      spriteID: fbb397a5a3e3f498cb214fda04ac7b88
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flytrap_closed
+      name: Flytrap_1
       rect:
         serializedVersion: 2
         x: 48
         y: 0
         width: 48
-        height: 48
+        height: 44
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,19 +144,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06192acfe6d3b7f4ba16b02c4b2d1d83
+      spriteID: 32a2807e18ef64cd28383e6845b3d06b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flytrap_crushed
+      name: Flytrap_2
       rect:
         serializedVersion: 2
         x: 96
         y: 0
         width: 48
-        height: 48
+        height: 44
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,7 +164,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ede3c8ee968288498e0bbb327741034
+      spriteID: 84ffe4fc2785242de9e243bcde675bf5
       vertices: []
       indices: 
       edges: []
