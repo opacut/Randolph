@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4963528387016776}
   - component: {fileID: 212754042459664770}
   - component: {fileID: 114424286860818330}
+  - component: {fileID: 50080650875750548}
   m_Layer: 0
   m_Name: cloud
   m_TagString: Untagged
@@ -41,6 +42,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50080650875750548
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1940026721264294}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 1
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &114424286860818330
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -52,6 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71ae999f39c52412f9ff16d6fffadb32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endX: 0
 --- !u!212 &212754042459664770
 SpriteRenderer:
   m_ObjectHideFlags: 1
