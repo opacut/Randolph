@@ -1,14 +1,17 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using Randolph.Characters;
+using Randolph.Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Randolph.Characters;
 
 namespace Randolph.Levels {
     [AddComponentMenu("Randolph/Levels/Level Manager", 10)]
     public class LevelManager : MonoBehaviour {
 
-        public static LevelManager levelManager; 
+        public static LevelManager levelManager;
 
         /// <summary>The <see cref="PlayerPrefs"/> key containing the number of the last level with a player in it.</summary>
         public const string levelKey = "Level";
@@ -23,12 +26,11 @@ namespace Randolph.Levels {
             }
             private set { levelAreas = value; }
         }
-        Area[] levelAreas;        
+        Area[] levelAreas;
 
         public delegate void NewLevel(Scene scene, PlayerController player);
         /// <summary>An event invoked at the start of each level containing a <see cref="PlayerController"/>.</summary>
         public static event NewLevel OnNewLevel;
-
 
         void Awake() {
             //! Pass Level Manager between levels; destroy excess ones
@@ -52,20 +54,22 @@ namespace Randolph.Levels {
         }
 
         public void ReturnToCheckpoint(float delay = 0.25f) {
-            StartCoroutine(Checkpoints.ReturnToCheckpoint(delay));
+            Checkpoints.ReturnToCheckpoint(delay);
         }
 
         public static void ReloadLevel() {
-            //? After "reset" button – back to checkpoint?
+            //? After "reset" button ï¿½ back to checkpoint?
             int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
             SceneManager.LoadScene(currentLevelIndex);
         }
 
-        public static void LoadNextLevel() {
+        public static async void LoadNextLevel() {
             int nextLevelIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
             if (SceneManager.sceneCountInBuildSettings > nextLevelIndex) {
-                SceneManager.LoadScene(nextLevelIndex);
+                Constants.Camera.transition.TransitionExit();
+                await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationExit));
+                SceneManager.LoadSceneAsync(nextLevelIndex);
                 // TODO: Pass inventory state between levels
             } else {
                 string s = (SceneManager.sceneCountInBuildSettings > 1) ? "s" : "";
@@ -81,10 +85,7 @@ namespace Randolph.Levels {
         Area[] GetLevelAreas() {
             // Get only properly named areas (may contain more linking to the same room)
             Area[] areas = FindObjectsOfType<Area>().Where(area => area.Id != Area.InvalidId).OrderBy(area => area.Id).ToArray();
-            List<int> duplicates = (from area in areas
-                             group area by area.Id into idGroups
-                             where idGroups.Count() > 1
-                             select idGroups.Key).ToList();
+            List<int> duplicates = (from area in areas group area by area.Id into idGroups where idGroups.Count() > 1 select idGroups.Key).ToList();
             if (duplicates.Count > 0) Debug.LogWarning($"Some areas ({duplicates[0]}) reference the same Camera Room.");
             return areas;
         }

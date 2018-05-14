@@ -1,9 +1,23 @@
+using Com.LuisPedroFonseca.ProCamera2D;
 using UnityEngine;
 
 namespace Randolph.Core {
     public static class Constants {
 
         public const int PixelsPerUnit = 16;
+
+        public static class Camera {
+            public static ProCamera2DRooms rooms {
+                get {
+                    return UnityEngine.Camera.main.gameObject.GetComponent<ProCamera2DRooms>();
+                }
+            }
+            public static ProCamera2DTransitionsFX transition {
+                get {
+                    return UnityEngine.Camera.main.gameObject.GetComponent<ProCamera2DTransitionsFX>();
+                }
+            }
+        }
 
         public static class Audio {
 
@@ -13,7 +27,7 @@ namespace Randolph.Core {
 
             /// <summary>Returns the current position of the audio listener.</summary>
             public static Vector2 AudioListener {
-                get { return Camera.main.transform.position; }
+                get { return UnityEngine.Camera.main.transform.position; }
             }
 
         }

@@ -37,25 +37,25 @@ namespace Randolph.Core {
             Rooms,
             Local
 
-        };
+            };
 
-        const float SpatialBlendGlobal = 0f;
-        const float SpatialBlendLocal = 1f;
+            const float SpatialBlendGlobal = 0f;
+            const float SpatialBlendLocal = 1f;
 
-        Dictionary<AudioSource, SoundQueue> playingSounds = new Dictionary<AudioSource, SoundQueue>();
+            Dictionary<AudioSource, SoundQueue> playingSounds = new Dictionary<AudioSource, SoundQueue>();
 
-        Transform player;
-        ProCamera2DRooms cameraRooms;
-        [SerializeField] Area currentArea;
+            Transform player;
+            ProCamera2DRooms cameraRooms;
+            [SerializeField] Area currentArea;
 
-        void Awake() {
+            void Awake() {
             //! Pass Audio Player between levels; destroy excess ones
             DontDestroyOnLoad(this);
 
             if (FindObjectsOfType(GetType()).Length > 1) {
-                Destroy(gameObject);
+            Destroy(gameObject);
             } else {
-                audioPlayer = this;
+            audioPlayer = this;
             }
 
             LevelManager.OnNewLevel += OnNewLevel;
