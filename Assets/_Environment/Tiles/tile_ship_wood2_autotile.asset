@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20370b0124afb43978ce1dcb4b8e7dc4, type: 3}
   m_Name: tile_ship_wood2_autotile
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 213257232406556788}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
@@ -81,7 +81,7 @@ MonoBehaviour:
   - {fileID: 213807871741368220}
   - {fileID: 213339691339412194}
   - {fileID: 213364132398815654}
-  - {fileID: 213257232406556788}
+  - {fileID: 0}
 --- !u!28 &28008690329968060
 Texture2D:
   m_ObjectHideFlags: 0
@@ -1914,7 +1914,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -2011,11 +2011,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213071195413614004
@@ -2111,7 +2107,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -2208,11 +2204,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213086155440712286
@@ -2308,7 +2300,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -2405,11 +2397,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213104089328557774
@@ -2505,7 +2493,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -2602,11 +2590,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213105367479863154
@@ -2702,7 +2686,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -2799,11 +2783,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213108593489473348
@@ -2899,7 +2879,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -2996,11 +2976,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213112860151960430
@@ -3096,7 +3072,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -3193,11 +3169,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213180567554596664
@@ -3293,7 +3265,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -3390,11 +3362,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213212942518564042
@@ -3490,7 +3458,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -3587,11 +3555,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213238418038955296
@@ -3687,7 +3651,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -3784,11 +3748,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213240660061165460
@@ -3884,7 +3844,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -3981,11 +3941,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213257232406556788
@@ -4081,7 +4037,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -4178,11 +4134,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213333375695299194
@@ -4278,7 +4230,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -4375,11 +4327,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213337271015369010
@@ -4475,7 +4423,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -4572,11 +4520,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213339691339412194
@@ -4672,7 +4616,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -4769,11 +4713,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213364132398815654
@@ -4869,7 +4809,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -4966,11 +4906,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213368176260180900
@@ -5066,7 +5002,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -5163,11 +5099,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213393879153249456
@@ -5263,7 +5195,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -5360,11 +5292,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213402454859583960
@@ -5460,7 +5388,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -5557,11 +5485,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213406778418311144
@@ -5657,7 +5581,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -5754,11 +5678,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213449171943886728
@@ -5854,7 +5774,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -5951,11 +5871,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213459321158522404
@@ -6051,7 +5967,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -6148,11 +6064,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213459677667410386
@@ -6248,7 +6160,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -6345,11 +6257,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213494494740427064
@@ -6445,7 +6353,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -6542,11 +6450,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213540791849837592
@@ -6642,7 +6546,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -6739,11 +6643,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213617582619285258
@@ -6839,7 +6739,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -6936,11 +6836,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213628365888334106
@@ -7036,7 +6932,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -7133,11 +7029,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213629273773013764
@@ -7233,7 +7125,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -7330,11 +7222,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213639406342326570
@@ -7430,7 +7318,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -7527,11 +7415,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213641616278591406
@@ -7627,7 +7511,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -7724,11 +7608,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213671193422521940
@@ -7824,7 +7704,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -7921,11 +7801,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213679667184860918
@@ -8021,7 +7897,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -8118,11 +7994,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213700936880020024
@@ -8218,7 +8090,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -8315,11 +8187,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213733987989651446
@@ -8415,7 +8283,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -8512,11 +8380,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213738601042703926
@@ -8612,7 +8476,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -8709,11 +8573,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213744488215102618
@@ -8809,7 +8669,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -8906,11 +8766,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213745518160439136
@@ -9006,7 +8862,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -9103,11 +8959,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213746110319254636
@@ -9203,7 +9055,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -9300,11 +9152,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213764007254831158
@@ -9400,7 +9248,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -9497,11 +9345,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213785928327142892
@@ -9597,7 +9441,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -9694,11 +9538,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213807871741368220
@@ -9794,7 +9634,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -9891,11 +9731,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213808798418483142
@@ -9991,7 +9827,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -10088,11 +9924,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213861783509916010
@@ -10188,7 +10020,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -10285,11 +10117,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213876375421463864
@@ -10385,7 +10213,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -10482,11 +10310,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213903067831957934
@@ -10582,7 +10406,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -10679,11 +10503,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213928636875679788
@@ -10779,7 +10599,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -10876,11 +10696,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213994903199652192
@@ -10976,7 +10792,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_SourceSkin: []
     textureRect:
@@ -11073,10 +10889,6 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
