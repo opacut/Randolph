@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Randolph.Characters;
 using Randolph.Core;
 using UnityEngine;
@@ -25,7 +27,7 @@ namespace Randolph.Levels {
         }
 
         /// <summary>Setup the checkpoints and (optionally) move the player to the first one.</summary>        
-        void OnNewLevel(Scene scene, PlayerController playerController) {
+        async void OnNewLevel(Scene scene, PlayerController playerController) {
             Debug.Assert(FindObjectsOfType(GetType()).Length == 1, "There is always supposed to be only one <b>CheckpointContainer</b> in a level.", gameObject);
             player = playerController;
             RefreshCheckpointList();
@@ -37,6 +39,8 @@ namespace Randolph.Levels {
                 player.transform.position = reached.transform.position;
                 player.transform.AlignToGround();
             }
+            await Task.Delay(TimeSpan.FromSeconds(1));
+            Constants.Camera.transition.TransitionEnter();
         }
 
         void Update() {
@@ -50,15 +54,17 @@ namespace Randolph.Levels {
             GetComponentsInChildren(checkpoints);
         }
 
-        public IEnumerator ReturnToCheckpoint(float delay) {
-            yield return new WaitForSeconds(delay);
-            ReturnToCheckpoint();
-        }
-
-        public void ReturnToCheckpoint() {
+        public async void ReturnToCheckpoint(float delay) {
+            if (delay > 0) {
+                await Task.Delay(TimeSpan.FromSeconds(delay));
+            }
             reached.RestoreState();
-            player.gameObject.SetActive(true);
+
+            Constants.Camera.transition.TransitionExit();
+            await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationExit));
             player.transform.position = reached.transform.position;
+            Constants.Camera.transition.TransitionEnter();
+            await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationEnter));
         }
 
         public void CheckpointReached(Checkpoint checkpoint) {

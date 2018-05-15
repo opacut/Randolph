@@ -222,10 +222,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4093edb6a1863d34dbcffeb9e3ef80d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  applicableDistance: 3
-  player: {fileID: 0}
   iconPrefab: {fileID: 114730609490348730, guid: f80f1d90567f0fe4996ad31f2b966316,
     type: 2}
+  applicableDistance: 3
 --- !u!114 &114686302098388002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -355,7 +354,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 1809559519
-  m_SortingOrder: -1000
+  m_SortingOrder: 1000
   m_TargetDisplay: 0
 --- !u!224 &224227096387499708
 RectTransform:

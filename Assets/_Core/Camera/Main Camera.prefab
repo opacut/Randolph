@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114325058347477524}
   - component: {fileID: 114728767508982640}
   - component: {fileID: 114937774556929832}
+  - component: {fileID: 114028949757974668}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -214,6 +215,40 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &114028949757974668
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1394957825921830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1eca57db7d394266ae024997acf4456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pc2D: {fileID: 114450003079259384}
+  TransitionShaderEnter: 1
+  DurationEnter: 0.5
+  DelayEnter: 0
+  EaseTypeEnter: 1
+  BackgroundColorEnter: {r: 0, g: 0, b: 0, a: 1}
+  SideEnter: 0
+  DirectionEnter: 0
+  BlindsEnter: 16
+  TextureEnter: {fileID: 0}
+  TextureSmoothingEnter: 0.2
+  TransitionShaderExit: 1
+  DurationExit: 0.5
+  DelayExit: 0
+  EaseTypeExit: 1
+  BackgroundColorExit: {r: 0, g: 0, b: 0, a: 1}
+  SideExit: 0
+  DirectionExit: 0
+  BlindsExit: 16
+  TextureExit: {fileID: 0}
+  TextureSmoothingExit: 0.2
+  StartSceneOnEnterState: 1
+  UseRealtime: 1
 --- !u!114 &114325058347477524
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -354,12 +389,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b8c96e2cdc154e848a3d9fe62464d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraTargets:
-  - TargetTransform: {fileID: 0}
-    TargetInfluenceH: 1
-    TargetInfluenceV: 1
-    TargetOffset: {x: 0, y: 0}
-  CenterTargetOnStart: 0
+  CameraTargets: []
+  CenterTargetOnStart: 1
   Axis: 0
   UpdateType: 0
   FollowHorizontal: 1
@@ -406,17 +437,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a78da3f00f3328541b4526c0b0b5ec5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineThickness: 1.25
-  lineIntensity: 0.5
-  fillAmount: 0.2
+  lineThickness: 1
+  lineIntensity: 1
+  fillAmount: 0
   lineColor0: {r: 1, g: 0.9584457, b: 0, a: 1}
   lineColor1: {r: 0, g: 1, b: 0.00427413, a: 1}
   lineColor2: {r: 1, g: 0, b: 0, a: 1}
   additiveRendering: 0
-  backfaceCulling: 1
+  backfaceCulling: 0
   cornerOutlines: 0
   addLinesBetweenColors: 0
-  scaleWithScreenSize: 1
+  scaleWithScreenSize: 0
   alphaCutoff: 0.5
   flipY: 0
   sourceCamera: {fileID: 20160739633386284}

@@ -106,7 +106,6 @@ namespace Randolph.Characters {
             StopClimbing();
             AudioPlayer.audioPlayer.PlayGlobalSound(deathSound);
             LevelManager.levelManager.ReturnToCheckpoint(delay);
-            gameObject.SetActive(false);
         }
 
         // TODO: Break into components
