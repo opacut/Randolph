@@ -19,7 +19,7 @@ namespace Randolph.Levels {
         bool alignPlayer = true;
 
         [SerializeField, ReadonlyField] List<Checkpoint> checkpoints = new List<Checkpoint>();
-        public const string checkpointKey = "ReachedCheckpointIndex";
+        public const string CheckpointKey = "ReachedCheckpoint";
         PlayerController player;
 
         void Awake() {
@@ -34,7 +34,7 @@ namespace Randolph.Levels {
             Debug.Assert(checkpoints.Any(), "There are no checkpoints in the container!", gameObject);
 
             reached = checkpoints.First();
-            PlayerPrefs.SetInt(checkpointKey, checkpoints.IndexOf(reached));
+            PlayerPrefs.SetInt(CheckpointKey, checkpoints.IndexOf(reached));
             if (alignPlayer) {
                 player.transform.position = reached.transform.position;
                 player.transform.AlignToGround();
@@ -70,7 +70,7 @@ namespace Randolph.Levels {
         public void CheckpointReached(Checkpoint checkpoint) {
             if (!IsCheckpointVisited(checkpoint)) {
                 reached = checkpoint;
-                PlayerPrefs.SetInt(checkpointKey, checkpoints.IndexOf(reached));
+                PlayerPrefs.SetInt(CheckpointKey, checkpoints.IndexOf(reached));
             }
         }
 

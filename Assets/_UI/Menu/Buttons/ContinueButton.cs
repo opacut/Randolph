@@ -14,12 +14,12 @@ namespace Randolph.UI {
             thisButton = GetComponent<Button>();
             buttonText = gameObject.GetComponentInChildren<Text>();
 
-            if (!PlayerPrefs.HasKey(LevelManager.levelKey) || PlayerPrefs.GetInt(LevelManager.levelKey) <= 1) {
+            if (!PlayerPrefs.HasKey(LevelManager.LevelKey) || PlayerPrefs.GetInt(LevelManager.LevelKey) <= 1) {
                 // No saved level or the first level
                 thisButton.interactable = false;
                 buttonText.color /= 1.5f;
             } else {
-                int levelToContinueFrom = PlayerPrefs.GetInt(LevelManager.levelKey);
+                int levelToContinueFrom = PlayerPrefs.GetInt(LevelManager.LevelKey);
                 thisButton.onClick.AddListener(delegate { SceneManager.LoadScene(levelToContinueFrom); });
             }
         }
