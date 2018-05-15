@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: 45ef97e4f772deb45b717a277a03909b
-timeCreated: 1520238092
-licenseType: Free
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -15,9 +13,10 @@ TrueTypeFontImporter:
   - Orange Kid
   fallbackFontReferences: []
   customCharacters: 
-  fontRenderingMode: 0
+  fontRenderingMode: 2
   ascentCalculationMode: 1
   useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 
