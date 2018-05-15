@@ -11,7 +11,7 @@ namespace Randolph.Levels {
         public static LevelManager levelManager; 
 
         /// <summary>The <see cref="PlayerPrefs"/> key containing the number of the last level with a player in it.</summary>
-        public const string levelKey = "Level";
+        public const string LevelKey = "Level";
 
         public PlayerController Player { get; private set; }
         public CheckpointContainer Checkpoints { get; private set; }
@@ -44,7 +44,7 @@ namespace Randolph.Levels {
         void InitializeLevel(Scene scene, LoadSceneMode loadSceneMode) {
             Player = FindObjectOfType<PlayerController>();
             if (Player) {
-                PlayerPrefs.SetInt(levelKey, SceneManager.GetActiveScene().buildIndex);
+                PlayerPrefs.SetInt(LevelKey, SceneManager.GetActiveScene().buildIndex);
                 Checkpoints = FindObjectOfType<CheckpointContainer>();
                 Areas = GetLevelAreas();
                 OnNewLevel?.Invoke(scene, Player);
