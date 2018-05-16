@@ -11,10 +11,19 @@ namespace Randolph.Core {
     public class AudioPlayer : MonoBehaviour {
 
         public static AudioPlayer audioPlayer;
+        public const string VolumeKey = "Volume";
+
+        public static float GlobalVolume {
+            get {
+                if (!PlayerPrefs.HasKey(VolumeKey)) PlayerPrefs.SetFloat(VolumeKey, 1f);
+                return PlayerPrefs.GetFloat(VolumeKey);
+            }
+            set { SetGlobalVolume(value); }
+        }
 
         class SoundQueue {
 
-            public Queue<AudioClip> SoundsQueue { get; set; }
+            public Queue<AudioClip> SoundsQueue { get; private set; }
             public Coroutine PlayingCoroutine { get; set; }
 
             public SoundQueue(IEnumerable<AudioClip> sounds) {
@@ -58,12 +67,17 @@ namespace Randolph.Core {
                 audioPlayer = this;
             }
 
-            LevelManager.OnNewLevel += OnNewLevel;
+            LevelManager.OnNewLevel += OnNewLevel; // Only works in levels with a player
         }
 
         void LateUpdate() {
             //! Required as long as the AudioPlayer also carries the listener
-            if (player.hasChanged) transform.position = player.position;
+            if (player && player.hasChanged) transform.position = player.position;
+        }
+
+        public static void SetGlobalVolume(float volume) {
+            AudioListener.volume = volume;
+            PlayerPrefs.SetFloat(VolumeKey, volume); // remember the state
         }
 
         float GetSpatialBlend() {
