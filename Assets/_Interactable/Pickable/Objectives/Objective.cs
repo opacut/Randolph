@@ -7,7 +7,7 @@ namespace Randolph.Interactable {
         [SerializeField] AudioClip collectSound;
         [SerializeField] Animator animator;
 
-        public override bool isSingleUse {
+        public override bool IsSingleUse {
             get { return false; }
         }
 

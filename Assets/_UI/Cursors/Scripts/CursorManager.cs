@@ -1,8 +1,7 @@
-﻿using System;
-using Randolph.Core;
-using Randolph.Interactable;
+﻿using Randolph.Interactable;
 using UnityEngine;
 using UnityEngine.Assertions;
+using static Randolph.Core.Constants;
 
 namespace Randolph.UI {
     public class CursorManager : MonoBehaviour {
@@ -43,39 +42,26 @@ namespace Randolph.UI {
         }
 
         void RegisterEvents() {
-            Pickable.OnMouseEnterPickable += OnMouseEnterPickable;
-            Pickable.OnMouseExitPickable += OnMouseExitPickable;
-            Pickable.OnMouseDownPickable += OnMouseDownPickable;
-            Pickable.OnMouseUpPickable += OnMouseUpPickable;
+            Clickable.OnMouseEnterClickable += OnMouseEnterClickable;
+            Clickable.OnMouseExitClickable += OnMouseExitClickable;
+            Clickable.OnMouseDownClickable += OnMouseDownClickable;
+            Clickable.OnMouseUpClickable += OnMouseUpClickable;
         }
 
-        void OnMouseEnterPickable() {
-            SetCursorOver(Cursors.Pick);
-        }
+        void OnMouseEnterClickable(Cursors cursorType) {
+            SetCursorOver(cursorType);
+        }        
 
-        void OnMouseExitPickable() {
+        void OnMouseExitClickable(Cursors cursorType) {
             SetCursorDefault();
         }
 
-        void OnMouseDownPickable(Constants.MouseButton button) {
-            SetCursorPressed(Cursors.Pick);
-            /*
-            switch (button) {
-                case Constants.MouseButton.Left:
-                    Debug.Log("Left click on pickable");                    
-                    break;
-                case Constants.MouseButton.Right:
-                    Debug.Log("Right click on pickable");
-                    break;
-                case Constants.MouseButton.Middle:
-                    Debug.Log("Middle click on pickable");
-                    break;
-            }
-            */
+        void OnMouseDownClickable(Cursors cursorType, MouseButton button) {
+            SetCursorPressed(cursorType);
         }
 
-        void OnMouseUpPickable(Constants.MouseButton button) {
-            SetCursorOver(Cursors.Pick);
+        void OnMouseUpClickable(Cursors cursorType, MouseButton button) {
+            SetCursorOver(cursorType);
         }
 
     }

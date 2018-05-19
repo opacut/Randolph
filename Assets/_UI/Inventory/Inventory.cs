@@ -89,7 +89,7 @@ namespace Randolph.UI {
             if (!IsApplicableTo(item, target)) return false;
 
             item.OnApply(target);
-            if (item.isSingleUse) {
+            if (item.IsSingleUse) {
                 Remove(item);
             }
             return true;

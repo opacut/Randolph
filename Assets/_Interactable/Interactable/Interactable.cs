@@ -1,13 +1,14 @@
-﻿using UnityEngine;
+﻿using Randolph.UI;
+using UnityEngine;
 
 namespace Randolph.Interactable {
-    public abstract class Interactable : MonoBehaviour, IInteractable {
+    public abstract class Interactable : Clickable, IInteractable {
 
-        public abstract void OnClick();
+        public override Cursors CursorType { get; protected set; } = Cursors.Interact;
 
-        public void OnMouseDown() {
-            OnClick();
-        }
+        public virtual void OnInteract() {
+            base.ResetCursor();
+        }        
 
     }
 }

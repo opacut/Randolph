@@ -4,7 +4,7 @@ using Randolph.Environment;
 namespace Randolph.Interactable {
     public class Hook : InventoryItem {
 
-        public override bool isSingleUse { get { return false; } }
+        public override bool IsSingleUse { get { return false; } }
 
         public override bool IsApplicable(GameObject target) {
             return target.GetComponent<HookEye>();
