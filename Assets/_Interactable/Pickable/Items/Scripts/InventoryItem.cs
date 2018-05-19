@@ -16,6 +16,8 @@ namespace Randolph.Interactable {
         }
 
         public override void OnPick() {
+            base.OnPick();
+
             inventory.Add(this);
             AudioPlayer.audioPlayer.PlayGlobalSound(collectSound);
             gameObject.SetActive(false);

@@ -23,7 +23,7 @@ namespace Randolph.UI {
 
         public GameCursor GetCursor(string cursorName) {
             return cursors.FirstOrDefault(cursor => cursor.name == cursorName);
-        }
+        }    
 
     }
 }

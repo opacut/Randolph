@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.CodeDom.Compiler;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 
@@ -87,6 +88,11 @@ namespace Randolph.Core {
             }
 
             Gizmos.DrawLine(position, lastPosition);
+        }
+
+        public static bool IsValidVariableName(string variableName) {
+            CodeDomProvider provider = CodeDomProvider.CreateProvider("C#");
+            return provider.IsValidIdentifier(variableName);
         }
 
     }

@@ -11,10 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2285f55f428af114b8dc701d5d6b15b5, type: 3}
   m_Name: Cursor Database
   m_EditorClassIdentifier: 
-  defaultCursor:
-    name: Generic
-    overCursor: {fileID: 2800000, guid: 3d9e7051c125caa4ea9de1f1c820ab15, type: 3}
-    pressedCursor: {fileID: 2800000, guid: 3d9e7051c125caa4ea9de1f1c820ab15, type: 3}
   cursors:
   - name: Generic
     overCursor: {fileID: 2800000, guid: 3d9e7051c125caa4ea9de1f1c820ab15, type: 3}
@@ -31,4 +27,3 @@ MonoBehaviour:
   - name: Door
     overCursor: {fileID: 2800000, guid: 472b3dd4fe292a94883d78da2a8eae4f, type: 3}
     pressedCursor: {fileID: 2800000, guid: 1ac7f9fbf204a5a4a9efdbd47570e56c, type: 3}
-

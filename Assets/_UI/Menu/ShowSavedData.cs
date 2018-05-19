@@ -9,8 +9,6 @@ namespace Randolph.Levels {
         readonly string checkpointKey = CheckpointContainer.CheckpointKey;
         readonly string muteKey = MuteSwitch.MuteKey;
 
-        // readonly string languageKey = "XXX";
-
         int _offset = 10;
 
         int CurrentOffset {

@@ -22,6 +22,8 @@ namespace Randolph.Interactable {
         public bool IsCompleted { get; internal set; }
 
         public override void OnPick() {
+            base.OnPick();
+
             IsCompleted = true;
             AudioPlayer.audioPlayer.PlayGlobalSound(collectSound);
             gameObject.SetActive(false);
