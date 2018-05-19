@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using Randolph.Core;
 
-namespace Randolph.UI.Cues {
+namespace Randolph.UI {
     [RequireComponent(typeof(Collider2D))]
     public class Cue : MonoBehaviour {
         [SerializeField] private Text textElement;

@@ -176,15 +176,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 10357411}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 073ffe5da681d4e0997a0864bf4d157f, type: 3}
+  m_Script: {fileID: 11500000, guid: c2586c95a00464b11b99738dcde3c937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textElement: {fileID: 0}
+  textElement: {fileID: 1446234342}
   updateText: Click on characters to talk to them
   cancellationButton: 0
   cancellationKeyName: 
   cancelOnAreaExit: 0
-  cancellatonButton: 0
 --- !u!1 &78191970
 GameObject:
   m_ObjectHideFlags: 0
@@ -1191,7 +1190,7 @@ Prefab:
         type: 2}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 1344313733}
+      objectReference: {fileID: 623160852}
     - target: {fileID: 114937774556929832, guid: 8b4288b422a243a41839c1cf4f4ff9c2,
         type: 2}
       propertyPath: outlineShaderMaterial
@@ -1548,6 +1547,37 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 587526408}
   m_Script: {fileID: 11500000, guid: 8e85add2731ed485ea59fc061f36d375, type: 3}
+--- !u!84 &623160852
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1212
+  m_Height: 644
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 0
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!20 &634624957 stripped
 Camera:
   m_PrefabParentObject: {fileID: 20160739633386284, guid: 8b4288b422a243a41839c1cf4f4ff9c2,
@@ -1736,12 +1766,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0934d28b683d4424e90cad1a6e91f9de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speechBubble: {fileID: 528129043}
   bubbleText: {fileID: 805639741}
-  delay: 0.05
   fullText: Randolph, dear! You're alright! Gerald here is hurt bad. He needs my medical
     attention. You must climb upstairs and see if the Captain needs help saving the
     ship...and our behinds!!
+  speechBubble: {fileID: 528129043}
 --- !u!61 &689191072
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2505,11 +2534,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0934d28b683d4424e90cad1a6e91f9de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speechBubble: {fileID: 1620584563}
   bubbleText: {fileID: 1635318878}
-  delay: 0.05
   fullText: I have not seen a thunderstorm like this since that dreaded night when
     I lost my arm to a cloud shark!!
+  speechBubble: {fileID: 1620584563}
 --- !u!61 &1006915204
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7965,7 +7993,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1209233643}
   - component: {fileID: 1209233646}
-  - component: {fileID: 1209233644}
   - component: {fileID: 1209233645}
   m_Layer: 9
   m_Name: Move
@@ -7987,23 +8014,6 @@ Transform:
   m_Father: {fileID: 1154489898}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1209233644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1209233642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d70f23e5eb181490e8f3e1c1674bb45b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textElement: {fileID: 0}
-  updateText: Use A and D to move around
-  cancellationButton: 0
-  cancellationKeyName: Horizontal
-  cancelOnAreaExit: 0
-  cancellatonKeyName: 
 --- !u!114 &1209233645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8237,37 +8247,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 41b9919677c7b8e498a96ad96d3bebf2, type: 2}
   m_IsPrefabParent: 0
---- !u!84 &1344313733
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1212
-  m_Height: 644
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 0
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1380513985
 GameObject:
   m_ObjectHideFlags: 0
@@ -8306,10 +8285,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1380513985}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c45d38336c90a483bb2f4e4f0d0a77f4, type: 3}
+  m_Script: {fileID: 11500000, guid: c2586c95a00464b11b99738dcde3c937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textElement: {fileID: 0}
+  textElement: {fileID: 1446234342}
   updateText: Click items to pick them up
   cancellationButton: 0
   cancellationKeyName: 
@@ -9438,11 +9417,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0934d28b683d4424e90cad1a6e91f9de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speechBubble: {fileID: 2120239845}
   bubbleText: {fileID: 856525053}
-  delay: 0.05
   fullText: Boy! Thank heavens yar alive! 'Ere, snatch mine sabre an' climb the mast!
     We need to cut the sail lest we lose control of the ship!!
+  speechBubble: {fileID: 2120239845}
 --- !u!61 &1527838971
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9536,15 +9514,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1534836939}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d70f23e5eb181490e8f3e1c1674bb45b, type: 3}
+  m_Script: {fileID: 11500000, guid: c2586c95a00464b11b99738dcde3c937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textElement: {fileID: 0}
+  textElement: {fileID: 1446234342}
   updateText: Press SPACE to jump
-  cancellationButton: 0
+  cancellationButton: -1
   cancellationKeyName: Jump
   cancelOnAreaExit: 0
-  cancellatonKeyName: 
 --- !u!1 &1544541572
 GameObject:
   m_ObjectHideFlags: 0
@@ -9583,15 +9560,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1544541572}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d70f23e5eb181490e8f3e1c1674bb45b, type: 3}
+  m_Script: {fileID: 11500000, guid: c2586c95a00464b11b99738dcde3c937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textElement: {fileID: 0}
+  textElement: {fileID: 1446234342}
   updateText: Use W and S to climb
   cancellationButton: 0
   cancellationKeyName: Vertical
   cancelOnAreaExit: 0
-  cancellatonKeyName: 
 --- !u!61 &1544541575
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9724,11 +9700,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0934d28b683d4424e90cad1a6e91f9de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speechBubble: {fileID: 656504861}
   bubbleText: {fileID: 959903135}
-  delay: 0.05
   fullText: The ship is falling apart! I don't know how much longer we can hold it
     together!!
+  speechBubble: {fileID: 656504861}
 --- !u!61 &1559225196
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10113,7 +10088,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textElement: {fileID: 1446234342}
   updateText: Click on highlighted objects to interact with them
-  cancellationButton: 1
+  cancellationButton: 0
   cancellationKeyName: 
   cancelOnAreaExit: 0
 --- !u!61 &1655719050
@@ -10226,6 +10201,37 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1802056198}
+--- !u!84 &1815115249
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1212
+  m_Height: 644
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1887659647
 GameObject:
   m_ObjectHideFlags: 0
@@ -18315,37 +18321,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!84 &1979555598
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1212
-  m_Height: 644
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1980730692
 GameObject:
   m_ObjectHideFlags: 0
