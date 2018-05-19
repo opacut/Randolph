@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8c9768e88e9924f9196a94e4803a7f94
+guid: 3da08f0eebc00ed4bab4203cefdf38fc
 TextureImporter:
   fileIDToRecycleName:
-    21300000: mast_0
-    21300002: mast_3
-    21300004: mast_1
+    21300000: mast_horizontal_0
+    21300002: mast_horizontal_1
+    21300004: mast_horizontal_2
   externalObjects: {}
   serializedVersion: 6
   mipmaps:
@@ -87,61 +87,61 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mast_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 24
-        height: 8
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dacbaa02cc5ab5f4488f87e90a935839
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mast_3
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 16
-        width: 16
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 280bfe569e6ca884bb259c362d3c6c71
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mast_1
+      name: mast_horizontal_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 24
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 8
+        height: 18
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a74384f957babee4db51959cb09d7311
+      spriteID: bfba05728b707204fbbf7e05ab025892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mast_horizontal_1
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 1
+        width: 48
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eba4adce217b4d74b8abd606470c9436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mast_horizontal_2
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 0
+        width: 8
+        height: 18
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4aa9653216ca0f4cbf637280a3dc314
       vertices: []
       indices: 
       edges: []
@@ -149,7 +149,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 0782c97242721408585d89e97f9688f6
+    spriteID: 538584ee7d8fc374381261ccd422b370
     vertices: []
     indices: 
     edges: []

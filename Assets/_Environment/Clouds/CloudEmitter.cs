@@ -22,7 +22,7 @@ namespace Randolph.Environment {
 		public Color cloudColor = Color.white;
 
 		private void Start() {
-			for (int i = 0; i < 15; ++i) {
+			for (int i = 0; i < 30; ++i) {
 				var cloud = SpawnCloud();
 				cloud.transform.Translate(-(cloudSpeed * i), 0, 0);
 			}
