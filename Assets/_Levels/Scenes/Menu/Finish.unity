@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -230,7 +230,6 @@ GameObject:
   - component: {fileID: 860460673}
   - component: {fileID: 860460672}
   - component: {fileID: 860460671}
-  - component: {fileID: 860460670}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -238,13 +237,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &860460670
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 860460669}
-  m_Enabled: 1
 --- !u!124 &860460671
 Behaviour:
   m_ObjectHideFlags: 0

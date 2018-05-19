@@ -95,6 +95,7 @@ namespace Randolph.Core {
             CodeDomProvider provider = CodeDomProvider.CreateProvider("C#");            
             return provider.IsValidIdentifier(variableName);
         }
+        
 
     }
 }

@@ -265,7 +265,7 @@ namespace Randolph.Characters {
 
         #region MouseEvents
 
-        void OnMouseDownClickable(Cursors cursortype, Constants.MouseButton button, Vector3 position) {
+        void OnMouseDownClickable(Cursors cursortype, Constants.MouseButton button, Vector2 position) {
             float distance = 0;
         }
 
@@ -298,6 +298,11 @@ namespace Randolph.Characters {
                     checkpointContainer.SetReached(previousCheckpoint);
                 }
             }
+
+            if (Input.GetKeyDown(KeyCode.KeypadMultiply)) {
+                LevelManager.LoadNextLevel();
+            }
+
         }
 
         #endregion

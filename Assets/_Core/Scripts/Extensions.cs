@@ -11,6 +11,14 @@ namespace Randolph.Core {
             return texture.GetPixels((int) rect.x, (int) rect.y, (int) rect.width, (int) rect.height);
         }
 
+        /// <summary>Checks if an object sees another object within a certain angle.</summary>      
+        public static bool InLineOfSight(this Transform transform, Transform target, float fieldOfView = 360) {
+            RaycastHit2D hit = Physics2D.Linecast(transform.position, target.position);
+            bool correctAngle = Vector2.Angle(target.position - transform.position, transform.forward) <= fieldOfView;
+            bool correctTarget = hit.collider.transform == target;
+            return correctAngle && correctTarget;
+        }
+
         public static Transform GetNearest(this Transform currentTransform, Transform[] otherTransforms) {
             Transform nearest = null;
             float currentDistance = Mathf.Infinity;

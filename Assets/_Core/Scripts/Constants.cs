@@ -19,6 +19,8 @@ namespace Randolph.Core {
             }
         }
 
+        public const float ApplicableDistance = 3.5f;
+
         public enum MouseButton {
             Left = 0,
             Right = 1,

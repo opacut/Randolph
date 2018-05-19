@@ -9,16 +9,16 @@ namespace Randolph.Interactable {
         /// <summary>Type of cursor to use. Override in a derived class.</summary>
         public abstract Cursors CursorType { get; protected set; }
 
-        public delegate void MouseEnterClickable(Cursors cursorType, Vector3 position);
+        public delegate void MouseEnterClickable(Cursors cursorType, Vector2 position);
         public static event MouseEnterClickable OnMouseEnterClickable;
 
-        public delegate void MouseExitClickable(Cursors cursorType, Vector3 position);
+        public delegate void MouseExitClickable(Cursors cursorType, Vector2 position);
         public static event MouseExitClickable OnMouseExitClickable;
 
-        public delegate void MouseDownClickable(Cursors cursorType, MouseButton button, Vector3 position);
+        public delegate void MouseDownClickable(Cursors cursorType, MouseButton button, Vector2 position);
         public static event MouseDownClickable OnMouseDownClickable;
 
-        public delegate void MouseUpClickable(Cursors cursorType, MouseButton button, Vector3 position);
+        public delegate void MouseUpClickable(Cursors cursorType, MouseButton button, Vector2 position);
         public static event MouseUpClickable OnMouseUpClickable;
 
         protected void ResetCursor() {

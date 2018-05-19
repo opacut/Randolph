@@ -108,5 +108,9 @@ namespace Randolph.Levels {
             }
         }
 
+        void OnDestroy() {
+            LevelManager.OnNewLevel -= OnNewLevel;
+        }
+
     }
 }

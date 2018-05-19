@@ -9,10 +9,14 @@ using UnityEngine.SceneManagement;
 namespace Randolph.UI {
     public class Inventory : MonoBehaviour {
 
-        // public static Inventory inventory;
+        public static Inventory inventory;
 
         [SerializeField] InventoryIcon iconPrefab;
         [SerializeField] float applicableDistance = 3;
+
+        public float ApplicableDistance {
+            get { return applicableDistance; }
+        }
 
         Rigidbody2D player;
 
@@ -34,25 +38,13 @@ namespace Randolph.UI {
         }
 
         void Awake() {
-            // TODO: Pass along with a canvas
-            
-            /*           
-            //! Pass Inventory between levels; destroy excess ones
-            DontDestroyOnLoad(this);
-
-            if (FindObjectsOfType(GetType()).Length > 1) {
-                Destroy(gameObject);
-            } else {
-                inventory = this;
-            }
-            */
             Debug.Assert(iconPrefab, "The prefab for an inventory icon is missing!", gameObject);
-
             LevelManager.OnNewLevel += OnNewLevel;
         }
 
         void OnNewLevel(Scene scene, PlayerController playerController) {
             player = playerController.GetComponent<Rigidbody2D>();
+            inventory = FindObjectOfType<Inventory>();
         }
 
 
@@ -101,6 +93,10 @@ namespace Randolph.UI {
             Debug.Assert(target.GetComponent<Collider2D>());
             ColliderDistance2D result = player.Distance(target.GetComponent<Collider2D>());
             return result.isValid && Mathf.Abs(result.distance) < applicableDistance;
+        }
+
+        void OnDestroy() {
+            LevelManager.OnNewLevel -= OnNewLevel;
         }
 
     }
