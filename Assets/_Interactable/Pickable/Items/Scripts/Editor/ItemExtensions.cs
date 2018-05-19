@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-
 using JetBrains.Annotations;
-
+using Randolph.Core;
 using UnityEditor;
-
 using UnityEngine;
 
 namespace Randolph.Interactable {
@@ -35,9 +33,9 @@ namespace Randolph.Interactable {
 
         static List<NumberedItem> RemoveDuplicateItems(this List<NumberedItem> numberedItemList) {
             return numberedItemList
-                    .GroupBy(numberedItem => numberedItem.item)
-                    .Select(group => group.First())
-                    .ToList();
+                  .GroupBy(numberedItem => numberedItem.item)
+                  .Select(group => group.First())
+                  .ToList();
         }
 
         /// <summary>Makes sure there are no gaps in item numbering due to removing items.</summary>
@@ -47,29 +45,21 @@ namespace Randolph.Interactable {
                 numberedItemList[i].id = i;
             }
         }
-        
-        public static bool CreateItemScript(string name, string folder) {
-            TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
-            string scriptName = textInfo.ToTitleCase(name).Replace("-","_").Replace(" ", "");
-            string scriptPath = $"{folder}/{scriptName}.cs";
-            
-            Debug.Log("Creating Classfile: " + scriptPath);
-            if (File.Exists(scriptPath) == false) {
-                using (var outfile = new StreamWriter(scriptPath)) {
-                    outfile.WriteLine("using UnityEngine;");
-                    outfile.WriteLine("\n");
-                    outfile.WriteLine($"namespace {nameof(Randolph.Interactable)} {{");
-                    outfile.WriteLine($"\tpublic class {name} : {nameof(InventoryItem)} {{");
-                    outfile.WriteLine();
-                    outfile.WriteLine("\t\tpublic override bool IsApplicable(GameObject target) { }");
-                    outfile.WriteLine();
-                    outfile.WriteLine("\t\tpublic override void OnApply(GameObject target) { }");
-                    outfile.WriteLine();
-                    outfile.WriteLine("\t}");
-                    outfile.WriteLine("}");
-                }
 
-                AssetDatabase.Refresh();
+        public static bool CreateItemScript(string name, string folder) {
+            name = name.ToTitleCase();
+            string scriptPath = $"{folder}/{name}.cs";
+
+            if (File.Exists(scriptPath) == false) {
+                GenerateFiles.GenerateMonobehaviour(name,
+                        folder,
+                        nameof(InventoryItem),
+                        $"{nameof(Randolph)}.{nameof(Randolph.Interactable)}",
+                        new[] { "System", "UnityEngine" },
+                        new [] { "public override bool IsSingleUse { get; } = false" },
+                        "public override bool IsApplicable(GameObject target)",
+                        "public override void OnApply(GameObject target)"
+                );
 
                 return true;
             } else return false;

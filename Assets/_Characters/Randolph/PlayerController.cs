@@ -1,6 +1,7 @@
 ﻿using Randolph.Core;
 using Randolph.Interactable;
 using Randolph.Levels;
+using Randolph.UI;
 using UnityEngine;
 
 namespace Randolph.Characters {
@@ -43,8 +44,10 @@ namespace Randolph.Characters {
         void Awake() {
             GetComponents();
             gravity = rbody.gravityScale;
+            Clickable.OnMouseDownClickable += OnMouseDownClickable;
             CalculateRaySpacing();
         }
+        
 
         void GetComponents() {
             animator = GetComponent<Animator>();
@@ -256,6 +259,14 @@ namespace Randolph.Characters {
         private void StopGrappling() {
             grapplingJoint.enabled = false;
             grappleRopeRenderer.enabled = false;
+        }
+
+        #endregion
+
+        #region MouseEvents
+
+        void OnMouseDownClickable(Cursors cursortype, Constants.MouseButton button, Vector3 position) {
+            float distance = 0;
         }
 
         #endregion

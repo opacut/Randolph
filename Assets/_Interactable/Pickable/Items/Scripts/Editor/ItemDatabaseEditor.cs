@@ -61,9 +61,11 @@ namespace Randolph.Interactable {
             serializedObject.Update();
 
             EditorMethods.DisplayScriptField(itemDatabase);
-            DisplayPruneButton();
             DisplaySpriteFields();
+            EditorGUILayout.Space();
+            DisplayPruneButton();
             numberedItemList.DoLayoutList();
+            EditorGUILayout.Space();
 
             serializedObject.ApplyModifiedProperties();
         }

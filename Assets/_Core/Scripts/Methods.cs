@@ -90,8 +90,9 @@ namespace Randolph.Core {
             Gizmos.DrawLine(position, lastPosition);
         }
 
+        /// <summary>Is a valid identifier, including reserved keywords and already existing classes.</summary>               
         public static bool IsValidVariableName(string variableName) {
-            CodeDomProvider provider = CodeDomProvider.CreateProvider("C#");
+            CodeDomProvider provider = CodeDomProvider.CreateProvider("C#");            
             return provider.IsValidIdentifier(variableName);
         }
 

@@ -1,9 +1,10 @@
 ﻿using Randolph.Interactable;
 using UnityEngine;
 using UnityEngine.Assertions;
+using Randolph.UI;
 using static Randolph.Core.Constants;
 
-namespace Randolph.UI {
+//namespace Randolph.UI {
     public class CursorManager : MonoBehaviour {
 
         public static readonly Vector2 CursorHotspot = Vector2.zero;
@@ -23,7 +24,7 @@ namespace Randolph.UI {
             } else cursorManager = this;
 
             Assert.IsNotNull(cursorDatabase, "The Cursor Database is not assigned → the cursor can't change.");
-            RegisterEvents();
+            RegisterEvents();           
         }
 
         public void SetCursorDefault() {
@@ -33,7 +34,7 @@ namespace Randolph.UI {
 
         public void SetCursorOver(Cursors cursorType) {
             GameCursor cursor = cursorDatabase.GetCursor(cursorType);
-            Cursor.SetCursor(cursor.overCursor, CursorHotspot, Mode);
+            Cursor.SetCursor(cursor.disabledCursor, CursorHotspot, Mode);
         }
 
         public void SetCursorPressed(Cursors cursorType) {
@@ -41,28 +42,33 @@ namespace Randolph.UI {
             Cursor.SetCursor(cursor.pressedCursor, CursorHotspot, Mode);
         }
 
+        public void SetCursorGrey(Cursors cursorType) {
+            GameCursor cursor = cursorDatabase.GetCursor(cursorType);
+            Cursor.SetCursor(cursor.disabledCursor, CursorHotspot, Mode);
+        }
+
         void RegisterEvents() {
             Clickable.OnMouseEnterClickable += OnMouseEnterClickable;
             Clickable.OnMouseExitClickable += OnMouseExitClickable;
-            Clickable.OnMouseDownClickable += OnMouseDownClickable;
+            Clickable.OnMouseDownClickable += OnMouseDownClickable; 
             Clickable.OnMouseUpClickable += OnMouseUpClickable;
         }
 
-        void OnMouseEnterClickable(Cursors cursorType) {
+        void OnMouseEnterClickable(Cursors cursorType, Vector3 position) {
             SetCursorOver(cursorType);
-        }        
+        }
 
-        void OnMouseExitClickable(Cursors cursorType) {
+        void OnMouseExitClickable(Cursors cursorType, Vector3 position) {
             SetCursorDefault();
         }
 
-        void OnMouseDownClickable(Cursors cursorType, MouseButton button) {
+        void OnMouseDownClickable(Cursors cursorType, MouseButton button, Vector3 position) {
             SetCursorPressed(cursorType);
         }
 
-        void OnMouseUpClickable(Cursors cursorType, MouseButton button) {
+        void OnMouseUpClickable(Cursors cursorType, MouseButton button, Vector3 position) {
             SetCursorOver(cursorType);
         }
 
     }
-}
+//}

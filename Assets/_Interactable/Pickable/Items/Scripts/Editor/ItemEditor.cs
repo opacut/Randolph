@@ -1,13 +1,13 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using Randolph.Core;
 using UnityEditor;
-
 using UnityEngine;
 
 namespace Randolph.Interactable {
     [CustomEditor(typeof(Item))]
     public class ItemEditor : Editor {
+
+        // TODO: To ItemDatabase
 
         Item item;
 
@@ -62,32 +62,34 @@ namespace Randolph.Interactable {
             GUI.backgroundColor = originalColor;
         }
 
-        void Initialize() {            
-            initialized.boolValue = true;
-            
+        void Initialize() {
+            string itemName = target.name;
+
             //! Create folder
             string assetPath = AssetDatabase.GetAssetPath(Selection.activeObject);
             string parentFolder = Path.GetDirectoryName(assetPath)?.Replace(@"\\", "/").Replace(@"\", "/");
-            AssetDatabase.CreateFolder(parentFolder, name);
-            string newFolder = $"{parentFolder}/{name}";
-            AssetDatabase.MoveAsset(assetPath, $"{newFolder}/{name}.asset");            
+            AssetDatabase.CreateFolder(parentFolder, itemName);
+            string newFolder = $"{parentFolder}/{itemName}";
+            AssetDatabase.MoveAsset(assetPath, $"{newFolder}/{itemName}.asset");
 
             //! Create prefab
-            var itemObject = new GameObject(name);
-            itemObject.AddComponent<SpriteRenderer>();
-            itemObject.AddComponent<CapsuleCollider2D>();
-            if (ItemExtensions.CreateItemScript(name, newFolder)) {
-                itemObject.AddComponent(Type.GetType(name));
+            var itemObject = new GameObject(itemName, typeof(SpriteRenderer), typeof(BoxCollider2D)) {
+                    hideFlags = HideFlags.DontSaveInBuild | HideFlags.DontUnloadUnusedAsset | HideFlags.HideInHierarchy
+            };
+            if (ItemExtensions.CreateItemScript(itemName, newFolder)) {
+                // TODO: Add when compiled
+                // itemObject.AddComponent(Type.GetType(itemName));
             }
-            string prefabPath = $"{newFolder}/{name}.prefab";
-            PrefabUtility.CreatePrefab(prefabPath, itemObject);
-
+            string prefabPath = $"{newFolder}/{itemName}.prefab";
+            PrefabUtility.CreatePrefab(prefabPath, itemObject);           
             //! Add itself to the database
-            var item = target as Item;
             if (item && !ItemDatabase.itemDatabase.ContainsItem(item)) {
                 ItemDatabase.itemDatabase.AddItem(item);
             }
 
+            DestroyImmediate(itemObject);
+
+            initialized.boolValue = true;
         }
 
     }

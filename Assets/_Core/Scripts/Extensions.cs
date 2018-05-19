@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using UnityEngine;
 
@@ -43,6 +44,18 @@ namespace Randolph.Core {
             transform.position = new Vector2(transform.position.x, groundPoint.y + offsetY);
         }
 
+        public static Texture2D ToGreyscale(this Texture2D texture) {
+            Texture2D greyTexture = new Texture2D(texture.width, texture.height, TextureFormat.ARGB32, false);
+            Color[] texColors = texture.GetPixels();
+            for (int i = 0; i < texColors.Length; i++) {
+                float greyValue = texColors[i].grayscale;
+                texColors[i] = new Color(greyValue, greyValue, greyValue, texColors[i].a);
+            }
+            greyTexture.SetPixels(texColors);
+            greyTexture.Apply();
+            return greyTexture;
+        }
+
         public static Vector3 Abs(this Vector3 vector) {
             return new Vector3(Mathf.Abs(vector.x), Mathf.Abs(vector.y), Mathf.Abs(vector.z));
         }
@@ -55,6 +68,7 @@ namespace Randolph.Core {
             vector.Scale(multiplier);
             return vector;
         }
+
         public static Vector2 Multiply(this Vector2 vector, Vector2 multiplier) {
             return ((Vector3) vector).Multiply(multiplier);
         }
@@ -100,6 +114,17 @@ namespace Randolph.Core {
 
         public static string GetPath(this Component component) {
             return component.transform.GetPath() + "/" + component.GetType().ToString();
+        }
+
+        public static string ToTitleCase(this string scriptName) {
+            TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
+            return textInfo.ToTitleCase(scriptName).Replace("-", "_").Replace(" ", "");
+        }
+
+        /// <summary>Trims the end of the string.</summary>       
+        public static string TrimEnd(this string source, string value) {
+            if (!source.EndsWith(value)) return source;
+            return source.Remove(source.LastIndexOf(value, StringComparison.Ordinal));
         }
 
         public static float RemapRange(this float value, float from1, float to1, float from2, float to2) {
