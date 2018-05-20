@@ -7,18 +7,8 @@ namespace Randolph.Interactable {
 
         public override Cursors CursorType { get; protected set; } = Cursors.Pick;
 
-        Vector3 initialPosition;
         public abstract bool IsSingleUse { get; }
         
-        protected virtual void Awake() {
-            initialPosition = transform.position;
-        }
-
-        public virtual void Restart() {
-            transform.position = initialPosition;
-            gameObject.SetActive(true);
-        }
-
         /// <summary>What should happen when the object is picked. The "Mouse Exit" event is invoked in the base class.</summary>
         public virtual void OnPick() {
             ResetCursor();

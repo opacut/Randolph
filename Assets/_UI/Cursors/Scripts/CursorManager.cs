@@ -18,6 +18,8 @@ public class CursorManager : MonoBehaviour {
 
     [SerializeField] CursorDatabase cursorDatabase;
     PlayerController player;
+    Clickable continuousTarget = null;
+    bool clickHold = false;
 
     void Awake() {
         //! Pass Cursor Manager between levels; destroy excess ones 
@@ -32,7 +34,16 @@ public class CursorManager : MonoBehaviour {
         RegisterEvents();
     }
 
+    void Update() {
+        if (continuousTarget != null && !clickHold) {
+            if (WithinDistance(continuousTarget.transform.position)) SetCursorOver(continuousTarget.CursorType);
+            else SetCursorGrey(continuousTarget.CursorType);
+        }
+    }
+
     public void SetCursorDefault() {
+        continuousTarget = null;
+        clickHold = false;
         GameCursor cursor = cursorDatabase.GetDefault();
         Cursor.SetCursor(cursor.overCursor, CursorHotspot, Mode);
     }
@@ -61,24 +72,39 @@ public class CursorManager : MonoBehaviour {
         LevelManager.OnNewLevel += OnNewLevel;
     }
 
+    public bool WithinDistance(Vector2 position) {
+        if (Inventory.inventory != null) {
+            return Inventory.inventory.IsWithinApplicableDistance(position);
+        } else {
+            return Vector2.Distance(player.transform.position, position) <= ApplicableDistance;
+        }
+    }
+
     void OnNewLevel(Scene scene, PlayerController player) {
         this.player = player;
     }
 
-    void OnMouseEnterClickable(Cursors cursorType, Vector2 position) {
-        SetCursorOver(cursorType);
+    void OnMouseEnterClickable(Clickable target) {
+        // Update even when player moves
+        continuousTarget = target;
+        clickHold = false;
     }
 
-    void OnMouseExitClickable(Cursors cursorType, Vector2 position) {
+    void OnMouseExitClickable(Clickable target) {
+        continuousTarget = null;
         SetCursorDefault();
     }
 
-    void OnMouseDownClickable(Cursors cursorType, MouseButton button, Vector2 position) {
-        SetCursorPressed(cursorType);
+    void OnMouseDownClickable(Clickable target, MouseButton button) {
+        clickHold = true;
+        if (WithinDistance(target.transform.position)) SetCursorPressed(target.CursorType);
+        else SetCursorGrey(target.CursorType);
     }
 
-    void OnMouseUpClickable(Cursors cursorType, MouseButton button, Vector2 position) {
-        SetCursorOver(cursorType);
+    void OnMouseUpClickable(Clickable target, MouseButton button) {
+        clickHold = false;
+        if (WithinDistance(target.transform.position)) SetCursorOver(target.CursorType);
+        else SetCursorGrey(target.CursorType);
     }
 
     void OnDestroy() {

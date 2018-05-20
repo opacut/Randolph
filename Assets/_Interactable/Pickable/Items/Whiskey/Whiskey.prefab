@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4842268154107098}
   - component: {fileID: 212514413828074514}
-  - component: {fileID: 114149222963326280}
   - component: {fileID: 61144728917451352}
+  - component: {fileID: 114149222963326280}
   m_Layer: 0
   m_Name: Whiskey
   m_TagString: Pickable
@@ -35,8 +35,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1331681327032480}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.6139984, y: -9.558127, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

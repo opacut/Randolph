@@ -34,6 +34,8 @@ namespace Randolph.Levels {
             Debug.Assert(checkpoints.Any(), "There are no checkpoints in the container!", gameObject);
 
             reached = checkpoints.First();
+            reached.SaveState();
+
             PlayerPrefs.SetInt(CheckpointKey, checkpoints.IndexOf(reached));
             if (alignPlayer) {
                 player.transform.position = reached.transform.position;
@@ -68,10 +70,11 @@ namespace Randolph.Levels {
         }
 
         public void CheckpointReached(Checkpoint checkpoint) {
-            if (!IsCheckpointVisited(checkpoint)) {
-                reached = checkpoint;
-                PlayerPrefs.SetInt(CheckpointKey, checkpoints.IndexOf(reached));
-            }
+            //if (!IsCheckpointVisited(checkpoint)) {
+            reached = checkpoint;
+            reached.SaveState();
+            PlayerPrefs.SetInt(CheckpointKey, checkpoints.IndexOf(reached));
+            //}
         }
 
         public Checkpoint GetNext() {
@@ -84,10 +87,12 @@ namespace Randolph.Levels {
 
         public void SetReached(Checkpoint checkpoint) {
             if (checkpoint == null) return;
-            else reached = checkpoint;
+            else {
+                CheckpointReached(checkpoint);
+            }
         }
 
-        bool IsCheckpointVisited(Checkpoint checkpoint) {
+        public bool IsCheckpointVisited(Checkpoint checkpoint) {
             return reached && checkpoints.IndexOf(checkpoint) <= checkpoints.IndexOf(reached);
         }
 

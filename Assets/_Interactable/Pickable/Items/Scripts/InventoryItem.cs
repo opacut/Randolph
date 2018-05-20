@@ -10,17 +10,32 @@ namespace Randolph.Interactable {
         [SerializeField] AudioClip applySound;
         Inventory inventory;
 
+        SpriteRenderer spriteRenderer;
+        Collider2D boxCollider;
+
         protected override void Awake() {
             base.Awake();
             inventory = FindObjectOfType<Inventory>();
+
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            boxCollider = GetComponent<Collider2D>();
         }
 
         public override void OnPick() {
             base.OnPick();
 
             inventory.Add(this);
-            AudioPlayer.audioPlayer.PlayGlobalSound(collectSound);
-            gameObject.SetActive(false);
+            AudioPlayer.audioPlayer.PlayGlobalSound(collectSound);            
+            // gameObject.SetActive(false);
+            spriteRenderer.enabled = false;
+            boxCollider.enabled = false;
+            CursorManager.cursorManager.SetCursorDefault();
+        }
+
+        public override void Restart() {
+            base.Restart();
+            spriteRenderer.enabled = true;
+            boxCollider.enabled = true;
         }
 
         public abstract bool IsApplicable(GameObject target);

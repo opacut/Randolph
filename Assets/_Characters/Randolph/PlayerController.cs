@@ -10,14 +10,12 @@ namespace Randolph.Characters {
     [RequireComponent(typeof(DistanceJoint2D))]
     public class PlayerController : MonoBehaviour {
 
-        [Header("Movement")]
-        [SerializeField] AudioClip deathSound;
+        [Header("Movement")] [SerializeField] AudioClip deathSound;
         [SerializeField] float climbingSpeed = 6;
         [SerializeField] float movementSpeed = 6;
         [SerializeField] float jumpForce = 600;
 
-        [Header("Jumping")]
-        [SerializeField] LayerMask groundLayers;
+        [Header("Jumping")] [SerializeField] LayerMask groundLayers;
         [SerializeField, Range(2, 12)] int groundRayCount = 4;
         [SerializeField] float groundCheckRayLength = 0.2f;
         float groundRaySpacing;
@@ -47,7 +45,7 @@ namespace Randolph.Characters {
             Clickable.OnMouseDownClickable += OnMouseDownClickable;
             CalculateRaySpacing();
         }
-        
+
 
         void GetComponents() {
             animator = GetComponent<Animator>();
@@ -242,7 +240,7 @@ namespace Randolph.Characters {
             grapplingJoint.enabled = true;
             grapplingJoint.distance = Vector2.Distance(transform.position, obj.transform.position);
             grappleRopeRenderer.enabled = true;
-            grappleRopeRenderer.SetPositions(new Vector3[] { transform.position, obj.transform.position });
+            grappleRopeRenderer.SetPositions(new Vector3[] {transform.position, obj.transform.position});
         }
 
         private void Grappling(float vertical, float horizontal) {
@@ -265,8 +263,26 @@ namespace Randolph.Characters {
 
         #region MouseEvents
 
-        void OnMouseDownClickable(Cursors cursortype, Constants.MouseButton button, Vector2 position) {
-            float distance = 0;
+        void OnMouseDownClickable(Clickable target, Constants.MouseButton button) {
+            bool withinDistance = Vector2.Distance(transform.position, target.transform.position) <= Inventory.inventory.ApplicableDistance;
+            if (withinDistance) {
+                switch (target.CursorType) {
+                    case Cursors.Generic:
+                        // No specific cursor -> no action
+                        break;
+                    case Cursors.Pick:
+                        var pickable = (Pickable) target;
+                        pickable.OnPick();
+                        break;
+                    case Cursors.Interact:
+                        var interactable = (Interactable.Interactable) target;
+                        interactable.OnInteract();
+                        break;
+                    default:
+                        Debug.LogWarning($"Unhandled clickable type: {target.CursorType}");
+                        break;
+                }
+            }
         }
 
         #endregion
@@ -302,7 +318,6 @@ namespace Randolph.Characters {
             if (Input.GetKeyDown(KeyCode.KeypadMultiply)) {
                 LevelManager.LoadNextLevel();
             }
-
         }
 
         #endregion
