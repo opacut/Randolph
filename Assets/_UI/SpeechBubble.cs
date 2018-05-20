@@ -12,8 +12,11 @@ namespace Randolph.UI {
         [SerializeField] private string fullText;
         private bool isSpeaking;
         [SerializeField] private Canvas speechBubble;
+        private CanvasScaler scaler;
 
         private void Start() {
+            scaler = speechBubble.GetComponent<CanvasScaler>();
+            scaler.enabled = false;
             speechBubble.enabled = false;
             bubbleText.text = "";
         }
@@ -39,6 +42,7 @@ namespace Randolph.UI {
             bubbleText.text = "";
             currentText = "";
             speechBubble.enabled = true;
+            scaler.enabled = true;
             isSpeaking = true;
             StartCoroutine(ShowText());
         }
@@ -46,6 +50,7 @@ namespace Randolph.UI {
         private void StopSpeaking() {
             StopAllCoroutines();
             speechBubble.enabled = false;
+            scaler.enabled = false;
             isSpeaking = false;
         }
 

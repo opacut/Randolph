@@ -5,6 +5,7 @@ using Randolph.Core;
 namespace Randolph.UI {
     [RequireComponent(typeof(Collider2D))]
     public class Cue : MonoBehaviour {
+        [SerializeField] private Image textBox;
         [SerializeField] private Text textElement;
         [SerializeField] private string updateText;
 
@@ -17,6 +18,7 @@ namespace Randolph.UI {
 
         private void OnTriggerEnter2D(Collider2D collision) {
             if (collision.tag == "Player") {
+                textBox.enabled = true;
                 textElement.text = updateText;
                 wasActivated = true;
             }
@@ -26,6 +28,7 @@ namespace Randolph.UI {
             if (!wasActivated || !cancelOnAreaExit) {
                 return;
             }
+            textBox.enabled = false;
             textElement.text = "";
             Destroy(gameObject);
         }
@@ -34,6 +37,7 @@ namespace Randolph.UI {
             if (wasActivated
                 && (cancellationKeyName != string.Empty && Input.GetAxis(cancellationKeyName) != 0
                     || cancellationButton != MouseButton.None && Input.GetMouseButtonDown((int)cancellationButton))) {
+                textBox.enabled = false;
                 textElement.text = "";
                 Destroy(gameObject);
             }
