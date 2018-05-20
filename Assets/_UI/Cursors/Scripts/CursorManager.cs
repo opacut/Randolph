@@ -36,7 +36,7 @@ public class CursorManager : MonoBehaviour {
 
     void Update() {
         OnMouseOverClickable();
-    }    
+    }
 
     public void SetCursorDefault() {
         continuousTarget = null;
@@ -102,8 +102,11 @@ public class CursorManager : MonoBehaviour {
 
     void OnMouseDownClickable(Clickable target, MouseButton button) {
         clickHold = true;
-        if (WithinDistance(target.transform.position)) SetCursorPressed(target.CursorType);
-        else SetCursorGrey(target.CursorType);
+        if (WithinDistance(target.transform.position)) {
+            SetCursorPressed((button == MouseButton.Right) ? Cursors.Inspect : target.CursorType);
+        } else {
+            SetCursorGrey((button == MouseButton.Right) ? Cursors.Inspect : target.CursorType);            
+        }
     }
 
     void OnMouseUpClickable(Clickable target, MouseButton button) {
