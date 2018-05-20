@@ -59,15 +59,13 @@ namespace Randolph.Core {
 
         void Awake() {
             //! Pass Audio Player between levels; destroy excess ones
-            DontDestroyOnLoad(this);
-
             if (FindObjectsOfType(GetType()).Length > 1) {
                 Destroy(gameObject);
             } else {
                 audioPlayer = this;
+                DontDestroyOnLoad(this);
+                LevelManager.OnNewLevel += OnNewLevel; // Only works in levels with a player
             }
-
-            LevelManager.OnNewLevel += OnNewLevel; // Only works in levels with a player
         }
 
         void LateUpdate() {
@@ -100,6 +98,10 @@ namespace Randolph.Core {
                 cameraRooms.OnFinishedTransition.AddListener(RoomChange);
                 currentArea?.SetAreaSpatialBlend(GetSpatialBlend());
             }
+        }
+
+        void OnDestroy() {
+            LevelManager.OnNewLevel -= OnNewLevel;
         }
 
         /// <summary>An event triggered on transition between rooms.</summary>

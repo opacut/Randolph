@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Randolph.Characters;
 using Randolph.Interactable;
@@ -9,10 +10,17 @@ using UnityEngine.SceneManagement;
 namespace Randolph.UI {
     public class Inventory : MonoBehaviour {
 
-        // public static Inventory inventory;
+        public const string InventoryKey = "Inventory";
+
+        public static Inventory inventory;
 
         [SerializeField] InventoryIcon iconPrefab;
-        [SerializeField] float applicableDistance = 3;
+        [SerializeField] ItemDatabase itemDatabase;
+        [SerializeField] float applicableDistance = 6;
+
+        public float ApplicableDistance {
+            get { return applicableDistance; }
+        }
 
         Rigidbody2D player;
 
@@ -34,25 +42,13 @@ namespace Randolph.UI {
         }
 
         void Awake() {
-            // TODO: Pass along with a canvas
-            
-            /*           
-            //! Pass Inventory between levels; destroy excess ones
-            DontDestroyOnLoad(this);
-
-            if (FindObjectsOfType(GetType()).Length > 1) {
-                Destroy(gameObject);
-            } else {
-                inventory = this;
-            }
-            */
             Debug.Assert(iconPrefab, "The prefab for an inventory icon is missing!", gameObject);
-
             LevelManager.OnNewLevel += OnNewLevel;
         }
 
         void OnNewLevel(Scene scene, PlayerController playerController) {
             player = playerController.GetComponent<Rigidbody2D>();
+            inventory = FindObjectOfType<Inventory>();
         }
 
 
@@ -77,7 +73,7 @@ namespace Randolph.UI {
         }
 
         public bool IsWithinApplicableDistance(Vector2 position) {
-            return Vector2.Distance(position, player.transform.position) <= applicableDistance;
+            return Vector2.Distance(position, player.transform.position) <= ApplicableDistance;
         }
 
         public bool IsApplicableTo(InventoryItem item, GameObject target) {
@@ -89,7 +85,7 @@ namespace Randolph.UI {
             if (!IsApplicableTo(item, target)) return false;
 
             item.OnApply(target);
-            if (item.isSingleUse) {
+            if (item.IsSingleUse) {
                 Remove(item);
             }
             return true;
@@ -101,6 +97,44 @@ namespace Randolph.UI {
             Debug.Assert(target.GetComponent<Collider2D>());
             ColliderDistance2D result = player.Distance(target.GetComponent<Collider2D>());
             return result.isValid && Mathf.Abs(result.distance) < applicableDistance;
+        }
+
+        void OnDestroy() {
+            LevelManager.OnNewLevel -= OnNewLevel;
+        }
+
+        /// <summary>Saves the inventory state to <see cref="PlayerPrefs"/>.</summary>       
+        public void SaveStateToPrefs(List<InventoryItem> inventoryItems) {
+            string itemString = GetItemsKey(inventoryItems);
+            PlayerPrefs.SetString(InventoryKey, itemString);
+        }
+
+        /// <summary>Saves the inventory state to <see cref="PlayerPrefs"/>.</summary>       
+        public void RestorStateFromPrefs() {
+            string itemString = (PlayerPrefs.HasKey(InventoryKey)) ? PlayerPrefs.GetString(InventoryKey) : string.Empty;
+            if (itemString == string.Empty) Items = new List<InventoryItem>();
+            else {
+                Items = GetItemsFromKey(itemString);
+                DeactivateItemsInScene(Items);
+            }
+        }
+
+        void DeactivateItemsInScene(List<InventoryItem> items) {
+            foreach (InventoryItem item in items) {
+                Type itemType = item.GetType();
+                var sceneItem = (InventoryItem) FindObjectOfType(itemType);
+                sceneItem.SetComponentsActive(false);
+            }
+        }
+
+        /// <summary>Returns a string composed from all given items to save to <see cref="PlayerPrefs"/>.</summary>
+        public string GetItemsKey(List<InventoryItem> inventoryItems) {
+            return itemDatabase.GetItemsKey(inventoryItems);
+        }
+
+        /// <summary>Creates an item list from a given string key.</summary>
+        public List<InventoryItem> GetItemsFromKey(string inventoryKey) {
+            return itemDatabase.GetItemsFromKey(inventoryKey);
         }
 
     }

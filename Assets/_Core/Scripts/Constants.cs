@@ -19,6 +19,14 @@ namespace Randolph.Core {
             }
         }
 
+        public const float ApplicableDistance = 6f;
+
+        public enum MouseButton {
+            Left = 0,
+            Right = 1,
+            Middle = 2
+        }
+
         public static class Audio {
 
             public const float FullVolume = 1.0f;

@@ -64,6 +64,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec89bc120495004389c13c2a289e933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursorDatabase: {fileID: 11400000, guid: 21c97bbce76cd7f42a087777cb9c95bc, type: 2}
 --- !u!114 &114550018301114214
 MonoBehaviour:
   m_ObjectHideFlags: 1

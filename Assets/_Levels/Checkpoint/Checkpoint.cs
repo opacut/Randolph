@@ -25,20 +25,23 @@ namespace Randolph.Levels {
                 Debug.LogWarning("Checkpoints should be made children of a <b>CheckpointContainter</b>, otherwise they won't work properly.", gameObject);
             }
 
-            Debug.Assert(area != null, "The checkpoint isn't linked to any area of the level – therefore is useless.", gameObject);
+            Debug.Assert(area != null, "The checkpoint isn't linked to any area of the level – therefore is useless.", gameObject);            
         }
 
         void OnTriggerEnter2D(Collider2D other) {
             if (other.tag == Constants.Tag.Player) {
-                container.CheckpointReached(this);
-                SaveState();
+                if (!container.IsCheckpointVisited(this)) {
+                    container.CheckpointReached(this);
+                    SaveState();
+                }
             }
         }
 
-        void SaveState() {
+        public void SaveState() {
             restartables.Clear();
             restartables.AddRange(area.transform.GetComponentsInChildren<IRestartable>());
-
+           
+            inventory.SaveStateToPrefs(inventory.Items);
             inventoryState = inventory.Items;
         }
 

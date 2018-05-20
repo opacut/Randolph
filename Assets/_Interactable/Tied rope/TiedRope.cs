@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Randolph.Interactable {
     public class TiedRope : Interactable {
 
-        public override void Interact() {
+        public override void OnInteract() {
             Debug.Log("Rope clicked.");
         }
     }

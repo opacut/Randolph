@@ -10,19 +10,35 @@ namespace Randolph.UI {
         Button thisButton;
         Text buttonText;
 
+        bool Disabled {
+            get {
+                return PlayerPrefs.GetInt(LevelManager.LevelKey, 0) <= 1 &&
+                       PlayerPrefs.GetInt(CheckpointContainer.CheckpointKey, 0) <= 0;
+            }
+        }
+
+        Color originalColor;
+        Color dimColor;
+
         void Start() {
             thisButton = GetComponent<Button>();
             buttonText = gameObject.GetComponentInChildren<Text>();
+            originalColor = buttonText.color;
+            dimColor = originalColor / 1.5f;
 
-            if (!PlayerPrefs.HasKey(LevelManager.LevelKey) || PlayerPrefs.GetInt(LevelManager.LevelKey) <= 1) {
+            thisButton.onClick.AddListener(delegate { LevelManager.levelManager.Continue(); });
+        }
+
+        void LateUpdate() {
+            if (Disabled) {
                 // No saved level or the first level
                 thisButton.interactable = false;
-                buttonText.color /= 1.5f;
+                buttonText.color = dimColor;
             } else {
-                int levelToContinueFrom = PlayerPrefs.GetInt(LevelManager.LevelKey);
-                thisButton.onClick.AddListener(delegate { SceneManager.LoadScene(levelToContinueFrom); });
+                thisButton.interactable = true;
+                buttonText.color = originalColor;
             }
         }
-    }
 
+    }
 }

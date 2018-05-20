@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Randolph.Characters;
 using Randolph.Core;
+using Randolph.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,6 +19,7 @@ namespace Randolph.Levels {
 
         public PlayerController Player { get; private set; }
         public CheckpointContainer Checkpoints { get; private set; }
+        public Inventory Inventory { get; private set; }
 
         public Area[] Areas {
             get {
@@ -26,9 +28,13 @@ namespace Randolph.Levels {
             }
             private set { levelAreas = value; }
         }
+
         Area[] levelAreas;
 
+        bool ContinueMode { get; set; }
+
         public delegate void NewLevel(Scene scene, PlayerController player);
+
         /// <summary>An event invoked at the start of each level containing a <see cref="PlayerController"/>.</summary>
         public static event NewLevel OnNewLevel;
 
@@ -47,8 +53,16 @@ namespace Randolph.Levels {
             Player = FindObjectOfType<PlayerController>();
             if (Player) {
                 PlayerPrefs.SetInt(LevelKey, SceneManager.GetActiveScene().buildIndex);
-                Checkpoints = FindObjectOfType<CheckpointContainer>();
+                Checkpoints = FindObjectOfType<CheckpointContainer>();                
                 Areas = GetLevelAreas();
+                Inventory = FindObjectOfType<Inventory>();
+               
+                if (ContinueMode) {
+                    // Restore state of all
+                    RestoreFromContinue();
+                    ContinueMode = false;
+                }
+
                 OnNewLevel?.Invoke(scene, Player);
             }
         }
@@ -90,5 +104,16 @@ namespace Randolph.Levels {
             return areas;
         }
 
+        public void Continue() {
+            ContinueMode = true;
+            int level = PlayerPrefs.GetInt(LevelKey, defaultValue: 1);
+            SceneManager.LoadScene(level);
+        }
+
+        public void RestoreFromContinue() {
+            Inventory.RestorStateFromPrefs();
+            int checkpoint = PlayerPrefs.GetInt(CheckpointContainer.CheckpointKey, defaultValue: 0);
+            Checkpoints.SetReached(checkpoint, true);
+        }
     }
 }

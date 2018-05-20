@@ -1,7 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using UnityEngine;
 using UnityEditor;
 using System.Linq;
 using System.Collections.Generic;
+using System.IO;
+using Object = UnityEngine.Object;
 
 namespace Randolph.Core {
     public class EditorMethods {
@@ -52,6 +56,13 @@ namespace Randolph.Core {
         public static bool IsPrefab(Object target) {
             // return PrefabUtility.GetPrefabParent(target) == null && PrefabUtility.GetPrefabObject(target) != null;
             return PrefabUtility.GetPrefabType(target) == PrefabType.Prefab;
+        }
+        
+        /// <summary>Returns path to the folder containing an asset.</summary>        
+        public static string GetFolderPath(Object assetObject) {
+            string filePath = AssetDatabase.GetAssetPath(assetObject);
+            string folderPath = Path.GetDirectoryName(filePath)?.Replace("\\", "/");
+            return folderPath;
         }
 
     }

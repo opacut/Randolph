@@ -33,12 +33,18 @@ namespace Randolph.Levels {
             RefreshCheckpointList();
             Debug.Assert(checkpoints.Any(), "There are no checkpoints in the container!", gameObject);
 
-            reached = checkpoints.First();
-            PlayerPrefs.SetInt(CheckpointKey, checkpoints.IndexOf(reached));
-            if (alignPlayer) {
-                player.transform.position = reached.transform.position;
-                player.transform.AlignToGround();
+            if (reached == null) {
+                // Next level, no continue
+                reached = checkpoints.First();
+                reached.SaveState();
+
+                PlayerPrefs.SetInt(CheckpointKey, checkpoints.IndexOf(reached));
+                if (alignPlayer) {
+                    player.transform.position = reached.transform.position;
+                    player.transform.AlignToGround();
+                }
             }
+
             await Task.Delay(TimeSpan.FromSeconds(1));
             Constants.Camera.transition.TransitionEnter();
         }
@@ -68,10 +74,11 @@ namespace Randolph.Levels {
         }
 
         public void CheckpointReached(Checkpoint checkpoint) {
-            if (!IsCheckpointVisited(checkpoint)) {
-                reached = checkpoint;
-                PlayerPrefs.SetInt(CheckpointKey, checkpoints.IndexOf(reached));
-            }
+            //if (!IsCheckpointVisited(checkpoint)) {
+            reached = checkpoint;
+            reached.SaveState();
+            PlayerPrefs.SetInt(CheckpointKey, checkpoints.IndexOf(reached));
+            //}
         }
 
         public Checkpoint GetNext() {
@@ -82,12 +89,26 @@ namespace Randolph.Levels {
             return checkpoints.GetPreviousItem(reached);
         }
 
-        public void SetReached(Checkpoint checkpoint) {
+        public void SetReached(Checkpoint checkpoint, bool movePlayer = false) {
             if (checkpoint == null) return;
-            else reached = checkpoint;
+            else {
+                if (movePlayer) {
+                    if (!player) player = FindObjectOfType<PlayerController>();
+                    player.transform.position = checkpoint.transform.position;
+                    if (alignPlayer) {                        
+                        player.transform.AlignToGround();
+                    }
+                }
+                CheckpointReached(checkpoint);               
+            }
         }
 
-        bool IsCheckpointVisited(Checkpoint checkpoint) {
+        public void SetReached(int checkpointIndex, bool movePlayer = false) {
+            Checkpoint checkpoint = checkpoints[checkpointIndex];
+            SetReached(checkpoint, movePlayer);
+        }
+
+        public bool IsCheckpointVisited(Checkpoint checkpoint) {
             return reached && checkpoints.IndexOf(checkpoint) <= checkpoints.IndexOf(reached);
         }
 
@@ -106,6 +127,10 @@ namespace Randolph.Levels {
             if (levelExit.HasValue) {
                 Gizmos.DrawLine(startPoint, levelExit.Value);
             }
+        }
+
+        void OnDestroy() {
+            LevelManager.OnNewLevel -= OnNewLevel;
         }
 
     }

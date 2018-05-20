@@ -1,6 +1,7 @@
 ﻿using Randolph.Core;
 using Randolph.Interactable;
 using Randolph.Levels;
+using Randolph.UI;
 using UnityEngine;
 
 namespace Randolph.Characters {
@@ -9,14 +10,12 @@ namespace Randolph.Characters {
     [RequireComponent(typeof(DistanceJoint2D))]
     public class PlayerController : MonoBehaviour {
 
-        [Header("Movement")]
-        [SerializeField] AudioClip deathSound;
+        [Header("Movement")] [SerializeField] AudioClip deathSound;
         [SerializeField] float climbingSpeed = 6;
         [SerializeField] float movementSpeed = 6;
         [SerializeField] float jumpForce = 600;
 
-        [Header("Jumping")]
-        [SerializeField] LayerMask groundLayers;
+        [Header("Jumping")] [SerializeField] LayerMask groundLayers;
         [SerializeField, Range(2, 12)] int groundRayCount = 4;
         [SerializeField] float groundCheckRayLength = 0.2f;
         float groundRaySpacing;
@@ -43,8 +42,10 @@ namespace Randolph.Characters {
         void Awake() {
             GetComponents();
             gravity = rbody.gravityScale;
+            Clickable.OnMouseDownClickable += OnMouseDownClickable;
             CalculateRaySpacing();
         }
+
 
         void GetComponents() {
             animator = GetComponent<Animator>();
@@ -84,6 +85,7 @@ namespace Randolph.Characters {
             }
 
             if (other.tag == Constants.Tag.Pickable) {
+                // TODO: Remove to make items only on click
                 var pickable = other.GetComponent<Pickable>();
                 Debug.Assert(pickable, "An object with a Pickable tag doesn't have a Pickable script attached", other.gameObject);
                 pickable.OnPick();
@@ -239,7 +241,7 @@ namespace Randolph.Characters {
             grapplingJoint.enabled = true;
             grapplingJoint.distance = Vector2.Distance(transform.position, obj.transform.position);
             grappleRopeRenderer.enabled = true;
-            grappleRopeRenderer.SetPositions(new Vector3[] { transform.position, obj.transform.position });
+            grappleRopeRenderer.SetPositions(new Vector3[] {transform.position, obj.transform.position});
         }
 
         private void Grappling(float vertical, float horizontal) {
@@ -256,6 +258,36 @@ namespace Randolph.Characters {
         private void StopGrappling() {
             grapplingJoint.enabled = false;
             grappleRopeRenderer.enabled = false;
+        }
+
+        #endregion
+
+        #region MouseEvents
+
+        void OnMouseDownClickable(Clickable target, Constants.MouseButton button) {
+            bool withinDistance = Vector2.Distance(transform.position, target.transform.position) <= Inventory.inventory.ApplicableDistance;
+            if (withinDistance) {
+                switch (target.CursorType) {
+                    case Cursors.Generic:
+                        // No specific cursor -> no action
+                        break;
+                    case Cursors.Pick:
+                        var pickable = (Pickable) target;
+                        pickable.OnPick();
+                        break;
+                    case Cursors.Interact:
+                        var interactable = (Interactable.Interactable) target;
+                        interactable.OnInteract();
+                        break;
+                    case Cursors.Talk:
+                        var talkable = (Talkable) target;
+                        talkable.OnTalk();
+                        break;
+                    default:
+                        Debug.LogWarning($"Unhandled clickable type: {target.CursorType}");
+                        break;
+                }
+            }
         }
 
         #endregion
@@ -286,6 +318,10 @@ namespace Randolph.Characters {
                     transform.position = previousCheckpoint.transform.position;
                     checkpointContainer.SetReached(previousCheckpoint);
                 }
+            }
+
+            if (Input.GetKeyDown(KeyCode.KeypadMultiply)) {
+                LevelManager.LoadNextLevel();
             }
         }
 

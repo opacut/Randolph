@@ -1,6 +1,9 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+using Randolph.Interactable;
 using UnityEngine;
-
 
 namespace Randolph.Core {
     public static class Methods {
@@ -87,6 +90,23 @@ namespace Randolph.Core {
             }
 
             Gizmos.DrawLine(position, lastPosition);
+        }
+
+        /// <summary>Is a valid identifier, including reserved keywords and already existing classes.</summary>               
+        public static bool IsValidVariableName(string variableName) {
+            CodeDomProvider provider = CodeDomProvider.CreateProvider("C#");
+            return provider.IsValidIdentifier(variableName);
+        }
+
+        public static int? TryParseInt32(string text) {
+            int value;
+            return int.TryParse(text, out value) ? value : (int?) null;
+        }
+
+        public static IEnumerable<int> StringToIntList(string str, char separator) {
+            return str.Split(separator).Select(TryParseInt32)
+                      .Where(x => x.HasValue)
+                      .Select(x => x.Value);
         }
 
     }

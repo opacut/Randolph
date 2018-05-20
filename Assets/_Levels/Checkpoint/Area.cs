@@ -44,7 +44,7 @@ namespace Randolph.Levels {
             else return areas[index];
         }
 
-        void Awake() {
+        void Start() {
             LevelManager.OnNewLevel += OnNewLevel;
         }
 
@@ -59,7 +59,7 @@ namespace Randolph.Levels {
         public void RefreshCameraData() {
             cameraRooms = FindObjectOfType<ProCamera2DRooms>();
             MatchingCameraRoom = cameraRooms.GetRoom($"{Methods.GetNumberFromString(gameObject.name)}");
-            if (Application.isPlaying && MatchingCameraRoom == null) Debug.LogError($"No corresponding camera room found for <b>{gameObject.name}</b>.");
+            if (Application.isPlaying && matchingCameraRoom == null) Debug.LogError($"No corresponding camera room found for <b>{gameObject.name}</b>.");
         }
 
         bool HasNestedAreas() {
@@ -99,6 +99,10 @@ namespace Randolph.Levels {
             var spikes = new List<SpikeTrap>();
             GetComponentsInChildren(true, spikes);
             return spikes;
+        }
+
+        void OnDestroy() {
+            LevelManager.OnNewLevel -= OnNewLevel;
         }
 
     }
