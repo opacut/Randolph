@@ -1,27 +1,29 @@
 ﻿using System.Collections;
+using Randolph.Characters;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Randolph.UI {
+    [RequireComponent(typeof(Talkable))] // TODO: Temporary (inherit from Talkable)
     public class SpeechBubble : MonoBehaviour {
-        [SerializeField] private readonly float delay = 0.05f;
-        [SerializeField] private Text bubbleText;
+        [SerializeField] readonly float delay = 0.05f;
+        [SerializeField] Text bubbleText;
 
-        private string currentText = "";
+        string currentText = "";
 
-        [SerializeField] private string fullText;
-        private bool isSpeaking;
-        [SerializeField] private Canvas speechBubble;
-        private CanvasScaler scaler;
+        [SerializeField] string fullText;
+        bool isSpeaking;
+        [SerializeField] Canvas speechBubble;
+        CanvasScaler scaler;
 
-        private void Start() {
+        void Start() {
             scaler = speechBubble.GetComponent<CanvasScaler>();
             scaler.enabled = false;
             speechBubble.enabled = false;
             bubbleText.text = "";
         }
 
-        private void OnMouseDown() {
+        void OnMouseDown() {
             if (!isSpeaking) {
                 Speak();
             } else {
@@ -37,7 +39,7 @@ namespace Randolph.UI {
             }
         }
 
-        private void Speak() {
+        void Speak() {
             StopAllCoroutines();
             bubbleText.text = "";
             currentText = "";
@@ -47,14 +49,14 @@ namespace Randolph.UI {
             StartCoroutine(ShowText());
         }
 
-        private void StopSpeaking() {
+        void StopSpeaking() {
             StopAllCoroutines();
             speechBubble.enabled = false;
             scaler.enabled = false;
             isSpeaking = false;
         }
 
-        private IEnumerator Timer() {
+        IEnumerator Timer() {
             yield return new WaitForSeconds(5);
             StopSpeaking();
         }

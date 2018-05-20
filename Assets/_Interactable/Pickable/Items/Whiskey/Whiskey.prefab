@@ -36,8 +36,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1331681327032480}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.6139984, y: -9.558127, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,6 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09509df9474d2d84c8dda7757b418b06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description: A glitter of hope in this wasteland.
   icon: {fileID: 21300000, guid: 87194fc67400747b0b64d52a1e296926, type: 3}
   collectSound: {fileID: 8300000, guid: 0e0339a3bac3c44488b82c87ccc26a02, type: 3}
   applySound: {fileID: 8300000, guid: 8b455f30a2cf6dd479d2acef102b26c6, type: 3}

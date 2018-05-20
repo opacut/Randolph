@@ -22,9 +22,7 @@ namespace Randolph.Interactable {
 
         protected void Start() {
             outline.enabled = false;
-        }
-
-        // TODO: Events from Clickable
+        }        
 
         protected override void OnMouseEnter() {
             base.OnMouseEnter();
@@ -34,14 +32,6 @@ namespace Randolph.Interactable {
         protected override void OnMouseExit() {
             base.OnMouseExit();
             outline.enabled = false;
-        }
-
-        protected override void OnMouseOver() {            
-            base.OnMouseOver();
-
-            if (Input.GetMouseButtonDown(0)) {
-                OnInteract();
-            }
         }
 
         public abstract void OnInteract();

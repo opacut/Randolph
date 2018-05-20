@@ -69,8 +69,9 @@ namespace Randolph.Levels {
             Constants.Camera.transition.TransitionExit();
             await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationExit));
             player.transform.position = reached.transform.position;
+            player.Killable = true;
             Constants.Camera.transition.TransitionEnter();
-            await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationEnter));
+            await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationEnter));            
         }
 
         public void CheckpointReached(Checkpoint checkpoint) {

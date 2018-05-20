@@ -39,6 +39,8 @@ namespace Randolph.Characters {
             get { return grapplingJoint.isActiveAndEnabled; }
         }
 
+        public bool Killable { get; set; } = true;
+
         void Awake() {
             GetComponents();
             gravity = rbody.gravityScale;
@@ -104,10 +106,13 @@ namespace Randolph.Characters {
         }
 
         public void Kill(float delay = 0.25f) {
-            StopGrappling();
-            StopClimbing();
-            AudioPlayer.audioPlayer.PlayGlobalSound(deathSound);
-            LevelManager.levelManager.ReturnToCheckpoint(delay);
+            if (Killable) {
+                Killable = false;
+                StopGrappling();
+                StopClimbing();
+                AudioPlayer.audioPlayer.PlayGlobalSound(deathSound);
+                LevelManager.levelManager.ReturnToCheckpoint(delay);
+            }
         }
 
         // TODO: Break into components
@@ -266,27 +271,33 @@ namespace Randolph.Characters {
 
         void OnMouseDownClickable(Clickable target, Constants.MouseButton button) {
             bool withinDistance = Vector2.Distance(transform.position, target.transform.position) <= Inventory.inventory.ApplicableDistance;
+
             if (withinDistance) {
-                switch (target.CursorType) {
-                    case Cursors.Generic:
-                        // No specific cursor -> no action
-                        break;
-                    case Cursors.Pick:
-                        var pickable = (Pickable) target;
-                        pickable.OnPick();
-                        break;
-                    case Cursors.Interact:
-                        var interactable = (Interactable.Interactable) target;
-                        interactable.OnInteract();
-                        break;
-                    case Cursors.Talk:
-                        var talkable = (Talkable) target;
-                        talkable.OnTalk();
-                        break;
-                    default:
-                        Debug.LogWarning($"Unhandled clickable type: {target.CursorType}");
-                        break;
+                if (button == Constants.MouseButton.Left) {
+                    switch (target.CursorType) {
+                        case Cursors.Generic:
+                            // No specific cursor -> no action
+                            break;
+                        case Cursors.Pick:
+                            var pickable = (Pickable) target;
+                            pickable.OnPick();
+                            break;
+                        case Cursors.Interact:
+                            var interactable = (Interactable.Interactable) target;
+                            interactable.OnInteract();
+                            break;
+                        case Cursors.Talk:
+                            var talkable = (Talkable) target;
+                            talkable.OnTalk();
+                            break;
+                        default:
+                            Debug.LogWarning($"Unhandled clickable type: {target.CursorType}");
+                            break;
+                    }
+                } else if (button == Constants.MouseButton.Right) {
+                    Debug.Log(target.GetDescription());
                 }
+
             }
         }
 

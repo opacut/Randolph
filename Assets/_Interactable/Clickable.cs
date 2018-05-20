@@ -10,6 +10,9 @@ namespace Randolph.Interactable {
         /// <summary>Type of cursor to use. Override in a derived class.</summary>
         public abstract Cursors CursorType { get; protected set; }
 
+        [Tooltip("Randolph's comment - keep empty if none.")]
+        [SerializeField, TextArea] string description;
+
         Vector3 initialPosition;
 
         public delegate void MouseEnterClickable(Clickable target);
@@ -56,6 +59,11 @@ namespace Randolph.Interactable {
             // Mouse Up + Mouse Exit when deleted
             ResetCursor();
         }
-        
+
+        /// <summary>Randolph's comment.</summary>
+        public string GetDescription() {
+            return description.Trim();
+        }        
+
     }
 }

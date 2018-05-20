@@ -24,6 +24,7 @@ namespace Randolph.UI {
             this.image = GetComponent<Image>();
             initialMaterial = image.material;            
             image.sprite = item.icon;
+            image.preserveAspect = true;
         }
 
         public void OnBeginDrag(PointerEventData eventData) {
