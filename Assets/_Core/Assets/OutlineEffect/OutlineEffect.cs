@@ -125,12 +125,13 @@ namespace cakeslice {
                     sourceCamera = Camera.main;
             }
 
+            outlineCamera = transform.Find("Outline Camera")?.gameObject?.GetComponent<Camera>();
             if (outlineCamera == null) {
                 GameObject cameraGameObject = new GameObject("Outline Camera");
                 cameraGameObject.transform.parent = sourceCamera.transform;
                 outlineCamera = cameraGameObject.AddComponent<Camera>();
-                outlineCamera.enabled = false;
             }
+            outlineCamera.enabled = false;
 
             renderTexture = new RenderTexture(sourceCamera.pixelWidth, sourceCamera.pixelHeight, 16, RenderTextureFormat.Default);
             extraRenderTexture = new RenderTexture(sourceCamera.pixelWidth, sourceCamera.pixelHeight, 16, RenderTextureFormat.Default);
