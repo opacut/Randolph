@@ -2011,11 +2011,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213041975015865690
@@ -2208,11 +2204,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213049247598236404
@@ -2405,11 +2397,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213052328700046234
@@ -2602,11 +2590,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213065808796311100
@@ -2799,11 +2783,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213074586432937710
@@ -2996,11 +2976,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213106855725426624
@@ -3193,11 +3169,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213108426354082270
@@ -3390,11 +3362,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213116536158465058
@@ -3587,11 +3555,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213123784130629374
@@ -3784,11 +3748,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213152082709305616
@@ -3981,11 +3941,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213192894004886224
@@ -4178,11 +4134,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213218463985716586
@@ -4375,11 +4327,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213263992798922686
@@ -4572,11 +4520,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213280539438905994
@@ -4769,11 +4713,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213333482118906814
@@ -4966,11 +4906,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213345803243076146
@@ -5163,11 +5099,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213354659823296464
@@ -5360,11 +5292,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213363878958643852
@@ -5557,11 +5485,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213414524105629930
@@ -5754,11 +5678,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213440526409062274
@@ -5951,11 +5871,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213470610410540914
@@ -6148,11 +6064,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213472808252939144
@@ -6345,11 +6257,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213475058504780060
@@ -6542,11 +6450,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213496267810801966
@@ -6739,11 +6643,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213518331618672018
@@ -6936,11 +6836,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213548639350390234
@@ -7133,11 +7029,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213582107503632524
@@ -7330,11 +7222,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213600560617777898
@@ -7527,11 +7415,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213649753293038296
@@ -7724,11 +7608,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213651653426402700
@@ -7921,11 +7801,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213660689461497348
@@ -8118,11 +7994,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213679546188436604
@@ -8315,11 +8187,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213679730234151182
@@ -8512,11 +8380,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213758416887991174
@@ -8709,11 +8573,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213786233828438166
@@ -8906,11 +8766,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213788832729585344
@@ -9103,11 +8959,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213814574632209680
@@ -9300,11 +9152,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213819249474346072
@@ -9497,11 +9345,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213877303998870566
@@ -9694,11 +9538,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213897474628217996
@@ -9891,11 +9731,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213924161341688860
@@ -10088,11 +9924,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213938466500500072
@@ -10285,11 +10117,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213945936608007086
@@ -10482,11 +10310,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213952432079074080
@@ -10679,11 +10503,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213988847642485796
@@ -10876,11 +10696,7 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
 --- !u!213 &213992343303171534
@@ -11073,10 +10889,6 @@ Sprite:
     settingsRaw: 64
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
-  m_PhysicsShape:
-  - - {x: -0.5, y: 0.5}
-    - {x: -0.5, y: -0.5}
-    - {x: 0.5, y: -0.5}
-    - {x: 0.5, y: 0.5}
+  m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
