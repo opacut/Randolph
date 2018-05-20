@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8962264, g: 0.86559635, b: 0.20714669, a: 0.5019608}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -224,6 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iconPrefab: {fileID: 114730609490348730, guid: f80f1d90567f0fe4996ad31f2b966316,
     type: 2}
+  itemDatabase: {fileID: 11400000, guid: 9247e5e8c515ba241a23952307161e42, type: 2}
   applicableDistance: 3
 --- !u!114 &114686302098388002
 MonoBehaviour:
@@ -354,7 +355,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 1809559519
-  m_SortingOrder: 1000
+  m_SortingOrder: -1000
   m_TargetDisplay: 0
 --- !u!224 &224227096387499708
 RectTransform:

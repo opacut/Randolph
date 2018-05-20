@@ -12,5 +12,9 @@ namespace Randolph.Interactable {
             return initialized;           
         }
 
+        public InventoryItem GetInventoryItem() {
+            return prefab.GetComponent<InventoryItem>();
+        }
+
     }
 }

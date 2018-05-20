@@ -7,7 +7,8 @@ namespace Randolph.Levels {
 
         readonly string levelKey = LevelManager.LevelKey;
         readonly string checkpointKey = CheckpointContainer.CheckpointKey;
-        readonly string muteKey = MuteSwitch.MuteKey;
+        readonly string inventoryKey = Inventory.InventoryKey;
+        readonly string muteKey = MuteSwitch.MuteKey;        
 
         int _offset = 10;
 
@@ -37,6 +38,10 @@ namespace Randolph.Levels {
                 int checkpointIndex = PlayerPrefs.HasKey(checkpointKey) ? PlayerPrefs.GetInt(checkpointKey) : 0;
                 GUI.Label(new Rect(new Vector2(10, CurrentOffset), rectSize),
                         $"<color=red>{nameof(checkpointKey)}</color>: <color=blue>{checkpointIndex}</color>");
+
+                string inventoryString = PlayerPrefs.HasKey(inventoryKey) ? PlayerPrefs.GetString(inventoryKey) : "–";
+                GUI.Label(new Rect(new Vector2(10, CurrentOffset), rectSize),
+                        $"<color=red>{nameof(inventoryKey)}</color>: <color=blue>{inventoryString}</color>");
 
                 GUI.Label(new Rect(new Vector2(10, CurrentOffset), rectSize),
                         $"<color=red>{nameof(LanguageSwitch.LanguageKey)}</color>: <color=blue>{LanguageSwitch.Language}</color>");

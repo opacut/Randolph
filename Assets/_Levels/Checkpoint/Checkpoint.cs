@@ -40,7 +40,8 @@ namespace Randolph.Levels {
         public void SaveState() {
             restartables.Clear();
             restartables.AddRange(area.transform.GetComponentsInChildren<IRestartable>());
-
+           
+            inventory.SaveStateToPrefs(inventory.Items);
             inventoryState = inventory.Items;
         }
 

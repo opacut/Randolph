@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
-using Randolph.Core;
-using UnityEditor;
-using UnityEngine;
 
 namespace Randolph.Interactable {
     public static class ItemExtensions {
@@ -44,25 +37,6 @@ namespace Randolph.Interactable {
             for (int i = 0; i < numberedItemList.Count; i++) {
                 numberedItemList[i].id = i;
             }
-        }
-
-        public static bool CreateItemScript(string name, string folder) {
-            name = name.ToTitleCase();
-            string scriptPath = $"{folder}/{name}.cs";
-
-            if (File.Exists(scriptPath) == false) {
-                GenerateFiles.GenerateMonobehaviour(name,
-                        folder,
-                        nameof(InventoryItem),
-                        $"{nameof(Randolph)}.{nameof(Randolph.Interactable)}",
-                        new[] { "System", "UnityEngine" },
-                        new [] { "public override bool IsSingleUse { get; } = false" },
-                        "public override bool IsApplicable(GameObject target)",
-                        "public override void OnApply(GameObject target)"
-                );
-
-                return true;
-            } else return false;
         }
 
     }

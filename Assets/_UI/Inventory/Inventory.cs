@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Randolph.Characters;
 using Randolph.Interactable;
@@ -9,9 +10,12 @@ using UnityEngine.SceneManagement;
 namespace Randolph.UI {
     public class Inventory : MonoBehaviour {
 
+        public const string InventoryKey = "Inventory";
+
         public static Inventory inventory;
 
         [SerializeField] InventoryIcon iconPrefab;
+        [SerializeField] ItemDatabase itemDatabase;
         [SerializeField] float applicableDistance = 3;
 
         public float ApplicableDistance {
@@ -97,6 +101,40 @@ namespace Randolph.UI {
 
         void OnDestroy() {
             LevelManager.OnNewLevel -= OnNewLevel;
+        }
+
+        /// <summary>Saves the inventory state to <see cref="PlayerPrefs"/>.</summary>       
+        public void SaveStateToPrefs(List<InventoryItem> inventoryItems) {
+            string itemString = GetItemsKey(inventoryItems);
+            PlayerPrefs.SetString(InventoryKey, itemString);
+        }
+
+        /// <summary>Saves the inventory state to <see cref="PlayerPrefs"/>.</summary>       
+        public void RestorStateFromPrefs() {
+            string itemString = (PlayerPrefs.HasKey(InventoryKey)) ? PlayerPrefs.GetString(InventoryKey) : string.Empty;
+            if (itemString == string.Empty) Items = new List<InventoryItem>();
+            else {
+                Items = GetItemsFromKey(itemString);
+                DeactivateItemsInScene(Items);
+            }
+        }
+
+        void DeactivateItemsInScene(List<InventoryItem> items) {
+            foreach (InventoryItem item in items) {
+                Type itemType = item.GetType();
+                var sceneItem = (InventoryItem) FindObjectOfType(itemType);
+                sceneItem.SetComponentsActive(false);
+            }
+        }
+
+        /// <summary>Returns a string composed from all given items to save to <see cref="PlayerPrefs"/>.</summary>
+        public string GetItemsKey(List<InventoryItem> inventoryItems) {
+            return itemDatabase.GetItemsKey(inventoryItems);
+        }
+
+        /// <summary>Creates an item list from a given string key.</summary>
+        public List<InventoryItem> GetItemsFromKey(string inventoryKey) {
+            return itemDatabase.GetItemsFromKey(inventoryKey);
         }
 
     }

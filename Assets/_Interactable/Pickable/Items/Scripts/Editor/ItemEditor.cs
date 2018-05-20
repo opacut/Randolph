@@ -7,7 +7,7 @@ namespace Randolph.Interactable {
     [CustomEditor(typeof(Item))]
     public class ItemEditor : Editor {
 
-        // TODO: To ItemDatabase
+        // TODO: Create via ItemDatabase
 
         Item item;
 
@@ -76,8 +76,8 @@ namespace Randolph.Interactable {
             var itemObject = new GameObject(itemName, typeof(SpriteRenderer), typeof(BoxCollider2D)) {
                     hideFlags = HideFlags.DontSaveInBuild | HideFlags.DontUnloadUnusedAsset | HideFlags.HideInHierarchy
             };
-            if (ItemExtensions.CreateItemScript(itemName, newFolder)) {
-                // TODO: Add when compiled
+            if (CreateItemScript(itemName, newFolder)) {
+                // TODO: Add Component when compiled
                 // itemObject.AddComponent(Type.GetType(itemName));
             }
             string prefabPath = $"{newFolder}/{itemName}.prefab";
@@ -90,6 +90,25 @@ namespace Randolph.Interactable {
             DestroyImmediate(itemObject);
 
             initialized.boolValue = true;
+        }
+
+        static bool CreateItemScript(string name, string folder) {
+            name = name.ToTitleCase();
+            string scriptPath = $"{folder}/{name}.cs";
+
+            if (File.Exists(scriptPath) == false) {
+                GenerateFiles.GenerateMonobehaviour(name,
+                        folder,
+                        nameof(InventoryItem),
+                        $"{nameof(Randolph)}.{nameof(Randolph.Interactable)}",
+                        new[] { "System", "UnityEngine" },
+                        new [] { "public override bool IsSingleUse { get; } = false" },
+                        "public override bool IsApplicable(GameObject target)",
+                        "public override void OnApply(GameObject target)"
+                );
+
+                return true;
+            } else return false;
         }
 
     }

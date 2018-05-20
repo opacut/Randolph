@@ -113,6 +113,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!84 &14567247
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1173
+  m_Height: 566
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &21228210
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,11 +604,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 480422769}
   m_Script: {fileID: 11500000, guid: bc241589203e32640a46ba79ffc39645, type: 3}
---- !u!50 &239296888 stripped
-Rigidbody2D:
-  m_PrefabParentObject: {fileID: 50256416751730378, guid: 81423794d48a5544a93de134578b6762,
-    type: 2}
-  m_PrefabInternal: {fileID: 1055669785}
 --- !u!1 &287438107
 GameObject:
   m_ObjectHideFlags: 0
@@ -23536,37 +23562,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 954f5feab1f517442bc08ad1026b4799, type: 2}
   m_IsPrefabParent: 0
---- !u!84 &515052896
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1173
-  m_Height: 566
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 0
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &538418018
 GameObject:
   m_ObjectHideFlags: 0
@@ -23715,7 +23710,7 @@ Prefab:
         type: 2}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 515052896}
+      objectReference: {fileID: 1114924969}
     - target: {fileID: 114937774556929832, guid: 8b4288b422a243a41839c1cf4f4ff9c2,
         type: 2}
       propertyPath: outlineShaderMaterial
@@ -41977,6 +41972,37 @@ Transform:
   m_PrefabParentObject: {fileID: 4355089571395164, guid: 954f5feab1f517442bc08ad1026b4799,
     type: 2}
   m_PrefabInternal: {fileID: 1614696603}
+--- !u!84 &1114924969
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1173
+  m_Height: 566
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 0
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1122312399
 GameObject:
   m_ObjectHideFlags: 0
@@ -44067,46 +44093,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114656167208439806, guid: 5f2c6cf0c833eae48bccffc331bd8ab3,
-        type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 239296888}
     - target: {fileID: 223955007248001530, guid: 5f2c6cf0c833eae48bccffc331bd8ab3,
         type: 2}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 634624957}
-    - target: {fileID: 223955007248001530, guid: 5f2c6cf0c833eae48bccffc331bd8ab3,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: -1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 114271176791621264, guid: 5f2c6cf0c833eae48bccffc331bd8ab3,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 0.8962264
-      objectReference: {fileID: 0}
-    - target: {fileID: 114271176791621264, guid: 5f2c6cf0c833eae48bccffc331bd8ab3,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 0.86559635
-      objectReference: {fileID: 0}
-    - target: {fileID: 114271176791621264, guid: 5f2c6cf0c833eae48bccffc331bd8ab3,
-        type: 2}
-      propertyPath: m_Color.b
-      value: 0.20714669
-      objectReference: {fileID: 0}
-    - target: {fileID: 114271176791621264, guid: 5f2c6cf0c833eae48bccffc331bd8ab3,
-        type: 2}
-      propertyPath: m_Color.a
-      value: 0.5019608
-      objectReference: {fileID: 0}
-    - target: {fileID: 114656167208439806, guid: 5f2c6cf0c833eae48bccffc331bd8ab3,
-        type: 2}
-      propertyPath: applicableDistance
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f2c6cf0c833eae48bccffc331bd8ab3, type: 2}
   m_IsPrefabParent: 0
@@ -44177,37 +44168,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4842268154107098, guid: 284fe032702014ef49047cfb9be3dc5b,
     type: 2}
   m_PrefabInternal: {fileID: 632841570}
---- !u!84 &1626614425
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1173
-  m_Height: 566
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!95 &1683362089 stripped
 Animator:
   m_PrefabParentObject: {fileID: 95362493886260112, guid: 5f2c6cf0c833eae48bccffc331bd8ab3,

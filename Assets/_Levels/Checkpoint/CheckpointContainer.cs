@@ -33,14 +33,18 @@ namespace Randolph.Levels {
             RefreshCheckpointList();
             Debug.Assert(checkpoints.Any(), "There are no checkpoints in the container!", gameObject);
 
-            reached = checkpoints.First();
-            reached.SaveState();
+            if (reached == null) {
+                // Next level, no continue
+                reached = checkpoints.First();
+                reached.SaveState();
 
-            PlayerPrefs.SetInt(CheckpointKey, checkpoints.IndexOf(reached));
-            if (alignPlayer) {
-                player.transform.position = reached.transform.position;
-                player.transform.AlignToGround();
+                PlayerPrefs.SetInt(CheckpointKey, checkpoints.IndexOf(reached));
+                if (alignPlayer) {
+                    player.transform.position = reached.transform.position;
+                    player.transform.AlignToGround();
+                }
             }
+
             await Task.Delay(TimeSpan.FromSeconds(1));
             Constants.Camera.transition.TransitionEnter();
         }
@@ -85,11 +89,23 @@ namespace Randolph.Levels {
             return checkpoints.GetPreviousItem(reached);
         }
 
-        public void SetReached(Checkpoint checkpoint) {
+        public void SetReached(Checkpoint checkpoint, bool movePlayer = false) {
             if (checkpoint == null) return;
             else {
-                CheckpointReached(checkpoint);
+                if (movePlayer) {
+                    if (!player) player = FindObjectOfType<PlayerController>();
+                    player.transform.position = checkpoint.transform.position;
+                    if (alignPlayer) {                        
+                        player.transform.AlignToGround();
+                    }
+                }
+                CheckpointReached(checkpoint);               
             }
+        }
+
+        public void SetReached(int checkpointIndex, bool movePlayer = false) {
+            Checkpoint checkpoint = checkpoints[checkpointIndex];
+            SetReached(checkpoint, movePlayer);
         }
 
         public bool IsCheckpointVisited(Checkpoint checkpoint) {
