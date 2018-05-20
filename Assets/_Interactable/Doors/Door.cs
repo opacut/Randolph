@@ -17,7 +17,7 @@ namespace Randolph.Interactable {
 
             var randolph = GameObject.FindGameObjectWithTag(Constants.Tag.Player);
 
-            Constants.Camera.rooms.AutomaticRoomActivation = false;
+            // Constants.Camera.rooms.AutomaticRoomActivation = false;
             Constants.Camera.transition.TransitionExit();
             await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationExit));
 
@@ -28,7 +28,7 @@ namespace Randolph.Interactable {
 
             Constants.Camera.transition.TransitionEnter();
             await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationEnter));
-            Constants.Camera.rooms.AutomaticRoomActivation = true;
+            // Constants.Camera.rooms.AutomaticRoomActivation = true;
         }
 	}
 }

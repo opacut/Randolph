@@ -1,7 +1,11 @@
-﻿using Randolph.Levels;
+﻿using cakeslice;
+using Randolph.Levels;
 using UnityEngine;
 
 namespace Randolph.Interactable {
+    [RequireComponent(typeof(Collider2D))]
+    [RequireComponent(typeof(SpriteRenderer))]
+    [RequireComponent(typeof(Outline))]
     public abstract class Pickable : MonoBehaviour, IPickable {
 
         private Vector3 initialPosition;

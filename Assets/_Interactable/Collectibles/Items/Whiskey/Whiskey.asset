@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: Whiskey
   m_EditorClassIdentifier: 
   prefab: {fileID: 1331681327032480, guid: 7f12a75ef4672b34eb814608f31b4c5d, type: 2}
-  initialized: 0
+  initialized: 1
