@@ -85,13 +85,15 @@ namespace Randolph.Characters {
             if (other.tag == Constants.Tag.Deadly) {
                 Kill();
             }
-
+            
+            /*
             if (other.tag == Constants.Tag.Pickable) {
                 // TODO: Remove to make items only on click
                 var pickable = other.GetComponent<Pickable>();
                 Debug.Assert(pickable, "An object with a Pickable tag doesn't have a Pickable script attached", other.gameObject);
                 pickable.OnPick();
             }
+            */
         }
 
         private void OnTriggerExit2D(Collider2D other) {

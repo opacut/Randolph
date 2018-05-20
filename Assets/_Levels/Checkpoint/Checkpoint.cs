@@ -28,6 +28,10 @@ namespace Randolph.Levels {
             Debug.Assert(area != null, "The checkpoint isn't linked to any area of the level – therefore is useless.", gameObject);            
         }
 
+        void Start() {
+            RefreshRestartables();
+        }
+
         void OnTriggerEnter2D(Collider2D other) {
             if (other.tag == Constants.Tag.Player) {
                 if (!container.IsCheckpointVisited(this)) {
@@ -38,8 +42,7 @@ namespace Randolph.Levels {
         }
 
         public void SaveState() {
-            restartables.Clear();
-            restartables.AddRange(area.transform.GetComponentsInChildren<IRestartable>());
+            RefreshRestartables();
            
             inventory.SaveStateToPrefs(inventory.Items);
             inventoryState = inventory.Items;
@@ -51,6 +54,11 @@ namespace Randolph.Levels {
             foreach (IRestartable restartable in restartables) {
                 restartable.Restart();
             }
+        }
+
+        void RefreshRestartables() {
+            restartables.Clear();
+            restartables.AddRange(area.transform.GetComponentsInChildren<IRestartable>());
         }
 
     }

@@ -1,7 +1,5 @@
-﻿using Com.LuisPedroFonseca.ProCamera2D;
-using Randolph.Core;
+﻿using Randolph.Core;
 using UnityEditor;
-using UnityEngine;
 
 namespace Randolph.Levels {
     [CustomEditor(typeof(Area))]
