@@ -6,7 +6,8 @@ namespace Randolph.UI {
 		Pick,
 		Talk,
 		Interact,
-		Door
+		Door,
+		Inspect
 
 	}
 }
