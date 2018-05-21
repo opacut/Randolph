@@ -1,14 +1,18 @@
 ﻿using Randolph.Levels;
 using UnityEngine;
 using Randolph.UI;
+using cakeslice;
 using static Randolph.Core.Constants;
 
 namespace Randolph.Interactable {
-
+    
+    [RequireComponent(typeof(Outline))]
     public abstract class Clickable : MonoBehaviour, IRestartable {
 
         /// <summary>Type of cursor to use. Override in a derived class.</summary>
         public abstract Cursors CursorType { get; protected set; }
+
+        protected Outline outline;
 
         [Tooltip("Randolph's comment - keep empty if none.")]
         [SerializeField, TextArea] string description;
@@ -33,6 +37,11 @@ namespace Randolph.Interactable {
 
         protected virtual void Awake() {
             initialPosition = transform.position;
+            outline = GetComponent<Outline>();
+        }
+
+        protected virtual void Start() {
+            outline.enabled = false;
         }
 
         public virtual void Restart() {
@@ -41,10 +50,12 @@ namespace Randolph.Interactable {
 
         protected virtual void OnMouseEnter() {
             OnMouseEnterClickable?.Invoke(this);
+            outline.enabled = true;
         }
 
         protected virtual void OnMouseExit() {
             OnMouseExitClickable?.Invoke(this);
+            outline.enabled = false;
         }
 
         protected virtual void OnMouseOver() {

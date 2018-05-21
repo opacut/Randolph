@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4842268154107098}
   - component: {fileID: 212514413828074514}
   - component: {fileID: 61862763716456246}
-  - component: {fileID: 114865688252343828}
   - component: {fileID: 114572306026009240}
+  - component: {fileID: 114865688252343828}
   m_Layer: 0
   m_Name: Hook
   m_TagString: Pickable
