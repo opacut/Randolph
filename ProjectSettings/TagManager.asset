@@ -12,6 +12,7 @@ TagManager:
   - Wood
   - LevelManager
   - Deadly
+  - Sail
   layers:
   - Default
   - TransparentFX
