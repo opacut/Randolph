@@ -4,6 +4,7 @@ using Randolph.Interactable;
 using Randolph.Levels;
 using Randolph.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Randolph.Characters {
     [RequireComponent(typeof(Animator))]
@@ -25,6 +26,10 @@ namespace Randolph.Characters {
         new Collider2D collider;
 
         [Header("Interaction")] [SerializeField, Range(0, 5)] float speechDuration = 1.5f;
+        [SerializeField] Canvas speechBubble;
+        [SerializeField, ReadonlyField] Text bubbleText;
+        bool isDisplaying = false;
+
 
         bool isOnGround = false;
         bool jump = false;
@@ -60,6 +65,9 @@ namespace Randolph.Characters {
             spriteRenderer = GetComponent<SpriteRenderer>();
             grapplingJoint = GetComponent<DistanceJoint2D>();
             grappleRopeRenderer = GetComponent<LineRenderer>();
+
+            bubbleText = speechBubble?.GetComponentInChildren<Text>();
+            if (bubbleText != null) bubbleText.text = "";
         }
 
         void Update() {
@@ -90,7 +98,7 @@ namespace Randolph.Characters {
             if (other.tag == Constants.Tag.Deadly) {
                 Kill();
             }
-            
+
             /*
             if (other.tag == Constants.Tag.Pickable) {
                 // TODO: Remove to make items only on click
@@ -301,9 +309,11 @@ namespace Randolph.Characters {
                             break;
                     }
                 } else if (button == Constants.MouseButton.Right) {
-                    ShowDescriptionBubble(target.GetDescription(), speechDuration);
+                    if (!isDisplaying) {
+                        isDisplaying = true;
+                        ShowDescriptionBubble(target.GetDescription(), speechDuration);
+                    }
                 }
-
             }
         }
 
@@ -311,10 +321,11 @@ namespace Randolph.Characters {
         /// <param name="text">Text to show.</param>
         /// <param name="duration">Duration in seconds.</param>
         async void ShowDescriptionBubble(string text, float duration) {
-            Debug.Log("Start showing.");
-            Debug.Log($"<color=green>{text}</color>");
+            speechBubble.gameObject.SetActive(true);
+            bubbleText.text = text;
             await Task.Delay(Mathf.RoundToInt(duration * 1000));
-            Debug.Log("End showing.");
+            speechBubble.gameObject.SetActive(false);
+            isDisplaying = false;
         }
 
         #endregion
