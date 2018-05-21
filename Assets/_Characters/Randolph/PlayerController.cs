@@ -1,4 +1,5 @@
-﻿using Randolph.Core;
+﻿using System.Threading.Tasks;
+using Randolph.Core;
 using Randolph.Interactable;
 using Randolph.Levels;
 using Randolph.UI;
@@ -23,6 +24,8 @@ namespace Randolph.Characters {
         RaycastOrigins2D raycastOrigins;
         new Collider2D collider;
 
+        [Header("Interaction")] [SerializeField, Range(0, 5)] float speechDuration = 1.5f;
+
         bool isOnGround = false;
         bool jump = false;
         float gravity = 0;
@@ -32,6 +35,7 @@ namespace Randolph.Characters {
 
         Animator animator;
         Rigidbody2D rbody;
+        SpriteRenderer spriteRenderer;
         DistanceJoint2D grapplingJoint;
         LineRenderer grappleRopeRenderer;
 
@@ -53,6 +57,7 @@ namespace Randolph.Characters {
             animator = GetComponent<Animator>();
             rbody = GetComponent<Rigidbody2D>();
             collider = GetComponent<Collider2D>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
             grapplingJoint = GetComponent<DistanceJoint2D>();
             grappleRopeRenderer = GetComponent<LineRenderer>();
         }
@@ -133,11 +138,10 @@ namespace Randolph.Characters {
             }
         }
 
-        private void Flipping() {
-            if ((rbody.velocity.x > 0 && transform.localScale.x < 0) || (rbody.velocity.x < 0 && transform.localScale.x > 0)) {
-                Vector3 scale = transform.localScale;
-                scale.x *= -1;
-                transform.localScale = scale;
+        void Flipping() {
+            if ((rbody.velocity.x > 0 && spriteRenderer.flipX) || (rbody.velocity.x < 0 && !spriteRenderer.flipX)) {
+                // Look the other way (doesn't affect child objects and colliders)
+                spriteRenderer.flipX = !spriteRenderer.flipX;
             }
         }
 
@@ -297,10 +301,20 @@ namespace Randolph.Characters {
                             break;
                     }
                 } else if (button == Constants.MouseButton.Right) {
-                    Debug.Log(target.GetDescription());
+                    ShowDescriptionBubble(target.GetDescription(), speechDuration);
                 }
 
             }
+        }
+
+        /// <summary>Shows a text in Randolph's speech bubble for a given time.</summary>
+        /// <param name="text">Text to show.</param>
+        /// <param name="duration">Duration in seconds.</param>
+        async void ShowDescriptionBubble(string text, float duration) {
+            Debug.Log("Start showing.");
+            Debug.Log($"<color=green>{text}</color>");
+            await Task.Delay(Mathf.RoundToInt(duration * 1000));
+            Debug.Log("End showing.");
         }
 
         #endregion

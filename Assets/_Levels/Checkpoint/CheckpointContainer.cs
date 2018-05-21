@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -67,9 +66,10 @@ namespace Randolph.Levels {
             reached.RestoreState();
 
             Constants.Camera.transition.TransitionExit();
-            await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationExit));
+            await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationExit));        
             player.transform.position = reached.transform.position;
             player.Killable = true;
+            Camera.main.transform.position = reached.transform.position;
             Constants.Camera.transition.TransitionEnter();
             await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationEnter));            
         }
