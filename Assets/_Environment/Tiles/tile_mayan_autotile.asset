@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20370b0124afb43978ce1dcb4b8e7dc4, type: 3}
   m_Name: tile_mayan_autotile
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 213781578956815038}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
@@ -81,11 +81,11 @@ MonoBehaviour:
   - {fileID: 213774839395864104}
   - {fileID: 213653133657743850}
   - {fileID: 213996541401966478}
-  - {fileID: 213781578956815038}
+  - {fileID: 0}
 --- !u!28 &28012481636886922
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_02
   m_ImageContentsHash:
@@ -100,6 +100,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -122,7 +124,7 @@ Texture2D:
 --- !u!28 &28025965328889224
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_04
   m_ImageContentsHash:
@@ -137,6 +139,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -159,7 +163,7 @@ Texture2D:
 --- !u!28 &28044991671558632
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_32
   m_ImageContentsHash:
@@ -174,6 +178,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -196,7 +202,7 @@ Texture2D:
 --- !u!28 &28048957636277996
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_40
   m_ImageContentsHash:
@@ -211,6 +217,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -233,7 +241,7 @@ Texture2D:
 --- !u!28 &28083616492030782
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_41
   m_ImageContentsHash:
@@ -248,6 +256,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -270,7 +280,7 @@ Texture2D:
 --- !u!28 &28087044509293904
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_07
   m_ImageContentsHash:
@@ -285,6 +295,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -307,7 +319,7 @@ Texture2D:
 --- !u!28 &28128854673714836
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_43
   m_ImageContentsHash:
@@ -322,6 +334,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -344,7 +358,7 @@ Texture2D:
 --- !u!28 &28176323946543074
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_39
   m_ImageContentsHash:
@@ -359,6 +373,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -381,7 +397,7 @@ Texture2D:
 --- !u!28 &28206409384425056
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_25
   m_ImageContentsHash:
@@ -396,6 +412,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -418,7 +436,7 @@ Texture2D:
 --- !u!28 &28226295878703448
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_10
   m_ImageContentsHash:
@@ -433,6 +451,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -455,7 +475,7 @@ Texture2D:
 --- !u!28 &28251979392888170
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_13
   m_ImageContentsHash:
@@ -470,6 +490,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -492,7 +514,7 @@ Texture2D:
 --- !u!28 &28256598617448384
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_35
   m_ImageContentsHash:
@@ -507,6 +529,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -529,7 +553,7 @@ Texture2D:
 --- !u!28 &28293088604093710
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_15
   m_ImageContentsHash:
@@ -544,6 +568,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -566,7 +592,7 @@ Texture2D:
 --- !u!28 &28302741735962506
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_05
   m_ImageContentsHash:
@@ -581,6 +607,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -603,7 +631,7 @@ Texture2D:
 --- !u!28 &28311114977517632
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_11
   m_ImageContentsHash:
@@ -618,6 +646,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -640,7 +670,7 @@ Texture2D:
 --- !u!28 &28313601981626696
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_46
   m_ImageContentsHash:
@@ -655,6 +685,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -677,7 +709,7 @@ Texture2D:
 --- !u!28 &28315974821627376
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_18
   m_ImageContentsHash:
@@ -692,6 +724,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -714,7 +748,7 @@ Texture2D:
 --- !u!28 &28356354194959866
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_38
   m_ImageContentsHash:
@@ -729,6 +763,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -751,7 +787,7 @@ Texture2D:
 --- !u!28 &28408923265272126
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_08
   m_ImageContentsHash:
@@ -766,6 +802,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -788,7 +826,7 @@ Texture2D:
 --- !u!28 &28418045515390436
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_31
   m_ImageContentsHash:
@@ -803,6 +841,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -825,7 +865,7 @@ Texture2D:
 --- !u!28 &28436520065409160
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_21
   m_ImageContentsHash:
@@ -840,6 +880,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -862,7 +904,7 @@ Texture2D:
 --- !u!28 &28443541514045700
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_16
   m_ImageContentsHash:
@@ -877,6 +919,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -899,7 +943,7 @@ Texture2D:
 --- !u!28 &28506567506974216
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_28
   m_ImageContentsHash:
@@ -914,6 +958,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -936,7 +982,7 @@ Texture2D:
 --- !u!28 &28515455754301666
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_44
   m_ImageContentsHash:
@@ -951,6 +997,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -973,7 +1021,7 @@ Texture2D:
 --- !u!28 &28529576558562044
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_34
   m_ImageContentsHash:
@@ -988,6 +1036,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -1010,7 +1060,7 @@ Texture2D:
 --- !u!28 &28552962455017078
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_42
   m_ImageContentsHash:
@@ -1025,6 +1075,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -1047,7 +1099,7 @@ Texture2D:
 --- !u!28 &28566365436547720
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_37
   m_ImageContentsHash:
@@ -1062,6 +1114,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -1084,7 +1138,7 @@ Texture2D:
 --- !u!28 &28577422015332308
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_03
   m_ImageContentsHash:
@@ -1099,6 +1153,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -1121,7 +1177,7 @@ Texture2D:
 --- !u!28 &28643143146767882
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_26
   m_ImageContentsHash:
@@ -1136,6 +1192,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -1158,7 +1216,7 @@ Texture2D:
 --- !u!28 &28724663776931940
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_12
   m_ImageContentsHash:
@@ -1173,6 +1231,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -1195,7 +1255,7 @@ Texture2D:
 --- !u!28 &28728404274325458
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_01
   m_ImageContentsHash:
@@ -1210,6 +1270,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -1232,7 +1294,7 @@ Texture2D:
 --- !u!28 &28770207821983828
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_14
   m_ImageContentsHash:
@@ -1247,6 +1309,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -1269,7 +1333,7 @@ Texture2D:
 --- !u!28 &28791580105807586
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_36
   m_ImageContentsHash:
@@ -1284,6 +1348,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -1306,7 +1372,7 @@ Texture2D:
 --- !u!28 &28809545809476304
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_45
   m_ImageContentsHash:
@@ -1321,6 +1387,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -1343,7 +1411,7 @@ Texture2D:
 --- !u!28 &28812734823104144
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_33
   m_ImageContentsHash:
@@ -1358,6 +1426,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -1380,7 +1450,7 @@ Texture2D:
 --- !u!28 &28824935165851028
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_23
   m_ImageContentsHash:
@@ -1395,6 +1465,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -1417,7 +1489,7 @@ Texture2D:
 --- !u!28 &28828361350017380
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_00
   m_ImageContentsHash:
@@ -1432,6 +1504,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -1454,7 +1528,7 @@ Texture2D:
 --- !u!28 &28842940726918128
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_24
   m_ImageContentsHash:
@@ -1469,6 +1543,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -1491,7 +1567,7 @@ Texture2D:
 --- !u!28 &28849096531476892
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_19
   m_ImageContentsHash:
@@ -1506,6 +1582,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -1528,7 +1606,7 @@ Texture2D:
 --- !u!28 &28899558750505518
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_17
   m_ImageContentsHash:
@@ -1543,6 +1621,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -1565,7 +1645,7 @@ Texture2D:
 --- !u!28 &28910525249809886
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_22
   m_ImageContentsHash:
@@ -1580,6 +1660,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -1602,7 +1684,7 @@ Texture2D:
 --- !u!28 &28911208542276192
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_20
   m_ImageContentsHash:
@@ -1617,6 +1699,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -1639,7 +1723,7 @@ Texture2D:
 --- !u!28 &28927171621774164
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_29
   m_ImageContentsHash:
@@ -1654,6 +1738,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -1676,7 +1762,7 @@ Texture2D:
 --- !u!28 &28944613033323722
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_06
   m_ImageContentsHash:
@@ -1691,6 +1777,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -1713,7 +1801,7 @@ Texture2D:
 --- !u!28 &28965612219769270
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_09
   m_ImageContentsHash:
@@ -1728,6 +1816,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -1750,7 +1840,7 @@ Texture2D:
 --- !u!28 &28965966921082218
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_30
   m_ImageContentsHash:
@@ -1765,6 +1855,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -1787,7 +1879,7 @@ Texture2D:
 --- !u!28 &28981537234389766
 Texture2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: texture_27
   m_ImageContentsHash:
@@ -1802,6 +1894,8 @@ Texture2D:
   m_TextureFormat: 4
   m_MipCount: 5
   m_IsReadable: 1
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
   m_ImageCount: 1
   m_TextureDimension: 2
@@ -1824,7 +1918,7 @@ Texture2D:
 --- !u!213 &213007899586261534
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_23
   m_Rect:
@@ -1846,7 +1940,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28824935165851028}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -1885,6 +1979,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -1916,7 +2018,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -1929,7 +2030,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28824935165851028}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -1996,10 +2097,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -2017,7 +2125,7 @@ Sprite:
 --- !u!213 &213030596118418948
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_12
   m_Rect:
@@ -2039,7 +2147,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28724663776931940}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -2078,6 +2186,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -2109,7 +2225,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -2122,7 +2237,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28724663776931940}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -2189,10 +2304,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -2210,7 +2332,7 @@ Sprite:
 --- !u!213 &213047018060595094
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_01
   m_Rect:
@@ -2232,7 +2354,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28728404274325458}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -2271,6 +2393,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -2302,7 +2432,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -2315,7 +2444,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28728404274325458}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -2382,10 +2511,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -2403,7 +2539,7 @@ Sprite:
 --- !u!213 &213062223065996308
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_03
   m_Rect:
@@ -2425,7 +2561,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28577422015332308}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -2464,6 +2600,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -2495,7 +2639,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -2508,7 +2651,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28577422015332308}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -2575,10 +2718,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -2596,7 +2746,7 @@ Sprite:
 --- !u!213 &213078006441882128
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_34
   m_Rect:
@@ -2618,7 +2768,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28529576558562044}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -2657,6 +2807,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -2688,7 +2846,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -2701,7 +2858,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28529576558562044}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -2768,10 +2925,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -2789,7 +2953,7 @@ Sprite:
 --- !u!213 &213098648102478152
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_08
   m_Rect:
@@ -2811,7 +2975,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28408923265272126}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -2850,6 +3014,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -2881,7 +3053,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -2894,7 +3065,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28408923265272126}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -2961,10 +3132,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -2982,7 +3160,7 @@ Sprite:
 --- !u!213 &213107175190316818
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_42
   m_Rect:
@@ -3004,7 +3182,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28552962455017078}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -3043,6 +3221,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -3074,7 +3260,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -3087,7 +3272,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28552962455017078}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -3154,10 +3339,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -3175,7 +3367,7 @@ Sprite:
 --- !u!213 &213124580102043564
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_07
   m_Rect:
@@ -3197,7 +3389,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28087044509293904}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -3236,6 +3428,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -3267,7 +3467,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -3280,7 +3479,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28087044509293904}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -3347,10 +3546,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -3368,7 +3574,7 @@ Sprite:
 --- !u!213 &213127277156821742
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_13
   m_Rect:
@@ -3390,7 +3596,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28251979392888170}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -3429,6 +3635,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -3460,7 +3674,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -3473,7 +3686,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28251979392888170}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -3540,10 +3753,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -3561,7 +3781,7 @@ Sprite:
 --- !u!213 &213134863241799260
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_04
   m_Rect:
@@ -3583,7 +3803,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28025965328889224}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -3622,6 +3842,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -3653,7 +3881,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -3666,7 +3893,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28025965328889224}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -3733,10 +3960,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -3754,7 +3988,7 @@ Sprite:
 --- !u!213 &213182218648776758
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_25
   m_Rect:
@@ -3776,7 +4010,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28206409384425056}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -3815,6 +4049,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -3846,7 +4088,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -3859,7 +4100,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28206409384425056}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -3926,10 +4167,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -3947,7 +4195,7 @@ Sprite:
 --- !u!213 &213215370290498320
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_39
   m_Rect:
@@ -3969,7 +4217,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28176323946543074}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -4008,6 +4256,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -4039,7 +4295,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -4052,7 +4307,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28176323946543074}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -4119,10 +4374,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -4140,7 +4402,7 @@ Sprite:
 --- !u!213 &213242145308323590
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_10
   m_Rect:
@@ -4162,7 +4424,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28226295878703448}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -4201,6 +4463,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -4232,7 +4502,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -4245,7 +4514,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28226295878703448}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -4312,10 +4581,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -4333,7 +4609,7 @@ Sprite:
 --- !u!213 &213262740349174668
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_18
   m_Rect:
@@ -4355,7 +4631,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28315974821627376}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -4394,6 +4670,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -4425,7 +4709,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -4438,7 +4721,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28315974821627376}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -4505,10 +4788,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -4526,7 +4816,7 @@ Sprite:
 --- !u!213 &213272259519613950
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_38
   m_Rect:
@@ -4548,7 +4838,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28356354194959866}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -4587,6 +4877,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -4618,7 +4916,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -4631,7 +4928,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28356354194959866}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -4698,10 +4995,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -4719,7 +5023,7 @@ Sprite:
 --- !u!213 &213445104228923538
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_36
   m_Rect:
@@ -4741,7 +5045,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28791580105807586}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -4780,6 +5084,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -4811,7 +5123,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -4824,7 +5135,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28791580105807586}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -4891,10 +5202,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -4912,7 +5230,7 @@ Sprite:
 --- !u!213 &213458513951210512
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_16
   m_Rect:
@@ -4934,7 +5252,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28443541514045700}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -4973,6 +5291,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -5004,7 +5330,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -5017,7 +5342,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28443541514045700}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -5084,10 +5409,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -5105,7 +5437,7 @@ Sprite:
 --- !u!213 &213472017161918724
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_26
   m_Rect:
@@ -5127,7 +5459,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28643143146767882}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -5166,6 +5498,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -5197,7 +5537,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -5210,7 +5549,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28643143146767882}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -5277,10 +5616,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -5298,7 +5644,7 @@ Sprite:
 --- !u!213 &213473649663094270
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_20
   m_Rect:
@@ -5320,7 +5666,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28911208542276192}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -5359,6 +5705,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -5390,7 +5744,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -5403,7 +5756,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28911208542276192}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -5470,10 +5823,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -5491,7 +5851,7 @@ Sprite:
 --- !u!213 &213492334297533820
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_17
   m_Rect:
@@ -5513,7 +5873,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28899558750505518}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -5552,6 +5912,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -5583,7 +5951,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -5596,7 +5963,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28899558750505518}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -5663,10 +6030,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -5684,7 +6058,7 @@ Sprite:
 --- !u!213 &213514867695347088
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_29
   m_Rect:
@@ -5706,7 +6080,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28927171621774164}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -5745,6 +6119,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -5776,7 +6158,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -5789,7 +6170,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28927171621774164}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -5856,10 +6237,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -5877,7 +6265,7 @@ Sprite:
 --- !u!213 &213640368973788518
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_14
   m_Rect:
@@ -5899,7 +6287,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28770207821983828}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -5938,6 +6326,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -5969,7 +6365,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -5982,7 +6377,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28770207821983828}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -6049,10 +6444,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -6070,7 +6472,7 @@ Sprite:
 --- !u!213 &213653133657743850
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_44
   m_Rect:
@@ -6092,7 +6494,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28515455754301666}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -6131,6 +6533,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -6162,7 +6572,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -6175,7 +6584,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28515455754301666}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -6242,10 +6651,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -6263,7 +6679,7 @@ Sprite:
 --- !u!213 &213661618039839456
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_41
   m_Rect:
@@ -6285,7 +6701,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28083616492030782}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -6324,6 +6740,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -6355,7 +6779,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -6368,7 +6791,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28083616492030782}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -6435,10 +6858,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -6456,7 +6886,7 @@ Sprite:
 --- !u!213 &213684404852103198
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_28
   m_Rect:
@@ -6478,7 +6908,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28506567506974216}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -6517,6 +6947,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -6548,7 +6986,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -6561,7 +6998,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28506567506974216}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -6628,10 +7065,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -6649,7 +7093,7 @@ Sprite:
 --- !u!213 &213691998024020528
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_33
   m_Rect:
@@ -6671,7 +7115,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28812734823104144}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -6710,6 +7154,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -6741,7 +7193,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -6754,7 +7205,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28812734823104144}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -6821,10 +7272,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -6842,7 +7300,7 @@ Sprite:
 --- !u!213 &213693491080014126
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_15
   m_Rect:
@@ -6864,7 +7322,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28293088604093710}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -6903,6 +7361,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -6934,7 +7400,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -6947,7 +7412,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28293088604093710}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -7014,10 +7479,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -7035,7 +7507,7 @@ Sprite:
 --- !u!213 &213700989064157128
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_27
   m_Rect:
@@ -7057,7 +7529,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28981537234389766}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -7096,6 +7568,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -7127,7 +7607,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -7140,7 +7619,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28981537234389766}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -7207,10 +7686,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -7228,7 +7714,7 @@ Sprite:
 --- !u!213 &213704626453044412
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_19
   m_Rect:
@@ -7250,7 +7736,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28849096531476892}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -7289,6 +7775,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -7320,7 +7814,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -7333,7 +7826,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28849096531476892}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -7400,10 +7893,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -7421,7 +7921,7 @@ Sprite:
 --- !u!213 &213724738968373322
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_09
   m_Rect:
@@ -7443,7 +7943,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28965612219769270}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -7482,6 +7982,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -7513,7 +8021,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -7526,7 +8033,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28965612219769270}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -7593,10 +8100,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -7614,7 +8128,7 @@ Sprite:
 --- !u!213 &213735596652218928
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_35
   m_Rect:
@@ -7636,7 +8150,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28256598617448384}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -7675,6 +8189,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -7706,7 +8228,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -7719,7 +8240,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28256598617448384}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -7786,10 +8307,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -7807,7 +8335,7 @@ Sprite:
 --- !u!213 &213737945088400234
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_30
   m_Rect:
@@ -7829,7 +8357,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28965966921082218}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -7868,6 +8396,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -7899,7 +8435,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -7912,7 +8447,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28965966921082218}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -7979,10 +8514,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -8000,7 +8542,7 @@ Sprite:
 --- !u!213 &213759480620288348
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_05
   m_Rect:
@@ -8022,7 +8564,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28302741735962506}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -8061,6 +8603,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -8092,7 +8642,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -8105,7 +8654,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28302741735962506}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -8172,10 +8721,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -8193,7 +8749,7 @@ Sprite:
 --- !u!213 &213774839395864104
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_43
   m_Rect:
@@ -8215,7 +8771,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28128854673714836}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -8254,6 +8810,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -8285,7 +8849,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -8298,7 +8861,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28128854673714836}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -8365,10 +8928,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -8386,7 +8956,7 @@ Sprite:
 --- !u!213 &213781578956815038
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_46
   m_Rect:
@@ -8408,7 +8978,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28313601981626696}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -8455,81 +9025,6 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
-    m_Bindpose: []
-    m_SourceSkin: []
-    textureRect:
-      serializedVersion: 2
-      x: 0
-      y: 0
-      width: 16
-      height: 16
-    textureRectOffset: {x: 0, y: 0}
-    atlasRectOffset: {x: -1, y: -1}
-    settingsRaw: 64
-    uvTransform: {x: 16, y: 8, z: 16, w: 8}
-    downscaleMultiplier: 1
-  m_AtlasRD:
-    serializedVersion: 2
-    texture: {fileID: 28313601981626696}
-    alphaTexture: {fileID: 0}
-    m_SubMeshes:
-    - serializedVersion: 2
-      firstByte: 0
-      indexCount: 6
-      topology: 0
-      baseVertex: 0
-      firstVertex: 0
-      vertexCount: 4
-      localAABB:
-        m_Center: {x: 0, y: 0, z: 0}
-        m_Extent: {x: 0, y: 0, z: 0}
-    m_IndexBuffer: 000001000200020001000300
-    m_VertexData:
-      serializedVersion: 2
-      m_VertexCount: 4
-      m_Channels:
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 3
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      - stream: 0
-        offset: 0
-        format: 0
-        dimension: 0
-      - stream: 1
-        offset: 0
-        format: 0
-        dimension: 2
       - stream: 0
         offset: 0
         format: 0
@@ -8561,7 +9056,96 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
+    textureRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 16
+      height: 16
+    textureRectOffset: {x: 0, y: 0}
+    atlasRectOffset: {x: -1, y: -1}
+    settingsRaw: 64
+    uvTransform: {x: 16, y: 8, z: 16, w: 8}
+    downscaleMultiplier: 1
+  m_AtlasRD:
+    serializedVersion: 3
+    texture: {fileID: 28313601981626696}
+    alphaTexture: {fileID: 0}
+    m_SubMeshes:
+    - serializedVersion: 2
+      firstByte: 0
+      indexCount: 6
+      topology: 0
+      baseVertex: 0
+      firstVertex: 0
+      vertexCount: 4
+      localAABB:
+        m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 0, y: 0, z: 0}
+    m_IndexBuffer: 000001000200020001000300
+    m_VertexData:
+      serializedVersion: 2
+      m_VertexCount: 4
+      m_Channels:
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 3
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 1
+        offset: 0
+        format: 0
+        dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      m_DataSize: 80
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
+    m_Bindpose: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -8579,7 +9163,7 @@ Sprite:
 --- !u!213 &213788364919507196
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_32
   m_Rect:
@@ -8601,7 +9185,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28044991671558632}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -8640,6 +9224,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -8671,7 +9263,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -8684,7 +9275,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28044991671558632}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -8751,10 +9342,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -8772,7 +9370,7 @@ Sprite:
 --- !u!213 &213876639652531944
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_37
   m_Rect:
@@ -8794,7 +9392,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28566365436547720}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -8833,6 +9431,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -8864,7 +9470,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -8877,7 +9482,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28566365436547720}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -8944,10 +9549,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -8965,7 +9577,7 @@ Sprite:
 --- !u!213 &213901485500603094
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_22
   m_Rect:
@@ -8987,7 +9599,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28910525249809886}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -9026,6 +9638,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -9057,7 +9677,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -9070,7 +9689,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28910525249809886}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -9137,10 +9756,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -9158,7 +9784,7 @@ Sprite:
 --- !u!213 &213911272036014944
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_24
   m_Rect:
@@ -9180,7 +9806,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28842940726918128}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -9219,6 +9845,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -9250,7 +9884,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -9263,7 +9896,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28842940726918128}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -9330,10 +9963,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -9351,7 +9991,7 @@ Sprite:
 --- !u!213 &213934943835070646
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_00
   m_Rect:
@@ -9373,7 +10013,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28828361350017380}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -9412,6 +10052,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -9443,7 +10091,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -9456,7 +10103,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28828361350017380}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -9523,10 +10170,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -9544,7 +10198,7 @@ Sprite:
 --- !u!213 &213936060452529002
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_40
   m_Rect:
@@ -9566,7 +10220,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28048957636277996}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -9605,6 +10259,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -9636,7 +10298,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -9649,7 +10310,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28048957636277996}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -9716,10 +10377,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -9737,7 +10405,7 @@ Sprite:
 --- !u!213 &213944896707765226
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_31
   m_Rect:
@@ -9759,7 +10427,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28418045515390436}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -9798,6 +10466,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -9829,7 +10505,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -9842,7 +10517,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28418045515390436}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -9909,10 +10584,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -9930,7 +10612,7 @@ Sprite:
 --- !u!213 &213977117278649184
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_21
   m_Rect:
@@ -9952,7 +10634,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28436520065409160}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -9991,6 +10673,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -10022,7 +10712,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -10035,7 +10724,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28436520065409160}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -10102,10 +10791,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -10123,7 +10819,7 @@ Sprite:
 --- !u!213 &213978505819532852
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_06
   m_Rect:
@@ -10145,7 +10841,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28944613033323722}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -10184,6 +10880,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -10215,7 +10919,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -10228,7 +10931,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28944613033323722}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -10295,10 +10998,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -10316,7 +11026,7 @@ Sprite:
 --- !u!213 &213986554971231792
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_11
   m_Rect:
@@ -10338,7 +11048,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28311114977517632}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -10377,6 +11087,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -10408,7 +11126,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -10421,7 +11138,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28311114977517632}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -10488,10 +11205,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -10509,7 +11233,7 @@ Sprite:
 --- !u!213 &213996541401966478
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_45
   m_Rect:
@@ -10531,7 +11255,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28809545809476304}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -10570,6 +11294,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -10601,7 +11333,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -10614,7 +11345,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28809545809476304}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -10681,10 +11412,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -10702,7 +11440,7 @@ Sprite:
 --- !u!213 &213999901291411280
 Sprite:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: sprite_02
   m_Rect:
@@ -10724,7 +11462,7 @@ Sprite:
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28012481636886922}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -10763,6 +11501,14 @@ Sprite:
         offset: 0
         format: 0
         dimension: 2
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       - stream: 0
         offset: 0
         format: 0
@@ -10794,7 +11540,6 @@ Sprite:
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
@@ -10807,7 +11552,7 @@ Sprite:
     uvTransform: {x: 16, y: 8, z: 16, w: 8}
     downscaleMultiplier: 1
   m_AtlasRD:
-    serializedVersion: 2
+    serializedVersion: 3
     texture: {fileID: 28012481636886922}
     alphaTexture: {fileID: 0}
     m_SubMeshes:
@@ -10874,10 +11619,17 @@ Sprite:
         offset: 0
         format: 0
         dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
+      - stream: 0
+        offset: 0
+        format: 0
+        dimension: 0
       m_DataSize: 80
       _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
-    m_SourceSkin: []
     textureRect:
       serializedVersion: 2
       x: 0
