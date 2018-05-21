@@ -12,7 +12,8 @@ namespace Randolph.Interactable {
 
         public override void OnApply(GameObject target) {
             base.OnApply(target);
-            Destroy(target);
+            //Destroy(target);
+            target.GetComponent<Sail>().Slash();
         }
     }
 }
