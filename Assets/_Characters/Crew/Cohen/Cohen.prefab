@@ -56,9 +56,10 @@ GameObject:
   - component: {fileID: 4572209366363084}
   - component: {fileID: 212869276539352046}
   - component: {fileID: 95122895109438578}
+  - component: {fileID: 61890292486507168}
   - component: {fileID: 114374039759238390}
   - component: {fileID: 114503723694159946}
-  - component: {fileID: 61890292486507168}
+  - component: {fileID: 114381172951053028}
   m_Layer: 0
   m_Name: Cohen
   m_TagString: Untagged
@@ -90,7 +91,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1437444215039784}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -29.43, y: 11.002874, z: 0}
+  m_LocalPosition: {x: -38.510002, y: 17.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224456709781801610}
@@ -113,8 +114,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.5, y: 1.875}
-    newSize: {x: 3.5, y: 1.875}
+    oldSize: {x: 0.9375, y: 2.0625}
+    newSize: {x: 0.9375, y: 2.0625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -182,6 +183,21 @@ MonoBehaviour:
   bubbleText: {fileID: 114465657795678048}
   characterColor: {r: 0.67058825, g: 0.2784314, b: 0, a: 1}
   delay: 0.05
+--- !u!114 &114381172951053028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437444215039784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []
 --- !u!114 &114465657795678048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -301,12 +317,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 65aca7815042dc74692a6641e0a69678, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5a538a0c90ca40c4c90242ae23d65c70, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.5, y: 1.875}
+  m_Size: {x: 0.9375, y: 2.0625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

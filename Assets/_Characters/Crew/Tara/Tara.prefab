@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 212509649539170716}
   - component: {fileID: 95659605850371934}
   - component: {fileID: 114292201643677986}
+  - component: {fileID: 114142818157055600}
   - component: {fileID: 114007389621385680}
   - component: {fileID: 61196705290070016}
   m_Layer: 0
@@ -90,7 +91,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1495932651679168}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -32.460003, y: 11.032873, z: 0}
+  m_LocalPosition: {x: -41.54, y: 17.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224458612607917008}
@@ -113,8 +114,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.625, y: 1.9375}
-    newSize: {x: 1.625, y: 1.9375}
+    oldSize: {x: 0.875, y: 2.0625}
+    newSize: {x: 0.875, y: 2.0625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -151,8 +152,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb416e39b4d06784390e1c8089b8e162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Tara, our mechanic. No-one else could keep this airship afloat. Doesn't
-    like to be bossed around.
+  description: Tara, our mechanic who keeps this airship afloat. Arguing with her
+    usually results in a mild concussion.
+--- !u!114 &114142818157055600
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1495932651679168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []
 --- !u!114 &114292201643677986
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -200,7 +216,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: The ship is falling apart! I don't know how much longer we can hold it together!
+  m_Text: The ship is falling apart! I don't know how much longer we can hold it together!!
 --- !u!114 &114730479525491092
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -300,12 +316,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 25135b2c024e005439b40bef28bdcc1b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e245d767780ec8a4e83006366fb0d91b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.625, y: 1.9375}
+  m_Size: {x: 0.875, y: 2.0625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

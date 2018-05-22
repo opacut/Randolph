@@ -357,11 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b8c96e2cdc154e848a3d9fe62464d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraTargets:
-  - TargetTransform: {fileID: 0}
-    TargetInfluenceH: 1
-    TargetInfluenceV: 1
-    TargetOffset: {x: 0, y: 0}
+  CameraTargets: []
   CenterTargetOnStart: 1
   Axis: 0
   UpdateType: 0
@@ -412,7 +408,7 @@ MonoBehaviour:
   lineThickness: 1
   lineIntensity: 1
   fillAmount: 0
-  lineColor0: {r: 1, g: 0.9584457, b: 0, a: 1}
+  lineColor0: {r: 1, g: 0.9827044, b: 0.5990566, a: 0.5019608}
   lineColor1: {r: 0, g: 1, b: 0.00427413, a: 1}
   lineColor2: {r: 1, g: 0, b: 0, a: 1}
   additiveRendering: 0

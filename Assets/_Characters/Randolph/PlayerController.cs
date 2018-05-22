@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Randolph.Core;
+﻿using System;
 using Randolph.Interactable;
 using Randolph.Levels;
 using Randolph.UI;
@@ -12,14 +13,20 @@ namespace Randolph.Characters {
     [RequireComponent(typeof(DistanceJoint2D))]
     public class PlayerController : MonoBehaviour {
 
-        [Header("Movement")] [SerializeField] AudioClip deathSound;
+        [Header("Movement")]
+        [SerializeField] AudioClip deathSound;
         [SerializeField] float climbingSpeed = 6;
         [SerializeField] float movementSpeed = 6;
         [SerializeField] float jumpForce = 600;
 
-        [Header("Jumping")] [SerializeField] LayerMask groundLayers;
+        [Header("Jumping")]
+        [SerializeField] LayerMask groundLayers;
         [SerializeField, Range(2, 12)] int groundRayCount = 4;
         [SerializeField] float groundCheckRayLength = 0.2f;
+        
+        [Header("Grappling")]
+        [SerializeField] float maximumRopeLength = 15f;
+
         float groundRaySpacing;
         const float SkinWidth = 0.015f; // overlapping tolerance    
         RaycastOrigins2D raycastOrigins;
@@ -28,7 +35,6 @@ namespace Randolph.Characters {
         [Header("Interaction")] [SerializeField, Range(0, 5)] float speechDuration = 1.5f;
         [SerializeField] Canvas speechBubble;
         [SerializeField, ReadonlyField] Text bubbleText;
-        Vector3 originalOffset;
         bool isDisplaying = false;
 
 
@@ -45,9 +51,7 @@ namespace Randolph.Characters {
         DistanceJoint2D grapplingJoint;
         LineRenderer grappleRopeRenderer;
 
-        bool IsGrappled {
-            get { return grapplingJoint.isActiveAndEnabled; }
-        }
+        bool IsGrappled => grapplingJoint.isActiveAndEnabled;
 
         public bool Killable { get; set; } = true;
 
@@ -69,7 +73,6 @@ namespace Randolph.Characters {
 
             if (speechBubble != null) {
                 bubbleText = speechBubble?.GetComponentInChildren<Text>();
-                originalOffset = speechBubble.transform.position;
                 if (bubbleText != null) bubbleText.text = "";
             }
         }
@@ -259,12 +262,12 @@ namespace Randolph.Characters {
 
         #region Grapple
 
-        public void GrappleTo(GameObject obj) {
-            grapplingJoint.connectedAnchor = obj.transform.position;
+        public void GrappleTo(Vector3 position) {
+            grapplingJoint.connectedAnchor = position;
             grapplingJoint.enabled = true;
-            grapplingJoint.distance = Vector2.Distance(transform.position, obj.transform.position);
+            grapplingJoint.distance = Vector2.Distance(transform.position, position);
             grappleRopeRenderer.enabled = true;
-            grappleRopeRenderer.SetPositions(new Vector3[] {transform.position, obj.transform.position});
+            grappleRopeRenderer.SetPositions(new Vector3[] {transform.position, position});
         }
 
         private void Grappling(float vertical, float horizontal) {
@@ -274,13 +277,15 @@ namespace Randolph.Characters {
 
             rbody.velocity = new Vector2(rbody.velocity.x + horizontal * 0.2f, rbody.velocity.y);
             rbody.velocity -= new Vector2(rbody.velocity.x * 0.01f, rbody.velocity.y * 0.01f);
-            grapplingJoint.distance -= vertical * 0.1f;
+            grapplingJoint.distance = Math.Min(grapplingJoint.distance - vertical * 0.1f, maximumRopeLength);
             grappleRopeRenderer.SetPosition(0, transform.position);
         }
-
-        private void StopGrappling() {
+        
+        public event Action OnStoppedGrappling;
+        public void StopGrappling() {
             grapplingJoint.enabled = false;
             grappleRopeRenderer.enabled = false;
+            OnStoppedGrappling?.Invoke();
         }
 
         #endregion
@@ -327,13 +332,16 @@ namespace Randolph.Characters {
         /// <param name="duration">Duration in seconds.</param>
         async void ShowDescriptionBubble(string text, float duration) {
             // TODO: Move the bubble within screen bounds
+            Vector2 originalOffset = speechBubble.transform.position;
             // TODO: Autoscroll long text (/ duration)
+
             speechBubble.gameObject.SetActive(true);
             bubbleText.text = text;
             await Task.Delay(Mathf.RoundToInt(duration * 1000));
             speechBubble.gameObject.SetActive(false);
             isDisplaying = false;
-            // TODO: Restore speech bubble's original offset
+
+            speechBubble.transform.position = originalOffset;
         }
 
         #endregion
