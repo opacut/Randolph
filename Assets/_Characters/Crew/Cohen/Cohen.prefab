@@ -180,7 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speechBubble: {fileID: 223390660100681566}
   bubbleText: {fileID: 114465657795678048}
-  characterColor: {r: 1, g: 1, b: 1, a: 1}
+  characterColor: {r: 0.67058825, g: 0.2784314, b: 0, a: 1}
   delay: 0.05
 --- !u!114 &114465657795678048
 MonoBehaviour:
@@ -227,7 +227,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb416e39b4d06784390e1c8089b8e162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  description: Cohen is Uncle's longest friend. The story about his lost arm changes
+    every time he tells it.
 --- !u!114 &114656555950916308
 MonoBehaviour:
   m_ObjectHideFlags: 1

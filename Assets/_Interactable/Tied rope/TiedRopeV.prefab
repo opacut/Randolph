@@ -79,6 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29bd934c668f7e948b13d9eadd705537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description: A piece of rope tying the sail to the mast.
 --- !u!114 &114995786958127668
 MonoBehaviour:
   m_ObjectHideFlags: 1

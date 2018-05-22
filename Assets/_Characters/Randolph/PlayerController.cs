@@ -28,6 +28,7 @@ namespace Randolph.Characters {
         [Header("Interaction")] [SerializeField, Range(0, 5)] float speechDuration = 1.5f;
         [SerializeField] Canvas speechBubble;
         [SerializeField, ReadonlyField] Text bubbleText;
+        Vector3 originalOffset;
         bool isDisplaying = false;
 
 
@@ -66,8 +67,11 @@ namespace Randolph.Characters {
             grapplingJoint = GetComponent<DistanceJoint2D>();
             grappleRopeRenderer = GetComponent<LineRenderer>();
 
-            bubbleText = speechBubble?.GetComponentInChildren<Text>();
-            if (bubbleText != null) bubbleText.text = "";
+            if (speechBubble != null) {
+                bubbleText = speechBubble?.GetComponentInChildren<Text>();
+                originalOffset = speechBubble.transform.position;
+                if (bubbleText != null) bubbleText.text = "";
+            }
         }
 
         void Update() {
@@ -311,7 +315,8 @@ namespace Randolph.Characters {
                 } else if (button == Constants.MouseButton.Right) {
                     if (!isDisplaying) {
                         isDisplaying = true;
-                        ShowDescriptionBubble(target.GetDescription(), speechDuration);
+                        string description = target.GetDescription();
+                        if (description != string.Empty) ShowDescriptionBubble(target.GetDescription(), speechDuration);
                     }
                 }
             }
@@ -321,11 +326,14 @@ namespace Randolph.Characters {
         /// <param name="text">Text to show.</param>
         /// <param name="duration">Duration in seconds.</param>
         async void ShowDescriptionBubble(string text, float duration) {
+            // TODO: Move the bubble within screen bounds
+            // TODO: Autoscroll long text (/ duration)
             speechBubble.gameObject.SetActive(true);
             bubbleText.text = text;
             await Task.Delay(Mathf.RoundToInt(duration * 1000));
             speechBubble.gameObject.SetActive(false);
             isDisplaying = false;
+            // TODO: Restore speech bubble's original offset
         }
 
         #endregion

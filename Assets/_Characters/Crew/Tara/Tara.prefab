@@ -151,7 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb416e39b4d06784390e1c8089b8e162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  description: Tara, our mechanic. No-one else could keep this airship afloat. Doesn't
+    like to be bossed around.
 --- !u!114 &114292201643677986
 MonoBehaviour:
   m_ObjectHideFlags: 1
