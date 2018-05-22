@@ -1,4 +1,5 @@
-﻿using Randolph.Core;
+﻿using System;
+using Randolph.Core;
 using Randolph.Interactable;
 using Randolph.Levels;
 using Randolph.UI;
@@ -10,14 +11,20 @@ namespace Randolph.Characters {
     [RequireComponent(typeof(DistanceJoint2D))]
     public class PlayerController : MonoBehaviour {
 
-        [Header("Movement")] [SerializeField] AudioClip deathSound;
+        [Header("Movement")]
+        [SerializeField] AudioClip deathSound;
         [SerializeField] float climbingSpeed = 6;
         [SerializeField] float movementSpeed = 6;
         [SerializeField] float jumpForce = 600;
 
-        [Header("Jumping")] [SerializeField] LayerMask groundLayers;
+        [Header("Jumping")]
+        [SerializeField] LayerMask groundLayers;
         [SerializeField, Range(2, 12)] int groundRayCount = 4;
         [SerializeField] float groundCheckRayLength = 0.2f;
+        
+        [Header("Grappling")]
+        [SerializeField] float maximumRopeLength = 15f;
+
         float groundRaySpacing;
         const float SkinWidth = 0.015f; // overlapping tolerance    
         RaycastOrigins2D raycastOrigins;
@@ -35,9 +42,7 @@ namespace Randolph.Characters {
         DistanceJoint2D grapplingJoint;
         LineRenderer grappleRopeRenderer;
 
-        bool IsGrappled {
-            get { return grapplingJoint.isActiveAndEnabled; }
-        }
+        bool IsGrappled => grapplingJoint.isActiveAndEnabled;
 
         public bool Killable { get; set; } = true;
 
@@ -243,12 +248,12 @@ namespace Randolph.Characters {
 
         #region Grapple
 
-        public void GrappleTo(GameObject obj) {
-            grapplingJoint.connectedAnchor = obj.transform.position;
+        public void GrappleTo(Vector3 position) {
+            grapplingJoint.connectedAnchor = position;
             grapplingJoint.enabled = true;
-            grapplingJoint.distance = Vector2.Distance(transform.position, obj.transform.position);
+            grapplingJoint.distance = Vector2.Distance(transform.position, position);
             grappleRopeRenderer.enabled = true;
-            grappleRopeRenderer.SetPositions(new Vector3[] {transform.position, obj.transform.position});
+            grappleRopeRenderer.SetPositions(new Vector3[] {transform.position, position});
         }
 
         private void Grappling(float vertical, float horizontal) {
@@ -258,13 +263,15 @@ namespace Randolph.Characters {
 
             rbody.velocity = new Vector2(rbody.velocity.x + horizontal * 0.2f, rbody.velocity.y);
             rbody.velocity -= new Vector2(rbody.velocity.x * 0.01f, rbody.velocity.y * 0.01f);
-            grapplingJoint.distance -= vertical * 0.1f;
+            grapplingJoint.distance = Math.Min(grapplingJoint.distance - vertical * 0.1f, maximumRopeLength);
             grappleRopeRenderer.SetPosition(0, transform.position);
         }
-
-        private void StopGrappling() {
+        
+        public event Action OnStoppedGrappling;
+        public void StopGrappling() {
             grapplingJoint.enabled = false;
             grappleRopeRenderer.enabled = false;
+            OnStoppedGrappling?.Invoke();
         }
 
         #endregion
