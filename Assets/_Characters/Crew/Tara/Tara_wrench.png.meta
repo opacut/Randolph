@@ -1,12 +1,13 @@
 fileFormatVersion: 2
-guid: 29c921d5f49516b4397540ffc45b24f6
+guid: 25135b2c024e005439b40bef28bdcc1b
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Captain_talk_0
-    21300002: Captain_talk_1
-    21300004: Captain_talk_2
-    21300006: Captain_talk_3
-    21300008: Captain_talk_4
+    21300000: Tara_wrench_0
+    21300002: Tara_wrench_1
+    21300004: Tara_wrench_2
+    21300006: Tara_wrench_3
+    21300008: Tara_wrench_4
+    21300010: Tara_wrench_5
   externalObjects: {}
   serializedVersion: 6
   mipmaps:
@@ -111,101 +112,121 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Captain_talk_0
+      name: Tara_wrench_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 1
         y: 0
-        width: 13
+        width: 26
         height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f54ca404e5cb03e48a8826bd50bde79a
+      spriteID: ce1f5125c7e360249874b5b0d1d74909
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Captain_talk_1
+      name: Tara_wrench_1
       rect:
         serializedVersion: 2
-        x: 20
+        x: 28
         y: 0
-        width: 19
+        width: 26
         height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 062a4f1900ba18a42bb288c04b667f03
+      spriteID: dcae0de8c053b93418301c23cf1214d6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Captain_talk_2
+      name: Tara_wrench_2
       rect:
         serializedVersion: 2
-        x: 40
+        x: 55
         y: 0
-        width: 19
-        height: 30
+        width: 26
+        height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9ec61236c886c448b0eaafc0a39499d
+      spriteID: 31c2c92266ddb8a4cbad43213c10d1c2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Captain_talk_3
+      name: Tara_wrench_3
       rect:
         serializedVersion: 2
-        x: 60
+        x: 82
         y: 0
-        width: 19
+        width: 26
         height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f0d195c27d62064381c9ab7f0ce980c
+      spriteID: 8acfd978a4450db4490837446665ffc9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Captain_talk_4
+      name: Tara_wrench_4
       rect:
         serializedVersion: 2
-        x: 83
+        x: 109
         y: 0
-        width: 13
+        width: 26
         height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3b7216fe54c19a49bc329e20a79b28d
+      spriteID: a628cc456230c964c8dff6d32f856f93
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tara_wrench_5
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 0
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f5dae8338cdcfc49ada3bb4777671a4
       vertices: []
       indices: 
       edges: []
@@ -213,7 +234,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: c7f80be084263374db7e30b6426ef411
+    spriteID: a5cb94a49e45e1d43b5664b62b518e43
     vertices: []
     indices: 
     edges: []

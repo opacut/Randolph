@@ -1,12 +1,13 @@
 fileFormatVersion: 2
-guid: 29c921d5f49516b4397540ffc45b24f6
+guid: cf4450651fb632049b4bb4cbfe0d1b8e
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Captain_talk_0
-    21300002: Captain_talk_1
-    21300004: Captain_talk_2
-    21300006: Captain_talk_3
-    21300008: Captain_talk_4
+    21300000: Steer1
+    21300002: Steer2
+    21300004: Steer3
+    21300006: Steer4
+    21300008: Steer5
+    21300010: Steer6
   externalObjects: {}
   serializedVersion: 6
   mipmaps:
@@ -111,12 +112,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Captain_talk_0
+      name: Steer1
       rect:
         serializedVersion: 2
-        x: 3
+        x: 0
         y: 0
-        width: 13
+        width: 21
         height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -125,18 +126,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f54ca404e5cb03e48a8826bd50bde79a
+      spriteID: 73288f542d83eee42911b0a079d6b193
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Captain_talk_1
+      name: Steer2
       rect:
         serializedVersion: 2
-        x: 20
+        x: 22
         y: 0
-        width: 19
+        width: 21
         height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -145,38 +146,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 062a4f1900ba18a42bb288c04b667f03
+      spriteID: 58ebee93639af72458638a6d16ba5e8b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Captain_talk_2
+      name: Steer3
       rect:
         serializedVersion: 2
-        x: 40
+        x: 44
         y: 0
-        width: 19
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d9ec61236c886c448b0eaafc0a39499d
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Captain_talk_3
-      rect:
-        serializedVersion: 2
-        x: 60
-        y: 0
-        width: 19
+        width: 21
         height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -185,18 +166,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f0d195c27d62064381c9ab7f0ce980c
+      spriteID: ccabca3f2abca9647a38cfdbb61715c4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Captain_talk_4
+      name: Steer4
       rect:
         serializedVersion: 2
-        x: 83
+        x: 66
         y: 0
-        width: 13
+        width: 21
         height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -205,7 +186,47 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3b7216fe54c19a49bc329e20a79b28d
+      spriteID: c5af6d9af8d7417479877eb62e132aa9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Steer5
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 0
+        width: 21
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0302fa305fcd74479718fe39abe68df
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Steer6
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 0
+        width: 21
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31112a15a0e00c143b503d9aad0fff9f
       vertices: []
       indices: 
       edges: []
@@ -213,7 +234,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: c7f80be084263374db7e30b6426ef411
+    spriteID: fb44eaf95047ad149b96bd0a8ff6a010
     vertices: []
     indices: 
     edges: []
