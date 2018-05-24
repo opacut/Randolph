@@ -4,12 +4,9 @@ using UnityEngine;
 namespace Randolph.Interactable {
     public class Whiskey : InventoryItem {
 
-        public override bool IsSingleUse { get { return true; } }
+        public override bool IsSingleUse => true;
 
-        public override bool IsApplicable(GameObject target) {
-            var flytrap = target.GetComponent<Flytrap>();
-            return flytrap && flytrap.Active;
-        }
+        public override bool IsApplicable(GameObject target) => target.GetComponent<Flytrap>()?.Active ?? false;
 
         public override void OnApply(GameObject target) {
             base.OnApply(target);
