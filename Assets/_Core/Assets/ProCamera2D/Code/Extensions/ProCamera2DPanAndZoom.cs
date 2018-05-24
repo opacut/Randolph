@@ -191,9 +191,9 @@ namespace Com.LuisPedroFonseca.ProCamera2D
 
 			IsZooming = false;
 
-			if(IsPanning && OnPanFinished != null)
-					OnPanFinished();
-					
+			if (IsPanning && OnPanFinished != null)
+				OnPanFinished();
+
 			IsPanning = false;
 
 			if (enabled && AllowPan && !_skip)
@@ -238,8 +238,8 @@ namespace Com.LuisPedroFonseca.ProCamera2D
 						CenterPanTargetOnCamera(StopSpeedOnDragStart);
 					}
 
-					// Ignore if using different finger
-					if (touch.fingerId != _prevTouchId)
+					// Ignore if using different finger or touch not moving
+					if (touch.fingerId != _prevTouchId || touch.phase != TouchPhase.Moved)
 						return;
 
 					var touchPos = new Vector3(touch.position.x, touch.position.y, Mathf.Abs(Vector3D(ProCamera2D.LocalPosition)));
@@ -343,11 +343,18 @@ namespace Com.LuisPedroFonseca.ProCamera2D
 			// Check if target is outside of bounds
 			if ((ProCamera2D.IsCameraPositionLeftBounded && Vector3H(_panTarget.position) < Vector3H(ProCamera2D.LocalPosition)) ||
 				(ProCamera2D.IsCameraPositionRightBounded && Vector3H(_panTarget.position) > Vector3H(ProCamera2D.LocalPosition)))
-				_panTarget.position = VectorHVD(Vector3H(ProCamera2D.LocalPosition), Vector3V(_panTarget.position), Vector3D(_panTarget.position));
+				_panTarget.position = VectorHVD(
+					Vector3H(ProCamera2D.LocalPosition) - ProCamera2D.GetOffsetX() * 0.9999f, // The multiplier avoids floating-point comparison errors
+					Vector3V(_panTarget.position),
+					Vector3D(_panTarget.position));
+				
 
 			if ((ProCamera2D.IsCameraPositionBottomBounded && Vector3V(_panTarget.position) < Vector3V(ProCamera2D.LocalPosition)) ||
 				(ProCamera2D.IsCameraPositionTopBounded && Vector3V(_panTarget.position) > Vector3V(ProCamera2D.LocalPosition)))
-				_panTarget.position = VectorHVD(Vector3H(_panTarget.position), Vector3V(ProCamera2D.LocalPosition), Vector3D(_panTarget.position));
+				_panTarget.position = VectorHVD(
+					Vector3H(_panTarget.position), 
+					Vector3V(ProCamera2D.LocalPosition) - ProCamera2D.GetOffsetY() * 0.9999f, // The multiplier avoids floating-point comparison errors
+					Vector3D(_panTarget.position));
 		}
 
 		void Zoom(float deltaTime)
@@ -494,7 +501,10 @@ namespace Com.LuisPedroFonseca.ProCamera2D
 		public void CenterPanTargetOnCamera(float interpolant = 1f)
 		{
 			if (_panTarget != null)
-				_panTarget.position = Vector3.Lerp(_panTarget.position, VectorHV(Vector3H(ProCamera2D.LocalPosition), Vector3V(ProCamera2D.LocalPosition)), interpolant);
+				_panTarget.position = Vector3.Lerp(
+					_panTarget.position, 
+					VectorHV(Vector3H(ProCamera2D.LocalPosition) - ProCamera2D.GetOffsetX(), Vector3V(ProCamera2D.LocalPosition) - ProCamera2D.GetOffsetY()), 
+					interpolant);
 		}
 
 		void CancelZoom()

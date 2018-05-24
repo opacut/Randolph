@@ -11,7 +11,8 @@ namespace Randolph.Interactable {
             get { return false; }
         }
 
-        void Start() {
+        protected override void Start() {
+            base.Start();
             if (!animator) {
                 animator = FindObjectOfType<Canvas>()?.GetComponent<Animator>();
                 if (animator) Debug.Log("Temporarily assigning an animator from the Canvas.", gameObject);

@@ -6,21 +6,24 @@ using UnityEngine.UI;
 namespace Randolph.UI {
     [RequireComponent(typeof(Talkable))] // TODO: Temporary (inherit from Talkable)
     public class SpeechBubble : MonoBehaviour {
-        [SerializeField] readonly float delay = 0.05f;
-        [SerializeField] Text bubbleText;
-
-        string currentText = "";
-
-        [SerializeField] string fullText;
-        bool isSpeaking;
         [SerializeField] Canvas speechBubble;
         CanvasScaler scaler;
+
+        [SerializeField] Text bubbleText;
+        [SerializeField] Color characterColor = Color.white;
+        string fullText;
+        string currentText = "";
+        bool isSpeaking;
+
+        [SerializeField, ReadonlyField] float delay = 0.05f;
 
         void Start() {
             scaler = speechBubble.GetComponent<CanvasScaler>();
             scaler.enabled = false;
             speechBubble.enabled = false;
+            fullText = bubbleText.text;
             bubbleText.text = "";
+            bubbleText.color = characterColor;
         }
 
         void OnMouseDown() {

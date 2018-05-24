@@ -37,6 +37,11 @@ Twitter - http://www.twitter.com/lpfonseca
 
 ## CHANGELOG ##
 
+2.6.2
+- PanAndZoom - (Mobile) Fixed a slight pan movement that could occur while moving over uGUI
+- PanAndZoom - Fixed the stutter that occured if there was a global offset applied to the core component
+- ZoomToFit - Set the initial screen size from the core component for improved consistency
+
 2.6.1
 - PanAndZoom - Replaced platform dependent compilation with touch support verification for improved compatibility
 - PanAndZoom - Added Pan start and finish events
