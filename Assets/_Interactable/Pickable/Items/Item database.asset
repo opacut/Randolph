@@ -18,6 +18,10 @@ MonoBehaviour:
     item: {fileID: 11400000, guid: 6316c7842b556418891c0da2c194f97d, type: 2}
   - id: 2
     item: {fileID: 11400000, guid: 824faefde77a0fd49ba0c96ab5c32e2b, type: 2}
+  - id: 3
+    item: {fileID: 11400000, guid: 636925d64eceb9948bf626e91bef72e4, type: 2}
+  - id: 4
+    item: {fileID: 11400000, guid: afade3c895da10045befc037d3c46b6e, type: 2}
   defaultBackground: {fileID: 21300000, guid: ad47ebc203273f549abde8ec295a9a98, type: 3}
   activeBackground: {fileID: 21300002, guid: ad47ebc203273f549abde8ec295a9a98, type: 3}
   passiveBackground: {fileID: 21300004, guid: ad47ebc203273f549abde8ec295a9a98, type: 3}

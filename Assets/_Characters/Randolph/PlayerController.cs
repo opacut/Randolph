@@ -35,7 +35,6 @@ namespace Randolph.Characters {
         [Header("Interaction")] [SerializeField, Range(0, 5)] float speechDuration = 1.5f;
         [SerializeField] Canvas speechBubble;
         [SerializeField, ReadonlyField] Text bubbleText;
-        bool isDisplaying = false;
 
 
         bool isOnGround = false;
@@ -318,10 +317,9 @@ namespace Randolph.Characters {
                             break;
                     }
                 } else if (button == Constants.MouseButton.Right) {
-                    if (!isDisplaying) {
-                        isDisplaying = true;
-                        string description = target.GetDescription();
-                        if (description != string.Empty) ShowDescriptionBubble(target.GetDescription(), speechDuration);
+                    string description = target.GetDescription();
+                    if (description != string.Empty) {
+                        ShowDescriptionBubble(target.GetDescription(), speechDuration);
                     }
                 }
             }
@@ -331,17 +329,16 @@ namespace Randolph.Characters {
         /// <param name="text">Text to show.</param>
         /// <param name="duration">Duration in seconds.</param>
         async void ShowDescriptionBubble(string text, float duration) {
-            // TODO: Move the bubble within screen bounds
-            Vector2 originalOffset = speechBubble.transform.position;
             // TODO: Autoscroll long text (/ duration)
 
             speechBubble.gameObject.SetActive(true);
             bubbleText.text = text;
-            await Task.Delay(Mathf.RoundToInt(duration * 1000));
+            await Task.Delay(Mathf.RoundToInt(duration * 100 * text.Length));
+            if (bubbleText.text != text) {
+                // Randolph is describing other item
+                return;
+            }
             speechBubble.gameObject.SetActive(false);
-            isDisplaying = false;
-
-            speechBubble.transform.position = originalOffset;
         }
 
         #endregion
