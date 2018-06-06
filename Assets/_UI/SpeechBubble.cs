@@ -1,17 +1,19 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using Assets.Core.Scenario;
 using Randolph.Characters;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Randolph.UI {
     [RequireComponent(typeof(Talkable))] // TODO: Temporary (inherit from Talkable)
-    public class SpeechBubble : MonoBehaviour {
+    public class SpeechBubble : MonoBehaviour, IScenarioEventSource {
         [SerializeField] Canvas speechBubble;
         CanvasScaler scaler;
 
         [SerializeField] Text bubbleText;
         [SerializeField] Color characterColor = Color.white;
-        string fullText;
+        public string fullText;
         string currentText = "";
         bool isSpeaking;
 
@@ -56,6 +58,7 @@ namespace Randolph.UI {
             StopAllCoroutines();
             speechBubble.enabled = false;
             scaler.enabled = false;
+            OnScenarioEvent?.Invoke();
             isSpeaking = false;
         }
 
@@ -72,5 +75,7 @@ namespace Randolph.UI {
             }
             StartCoroutine(Timer());
         }
+
+        public event Action OnScenarioEvent;
     }
 }
