@@ -84,7 +84,7 @@ namespace Randolph.UI {
         public bool ApplyTo(InventoryItem item, GameObject target) {
             if (!IsApplicableTo(item, target)) return false;
 
-            item.OnApply(target);
+            item.Apply(target);
             if (item.IsSingleUse) {
                 Remove(item);
             }

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace Randolph.UI {
     [RequireComponent(typeof(Talkable))] // TODO: Temporary (inherit from Talkable)
-    public class SpeechBubble : MonoBehaviour, IScenarioEventSource {
+    public class SpeechBubble : MonoBehaviour {
         [SerializeField] Canvas speechBubble;
         CanvasScaler scaler;
 
@@ -44,7 +44,7 @@ namespace Randolph.UI {
             }
         }
 
-        void Speak() {
+        public void Speak() {
             StopAllCoroutines();
             bubbleText.text = "";
             currentText = "";
@@ -58,8 +58,8 @@ namespace Randolph.UI {
             StopAllCoroutines();
             speechBubble.enabled = false;
             scaler.enabled = false;
-            OnScenarioEvent?.Invoke();
             isSpeaking = false;
+            OnStoppedSpeaking?.Invoke();
         }
 
         IEnumerator Timer() {
@@ -76,6 +76,6 @@ namespace Randolph.UI {
             StartCoroutine(Timer());
         }
 
-        public event Action OnScenarioEvent;
+        public event Action OnStoppedSpeaking;
     }
 }

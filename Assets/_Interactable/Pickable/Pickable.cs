@@ -1,4 +1,5 @@
-﻿using Randolph.Core;
+﻿using System;
+using Randolph.Core;
 using Randolph.Levels;
 using Randolph.UI;
 using UnityEngine;
@@ -16,9 +17,11 @@ namespace Randolph.Interactable {
         }
 
         /// <summary>What should happen when the object is picked. The "Mouse Exit" event is invoked in the base class.</summary>
-        public virtual void OnPick() {
+        public virtual void Pick() {
             ResetCursor();
-        }       
+            OnPick?.Invoke();
+        }
 
+        public event Action OnPick;
     }
 }

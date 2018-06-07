@@ -8,16 +8,16 @@ namespace Randolph.Interactable {
 
         public override bool IsSingleUse => false;
 
-        public override void OnPick() {
-            base.OnPick();
+        public override void Pick() {
+            base.Pick();
             FindObjectOfType<PlayerController>().StopGrappling();
             if (connectedRope) Destroy(connectedRope.gameObject);
         }
 
         public override bool IsApplicable(GameObject target) => target.GetComponent<HookEye>();
 
-        public override void OnApply(GameObject target) {
-            base.OnApply(target);
+        public override void Apply(GameObject target) {
+            base.Apply(target);
             target.GetComponent<HookEye>().Activate();
         }
     }
