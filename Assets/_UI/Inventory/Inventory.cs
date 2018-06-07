@@ -77,7 +77,7 @@ namespace Randolph.UI {
         }
 
         public bool IsApplicableTo(InventoryItem item, GameObject target) {
-            if (Contains(item) && DistanceCheck(target)) return item.IsApplicable(target);
+            if (Contains(item) && (DistanceCheck(target) || (target.GetComponent<InventoryItem>() && Contains(target.GetComponent<InventoryItem>())))) return item.IsApplicable(target);
             return false;
         }
 

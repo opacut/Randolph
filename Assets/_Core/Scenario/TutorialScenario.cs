@@ -10,6 +10,7 @@ namespace Assets.Core.Scenario {
         [SerializeField, TextArea] private string firstResponse;
         [SerializeField, TextArea] private string secondResponse;
         [SerializeField, TextArea] private string thirdResponse;
+        [SerializeField, TextArea] private string fourthResponse;
 
         [SerializeField] private Key storageKey;
         [SerializeField] private Bandage bandage;
@@ -39,6 +40,12 @@ namespace Assets.Core.Scenario {
             alcohol.OnPick -= Iterate;
             
             howardsSpeechBubble.fullText = thirdResponse;
+
+            cleanedBandage.OnPick += Iterate;
+            yield return null;
+            cleanedBandage.OnPick -= Iterate;
+            
+            howardsSpeechBubble.fullText = fourthResponse;
         }
     }
 }

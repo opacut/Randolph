@@ -10,7 +10,7 @@ namespace Randolph.Interactable {
         public Sprite icon;
         [SerializeField] AudioClip collectSound;
         [SerializeField] AudioClip applySound;
-        Inventory inventory;
+        protected Inventory inventory { get; private set; }
 
         SpriteRenderer spriteRenderer;
         Collider2D boxCollider;
