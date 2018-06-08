@@ -306,7 +306,7 @@ namespace Randolph.Characters {
                             break;
                         case Cursors.Interact:
                             var interactable = (Interactable.Interactable) target;
-                            interactable.OnInteract();
+                            interactable.Interact();
                             break;
                         case Cursors.Talk:
                             var talkable = (Talkable) target;

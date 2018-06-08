@@ -10,7 +10,8 @@ namespace Randolph.Interactable {
 		public int roomIndex;
         public bool isLocked;
 
-        public override async void OnInteract() {
+        public override async void Interact() {
+            base.Interact();
             if (!linkedDoor || isLocked) {
                 // TODO: Play locked door sound
                 return;

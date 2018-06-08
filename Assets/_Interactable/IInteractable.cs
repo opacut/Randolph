@@ -1,5 +1,8 @@
-﻿namespace Randolph.Interactable {
+﻿using System;
+
+namespace Randolph.Interactable {
     public interface IInteractable {
-        void OnInteract();
+        void Interact();
+        event Action OnInteract;
     }
 }

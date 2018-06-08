@@ -6,7 +6,5 @@ namespace Randolph.Interactable {
         [SerializeField] private Sail sail;
 
         public void Slash() => sail.Slash(this);
-
-        public override void OnInteract() => Debug.Log("Rope clicked.");
     }
 }

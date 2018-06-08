@@ -51,6 +51,7 @@ namespace Randolph.UI {
             speechBubble.enabled = true;
             scaler.enabled = true;
             isSpeaking = true;
+            OnStartedSpeaking?.Invoke();
             StartCoroutine(ShowText());
         }
 
@@ -75,7 +76,8 @@ namespace Randolph.UI {
             }
             StartCoroutine(Timer());
         }
-
+        
+        public event Action OnStartedSpeaking;
         public event Action OnStoppedSpeaking;
     }
 }

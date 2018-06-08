@@ -194,6 +194,7 @@ MonoBehaviour:
   textBox: {fileID: 1949271391}
   textElement: {fileID: 1446234342}
   updateText: Click on characters to talk to them
+  isManual: 1
   cancellationButton: 0
   cancellationKeyName: 
   cancelOnAreaExit: 0
@@ -345,7 +346,7 @@ Transform:
   - {fileID: 2026938701}
   - {fileID: 472466248}
   m_Father: {fileID: 1493725622}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &141164087
 MonoBehaviour:
@@ -1917,7 +1918,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1493725622}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &485687363
 BoxCollider2D:
@@ -2204,6 +2205,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4447610227155346, guid: ad19968e1fc332a41a11b7bda60d6f77,
     type: 2}
   m_PrefabInternal: {fileID: 1544679363}
+--- !u!84 &726382608
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1061
+  m_Height: 597
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 0
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &733065542
 Prefab:
   m_ObjectHideFlags: 0
@@ -2281,37 +2313,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 250805098}
   m_Script: {fileID: 11500000, guid: 8a00659a1b8b8a6469cef57c525ce198, type: 3}
---- !u!84 &752421539
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1061
-  m_Height: 597
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &779268613
 Prefab:
   m_ObjectHideFlags: 0
@@ -2706,6 +2707,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4588526553809378, guid: 6b7facf7c583b594580d972c0fca9b73,
     type: 2}
   m_PrefabInternal: {fileID: 114518489}
+--- !u!1 &958713867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 958713868}
+  - component: {fileID: 958713869}
+  m_Layer: 0
+  m_Name: InteractionScenario
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &958713868
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 958713867}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1493725622}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &958713869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 958713867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9bd0ab027690264c904d7bcde3308e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactCue: {fileID: 1655719049}
+  speakCue: {fileID: 10357414}
+  quartersDoor: {fileID: 779268614}
+  howardsSpeechBubble: {fileID: 1333758447}
 --- !u!4 &979623062
 Transform:
   m_ObjectHideFlags: 0
@@ -2729,13 +2774,13 @@ Transform:
   - {fileID: 1559225194}
   - {fileID: 1412512472}
   - {fileID: 243457949}
+  - {fileID: 1840256035}
   - {fileID: 557537992}
   - {fileID: 1747536031}
   - {fileID: 948905437}
-  - {fileID: 1840256035}
   - {fileID: 1473574387}
   m_Father: {fileID: 1493725622}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &984151938 stripped
 Transform:
@@ -2932,7 +2977,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 1263720901}
+  m_TargetTexture: {fileID: 726382608}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -10659,7 +10704,7 @@ Transform:
   - {fileID: 1534836940}
   - {fileID: 1380513986}
   m_Father: {fileID: 1493725622}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1169131368 stripped
 RectTransform:
@@ -10767,6 +10812,7 @@ MonoBehaviour:
   textBox: {fileID: 1949271391}
   textElement: {fileID: 1446234342}
   updateText: Use A and D to move around
+  isManual: 0
   cancellationButton: -1
   cancellationKeyName: Horizontal
   cancelOnAreaExit: 0
@@ -10902,37 +10948,6 @@ RenderTexture:
   m_DownscaleFallback: 0
   m_Width: 1173
   m_Height: 578
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 0
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
---- !u!84 &1263720901
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1061
-  m_Height: 597
   m_AntiAliasing: 1
   m_DepthFormat: 1
   m_ColorFormat: 7
@@ -11331,6 +11346,7 @@ MonoBehaviour:
   textBox: {fileID: 1949271391}
   textElement: {fileID: 1446234342}
   updateText: Click items to pick them up
+  isManual: 0
   cancellationButton: 0
   cancellationKeyName: 
   cancelOnAreaExit: 0
@@ -12522,6 +12538,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 958713868}
   - {fileID: 1154489898}
   - {fileID: 2013353043}
   - {fileID: 141164086}
@@ -12604,6 +12621,7 @@ MonoBehaviour:
   textBox: {fileID: 1949271391}
   textElement: {fileID: 1446234342}
   updateText: Press SPACE to jump
+  isManual: 0
   cancellationButton: -1
   cancellationKeyName: Jump
   cancelOnAreaExit: 0
@@ -12651,6 +12669,7 @@ MonoBehaviour:
   textBox: {fileID: 1949271391}
   textElement: {fileID: 1446234342}
   updateText: Use W and S to climb
+  isManual: 0
   cancellationButton: -1
   cancellationKeyName: Vertical
   cancelOnAreaExit: 0
@@ -13045,6 +13064,7 @@ MonoBehaviour:
   textBox: {fileID: 1949271391}
   textElement: {fileID: 1446234342}
   updateText: Click on highlighted objects to interact with them
+  isManual: 1
   cancellationButton: 0
   cancellationKeyName: 
   cancelOnAreaExit: 0
@@ -13314,7 +13334,7 @@ Transform:
   - {fileID: 277266527}
   - {fileID: 1131629617}
   m_Father: {fileID: 979623062}
-  m_RootOrder: 15
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1846408766
 Prefab:
@@ -13414,6 +13434,37 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8cd17e969939c454e839d0718b531837, type: 2}
   m_IsPrefabAsset: 0
+--- !u!84 &1877444364
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1061
+  m_Height: 597
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!4 &1916431014 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4803821828379234, guid: 0fce30f2e362cc149bb54931c2d01498,
@@ -24715,7 +24766,7 @@ Transform:
   m_Children:
   - {fileID: 2016637017}
   m_Father: {fileID: 1493725622}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!199 &2013353044
 ParticleSystemRenderer:

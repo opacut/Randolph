@@ -10,6 +10,7 @@ namespace Randolph.UI {
         [SerializeField] private string updateText;
 
         [Header("Cancellation")]
+        [SerializeField] private bool isManual;
         [SerializeField] private MouseButton cancellationButton = MouseButton.None;
         [SerializeField] private string cancellationKeyName;
         [SerializeField] private bool cancelOnAreaExit;
@@ -25,22 +26,24 @@ namespace Randolph.UI {
         }
 
         private void OnTriggerExit2D(Collider2D other) {
-            if (!wasActivated || !cancelOnAreaExit) {
+            if (!wasActivated || isManual || !cancelOnAreaExit) {
                 return;
             }
-            textBox.enabled = false;
-            textElement.text = "";
-            Destroy(gameObject);
+            Disable();
         }
 
         private void Update() {
-            if (wasActivated
+            if (wasActivated && !isManual
                 && (cancellationKeyName != string.Empty && Input.GetAxis(cancellationKeyName) != 0
                     || cancellationButton != MouseButton.None && Input.GetMouseButtonDown((int)cancellationButton))) {
-                textBox.enabled = false;
-                textElement.text = "";
-                Destroy(gameObject);
+                Disable();
             }
+        }
+
+        public void Disable() {
+            textBox.enabled = false;
+            textElement.text = "";
+            Destroy(gameObject);
         }
     }
 }
