@@ -5,7 +5,7 @@ using Randolph.UI;
 using UnityEngine;
 
 namespace Assets.Core.Scenario {
-    public class TutorialScenario : ScenarioManager {
+    public class HowardsScenario : ScenarioManager {
         [SerializeField] private SpeechBubble howardsSpeechBubble;
 
         [SerializeField, TextArea] private string firstResponse;
