@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using Randolph.Interactable;
 using Randolph.UI;
 using UnityEngine;
@@ -11,6 +12,7 @@ namespace Assets.Core.Scenario {
         [SerializeField, TextArea] private string secondResponse;
         [SerializeField, TextArea] private string thirdResponse;
         [SerializeField, TextArea] private string fourthResponse;
+        [SerializeField, TextArea] private string fifthResponse;
 
         [SerializeField] private Key storageKey;
         [SerializeField] private Bandage bandage;
@@ -46,6 +48,12 @@ namespace Assets.Core.Scenario {
             cleanedBandage.OnPick -= Iterate;
             
             howardsSpeechBubble.fullText = fourthResponse;
+
+            cleanedBandage.OnApply += Iterate;
+            yield return null;
+            cleanedBandage.OnPick -= Iterate;
+
+            howardsSpeechBubble.fullText = fifthResponse;
         }
     }
 }

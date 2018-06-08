@@ -11,9 +11,16 @@ namespace Randolph.Interactable {
 
         public override void Apply(GameObject target) {
             base.Apply(target);
-            Destroy(target);
+
+            var item = target.GetComponent<InventoryItem>();
+            if (!inventory.Contains(item)) {
+                item.Pick();
+            }
+            inventory.Remove(item);
+
             cleanedBandage.gameObject.SetActive(true);
             cleanedBandage.Pick();
+
             OnCombined?.Invoke(cleanedBandage.gameObject);
         }
         
