@@ -4,18 +4,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Reed : Interactable, ISlashable
+public class GrassTuft : Interactable, ISlashable
 {
     [SerializeField]
     public Transform grass;
+    [SerializeField]
+    private GameObject spawnPoint;
+    [SerializeField]
+    private Sprite cutGrass;
 
-    public override void OnInteract()
+    private SpriteRenderer spriteRenderer;
+    private bool hasGrass = true;
+
+    public void Awake()
+    {
+        base.Awake();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    public override void Interact()
     {
         Debug.Log("Tuft clicked");
     }
 
     public void Slash()
     {
-        Instantiate(grass, transform.position, Quaternion.identity);
+        if (hasGrass)
+        {
+            hasGrass = false;
+            spriteRenderer.sprite = cutGrass;
+            Instantiate(grass, spawnPoint.transform.position, Quaternion.identity);
+        }        
     }
 }

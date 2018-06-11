@@ -12,6 +12,6 @@ namespace Randolph.Interactable {
             Destroy(this);
         }
 
-        public override void OnInteract() => Debug.Log("Rope clicked.");
+        public override void Interact() => Debug.Log("Rope clicked.");
     }
 }

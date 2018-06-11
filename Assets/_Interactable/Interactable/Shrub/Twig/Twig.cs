@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class DryGrass : InventoryItem
+public class Twig : InventoryItem
 {
     [SerializeField] private Transform torchPrefab;
-    public override bool IsSingleUse => true;
+    public override bool IsSingleUse { get; } = true;
 
-    public override bool IsApplicable(GameObject target) => target.GetComponent<Twig>();
+    public override bool IsApplicable(GameObject target) => target.GetComponent<DryGrass>();
 
     public override void Apply(GameObject target)
     {
@@ -27,8 +27,8 @@ public class DryGrass : InventoryItem
 
         torch.GetComponent<Torch>().Pick();
         OnCombined?.Invoke(torch.gameObject);
+        Destroy(this);
     }
 
     public event Action<GameObject> OnCombined;
-
 }
