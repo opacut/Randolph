@@ -23,7 +23,8 @@ namespace Randolph.Interactable {
             this.player.OnStoppedGrappling += OnStoppedGrappling;
         }
 
-        public override void OnInteract() {
+        public override void Interact() {
+            base.Interact();
             player.GrappleTo(tiePosition.position);
             gameObject.SetActive(false);
         }

@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using Assets.Core.Scenario;
 using Randolph.Characters;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,7 +13,7 @@ namespace Randolph.UI {
 
         [SerializeField] Text bubbleText;
         [SerializeField] Color characterColor = Color.white;
-        string fullText;
+        public string fullText;
         string currentText = "";
         bool isSpeaking;
 
@@ -42,13 +44,14 @@ namespace Randolph.UI {
             }
         }
 
-        void Speak() {
+        public void Speak() {
             StopAllCoroutines();
             bubbleText.text = "";
             currentText = "";
             speechBubble.enabled = true;
             scaler.enabled = true;
             isSpeaking = true;
+            OnStartedSpeaking?.Invoke();
             StartCoroutine(ShowText());
         }
 
@@ -57,6 +60,7 @@ namespace Randolph.UI {
             speechBubble.enabled = false;
             scaler.enabled = false;
             isSpeaking = false;
+            OnStoppedSpeaking?.Invoke();
         }
 
         IEnumerator Timer() {
@@ -72,5 +76,8 @@ namespace Randolph.UI {
             }
             StartCoroutine(Timer());
         }
+        
+        public event Action OnStartedSpeaking;
+        public event Action OnStoppedSpeaking;
     }
 }

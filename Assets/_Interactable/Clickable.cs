@@ -75,6 +75,5 @@ namespace Randolph.Interactable {
         public string GetDescription() {
             return description.Trim();
         }
-
     }
 }

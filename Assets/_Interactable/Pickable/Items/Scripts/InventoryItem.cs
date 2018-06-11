@@ -1,4 +1,5 @@
-﻿using cakeslice;
+﻿using System;
+using cakeslice;
 using Randolph.Core;
 using Randolph.UI;
 using UnityEngine;
@@ -9,7 +10,7 @@ namespace Randolph.Interactable {
         public Sprite icon;
         [SerializeField] AudioClip collectSound;
         [SerializeField] AudioClip applySound;
-        Inventory inventory;
+        protected Inventory inventory { get; private set; }
 
         SpriteRenderer spriteRenderer;
         Collider2D boxCollider;
@@ -22,8 +23,8 @@ namespace Randolph.Interactable {
             boxCollider = GetComponent<Collider2D>();
         }
 
-        public override void OnPick() {
-            base.OnPick();
+        public override void Pick() {
+            base.Pick();
 
             inventory.Add(this);
             AudioPlayer.audioPlayer.PlayGlobalSound(collectSound);
@@ -39,9 +40,12 @@ namespace Randolph.Interactable {
 
         public abstract bool IsApplicable(GameObject target);
 
-        public virtual void OnApply(GameObject target) {
+        public virtual void Apply(GameObject target) {
             AudioPlayer.audioPlayer.PlayGlobalSound(applySound);
+            OnApply?.Invoke();
         }
+
+        public event Action OnApply;
 
         public void SetComponentsActive(bool active) {
             if (spriteRenderer) spriteRenderer.enabled = active;

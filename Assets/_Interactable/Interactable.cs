@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using cakeslice;
+﻿using System;
+using UnityEngine;
 using Randolph.UI;
 
 namespace Randolph.Interactable {
@@ -16,6 +16,10 @@ namespace Randolph.Interactable {
             trigger = GetComponent<BoxCollider2D>();
         }
 
-        public abstract void OnInteract();
+        public virtual void Interact() {
+            OnInteract?.Invoke();
+        }
+
+        public event Action OnInteract;
     }
 }

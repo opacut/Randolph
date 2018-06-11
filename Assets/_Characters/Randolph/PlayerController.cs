@@ -302,11 +302,11 @@ namespace Randolph.Characters {
                             break;
                         case Cursors.Pick:
                             var pickable = (Pickable) target;
-                            pickable.OnPick();
+                            pickable.Pick();
                             break;
                         case Cursors.Interact:
                             var interactable = (Interactable.Interactable) target;
-                            interactable.OnInteract();
+                            interactable.Interact();
                             break;
                         case Cursors.Talk:
                             var talkable = (Talkable) target;

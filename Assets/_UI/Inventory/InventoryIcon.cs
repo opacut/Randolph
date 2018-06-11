@@ -35,8 +35,8 @@ namespace Randolph.UI {
 
         public void OnDrag(PointerEventData eventData) {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-            if (outOfReachMaterial && !IsCursorWithinApplicableDistance(mousePosition)) {
+            
+            if (outOfReachMaterial && !IsCursorWithinApplicableDistance(mousePosition) && !IsCursoreAboveAnotherItem(eventData)) {
                 // Too far to apply the item -> set an appropriate material
                 image.material = outOfReachMaterial;
             } else if (image.material != initialMaterial) {
@@ -47,7 +47,7 @@ namespace Randolph.UI {
         }
 
         public void OnEndDrag(PointerEventData eventData) {
-            GameObject target = FindApplicableTarget();
+            GameObject target = FindApplicableTarget() ?? eventData?.pointerCurrentRaycast.gameObject?.GetComponent<InventoryIcon>()?.item.gameObject;
             if (target) {
                 inventory.ApplyTo(item, target);
             }
@@ -58,9 +58,8 @@ namespace Randolph.UI {
             GetComponent<LayoutElement>().ignoreLayout = false;
         }
 
-        bool IsCursorWithinApplicableDistance(Vector2 mousePosition) {
-            return inventory.IsWithinApplicableDistance(mousePosition);
-        }
+        bool IsCursorWithinApplicableDistance(Vector2 mousePosition) => inventory.IsWithinApplicableDistance(mousePosition);
+        bool IsCursoreAboveAnotherItem(PointerEventData eventData) => eventData.pointerCurrentRaycast.gameObject?.GetComponent<InventoryIcon>() ?? false;
 
         GameObject FindApplicableTarget() {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

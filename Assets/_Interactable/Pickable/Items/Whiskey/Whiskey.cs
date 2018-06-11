@@ -8,8 +8,8 @@ namespace Randolph.Interactable {
 
         public override bool IsApplicable(GameObject target) => target.GetComponent<Flytrap>()?.Active ?? false;
 
-        public override void OnApply(GameObject target) {
-            base.OnApply(target);
+        public override void Apply(GameObject target) {
+            base.Apply(target);
             target.GetComponent<Flytrap>().Deactivate();
         }
 
