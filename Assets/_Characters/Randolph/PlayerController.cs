@@ -328,7 +328,7 @@ namespace Randolph.Characters {
         /// <summary>Shows a text in Randolph's speech bubble for a given time.</summary>
         /// <param name="text">Text to show.</param>
         /// <param name="duration">Duration in seconds.</param>
-        async void ShowDescriptionBubble(string text, float duration) {
+        public async void ShowDescriptionBubble(string text, float duration) {
             // TODO: Autoscroll long text (/ duration)
 
             speechBubble.gameObject.SetActive(true);
@@ -338,6 +338,16 @@ namespace Randolph.Characters {
                 // Randolph is describing other item
                 return;
             }
+            speechBubble.gameObject.SetActive(false);
+        }
+
+        public void HideDescriptionBubble(string description) {
+            if (!string.IsNullOrEmpty(description) && bubbleText.text != description) {
+                // Randolph is describing other item
+                return;
+            }
+
+            bubbleText.text = String.Empty;
             speechBubble.gameObject.SetActive(false);
         }
 
