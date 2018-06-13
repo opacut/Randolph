@@ -24,7 +24,7 @@ namespace Randolph.Interactable {
 
             var deltaY = randolph.transform.position.y - transform.position.y;
             randolph.transform.position = linkedDoor.transform.position;
-            randolph.transform.Translate(0, deltaY, 0);
+            // randolph.transform.Translate(0, deltaY, 0);
             Constants.Camera.rooms.EnterRoom(linkedDoor.roomIndex, false);
 
             Constants.Camera.transition.TransitionEnter();
