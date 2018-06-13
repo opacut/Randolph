@@ -37,5 +37,10 @@ namespace Randolph.Interactable {
             LevelManager.OnNewLevel -= OnNewLevel;
             player.OnStoppedGrappling -= OnStoppedGrappling;
         }
+
+        private void OnDrawGizmos() {
+            Gizmos.color = GetComponent<LineRenderer>().startColor;
+            Gizmos.DrawLine(transform.position, tiePosition.position);
+        }
     }
 }
