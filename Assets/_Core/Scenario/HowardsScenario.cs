@@ -7,16 +7,22 @@ namespace Assets.Core.Scenario {
     public class HowardsScenario : ScenarioManager {
         [SerializeField] private SpeechBubble howardsSpeechBubble;
 
+        [Header("Responses")]
         [SerializeField, TextArea] private string firstResponse;
         [SerializeField, TextArea] private string secondResponse;
         [SerializeField, TextArea] private string thirdResponse;
         [SerializeField, TextArea] private string fourthResponse;
         [SerializeField, TextArea] private string fifthResponse;
 
+        [Header("Items")]
         [SerializeField] private Key storageKey;
         [SerializeField] private Bandage bandage;
         [SerializeField] private Alcohol alcohol;
         [SerializeField] private Cleanedbandage cleanedBandage;
+
+        [Header("Deck exit")]
+        [SerializeField] private Door deckDoor;
+        [SerializeField] private RandolphTalkTrigger deckExitTalkTrigger;
 
         protected override IEnumerable Scenario() {
             howardsSpeechBubble.OnStoppedSpeaking += Iterate;
@@ -53,6 +59,8 @@ namespace Assets.Core.Scenario {
             cleanedBandage.OnPick -= Iterate;
 
             howardsSpeechBubble.fullText = fifthResponse;
+            deckDoor.isLocked = false;
+            Destroy(deckExitTalkTrigger);
         }
     }
 }
