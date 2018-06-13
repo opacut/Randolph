@@ -36,5 +36,23 @@ namespace Randolph.Core {
             Horizontal,
             Vertical
         }
+
+        private void OnDrawGizmos() {
+            var collider = GetComponent<BoxCollider2D>();
+            Gizmos.color = new Color(1f, 0.65f, 0f);
+            Gizmos.DrawWireCube(transform.position, collider.size);
+            Gizmos.color = new Color(1f, 0.65f, 0f, 0.25f);
+            Gizmos.DrawCube(transform.position, collider.size);
+        }
+
+        private void OnDrawGizmosSelected() {
+            var positiveRoom = Constants.Camera.rooms.GetRoom(_positiveRoomId.ToString()).Dimensions;
+            var negativeRoom = Constants.Camera.rooms.GetRoom(_negativeRoomId.ToString()).Dimensions;
+            
+            Gizmos.color = new Color(0f, 1f, 0f, 0.2f);
+            Gizmos.DrawCube(positiveRoom.position, positiveRoom.size);
+            Gizmos.color = new Color(1f, 0f, 0f, 0.2f);
+            Gizmos.DrawCube(negativeRoom.position, negativeRoom.size);
+        }
     }
 }
