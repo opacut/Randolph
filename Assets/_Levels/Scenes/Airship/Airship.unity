@@ -197,37 +197,6 @@ MonoBehaviour:
   cancellationButton: 0
   cancellationKeyName: 
   cancelOnAreaExit: 0
---- !u!84 &30944066
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1202
-  m_Height: 676
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &78191970
 GameObject:
   m_ObjectHideFlags: 0
@@ -1659,6 +1628,37 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 284fe032702014ef49047cfb9be3dc5b, type: 2}
   m_IsPrefabAsset: 0
+--- !u!84 &368546260
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1202
+  m_Height: 676
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &389482034
 Prefab:
   m_ObjectHideFlags: 0
@@ -2440,7 +2440,7 @@ MonoBehaviour:
   textBox: {fileID: 1949271391}
   textElement: {fileID: 1446234342}
   updateText: Drag and drop items from inventory onto interactable objects to use
-    them.
+    them
   isManual: 1
   cancellationButton: -1
   cancellationKeyName: 
@@ -2635,6 +2635,37 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1846408766}
   m_Script: {fileID: 11500000, guid: 0934d28b683d4424e90cad1a6e91f9de, type: 3}
+--- !u!84 &780369558
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1202
+  m_Height: 676
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 0
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &788430839
 GameObject:
   m_ObjectHideFlags: 0
@@ -3093,6 +3124,7 @@ Transform:
   - {fileID: 557537992}
   - {fileID: 1747536031}
   - {fileID: 948905437}
+  - {fileID: 1196065364}
   m_Father: {fileID: 1493725622}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3342,7 +3374,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 2104779188}
+  m_TargetTexture: {fileID: 780369558}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -11365,6 +11397,74 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fce30f2e362cc149bb54931c2d01498, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1196065363
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1196065364}
+  - component: {fileID: 1196065366}
+  - component: {fileID: 1196065365}
+  m_Layer: 0
+  m_Name: TutorialEnd
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1196065364
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1196065363}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -15, y: 29.48, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 979623062}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1196065365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1196065363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 014ae46530b4b304a8325573b53dd226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frontMastRope: {fileID: 819497999}
+  backMastRope: {fileID: 317992336}
+--- !u!61 &1196065366
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1196065363}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 80, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1209233642
 GameObject:
   m_ObjectHideFlags: 0
@@ -13248,6 +13348,7 @@ MonoBehaviour:
   hookCue: {fileID: 1718337970}
   frontSail: {fileID: 1385181378}
   backSail: {fileID: 1833780547}
+  tutorialEndTrigger: {fileID: 1196065365}
 --- !u!4 &1529146253 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4273603863895376, guid: 8b4288b422a243a41839c1cf4f4ff9c2,
@@ -13369,7 +13470,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 1949271391}
   textElement: {fileID: 1446234342}
-  updateText: Use W/S to climb and SPACE to let go.
+  updateText: Use W/S to climb and SPACE to let go
   isManual: 0
   cancellationButton: -1
   cancellationKeyName: Vertical
@@ -13757,7 +13858,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1718337969
 Transform:
   m_ObjectHideFlags: 0
@@ -13784,7 +13885,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 1949271391}
   textElement: {fileID: 1446234342}
-  updateText: Use your hook to grab on to various objects and swing.
+  updateText: Use your hook to grab on to various objects and swing
   isManual: 0
   cancellationButton: -1
   cancellationKeyName: 
@@ -13812,7 +13913,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 6}
+  m_Size: {x: 14, y: 14}
   m_EdgeRadius: 0
 --- !u!114 &1723362084 stripped
 MonoBehaviour:
@@ -36633,37 +36734,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 823633590}
   m_Script: {fileID: 11500000, guid: 8e85add2731ed485ea59fc061f36d375, type: 3}
---- !u!84 &2104779188
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1202
-  m_Height: 676
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 0
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!4 &2110119189 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4505815670900094, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334,

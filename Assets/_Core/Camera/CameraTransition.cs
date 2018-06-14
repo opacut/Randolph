@@ -32,6 +32,26 @@ namespace Randolph.Core {
             }
         }
 
+        private void OnTriggerExit2D(Collider2D other) {
+            if (other.tag != Constants.Tag.Player) {
+                return;
+            }
+
+            bool enteredPositiveRoom;
+            switch (_direction) {
+            case TransitionDirection.Horizontal:
+                enteredPositiveRoom = other.transform.position.x > transform.position.x;
+                break;
+            case TransitionDirection.Vertical:
+                enteredPositiveRoom = other.transform.position.y > transform.position.y;
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+            }
+
+            Constants.Camera.rooms.EnterRoom(enteredPositiveRoom ? _positiveRoomId : _negativeRoomId);
+        }
+
         private enum TransitionDirection {
             Horizontal,
             Vertical

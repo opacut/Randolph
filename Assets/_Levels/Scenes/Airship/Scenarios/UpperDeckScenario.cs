@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
+using Assets.Core.Scenario;
 using Randolph.Environment;
 using Randolph.Interactable;
+using Randolph.Levels.Airship;
 using Randolph.UI;
 using UnityEngine;
 
-namespace Assets.Core.Scenario {
+namespace Assets.Levels.Airship {
     public class UpperDeckScenario : ScenarioManager {
         [SerializeField] private SpeechBubble captainsSpeechBubble;
 
@@ -21,6 +21,7 @@ namespace Assets.Core.Scenario {
         [SerializeField] private Cue hookCue;
         [SerializeField] private Sail frontSail;
         [SerializeField] private Sail backSail;
+        [SerializeField] private TutorialEnd tutorialEndTrigger;
 
         protected override IEnumerable Scenario() {
             captainsSpeechBubble.OnStoppedSpeaking += Iterate;
@@ -49,7 +50,7 @@ namespace Assets.Core.Scenario {
             hook.OnPick -= Iterate;
             
             hookCue.gameObject.SetActive(true);
-            
+            tutorialEndTrigger.gameObject.SetActive(true);
         }
     }
 }

@@ -1,9 +1,10 @@
 ﻿using System.Collections;
+using Assets.Core.Scenario;
 using Randolph.Interactable;
 using Randolph.UI;
 using UnityEngine;
 
-namespace Assets.Core.Scenario {
+namespace Assets.Levels.Airship {
     public class HowardsScenario : ScenarioManager {
         [SerializeField] private SpeechBubble howardsSpeechBubble;
 

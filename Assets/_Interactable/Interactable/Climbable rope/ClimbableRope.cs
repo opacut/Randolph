@@ -15,10 +15,6 @@ namespace Randolph.Interactable {
             base.Awake();
             lineRenderer = GetComponent<LineRenderer>();
             lineRenderer.SetPositions(new[] {transform.position, tiePosition.position});
-            LevelManager.OnNewLevel += OnNewLevel;            
-        }
-
-        void OnNewLevel(Scene scene, PlayerController player) {
             Constants.Randolph.OnStoppedGrappling += OnStoppedGrappling;
         }
 
@@ -33,7 +29,6 @@ namespace Randolph.Interactable {
         }
 
         void OnDestroy() {
-            LevelManager.OnNewLevel -= OnNewLevel;
             Constants.Randolph.OnStoppedGrappling -= OnStoppedGrappling;
         }
 
