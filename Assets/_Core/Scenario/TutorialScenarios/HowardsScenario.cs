@@ -19,8 +19,8 @@ namespace Assets.Core.Scenario {
         [SerializeField] private Bandage bandage;
         [SerializeField] private Alcohol alcohol;
         [SerializeField] private Cleanedbandage cleanedBandage;
-
-        [Header("Deck exit")]
+        [SerializeField] private Cue pickUpCue;
+        [SerializeField] private Cue useCue;
         [SerializeField] private Door deckDoor;
         [SerializeField] private RandolphTalkTrigger deckExitTalkTrigger;
 
@@ -32,12 +32,21 @@ namespace Assets.Core.Scenario {
             howardsSpeechBubble.fullText = firstResponse;
             howardsSpeechBubble.Speak();
             storageKey.gameObject.SetActive(true);
+            pickUpCue.gameObject.SetActive(true);
 
             storageKey.OnPick += Iterate;
             yield return null;
             storageKey.OnPick -= Iterate;
             
+            pickUpCue.Disable();
             howardsSpeechBubble.fullText = secondResponse;
+            useCue.gameObject.SetActive(true);
+
+            storageKey.OnApply += Iterate;
+            yield return null;
+            storageKey.OnApply -= Iterate;
+
+            useCue.Disable();
 
             bandage.OnPick += Iterate;
             alcohol.OnPick += Iterate;

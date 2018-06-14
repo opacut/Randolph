@@ -7,7 +7,7 @@ namespace Randolph.UI {
     public class Cue : MonoBehaviour {
         [SerializeField] private Image textBox;
         [SerializeField] private Text textElement;
-        [SerializeField] private string updateText;
+        [SerializeField, TextArea] private string updateText;
 
         [Header("Cancellation")]
         [SerializeField] private bool isManual;
