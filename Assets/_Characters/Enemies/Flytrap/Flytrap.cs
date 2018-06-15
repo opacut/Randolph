@@ -1,16 +1,20 @@
 using UnityEngine;
 using Randolph.Core;
+using Assets._Interactable;
+using Randolph.Interactable;
 
 namespace Randolph.Characters {
     [RequireComponent(typeof(SpriteRenderer))]
-    public class Flytrap : MonoBehaviour, IEnemy {
+    public class Flytrap : MonoBehaviour, IEnemy, IFeedable {
 
         public bool Active { get; private set; } = true;
 
         Sprite alive;
         [Header("Sprites")] [SerializeField] Sprite closed;
         [SerializeField] Sprite crushed;
-        [Header("Audio")] [SerializeField] AudioClip closeSound;       
+        [Header("Audio")] [SerializeField] AudioClip closeSound;
+        [SerializeField] InventoryItem pitPrefab;
+        [SerializeField] private GameObject spawnPoint;
 
         SpriteRenderer spriteRenderer;
         AudioSource audioSource;
@@ -53,5 +57,29 @@ namespace Randolph.Characters {
             Active = true;
         }
 
+        public void Feed(GameObject target)
+        {
+            if (Active)
+            {
+                if (target.GetComponent<Fruit>() || target.GetComponent<Pit>())
+                {
+                    Destroy(target);
+                    SpawnPit();
+                }
+                else if (target.GetComponent<Seed>())
+                {
+                    Destroy(target);
+                    Kill();
+                }
+            }
+
+        }
+
+        public void SpawnPit()
+        {
+            spriteRenderer.sprite = closed;
+            Instantiate(pitPrefab, spawnPoint.transform.position, Quaternion.identity);
+            spriteRenderer.sprite = alive;
+        }
     }
 }

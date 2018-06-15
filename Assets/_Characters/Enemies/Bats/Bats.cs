@@ -86,7 +86,8 @@ public class Bats : MonoBehaviour, IRestartable
         }
     }
 
-    void StartMoving()
+    [ContextMenu("Fly Away")]
+    public void StartMoving()
     {
         Disturbed = true;
         SetNextDestination();
