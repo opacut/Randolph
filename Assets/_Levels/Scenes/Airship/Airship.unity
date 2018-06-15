@@ -319,7 +319,9 @@ Prefab:
     - target: {fileID: 114261594313789396, guid: 6b7facf7c583b594580d972c0fca9b73,
         type: 2}
       propertyPath: description
-      value: Climbing rope tied to the top of mast. My way to cut top of the sail.
+      value: By another incredibly convenient coincidence, a rope is hanging from
+        the top of the mast. I believe I should be able to climb it, if my limbs don't
+        fail me.
       objectReference: {fileID: 0}
     - target: {fileID: 212527083155161578, guid: 6b7facf7c583b594580d972c0fca9b73,
         type: 2}
@@ -443,6 +445,12 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114099338815838894, guid: e9f6e59e23d40df4caef781befb10829,
+        type: 2}
+      propertyPath: description
+      value: I did my best to disinfect the bandages, using my meager first aid skills
+        and a lot of alcohol.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9f6e59e23d40df4caef781befb10829, type: 2}
   m_IsPrefabAsset: 0
@@ -484,6 +492,12 @@ Prefab:
     - target: {fileID: 4769712751262798, guid: 923e700ef2bf8d2419230fbd38c29701, type: 2}
       propertyPath: m_RootOrder
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114007389621385680, guid: 923e700ef2bf8d2419230fbd38c29701,
+        type: 2}
+      propertyPath: description
+      value: Tara, our mechanic who keeps the ship afloat. Arguing with her usually
+        results in a mild concussion.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 923e700ef2bf8d2419230fbd38c29701, type: 2}
@@ -1623,7 +1637,9 @@ Prefab:
     - target: {fileID: 114865688252343828, guid: 284fe032702014ef49047cfb9be3dc5b,
         type: 2}
       propertyPath: description
-      value: A grappling hook. I'll need it to get to the other mast.
+      value: A grappling hook. I can use it to access the crow's nest on top of the
+        sail. I have never been much of an athlete, but desperate times call for desperate
+        measures from desperate men.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 284fe032702014ef49047cfb9be3dc5b, type: 2}
@@ -1694,7 +1710,8 @@ Prefab:
     - target: {fileID: 114452954836269510, guid: 1e3b2a4b709f28b48aa34679460c53b1,
         type: 2}
       propertyPath: description
-      value: Key to the storage room. What is it doing here?
+      value: Key to the storage room. Irresponsible if convenient to have it laying
+        on the ground like that.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e3b2a4b709f28b48aa34679460c53b1, type: 2}
@@ -1905,7 +1922,7 @@ Prefab:
     - target: {fileID: 114730066905688036, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334,
         type: 2}
       propertyPath: description
-      value: Door to ship's bottom deck.
+      value: This is the door leading below deck.
       objectReference: {fileID: 0}
     - target: {fileID: 114262672558131160, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334,
         type: 2}
@@ -2024,7 +2041,8 @@ Prefab:
     - target: {fileID: 114610984301081974, guid: 07fa533e23d5e33458e2001c32d48227,
         type: 2}
       propertyPath: description
-      value: Disinfection supplies.
+      value: Howard's disinfectant. It is used by various crew members for various
+        purposes.
       objectReference: {fileID: 0}
     - target: {fileID: 114610984301081974, guid: 07fa533e23d5e33458e2001c32d48227,
         type: 2}
@@ -2217,37 +2235,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e53d9291175b5c4d8fdd8757fd08940, type: 2}
   m_IsPrefabAsset: 0
---- !u!84 &512007504
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1202
-  m_Height: 676
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 0
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &555807482
 Prefab:
   m_ObjectHideFlags: 0
@@ -2314,6 +2301,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4667859838281882, guid: 31064e9c8835fba4696a0eeed8e4d906,
     type: 2}
   m_PrefabInternal: {fileID: 1606459565}
+--- !u!84 &564747932
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1207
+  m_Height: 516
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 0
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &587526408
 Prefab:
   m_ObjectHideFlags: 0
@@ -2375,7 +2393,7 @@ Prefab:
     - target: {fileID: 114730066905688036, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334,
         type: 2}
       propertyPath: description
-      value: Door to crew's quarters.
+      value: This door leads to the living quarters. A fancy name for a fancy room.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334, type: 2}
@@ -2439,8 +2457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 1949271391}
   textElement: {fileID: 1446234342}
-  updateText: Drag and drop items from inventory onto interactable objects to use
-    them
+  updateText: Drag and drop items from inventory onto objects to use them
   isManual: 1
   cancellationButton: -1
   cancellationKeyName: 
@@ -2475,6 +2492,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4447610227155346, guid: ad19968e1fc332a41a11b7bda60d6f77,
     type: 2}
   m_PrefabInternal: {fileID: 1544679363}
+--- !u!84 &708529545
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1207
+  m_Height: 516
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &733065542
 Prefab:
   m_ObjectHideFlags: 0
@@ -2613,7 +2661,7 @@ Prefab:
     - target: {fileID: 114730066905688036, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334,
         type: 2}
       propertyPath: description
-      value: Door to second deck.
+      value: This door leads to the engine room.
       objectReference: {fileID: 0}
     - target: {fileID: 61561947978089352, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334,
         type: 2}
@@ -2912,7 +2960,9 @@ Prefab:
     - target: {fileID: 114730066905688036, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334,
         type: 2}
       propertyPath: description
-      value: Door to storage room. Someone should have a key.
+      value: This door leads to the storage room and the upper deck. It appears to
+        be locked. Why would someone lock the door in a situation like this is beyond
+        me.
       objectReference: {fileID: 0}
     - target: {fileID: 1465402865572568, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334, type: 2}
       propertyPath: m_Name
@@ -3007,7 +3057,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68859bc255e303b4e9edec76cd7d7fa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _displayText: I must help Howard and Gerald first.
+  _displayText: I should help Howard and Gerald first before heading out to the upper
+    deck.
   _duration: 10
   _hideOnExit: 1
 --- !u!114 &948905435 stripped
@@ -3153,7 +3204,7 @@ Prefab:
     - target: {fileID: 114730066905688036, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334,
         type: 2}
       propertyPath: description
-      value: Door to ship's upper deck.
+      value: 'This door leads to the upper deck. '
       objectReference: {fileID: 0}
     - target: {fileID: 114730066905688036, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334,
         type: 2}
@@ -3259,11 +3310,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4818417802087302, guid: 81423794d48a5544a93de134578b6762, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -10.3
+      value: 75.9
       objectReference: {fileID: 0}
     - target: {fileID: 4818417802087302, guid: 81423794d48a5544a93de134578b6762, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 18.1
+      value: 9.7
       objectReference: {fileID: 0}
     - target: {fileID: 4818417802087302, guid: 81423794d48a5544a93de134578b6762, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3343,7 +3394,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 512007504}
+  m_TargetTexture: {fileID: 564747932}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -11619,6 +11670,13 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114503723694159946, guid: f68b4039d4d9cd040bd3384c5b8af1b7,
+        type: 2}
+      propertyPath: description
+      value: Cohen is my Uncle's longest friend. They have embarked on countless voyages
+        together. The story about his lost arm changes every time he tells it, and
+        I doubt he or the Captain remember what really happened.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f68b4039d4d9cd040bd3384c5b8af1b7, type: 2}
   m_IsPrefabAsset: 0
@@ -11850,13 +11908,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   howardsSpeechBubble: {fileID: 1333758447}
-  firstResponse: Could you go get my medical supplies from storage room? I think I
-    dropped a key from it somewhere in corridor.
-  secondResponse: Nice you found the key. Now go get the medical supplies.
-  thirdResponse: Clean the bandages using alcohol and give them to me please.
-  fourthResponse: Great job, now give them to me.
-  fifthResponse: Thanks. You should go find rest of the crew and check if they need
-    help.
+  firstResponse: "I need to get my medical supplies from the storage room. The key
+    should be around here somewhere, hurry up!\t"
+  secondResponse: That is the key alright! Now if you would be so kind, Gerald's lost
+    quite a bit of blood - I need those medical supplies!
+  thirdResponse: Great. Now just use the alcohol to clean the bandages. We don't want
+    to risk an infection, now, do we?
+  fourthResponse: You are a natural, Randolph dear! If you just hand me the bandages,
+    I can get old Gerald back in top shape in no time.
+  fifthResponse: You are a godsend, darling. Hurry up to the top deck to find if anyone
+    else needs your help!
   storageKey: {fileID: 108258634}
   bandage: {fileID: 1606959015}
   alcohol: {fileID: 1384742642}
@@ -11943,37 +12004,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8cd17e969939c454e839d0718b531837, type: 2}
   m_IsPrefabAsset: 0
---- !u!84 &1352436611
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1202
-  m_Height: 676
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &1362451102
 Prefab:
   m_ObjectHideFlags: 0
@@ -12035,7 +12065,7 @@ Prefab:
     - target: {fileID: 114730066905688036, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334,
         type: 2}
       propertyPath: description
-      value: Door to second deck.
+      value: This door leads to the engine room.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334, type: 2}
@@ -13434,7 +13464,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   captainsSpeechBubble: {fileID: 780231382}
-  firstResponse: What are you waiting for? Go!
+  firstResponse: There is no time to waste, laddie. Off ya go to the top, else She
+    crumbles to pieces!
   sabre: {fileID: 1239625333}
   climbableRope: {fileID: 948905435}
   hook: {fileID: 2036425842}
@@ -13564,7 +13595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 1949271391}
   textElement: {fileID: 1446234342}
-  updateText: Use W/S to climb and SPACE to let go
+  updateText: Use W/S to climb and SPACE to jump off
   isManual: 0
   cancellationButton: -1
   cancellationKeyName: Vertical
@@ -13636,7 +13667,8 @@ Prefab:
     - target: {fileID: 114892393035265504, guid: ad19968e1fc332a41a11b7bda60d6f77,
         type: 2}
       propertyPath: description
-      value: Howard attending to hurt Gerald. I should try to help them somehow.
+      value: Gerald appears to have been hit by a falling wood beam! I should offer
+        my help to our medic, Howard - Gerald seems to be badly hurt!
       objectReference: {fileID: 0}
     - target: {fileID: 114333008214095750, guid: ad19968e1fc332a41a11b7bda60d6f77,
         type: 2}
@@ -13826,7 +13858,8 @@ Prefab:
     - target: {fileID: 114933976932674698, guid: 31064e9c8835fba4696a0eeed8e4d906,
         type: 2}
       propertyPath: description
-      value: A glittering sabre.
+      value: A rusty worn-out sabre. It reminds me of the adventure novels about pirates
+        I was so infatuated with in my younger years.
       objectReference: {fileID: 0}
     - target: {fileID: 4667859838281882, guid: 31064e9c8835fba4696a0eeed8e4d906, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -13979,7 +14012,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBox: {fileID: 1949271391}
   textElement: {fileID: 1446234342}
-  updateText: Use your hook to grab on to various objects and swing
+  updateText: Use your hook to grab on to various objects and swing around!
   isManual: 0
   cancellationButton: -1
   cancellationKeyName: 
@@ -14294,6 +14327,12 @@ Prefab:
     - target: {fileID: 1652459870599456, guid: 428c1fa437005214490b7f3a6b1cdca8, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114454061324127166, guid: 428c1fa437005214490b7f3a6b1cdca8,
+        type: 2}
+      propertyPath: description
+      value: My uncle and the Captain of the Nightingale. Practically living in the
+        air; he can't talk normally for the best part of thirty years.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 428c1fa437005214490b7f3a6b1cdca8, type: 2}
@@ -35235,7 +35274,7 @@ Prefab:
     - target: {fileID: 114429980228664258, guid: 033c81bc275e7204bbb47994668b2bb7,
         type: 2}
       propertyPath: description
-      value: Howard's medical supplies.
+      value: Howard's medical supplies. Arguably the most important item on this ship.
       objectReference: {fileID: 0}
     - target: {fileID: 114429980228664258, guid: 033c81bc275e7204bbb47994668b2bb7,
         type: 2}
