@@ -32,6 +32,26 @@ namespace Randolph.Core {
             }
         }
 
+        private void OnTriggerExit2D(Collider2D other) {
+            if (other.tag != Constants.Tag.Player) {
+                return;
+            }
+
+            bool enteredPositiveRoom;
+            switch (_direction) {
+            case TransitionDirection.Horizontal:
+                enteredPositiveRoom = other.transform.position.x > transform.position.x;
+                break;
+            case TransitionDirection.Vertical:
+                enteredPositiveRoom = other.transform.position.y > transform.position.y;
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+            }
+
+            Constants.Camera.rooms.EnterRoom(enteredPositiveRoom ? _positiveRoomId : _negativeRoomId);
+        }
+
         private enum TransitionDirection {
             Horizontal,
             Vertical
@@ -46,13 +66,17 @@ namespace Randolph.Core {
         }
 
         private void OnDrawGizmosSelected() {
-            var positiveRoom = Constants.Camera.rooms.GetRoom(_positiveRoomId.ToString()).Dimensions;
-            var negativeRoom = Constants.Camera.rooms.GetRoom(_negativeRoomId.ToString()).Dimensions;
-            
-            Gizmos.color = new Color(0f, 1f, 0f, 0.2f);
-            Gizmos.DrawCube(positiveRoom.position, positiveRoom.size);
-            Gizmos.color = new Color(1f, 0f, 0f, 0.2f);
-            Gizmos.DrawCube(negativeRoom.position, negativeRoom.size);
+            var positiveRoom = Constants.Camera.rooms.GetRoom(_positiveRoomId.ToString())?.Dimensions;
+            var negativeRoom = Constants.Camera.rooms.GetRoom(_negativeRoomId.ToString())?.Dimensions;
+
+            if (positiveRoom.HasValue) {
+                Gizmos.color = new Color(0f, 1f, 0f, 0.2f);
+                Gizmos.DrawCube(positiveRoom.Value.position, positiveRoom.Value.size);
+            }
+            if (negativeRoom.HasValue) {
+                Gizmos.color = new Color(1f, 0f, 0f, 0.2f);
+                Gizmos.DrawCube(negativeRoom.Value.position, negativeRoom.Value.size);
+            }
         }
     }
 }
