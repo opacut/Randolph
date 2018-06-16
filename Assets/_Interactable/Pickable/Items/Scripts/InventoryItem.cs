@@ -51,7 +51,8 @@ namespace Randolph.Interactable {
             if (spriteRenderer) spriteRenderer.enabled = active;
             foreach(Collider2D collider in colliders)
             {
-                if (collider) collider.enabled = active;
+                //if (collider) collider.enabled = active;
+                collider.enabled = active;
             }
         }
 

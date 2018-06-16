@@ -16,15 +16,13 @@ public class Fruit : InventoryItem
     {
         base.Apply(target);
         target.GetComponent<IFeedable>().Feed(gameObject);
-        //Destroy(this);
     }
-    
 
     /*
-    public void Fall()
+    public override void Restart()
     {
-        rigidbody.
+        base.Restart();
+        SetComponentsActive(true);
     }
     */
-    
 }

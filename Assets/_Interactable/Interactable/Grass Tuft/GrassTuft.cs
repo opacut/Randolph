@@ -12,6 +12,7 @@ public class GrassTuft : Interactable, ISlashable
     private GameObject spawnPoint;
     [SerializeField]
     private Sprite cutGrass;
+    private Sprite original;
 
     private SpriteRenderer spriteRenderer;
     private bool hasGrass = true;
@@ -20,6 +21,14 @@ public class GrassTuft : Interactable, ISlashable
     {
         base.Awake();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        original = spriteRenderer.sprite;
+    }
+
+    public override void Restart()
+    {
+        base.Restart();
+        hasGrass = true;
+        spriteRenderer.sprite = original;
     }
 
     public override void Interact()
@@ -36,4 +45,5 @@ public class GrassTuft : Interactable, ISlashable
             Instantiate(grass, spawnPoint.transform.position, Quaternion.identity);
         }        
     }
+
 }
