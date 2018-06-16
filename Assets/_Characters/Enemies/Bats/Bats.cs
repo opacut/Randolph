@@ -48,6 +48,7 @@ public class Bats : MonoBehaviour, IRestartable
     public void Restart()
     {
         animator.SetBool("Trapped", false);
+        animator.SetBool("Flying", false);
         gameObject.transform.position = initialPosition;
 
         transform.position = initialPosition;
@@ -89,6 +90,7 @@ public class Bats : MonoBehaviour, IRestartable
     [ContextMenu("Fly Away")]
     public void StartMoving()
     {
+        animator.SetBool("Flying", true);
         Disturbed = true;
         SetNextDestination();
     }
