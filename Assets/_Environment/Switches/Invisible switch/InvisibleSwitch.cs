@@ -31,6 +31,7 @@ public class InvisibleSwitch : MonoBehaviour, IRestartable
     {
         if (other.GetComponent<Boulder>())
         {
+            AudioPlayer.audioPlayer.PlayLocalSound(audioSource, thumpSound);
             Flip(true);
             bats.StartMoving();
         }

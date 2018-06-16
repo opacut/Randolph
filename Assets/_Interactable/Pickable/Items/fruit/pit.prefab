@@ -94,7 +94,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21188280ce91e734eaab59afff70f5cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  description: The pit of the fruit. I can tell its shell is truly durable. I wonder
+    what secrets does it hold within...
   icon: {fileID: 21300000, guid: 19258f786f3a0b24c85663b4d27ae412, type: 3}
   collectSound: {fileID: 0}
   applySound: {fileID: 0}
