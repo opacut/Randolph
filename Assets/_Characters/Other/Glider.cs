@@ -13,9 +13,10 @@ namespace Randolph.Characters {
         [SerializeField] List<Vector2> destinations = new List<Vector2>();
         [SerializeField] bool straightLines = false;
 
+        Animator animator;
         Queue<Vector2> destinationQueue = new Queue<Vector2>();
         Vector2 currentDestination;
-
+        SpriteRenderer spriteRenderer;
         Vector3 initialPosition;        
 
         [SerializeField] bool movesFromStart = false;
@@ -31,6 +32,12 @@ namespace Randolph.Characters {
 
         public delegate void PlayerDisturbed(PlayerController player);
         public event PlayerDisturbed OnPlayerDisturbed;
+
+        private void Awake()
+        {
+            animator = GetComponent<Animator>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
 
         void Start() {
             initialPosition = transform.position;
@@ -48,11 +55,17 @@ namespace Randolph.Characters {
             } else if (continuous && Disturbed) {
                 SetNextDestination();
             }
+            else
+            {
+                animator.SetBool("Flying", false);
+                //transform.localScale.x = 1;
+            }
         }
 
         void OnCollisionEnter2D(Collision2D collision) {
             if ((collision.gameObject.tag == Constants.Tag.Player) && (!Disturbed || !continuous)) {
                 OnPlayerDisturbed?.Invoke(collision.gameObject.GetComponent<PlayerController>());
+                spriteRenderer.flipX = !spriteRenderer.flipX;
                 StartMoving();
             }
         }
@@ -60,12 +73,14 @@ namespace Randolph.Characters {
         void OnTriggerEnter2D(Collider2D other) {
             if ((other.tag == Constants.Tag.Player) && (!Disturbed || !continuous)) {
                 OnPlayerDisturbed?.Invoke(other.GetComponent<PlayerController>());
+                spriteRenderer.flipX = !spriteRenderer.flipX;
                 StartMoving();
             }
         }
 
         void StartMoving() {
             Disturbed = true;
+            animator.SetBool("Flying", true);
             SetNextDestination();
         }
 
@@ -96,6 +111,7 @@ namespace Randolph.Characters {
 
             // Move the object to the next position
             transform.position = Vector2.MoveTowards(transform.position, currentDestination, delta);
+
         }
 
         /// <summary>Set the destination to cause the object to smoothly glide to the specified location.</summary>

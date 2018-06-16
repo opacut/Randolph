@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class Fruit : InventoryItem
 {
+    
+
     public override bool IsSingleUse => true;
 
     public override bool IsApplicable(GameObject target) => target.GetComponent<IFeedable>() != null;
@@ -14,5 +16,15 @@ public class Fruit : InventoryItem
     {
         base.Apply(target);
         target.GetComponent<IFeedable>().Feed(gameObject);
+        //Destroy(this);
     }
+    
+
+    /*
+    public void Fall()
+    {
+        rigidbody.
+    }
+    */
+    
 }

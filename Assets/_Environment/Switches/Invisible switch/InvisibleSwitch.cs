@@ -1,4 +1,5 @@
 ﻿using Randolph.Core;
+using Randolph.Interactable;
 using Randolph.Levels;
 using System.Collections;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ public class InvisibleSwitch : MonoBehaviour, IRestartable
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<GenericRestart>())
+        if (other.GetComponent<Boulder>())
         {
             Flip(true);
             bats.StartMoving();

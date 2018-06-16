@@ -13,14 +13,14 @@ namespace Randolph.Interactable {
         protected Inventory inventory { get; private set; }
 
         SpriteRenderer spriteRenderer;
-        Collider2D boxCollider;
+        Collider2D[] colliders;
 
         protected override void Awake() {
             base.Awake();
             inventory = FindObjectOfType<Inventory>();
 
             spriteRenderer = GetComponent<SpriteRenderer>();
-            boxCollider = GetComponent<Collider2D>();
+            colliders = GetComponents<Collider2D>();
         }
 
         public override void Pick() {
@@ -49,7 +49,10 @@ namespace Randolph.Interactable {
 
         public void SetComponentsActive(bool active) {
             if (spriteRenderer) spriteRenderer.enabled = active;
-            if (boxCollider) boxCollider.enabled = active;
+            foreach(Collider2D collider in colliders)
+            {
+                if (collider) collider.enabled = active;
+            }
         }
 
     }
