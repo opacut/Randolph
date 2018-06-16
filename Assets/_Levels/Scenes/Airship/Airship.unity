@@ -2301,37 +2301,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4667859838281882, guid: 31064e9c8835fba4696a0eeed8e4d906,
     type: 2}
   m_PrefabInternal: {fileID: 1606459565}
---- !u!84 &564747932
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1207
-  m_Height: 516
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 0
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &587526408
 Prefab:
   m_ObjectHideFlags: 0
@@ -2492,37 +2461,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4447610227155346, guid: ad19968e1fc332a41a11b7bda60d6f77,
     type: 2}
   m_PrefabInternal: {fileID: 1544679363}
---- !u!84 &708529545
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1207
-  m_Height: 516
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &733065542
 Prefab:
   m_ObjectHideFlags: 0
@@ -3345,6 +3283,30 @@ Prefab:
       propertyPath: groundCheckRayLength
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 1529470198219152, guid: 81423794d48a5544a93de134578b6762, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224802909288399900, guid: 81423794d48a5544a93de134578b6762,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 3.845
+      objectReference: {fileID: 0}
+    - target: {fileID: 224802909288399900, guid: 81423794d48a5544a93de134578b6762,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 4.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 224802909288399900, guid: 81423794d48a5544a93de134578b6762,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.266
+      objectReference: {fileID: 0}
+    - target: {fileID: 224802909288399900, guid: 81423794d48a5544a93de134578b6762,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 11.771
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81423794d48a5544a93de134578b6762, type: 2}
   m_IsPrefabAsset: 0
@@ -3394,7 +3356,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 564747932}
+  m_TargetTexture: {fileID: 1530659575}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -13479,6 +13441,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4273603863895376, guid: 8b4288b422a243a41839c1cf4f4ff9c2,
     type: 2}
   m_PrefabInternal: {fileID: 2069256919}
+--- !u!84 &1530659575
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1207
+  m_Height: 492
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 0
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1534836939
 GameObject:
   m_ObjectHideFlags: 0
@@ -14253,6 +14246,37 @@ MonoBehaviour:
   - {fileID: 153353676}
   - {fileID: 1723362084}
   - {fileID: 317992336}
+--- !u!84 &1839027150
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1207
+  m_Height: 492
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1840256034
 GameObject:
   m_ObjectHideFlags: 0
@@ -25972,7 +25996,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Good job, you crashed the airship...
+  m_Text: "The crew of the Nightingale battled the voracious thunderstorm with great
+    fervor, but alas, a troupe of freelance bucanneers on a small fishing ship can
+    only do so much against the forces of Mother Nature. Nightingale crashed violently
+    on a mysterious uncharted island. \n\nThe crew gathered themselves, and got to
+    repairing the ship and tending to the wounded. Randolph, meanwhile, was sent to
+    scout ahead and explore the island - find possible sources of water, firewood
+    and such. \n\nLittle did Randolph know that the island was about to unleash its
+    secrets on the youg geographer, and turn his perception of this world upside down."
 --- !u!222 &2012715387
 CanvasRenderer:
   m_ObjectHideFlags: 0
