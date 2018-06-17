@@ -52,11 +52,13 @@ namespace Randolph.Interactable {
         protected virtual void Start() { shouldOutline = false; }
 
         protected virtual void OnMouseEnter() {
+            Debug.Log("mouse enter");
             OnMouseEnterClickable?.Invoke(this);
             shouldOutline = true;
         }
 
         protected virtual void OnMouseExit() {
+            Debug.Log("mouse exit");
             OnMouseExitClickable?.Invoke(this);
             shouldOutline = false;
         }

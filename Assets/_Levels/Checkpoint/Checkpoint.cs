@@ -51,7 +51,7 @@ namespace Randolph.Levels {
         public void RestoreState() {
             inventory.Items = inventoryState;
 
-            foreach (IRestartable restartable in restartables) {
+            foreach (var restartable in restartables) {
                 restartable.Restart();
             }
         }

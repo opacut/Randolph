@@ -1,8 +1,5 @@
-﻿using Randolph.Characters;
-using Randolph.Core;
-using Randolph.Levels;
+﻿using Randolph.Core;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Randolph.Interactable {
     [RequireComponent(typeof(LineRenderer))]
@@ -24,11 +21,11 @@ namespace Randolph.Interactable {
             gameObject.SetActive(false);
         }
 
-        void OnStoppedGrappling() {
+        private void OnStoppedGrappling() {
             gameObject.SetActive(true);
         }
 
-        void OnDestroy() {
+        private void OnDestroy() {
             Constants.Randolph.OnStoppedGrappling -= OnStoppedGrappling;
         }
 

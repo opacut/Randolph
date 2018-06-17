@@ -49,8 +49,7 @@ namespace Randolph.Interactable {
         public void SetComponentsActive(bool active) {
             if (spriteRenderer) spriteRenderer.enabled = active;
             if (boxCollider) boxCollider.enabled = active;
-            foreach (Collider2D collider in colliders)
-            {
+            foreach (var collider in colliders) {
                 //if (collider) collider.enabled = active;
                 collider.enabled = active;
             }

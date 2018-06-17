@@ -71,7 +71,8 @@ namespace Randolph.Levels {
             player.Killable = true;
             Camera.main.transform.position = reached.transform.position;
             Constants.Camera.transition.TransitionEnter();
-            await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationEnter));            
+            await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationEnter)); 
+            // TODO disable player's movement until respawned
         }
 
         public void CheckpointReached(Checkpoint checkpoint) {
