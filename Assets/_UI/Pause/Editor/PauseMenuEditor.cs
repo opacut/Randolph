@@ -1,4 +1,5 @@
 ﻿using Randolph.Core;
+using Randolph.UI;
 using UnityEditor;
 using UnityEngine;
 
@@ -76,6 +77,12 @@ public class PauseMenuEditor : Editor {
 
     void ShowMapInspector() {
         EditorGUILayout.PropertyField(mapUI);
+        GameObject worldMap = (mapUI.objectReferenceValue as GameObject)?.GetComponentInChildren<Worldmap>()?.gameObject;
+        if (worldMap != null) {
+            EditorGUI.BeginDisabledGroup(true);
+            EditorGUILayout.ObjectField("Worldmap", worldMap, typeof(GameObject), true);
+            EditorGUI.EndDisabledGroup();
+        }
     }
 
     /// <summary>Closes current menu and opens a new one.</summary>

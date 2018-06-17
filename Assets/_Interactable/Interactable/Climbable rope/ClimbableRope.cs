@@ -34,7 +34,7 @@ namespace Randolph.Interactable {
 
         void OnDestroy() {
             LevelManager.OnNewLevel -= OnNewLevel;
-            player.OnStoppedGrappling -= OnStoppedGrappling;
+            if (player) player.OnStoppedGrappling -= OnStoppedGrappling;
         }
     }
 }
