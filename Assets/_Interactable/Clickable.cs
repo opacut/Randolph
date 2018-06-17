@@ -19,6 +19,7 @@ namespace Randolph.Interactable {
         private string description;
 
         private Vector3 initialPosition;
+        private Quaternion initialRotation;
 
         protected Outline outline;
         private bool shouldOutline;
@@ -26,7 +27,11 @@ namespace Randolph.Interactable {
         /// <summary>Type of cursor to use. Override in a derived class.</summary>
         public abstract Cursors CursorType { get; protected set; }
 
-        public virtual void Restart() { transform.position = initialPosition; }
+        public virtual void Restart()
+        {
+            transform.position = initialPosition;
+            transform.rotation = initialRotation;
+        }
 
         public static event MouseEnterClickable OnMouseEnterClickable;
         public static event MouseExitClickable OnMouseExitClickable;
@@ -37,6 +42,7 @@ namespace Randolph.Interactable {
 
         protected virtual void Awake() {
             initialPosition = transform.position;
+            initialRotation = transform.rotation;
             outline = GetComponent<Outline>();
         }
 

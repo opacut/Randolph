@@ -1,14 +1,19 @@
 ﻿using Randolph.Characters;
 using Randolph.Core;
+using Randolph.Interactable;
 using Randolph.Levels;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Randolph.UI;
 
 //[RequireComponent(typeof(Glider))]
-public class Bats : MonoBehaviour, IRestartable
+public class Bats : Clickable, IRestartable
 {
+    public override Cursors CursorType { get; protected set; } = Cursors.Inspect;
+
     public bool Disturbed { get; private set; } = false;
+
     Queue<Vector2> destinationQueue = new Queue<Vector2>();
     public delegate void DestinationChange(Vector2 position, Vector2 nextDestination);
     public event DestinationChange OnDestinationChange;
@@ -24,6 +29,7 @@ public class Bats : MonoBehaviour, IRestartable
 
     Animator animator;
     AudioSource audioSource;
+    [SerializeField] AudioClip swooshSound;
     //Glider glider;
 
     // TODO: Harmful to: layer/tag | Destroyed by: layer/tag
@@ -35,7 +41,7 @@ public class Bats : MonoBehaviour, IRestartable
         //glider = GetComponent<Glider>();
 
         //glider.OnPlayerDisturbed += OnPlayerDisturbed;
-
+        audioSource = AudioPlayer.audioPlayer.AddAudioSource(gameObject);
     }
 
     /*
@@ -92,6 +98,7 @@ public class Bats : MonoBehaviour, IRestartable
     {
         animator.SetBool("Flying", true);
         Disturbed = true;
+        AudioPlayer.audioPlayer.PlayLocalSound(audioSource, swooshSound);
         SetNextDestination();
     }
 

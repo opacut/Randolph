@@ -36,8 +36,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1654808272255198}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 100.93731, y: -4.7826962, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,10 +79,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 559419e9a176bca4ab44fe3d670ba246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  description: My trusty lighter. It was a gift from my father upon my reaching adulthood.
+    I have kept it on myself at all times since. I feel at home any time I look at
+    it.
   icon: {fileID: 21300000, guid: 1f2a43ebf7364fa4c98dafbc7c632ef7, type: 3}
-  collectSound: {fileID: 0}
-  applySound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 0e0339a3bac3c44488b82c87ccc26a02, type: 3}
+  applySound: {fileID: 8300000, guid: 8f8b6716eb58b0344b28b46c96225ede, type: 3}
 --- !u!114 &114893037644339014
 MonoBehaviour:
   m_ObjectHideFlags: 1

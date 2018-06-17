@@ -79,10 +79,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae4787b718dd4ac47903ba15739aacb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  description: This might be but a makeshift instrument, but I'm sure I can make do
+    with it as my weapon against the darkness.
   icon: {fileID: 21300000, guid: 012906ecdd14a5e438d65e05c5d8b842, type: 3}
-  collectSound: {fileID: 0}
-  applySound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 0e0339a3bac3c44488b82c87ccc26a02, type: 3}
+  applySound: {fileID: 8300000, guid: 00adeb21417341d4eb93d978c0d2fe3e, type: 3}
 --- !u!114 &114411333657534330
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -79,10 +79,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: affbae862d1d38445ae9888c00eb5aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  description: This might be but a makeshift instrument, but I'm sure I can make do
+    with it as my weapon against the darkness...I just need to light it.
   icon: {fileID: 21300000, guid: 8eb51bae6171bb14fbc10735d7793dd1, type: 3}
-  collectSound: {fileID: 0}
-  applySound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 0e0339a3bac3c44488b82c87ccc26a02, type: 3}
+  applySound: {fileID: 8300000, guid: 00adeb21417341d4eb93d978c0d2fe3e, type: 3}
   burningTorchPrefab: {fileID: 114251596456243684, guid: b0c5c9320de8f1c438fdd5454811cde2,
     type: 2}
 --- !u!114 &114741358742546390

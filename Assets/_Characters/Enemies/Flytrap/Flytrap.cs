@@ -2,12 +2,15 @@ using UnityEngine;
 using Randolph.Core;
 using Assets._Interactable;
 using Randolph.Interactable;
+using Randolph.UI;
 
 namespace Randolph.Characters {
     [RequireComponent(typeof(SpriteRenderer))]
-    public class Flytrap : MonoBehaviour, IEnemy, IFeedable {
+    public class Flytrap : Clickable, IEnemy, IFeedable {
 
         public bool Active { get; private set; } = true;
+
+        public override Cursors CursorType { get; protected set; } = Cursors.Inspect;
 
         Sprite alive;
         [Header("Sprites")] [SerializeField] Sprite closed;

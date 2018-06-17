@@ -108,7 +108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad26c1a7162dc04783bc4b0384dd754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  description: For some people, a shrubbery is naught but a collection of twigs and
+    birches. But for a creative mind, it can bring about the solution to many a problem.
   twig: {fileID: 4406933340922960, guid: 0c0d440f63a786a40b9813da2263bab5, type: 2}
   spawnPoint: {fileID: 1258310555666916}
 --- !u!114 &114627048863029588

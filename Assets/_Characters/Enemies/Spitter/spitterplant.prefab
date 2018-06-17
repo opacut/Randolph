@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212641146355889942}
   - component: {fileID: 114024525726090674}
   - component: {fileID: 60764106127709454}
+  - component: {fileID: 114022901851328276}
   m_Layer: 0
   m_Name: spitterplant
   m_TagString: Untagged
@@ -106,6 +107,21 @@ PolygonCollider2D:
       - {x: 0.110694885, y: 0.2800604}
       - {x: -0.3664856, y: 0.54842937}
       - {x: -0.7012024, y: 0.8296423}
+--- !u!114 &114022901851328276
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1849676512290760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []
 --- !u!114 &114024525726090674
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -117,6 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31dd06d1584f9774a81265a2a8e63a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description: What kind of invasive species is this?! The plant seems to be...spitting
+    seeds around itself. I would prefer not to get in contact with any.
   shot: {fileID: 1574709601934362, guid: 3565bdf74ff0c264b8d34396e8e8d32c, type: 2}
   shotSpawn: {fileID: 4683350002384846}
   shotSound: {fileID: 8300000, guid: afeea0114b6f08046bbe0b50209d99cb, type: 3}

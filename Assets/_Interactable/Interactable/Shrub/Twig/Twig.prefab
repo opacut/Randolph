@@ -94,10 +94,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d0f2e91fdf7c4e45bbc09b6f12fe193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  description: Some people see a twig, others see a potential tool.
   icon: {fileID: 21300000, guid: 6eabb7980c052504e90e1abf696431b7, type: 3}
-  collectSound: {fileID: 0}
-  applySound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 0e0339a3bac3c44488b82c87ccc26a02, type: 3}
+  applySound: {fileID: 8300000, guid: 4603899b037c420489419da56ce2ba59, type: 3}
   torchPrefab: {fileID: 4745642300909830, guid: 12ad3c7143575f7499f02aec2823117f,
     type: 2}
 --- !u!212 &212418290601396456
