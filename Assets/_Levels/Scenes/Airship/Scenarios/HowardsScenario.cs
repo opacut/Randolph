@@ -20,6 +20,7 @@ namespace Assets.Levels.Airship {
         [SerializeField] private Bandage bandage;
         [SerializeField] private Alcohol alcohol;
         [SerializeField] private Cleanedbandage cleanedBandage;
+        [SerializeField] private Cue highlightCue;
         [SerializeField] private Cue pickUpCue;
         [SerializeField] private Cue useCue;
         [SerializeField] private Door deckDoor;
@@ -33,12 +34,14 @@ namespace Assets.Levels.Airship {
             howardsSpeechBubble.fullText = firstResponse;
             howardsSpeechBubble.Speak();
             storageKey.gameObject.SetActive(true);
+            highlightCue.gameObject.SetActive(true);
             pickUpCue.gameObject.SetActive(true);
 
             storageKey.OnPick += Iterate;
             yield return null;
             storageKey.OnPick -= Iterate;
             
+            highlightCue.Disable();
             pickUpCue.Disable();
             howardsSpeechBubble.fullText = secondResponse;
             useCue.gameObject.SetActive(true);

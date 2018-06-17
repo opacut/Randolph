@@ -19,6 +19,8 @@ namespace Randolph.Interactable {
         /// <summary>What should happen when the object is picked. The "Mouse Exit" event is invoked in the base class.</summary>
         public virtual void Pick() {
             ResetCursor();
+            shouldOutline = false;
+            outline.enabled = false;
             OnPick?.Invoke();
         }
 

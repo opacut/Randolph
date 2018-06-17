@@ -6,6 +6,7 @@ using static Randolph.Core.Constants;
 
 namespace Randolph.Interactable {
     [RequireComponent(typeof(Outline))]
+    [RequireComponent(typeof(SpriteRenderer))]
     public abstract class Clickable : MonoBehaviour, IRestartable {
         public delegate void MouseDownClickable(Clickable target, MouseButton button);
 
@@ -24,11 +25,12 @@ namespace Randolph.Interactable {
         protected Outline outline;
         private bool shouldOutline;
 
+        protected SpriteRenderer spriteRenderer;
+
         /// <summary>Type of cursor to use. Override in a derived class.</summary>
         public abstract Cursors CursorType { get; protected set; }
 
-        public virtual void Restart()
-        {
+        public virtual void Restart() {
             transform.position = initialPosition;
             transform.rotation = initialRotation;
         }
@@ -44,6 +46,7 @@ namespace Randolph.Interactable {
             initialPosition = transform.position;
             initialRotation = transform.rotation;
             outline = GetComponent<Outline>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         protected virtual void Start() { shouldOutline = false; }
@@ -70,7 +73,9 @@ namespace Randolph.Interactable {
         }
 
         protected void Update() {
-            outline.enabled = Input.GetAxis("Highlight") != 0.0f || shouldOutline;
+            if (spriteRenderer.enabled) {
+                outline.enabled = Input.GetAxis("Highlight") != 0.0f || shouldOutline;
+            }
         }
 
         private void OnDestroy() {
