@@ -47,7 +47,7 @@ namespace Randolph.Levels {
             LevelManager.OnNewLevel += OnNewLevel;
         }
 
-        void OnNewLevel(Scene scene, PlayerController player) {
+        void OnNewLevel(Scene scene) {
             RefreshCameraData();
             if (HasNestedAreas()) {
                 Debug.LogError($"<b>{gameObject.name}</b> is nested in another area. This can cause problems.", gameObject);

@@ -55,7 +55,8 @@ namespace Randolph.Characters {
             Active = false;
         }
 
-        public void Restart() {
+        public override void Restart() {
+            base.Restart();
             spriteRenderer.sprite = alive;
             Active = true;
         }
