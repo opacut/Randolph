@@ -294,7 +294,8 @@ namespace Randolph.Characters {
         void OnMouseDownClickable(Clickable target, Constants.MouseButton button) {
             bool withinDistance = Vector2.Distance(transform.position, target.transform.position) <= Inventory.inventory.ApplicableDistance;
 
-            if (withinDistance) {
+            // Is within distance and the game isn't paused
+            if (withinDistance && !PauseMenu.IsPaused) {
                 if (button == Constants.MouseButton.Left) {
                     switch (target.CursorType) {
                         case Cursors.Generic:

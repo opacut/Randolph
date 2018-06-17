@@ -16,7 +16,7 @@ namespace Randolph.Characters {
 
         public override Cursors CursorType { get; protected set; } = Cursors.Inspect;
 
-        private void Awake()
+        void Awake()
         {
             base.Awake();
             animator = GetComponent<Animator>();

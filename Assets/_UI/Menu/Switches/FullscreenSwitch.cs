@@ -29,7 +29,7 @@ namespace Randolph.UI {
         public override void OnPointerDown(PointerEventData pointerEventData) {
             Screen.fullScreen = !Screen.fullScreen;
             if (Application.isEditor) Debug.Log("Switching fullscreen.");
-            // base.Start(); ← Don't play any sound
+            // base.OnPointerDown(); ← Don't play any sound
         }
     }
 }
