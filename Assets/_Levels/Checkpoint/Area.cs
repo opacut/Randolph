@@ -9,8 +9,7 @@ using UnityEngine.SceneManagement;
 
 namespace Randolph.Levels {
     public class Area : MonoBehaviour {
-
-        ProCamera2DRooms cameraRooms;
+        
         Room matchingCameraRoom;
 
         public Room MatchingCameraRoom {
@@ -57,8 +56,7 @@ namespace Randolph.Levels {
         }
 
         public void RefreshCameraData() {
-            cameraRooms = FindObjectOfType<ProCamera2DRooms>();
-            MatchingCameraRoom = cameraRooms.GetRoom($"{Methods.GetNumberFromString(gameObject.name)}");
+            MatchingCameraRoom = Constants.Camera.rooms.GetRoom($"{Methods.GetNumberFromString(gameObject.name)}");
             if (Application.isPlaying && matchingCameraRoom == null) Debug.LogError($"No corresponding camera room found for <b>{gameObject.name}</b>.");
         }
 

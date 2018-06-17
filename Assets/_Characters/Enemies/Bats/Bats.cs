@@ -2,12 +2,11 @@
 using Randolph.Characters;
 using Randolph.Core;
 using Randolph.Interactable;
-using Randolph.Levels;
 using Randolph.UI;
 using UnityEngine;
 
 //[RequireComponent(typeof(Glider))]
-public class Bats : Clickable, IRestartable {
+public class Bats : Clickable {
     public delegate void DestinationChange(Vector2 position, Vector2 nextDestination);
 
     public delegate void GlidingEnd(Vector2 position);
@@ -19,8 +18,7 @@ public class Bats : Clickable, IRestartable {
 
     private Queue<Vector2> destinationQueue = new Queue<Vector2>();
     [SerializeField] private List<Vector2> destinations = new List<Vector2>();
-
-    [SerializeField][ReadonlyField] private Vector2 initialPosition;
+    
     [SerializeField] private bool loop;
     [SerializeField] private float speed = 20;
     [SerializeField] private AudioClip swooshSound;
@@ -123,5 +121,14 @@ public class Bats : Clickable, IRestartable {
 
         // Move the object to the next position
         transform.position = Vector2.MoveTowards(transform.position, currentDestination, delta);
+    }
+
+    private void OnDrawGizmosSelected() {
+        for (int i = 0; i < destinations.Count - 1; ++i) {
+            Gizmos.DrawLine(destinations[i], destinations[i + 1]);
+        }
+        if (loop) {
+            Gizmos.DrawLine(destinations[destinations.Count - 1], destinations[0]);
+        }
     }
 }

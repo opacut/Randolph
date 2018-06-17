@@ -19,7 +19,7 @@ namespace Randolph.Interactable {
         [Tooltip("Randolph's comment - keep empty if none.")][SerializeField][TextArea]
         private string description;
 
-        private Vector3 initialPosition;
+        protected Vector3 initialPosition { get; private set; }
         private Quaternion initialRotation;
 
         protected Outline outline;
