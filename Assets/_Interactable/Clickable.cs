@@ -72,7 +72,7 @@ namespace Randolph.Interactable {
             }
         }
 
-        protected void Update() {
+        protected virtual void Update() {
             if (spriteRenderer.enabled) {
                 outline.enabled = Input.GetAxis("Highlight") != 0.0f || shouldOutline;
             }

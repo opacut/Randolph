@@ -11,16 +11,13 @@ namespace Randolph.Interactable {
         [SerializeField] AudioClip collectSound;
         [SerializeField] AudioClip applySound;
         protected Inventory inventory { get; private set; }
-
-        SpriteRenderer spriteRenderer;
+        
         Collider2D[] colliders;
         Collider2D boxCollider;
 
         protected override void Awake() {
             base.Awake();
             inventory = FindObjectOfType<Inventory>();
-
-            spriteRenderer = GetComponent<SpriteRenderer>();
             colliders = GetComponents<Collider2D>();
             boxCollider = GetComponent<Collider2D>();
         }

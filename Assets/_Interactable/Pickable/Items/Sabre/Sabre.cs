@@ -12,7 +12,7 @@ namespace Randolph.Interactable {
         public override void Apply(GameObject target) {
             base.Apply(target);
             target.GetComponent<ISlashable>().Slash();
-            //Destroy(target);
+            target.gameObject.SetActive(false);
         }
     }
 }

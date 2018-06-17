@@ -18,17 +18,17 @@ namespace Randolph.Characters {
         [Header("Audio")] [SerializeField] AudioClip closeSound;
         [SerializeField] InventoryItem pitPrefab;
         [SerializeField] private GameObject spawnPoint;
-
-        SpriteRenderer spriteRenderer;
+        
         AudioSource audioSource;
 
-        void Start() {
+        protected override void Start() {
+            base.Start();
             spriteRenderer = GetComponent<SpriteRenderer>();
             audioSource = AudioPlayer.audioPlayer.AddAudioSource(gameObject);
             alive = spriteRenderer.sprite;
         }
 
-        void OnTriggerEnter2D(Collider2D other) {
+        private void OnTriggerEnter2D(Collider2D other) {
             if (Active) {
                 if (other.tag == Constants.Tag.Player) {
                     Deactivate();

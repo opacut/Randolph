@@ -1,48 +1,32 @@
-﻿using Randolph.Characters;
+﻿using System.Collections.Generic;
+using Randolph.Characters;
 using Randolph.Core;
 using Randolph.Interactable;
 using Randolph.Levels;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Randolph.UI;
+using UnityEngine;
 
 //[RequireComponent(typeof(Glider))]
-public class Bats : Clickable, IRestartable
-{
+public class Bats : Clickable, IRestartable {
+    public delegate void DestinationChange(Vector2 position, Vector2 nextDestination);
+
+    public delegate void GlidingEnd(Vector2 position);
+
+    private Animator animator;
+    private AudioSource audioSource;
+    [SerializeField] private bool continuous;
+    private Vector2 currentDestination;
+
+    private Queue<Vector2> destinationQueue = new Queue<Vector2>();
+    [SerializeField] private List<Vector2> destinations = new List<Vector2>();
+
+    [SerializeField][ReadonlyField] private Vector2 initialPosition;
+    [SerializeField] private bool loop;
+    [SerializeField] private float speed = 20;
+    [SerializeField] private AudioClip swooshSound;
     public override Cursors CursorType { get; protected set; } = Cursors.Inspect;
 
-    public bool Disturbed { get; private set; } = false;
-
-    Queue<Vector2> destinationQueue = new Queue<Vector2>();
-    public delegate void DestinationChange(Vector2 position, Vector2 nextDestination);
-    public event DestinationChange OnDestinationChange;
-    Vector2 currentDestination;
-    [SerializeField] bool loop = false;
-    public delegate void GlidingEnd(Vector2 position);
-    public event GlidingEnd OnGlidingEnd;
-    [SerializeField] List<Vector2> destinations = new List<Vector2>();
-    [SerializeField] bool continuous = false;
-    [SerializeField] float speed = 20;
-
-    [SerializeField, ReadonlyField] Vector2 initialPosition;
-
-    Animator animator;
-    AudioSource audioSource;
-    [SerializeField] AudioClip swooshSound;
-    //Glider glider;
-
-    // TODO: Harmful to: layer/tag | Destroyed by: layer/tag
-
-    void Awake()
-    {
-        initialPosition = gameObject.transform.position;
-        animator = GetComponent<Animator>();
-        //glider = GetComponent<Glider>();
-
-        //glider.OnPlayerDisturbed += OnPlayerDisturbed;
-        audioSource = AudioPlayer.audioPlayer.AddAudioSource(gameObject);
-    }
+    public bool Disturbed { get; private set; }
 
     /*
     void OnPlayerDisturbed(PlayerController player)
@@ -51,83 +35,81 @@ public class Bats : Clickable, IRestartable
     }
     */
 
-    public void Restart()
-    {
+    public override void Restart() {
+        base.Restart();
         animator.SetBool("Trapped", false);
         animator.SetBool("Flying", false);
-        gameObject.transform.position = initialPosition;
 
-        transform.position = initialPosition;
         CreateDestinationQueue();
         Disturbed = false;
         gameObject.SetActive(true);
     }
 
-    public void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == Constants.Tag.Player)
-        {
-            animator.SetBool("Trapped", true);
-            other.GetComponent<PlayerController>().Kill();
-        }
+    public event DestinationChange OnDestinationChange;
+
+    public event GlidingEnd OnGlidingEnd;
+    //Glider glider;
+
+    // TODO: Harmful to: layer/tag | Destroyed by: layer/tag
+
+    protected override void Awake() {
+        base.Awake();
+        
+        animator = GetComponent<Animator>();
+        //glider = GetComponent<Glider>();
+
+        //glider.OnPlayerDisturbed += OnPlayerDisturbed;
+        audioSource = AudioPlayer.audioPlayer.AddAudioSource(gameObject);
     }
 
-    void Start()
-    {
-        initialPosition = transform.position;
+    public void OnTriggerEnter2D(Collider2D other) {
+        if (other.tag != Constants.Tag.Player) {
+            return;
+        }
 
+        animator.SetBool("Trapped", true);
+        other.GetComponent<PlayerController>().Kill();
+    }
+
+    protected override void Start() {
+        base.Start();
         CreateDestinationQueue();
     }
 
-    void Update()
-    {
+    protected override void Update() {
         // If the object is not at the target destination
-        if ((Vector2)transform.position != currentDestination)
-        {
+        if ((Vector2) transform.position != currentDestination) {
             // Move towards the destination each frame until the object reaches it
             IncrementPosition();
-        }
-        else if (continuous && Disturbed)
-        {
+        } else if (continuous && Disturbed) {
             SetNextDestination();
         }
     }
 
     [ContextMenu("Fly Away")]
-    public void StartMoving()
-    {
+    public void StartMoving() {
         animator.SetBool("Flying", true);
         Disturbed = true;
         AudioPlayer.audioPlayer.PlayLocalSound(audioSource, swooshSound);
         SetNextDestination();
     }
 
-    void SetNextDestination()
-    {
-        if (destinationQueue.Count > 0)
-        {
+    private void SetNextDestination() {
+        if (destinationQueue.Count > 0) {
             SetDestination(destinationQueue.Dequeue());
             OnDestinationChange?.Invoke(transform.position, currentDestination);
-        }
-        else if (loop)
-        {
+        } else if (loop) {
             CreateDestinationQueue();
             OnDestinationChange?.Invoke(transform.position, currentDestination);
-        }
-        else
-        {
+        } else {
             // Invoke the event of ended gliding
             OnGlidingEnd?.Invoke(transform.position);
         }
     }
 
-    void SetDestination(Vector2 value)
-    {
-        currentDestination = value;
-    }
+    private void SetDestination(Vector2 value) { currentDestination = value; }
 
-    void CreateDestinationQueue()
-    {
+    private void CreateDestinationQueue() {
         // Add all destinations to queue            
         destinationQueue = new Queue<Vector2>(destinations);
 
@@ -135,10 +117,9 @@ public class Bats : Clickable, IRestartable
         SetDestination(initialPosition);
     }
 
-    void IncrementPosition()
-    {
+    private void IncrementPosition() {
         // Calculate the next position
-        float delta = speed * Time.deltaTime;
+        var delta = speed * Time.deltaTime;
 
         // Move the object to the next position
         transform.position = Vector2.MoveTowards(transform.position, currentDestination, delta);
