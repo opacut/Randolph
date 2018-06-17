@@ -1,12 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.Assertions;
-using UnityEngine.SceneManagement;
 using static Randolph.Core.Constants;
-using Randolph.UI;
-using Randolph.Characters;
 using Randolph.Core;
 using Randolph.Interactable;
-using Randolph.Levels;
 
 namespace Randolph.UI {
 public class CursorManager : MonoBehaviour {
@@ -70,9 +66,8 @@ public class CursorManager : MonoBehaviour {
     public bool WithinDistance(Vector2 position) {
         if (Inventory.inventory != null) {
             return Inventory.inventory.IsWithinApplicableDistance(position);
-        } else {
-            return Vector2.Distance(Constants.Randolph.transform.position, position) <= ApplicableDistance;
         }
+        return Vector2.Distance(Constants.Randolph.transform.position, position) <= ApplicableDistance;
     }
 
     void OnMouseEnterClickable(Clickable target) {
