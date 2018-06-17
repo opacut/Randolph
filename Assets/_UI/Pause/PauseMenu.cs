@@ -1,4 +1,7 @@
-﻿using Randolph.Core;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Randolph.Core;
 using Randolph.Levels;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,15 +16,29 @@ public class PauseMenu : MonoBehaviour {
 
     public static event GamePaused OnGamePaused;
 
-    [SerializeField] GameObject pauseMenuUI;
+    [HideInInspector] public int toolbarIdx;
+
+    [Header("Pause")]
+    public GameObject pauseMenuControls;
+    public GameObject pauseUI;
+    [Scene] public string menuScene;
     float oldTimeScale = 1f;
 
-    [SerializeField] [Scene] string menuScene;
+    [Header("Settings")]
+    public GameObject settingsUI;
+
+    [Header("Map")]
+    public GameObject mapUI;
 
     void Awake() {
-        if (pauseMenuUI.activeSelf && IsPaused == false) {
+        if (pauseMenuControls.activeSelf) {
             // Accidentaly open menu
-            pauseMenuUI.SetActive(false);
+            pauseMenuControls.SetActive(false);
+        }
+
+        if (!LevelManager.CanQuitGame()) {
+            //! Disable quit button if it's pointless
+            GetButtonWithClickMethod(QuitGame)?.gameObject.SetActive(false);
         }
     }
 
@@ -33,18 +50,21 @@ public class PauseMenu : MonoBehaviour {
     }
 
     public void ResumeGame() {
-        pauseMenuUI.SetActive(false);
+        if (settingsUI.activeSelf) CloseSettings();
+        pauseMenuControls.SetActive(false);
+
         Time.timeScale = oldTimeScale;
         AudioPlayer.ResumeGlobalVolume();
 
         IsPaused = false;
     }
 
-    void PauseGame() {
+    public void PauseGame() {
         OnGamePaused?.Invoke();
 
-        pauseMenuUI.SetActive(true);
+        pauseMenuControls.SetActive(true);
         oldTimeScale = Time.timeScale;
+
         Time.timeScale = 0f;
         AudioPlayer.PauseGlobalVolume();
 
@@ -56,13 +76,42 @@ public class PauseMenu : MonoBehaviour {
         SceneManager.LoadScene(menuScene);
     }
 
+    Button GetButtonWithClickMethod(Action action) {
+        Button quitButton = pauseUI.GetComponentsInChildren<Button>().FirstOrDefault(button => {
+            int count = button.onClick.GetPersistentEventCount();
+            for (int i = 0; i < count; i++) {
+                if (button.onClick.GetPersistentMethodName(i) == nameof(action)) return true;
+            }
+            return false;
+        });
+        return quitButton;
+    }
+
     public void QuitGame() {
         if (Application.isEditor) Debug.Log("Quitting game…");
         Application.Quit();
     }
 
+    // TODO: ↓ Split to other classes
+
     public void OpenSettings() {
-        Debug.Log("Opening settings…");
+        pauseUI.SetActive(false);
+        settingsUI.SetActive(true);
+    }
+
+    public void CloseSettings() {
+        pauseUI.SetActive(true);
+        settingsUI.SetActive(false);
+    }
+
+    public void OpenMap() {
+        pauseUI.SetActive(false);
+        mapUI.SetActive(true);
+    }
+
+    public void CloseMap() {
+        pauseUI.SetActive(true);
+        mapUI.SetActive(false);
     }
 
 }

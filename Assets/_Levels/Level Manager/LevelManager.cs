@@ -115,5 +115,12 @@ namespace Randolph.Levels {
             int checkpoint = PlayerPrefs.GetInt(CheckpointContainer.CheckpointKey, defaultValue: 0);
             Checkpoints.SetReached(checkpoint, true);
         }
+
+        /// <summary>Checks whether pressing a quit button would make sense.</summary>
+        /// <returns>True if pressing the quit button quits the application.</returns>
+        public static bool CanQuitGame() {
+            return !(Application.platform == RuntimePlatform.WebGLPlayer || Application.isEditor);
+        }
+
     }
 }

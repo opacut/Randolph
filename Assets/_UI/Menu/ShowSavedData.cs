@@ -3,12 +3,13 @@ using Randolph.UI;
 using UnityEngine;
 
 namespace Randolph.Levels {
+    /// <summary>Displays all known <see cref="PlayerPrefs"/> on the screen while in the Editor.</summary>
     public class ShowSavedData : MonoBehaviour {
 
         readonly string levelKey = LevelManager.LevelKey;
         readonly string checkpointKey = CheckpointContainer.CheckpointKey;
         readonly string inventoryKey = Inventory.InventoryKey;
-        readonly string muteKey = MuteSwitch.MuteKey;        
+        readonly string muteKey = MuteSwitch.MuteKey;
 
         int _offset = 10;
 
@@ -23,13 +24,12 @@ namespace Randolph.Levels {
         }
 
         void OnGUI() {
-            DisplayPlayerPrefs();
+            //! Editor only
+            if (Application.isEditor) ShowSavedPlayerPrefs();
         }
 
-        void DisplayPlayerPrefs() {
-            //! Editor only
-            if (!Application.isEditor) return;
-
+        /// <summary>Get all known <see cref="PlayerPrefs"/> and display them on the screen.</summary>
+        void ShowSavedPlayerPrefs() {
             var rectSize = new Vector2(200, 30);
             CurrentOffset = 10;
 
