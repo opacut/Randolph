@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf52a1290060af4da5fdd01bd6ed6c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  area: {fileID: 910425584}
+  _area: {fileID: 910425584}
 --- !u!61 &21228213
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -243,6 +243,16 @@ Prefab:
     - target: {fileID: 4468466025519830, guid: d3230c634fc95534e8091f7a70041170, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212204123654482326, guid: d3230c634fc95534e8091f7a70041170,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: -1816235093
+      objectReference: {fileID: 0}
+    - target: {fileID: 212204123654482326, guid: d3230c634fc95534e8091f7a70041170,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: -2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3230c634fc95534e8091f7a70041170, type: 2}
@@ -350,37 +360,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d4cdba6654d96241aa3b30c2e04fb0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!84 &270952416
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1235
-  m_Height: 513
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 0
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &287438107
 GameObject:
   m_ObjectHideFlags: 0
@@ -29678,7 +29657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf52a1290060af4da5fdd01bd6ed6c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  area: {fileID: 195921118}
+  _area: {fileID: 195921118}
 --- !u!61 &397416230
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30178,7 +30157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf52a1290060af4da5fdd01bd6ed6c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  area: {fileID: 141164087}
+  _area: {fileID: 141164087}
 --- !u!61 &446788353
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30810,7 +30789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf52a1290060af4da5fdd01bd6ed6c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  area: {fileID: 435211293}
+  _area: {fileID: 435211293}
 --- !u!61 &708404220
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -57665,37 +57644,6 @@ Transform:
   m_Father: {fileID: 1493725622}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!84 &998718242
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1235
-  m_Height: 513
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &1003570815
 Prefab:
   m_ObjectHideFlags: 0
@@ -57781,11 +57729,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4818417802087302, guid: 81423794d48a5544a93de134578b6762, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.4
+      value: -14.93
       objectReference: {fileID: 0}
     - target: {fileID: 4818417802087302, guid: 81423794d48a5544a93de134578b6762, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -8.73
+      value: -8.57
       objectReference: {fileID: 0}
     - target: {fileID: 4818417802087302, guid: 81423794d48a5544a93de134578b6762, type: 2}
       propertyPath: m_LocalPosition.z
@@ -57932,7 +57880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf52a1290060af4da5fdd01bd6ed6c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  area: {fileID: 1525652488}
+  _area: {fileID: 1525652488}
 --- !u!61 &1109523582
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -58026,6 +57974,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4879108998637202, guid: 66e7d41d01770944e82be62481c97de2,
     type: 2}
   m_PrefabInternal: {fileID: 926629883}
+--- !u!84 &1218620502
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1202
+  m_Height: 676
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!84 &1240536916
 RenderTexture:
   m_ObjectHideFlags: 0
@@ -58150,7 +58129,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 270952416}
+  m_TargetTexture: {fileID: 1604161515}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -59114,11 +59093,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4477797200529540, guid: 41b9919677c7b8e498a96ad96d3bebf2, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 75.16
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4477797200529540, guid: 41b9919677c7b8e498a96ad96d3bebf2, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4477797200529540, guid: 41b9919677c7b8e498a96ad96d3bebf2, type: 2}
       propertyPath: m_LocalPosition.z
@@ -59148,6 +59127,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4477797200529540, guid: 41b9919677c7b8e498a96ad96d3bebf2, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 320
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41b9919677c7b8e498a96ad96d3bebf2, type: 2}
   m_IsPrefabAsset: 0
@@ -59163,7 +59146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf52a1290060af4da5fdd01bd6ed6c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  area: {fileID: 343251415}
+  _area: {fileID: 343251415}
 --- !u!1001 &1363947248
 Prefab:
   m_ObjectHideFlags: 0
@@ -59346,15 +59329,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: What manner of hellish beasts block my path?! I would rather not wake
     them - better tread lightly!
-  loop: 0
+  continuous: 1
   destinations:
   - {x: 165, y: 5}
   - {x: 182, y: 10}
   - {x: 190, y: 24}
   - {x: 150, y: 40}
-  continuous: 1
+  loop: 0
   speed: 20
-  initialPosition: {x: 0, y: 0}
   swooshSound: {fileID: 8300000, guid: 930146ad7a7807c4f9b7c0fa081cc3a0, type: 3}
 --- !u!114 &1412747365
 MonoBehaviour:
@@ -59632,6 +59614,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!84 &1604161515
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1202
+  m_Height: 676
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 0
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &1606110987
 Prefab:
   m_ObjectHideFlags: 0

@@ -63,13 +63,15 @@ namespace Randolph.Levels {
             if (delay > 0) {
                 await Task.Delay(TimeSpan.FromSeconds(delay));
             }
-            reached.RestoreState();
 
             Constants.Camera.transition.TransitionExit();
-            await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationExit));        
+            await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationExit));  
+            
             player.transform.position = reached.transform.position;
             player.Killable = true;
-            Camera.main.transform.position = reached.transform.position;
+            reached.RestoreState();
+
+            Constants.Camera.rooms.EnterRoom(reached.Area.MatchingCameraRoom.ID, false);
             Constants.Camera.transition.TransitionEnter();
             await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationEnter)); 
             // TODO disable player's movement until respawned

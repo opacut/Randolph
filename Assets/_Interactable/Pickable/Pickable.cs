@@ -2,7 +2,6 @@
 using Randolph.Core;
 using Randolph.Levels;
 using Randolph.UI;
-using UnityEngine;
 
 namespace Randolph.Interactable {
     public abstract class Pickable : Clickable, IPickable {
