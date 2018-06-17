@@ -1,10 +1,12 @@
 ﻿using Randolph.Core;
+using Randolph.Interactable;
 using Randolph.Levels;
+using Randolph.UI;
 using UnityEngine;
 
 namespace Randolph.Characters {
     [RequireComponent(typeof(Glider))]
-    public class Crows : MonoBehaviour, IRestartable {
+    public class Crows : Clickable, IRestartable {
 
         Animator animator;
         AudioSource audioSource;
@@ -12,7 +14,11 @@ namespace Randolph.Characters {
 
         [SerializeField] AudioClip cawingSound;
 
-        private void Awake() {
+        public override Cursors CursorType { get; protected set; } = Cursors.Inspect;
+
+        private void Awake()
+        {
+            base.Awake();
             animator = GetComponent<Animator>();
             audioSource = AudioPlayer.audioPlayer.AddAudioSource(gameObject);
             glider = GetComponent<Glider>();
@@ -20,7 +26,9 @@ namespace Randolph.Characters {
             glider.OnPlayerDisturbed += OnPlayerDisturbed;
         }
 
-        public void Restart() {
+        public void Restart()
+        {
+            base.Restart();
             animator.SetBool("Flying", false);
         }
 

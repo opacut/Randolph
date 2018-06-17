@@ -1,4 +1,5 @@
-﻿using Randolph.Interactable;
+﻿using System;
+using Randolph.Interactable;
 using System.Linq;
 using UnityEngine;
 
@@ -31,10 +32,13 @@ namespace Randolph.Environment {
 
         public void Slash(TiedRope rope) {
             ropes = ropes.Where(x => x != rope).ToArray();
+            OnSlash?.Invoke();
 
             if (ropes.Length == 0) {
                 animator.SetBool("CutOff", true);
             }
         }
+        
+        public event Action OnSlash;
     }
 }

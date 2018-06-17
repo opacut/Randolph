@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Randolph.Characters;
+using Randolph.Core;
 using Randolph.Interactable;
 using Randolph.Levels;
 using UnityEngine;
@@ -77,14 +78,16 @@ namespace Randolph.UI {
         }
 
         public bool IsApplicableTo(InventoryItem item, GameObject target) {
-            if (Contains(item) && DistanceCheck(target)) return item.IsApplicable(target);
+            if (Contains(item) && (DistanceCheck(target) || (target.GetComponent<InventoryItem>() && Contains(target.GetComponent<InventoryItem>())))) return item.IsApplicable(target);
             return false;
         }
 
         public bool ApplyTo(InventoryItem item, GameObject target) {
-            if (!IsApplicableTo(item, target)) return false;
+            if (!IsApplicableTo(item, target)) {
+                return false;
+            }
 
-            item.OnApply(target);
+            item.Apply(target);
             if (item.IsSingleUse) {
                 Remove(item);
             }

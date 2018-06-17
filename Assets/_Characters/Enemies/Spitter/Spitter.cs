@@ -2,9 +2,11 @@ using System.Collections;
 using Randolph.Core;
 using Randolph.Levels;
 using UnityEngine;
+using Randolph.Interactable;
+using Randolph.UI;
 
 namespace Randolph.Characters {
-    public class Spitter : MonoBehaviour, IRestartable {
+    public class Spitter : Clickable, IRestartable {
 
         [SerializeField] GameObject shot;
         [SerializeField] Transform shotSpawn;
@@ -15,6 +17,8 @@ namespace Randolph.Characters {
         Transform currentArea;
 
         Coroutine shootingCO;
+
+        public override Cursors CursorType { get; protected set; } = Cursors.Inspect;
 
         void Start() {
             audioSource = AudioPlayer.audioPlayer.AddAudioSource(gameObject);
@@ -34,7 +38,7 @@ namespace Randolph.Characters {
             }
         }
 
-        public void Restart() { }
+        //public void Restart() { }
 
         public void Kill() { }
 

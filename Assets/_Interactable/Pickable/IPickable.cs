@@ -1,7 +1,7 @@
 ﻿namespace Randolph.Levels {
     public interface IPickable : IRestartable {
 
-        void OnPick();
+        void Pick();
         bool IsSingleUse { get; }
 
     }

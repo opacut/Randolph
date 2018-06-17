@@ -1,4 +1,5 @@
 ﻿using Randolph.Characters;
+using Randolph.Core;
 using Randolph.Levels;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,7 +8,6 @@ namespace Randolph.Interactable {
     [RequireComponent(typeof(LineRenderer))]
     public class ClimbableRope : Interactable {
         [SerializeField] Transform tiePosition;
-        PlayerController player;
         LineRenderer lineRenderer;
         
 
@@ -15,16 +15,12 @@ namespace Randolph.Interactable {
             base.Awake();
             lineRenderer = GetComponent<LineRenderer>();
             lineRenderer.SetPositions(new[] {transform.position, tiePosition.position});
-            LevelManager.OnNewLevel += OnNewLevel;            
+            Constants.Randolph.OnStoppedGrappling += OnStoppedGrappling;
         }
 
-        void OnNewLevel(Scene scene, PlayerController player) {
-            this.player = player;
-            this.player.OnStoppedGrappling += OnStoppedGrappling;
-        }
-
-        public override void OnInteract() {
-            player.GrappleTo(tiePosition.position);
+        public override void Interact() {
+            base.Interact();
+            Constants.Randolph.GrappleTo(tiePosition.position);
             gameObject.SetActive(false);
         }
 
@@ -33,8 +29,12 @@ namespace Randolph.Interactable {
         }
 
         void OnDestroy() {
-            LevelManager.OnNewLevel -= OnNewLevel;
-            player.OnStoppedGrappling -= OnStoppedGrappling;
+            Constants.Randolph.OnStoppedGrappling -= OnStoppedGrappling;
+        }
+
+        private void OnDrawGizmos() {
+            Gizmos.color = GetComponent<LineRenderer>().startColor;
+            Gizmos.DrawLine(transform.position, tiePosition.position);
         }
     }
 }

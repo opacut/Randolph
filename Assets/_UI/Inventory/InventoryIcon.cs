@@ -1,4 +1,5 @@
-﻿using Randolph.Interactable;
+﻿using Randolph.Core;
+using Randolph.Interactable;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -8,24 +9,14 @@ namespace Randolph.UI {
     [RequireComponent(typeof(CanvasGroup))]
     [RequireComponent(typeof(LayoutElement))]
     public class InventoryIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
+        private Image image;
+        private Material initialMaterial;
 
-        [SerializeField] Material outOfReachMaterial;
-        Material initialMaterial;
-        Image image;
+        private Inventory inventory;
 
-        Inventory inventory;
-        Vector2 position;
+        [SerializeField] private Material outOfReachMaterial;
+        private Vector2 position;
         public InventoryItem item { get; private set; }
-
-        public void Init(Inventory inventory, InventoryItem item) {
-            this.inventory = inventory;
-            this.item = item;
-
-            this.image = GetComponent<Image>();
-            initialMaterial = image.material;            
-            image.sprite = item.icon;
-            image.preserveAspect = true;
-        }
 
         public void OnBeginDrag(PointerEventData eventData) {
             position = transform.position;
@@ -34,9 +25,9 @@ namespace Randolph.UI {
         }
 
         public void OnDrag(PointerEventData eventData) {
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            if (outOfReachMaterial && !IsCursorWithinApplicableDistance(mousePosition)) {
+            if (outOfReachMaterial && !IsCursorWithinApplicableDistance(mousePosition) && !IsCursoreAboveAnotherItem(eventData)) {
                 // Too far to apply the item -> set an appropriate material
                 image.material = outOfReachMaterial;
             } else if (image.material != initialMaterial) {
@@ -47,7 +38,7 @@ namespace Randolph.UI {
         }
 
         public void OnEndDrag(PointerEventData eventData) {
-            GameObject target = FindApplicableTarget();
+            var target = FindApplicableTarget() ?? eventData?.pointerCurrentRaycast.gameObject?.GetComponent<InventoryIcon>()?.item.gameObject;
             if (target) {
                 inventory.ApplyTo(item, target);
             }
@@ -58,19 +49,32 @@ namespace Randolph.UI {
             GetComponent<LayoutElement>().ignoreLayout = false;
         }
 
-        bool IsCursorWithinApplicableDistance(Vector2 mousePosition) {
-            return inventory.IsWithinApplicableDistance(mousePosition);
+        public void Init(Inventory inventory, InventoryItem item) {
+            this.inventory = inventory;
+            this.item = item;
+
+            image = GetComponent<Image>();
+            initialMaterial = image.material;
+            image.sprite = item.icon;
+            image.preserveAspect = true;
         }
 
-        GameObject FindApplicableTarget() {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        private bool IsCursorWithinApplicableDistance(Vector2 mousePosition) { return inventory.IsWithinApplicableDistance(mousePosition); }
 
-            foreach (RaycastHit2D hit in Physics2D.RaycastAll(ray.origin, ray.direction)) {
-                if (inventory.IsApplicableTo(item, hit.collider.gameObject)) return hit.collider.gameObject;
+        private bool IsCursoreAboveAnotherItem(PointerEventData eventData) { return eventData.pointerCurrentRaycast.gameObject?.GetComponent<InventoryIcon>() ?? false; }
+
+        private GameObject FindApplicableTarget() {
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            foreach (var hit in Physics2D.RaycastAll(ray.origin, ray.direction)) {
+                if (inventory.IsApplicableTo(item, hit.collider.gameObject)) {
+                    return hit.collider.gameObject;
+                }
             }
-
+            
+            // TODO Move to better spot and improve with more describing response
+            Constants.Randolph.ShowDescriptionBubble("I can't do that.", 2.5f);
             return null;
         }
-
     }
 }
