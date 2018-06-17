@@ -23,7 +23,7 @@ namespace Randolph.Interactable {
         private Quaternion initialRotation;
 
         protected Outline outline;
-        private bool shouldOutline;
+        protected bool shouldOutline;
 
         protected SpriteRenderer spriteRenderer;
 
