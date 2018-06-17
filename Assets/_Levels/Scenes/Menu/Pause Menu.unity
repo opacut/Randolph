@@ -210,27 +210,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114962377846379088, guid: 548b82bf70d5a4b48b7f75b1e1ed9ed4,
-        type: 2}
-      propertyPath: menuScene
-      value: Menu
-      objectReference: {fileID: 0}
-    - target: {fileID: 1719840605787560, guid: 548b82bf70d5a4b48b7f75b1e1ed9ed4, type: 2}
-      propertyPath: m_Name
-      value: Resume button
-      objectReference: {fileID: 0}
-    - target: {fileID: 1182874130569434, guid: 548b82bf70d5a4b48b7f75b1e1ed9ed4, type: 2}
-      propertyPath: m_Name
-      value: Settings button
-      objectReference: {fileID: 0}
-    - target: {fileID: 1935527092847278, guid: 548b82bf70d5a4b48b7f75b1e1ed9ed4, type: 2}
-      propertyPath: m_Name
-      value: Menu button
-      objectReference: {fileID: 0}
-    - target: {fileID: 1820174231153738, guid: 548b82bf70d5a4b48b7f75b1e1ed9ed4, type: 2}
-      propertyPath: m_Name
-      value: Quit button
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 548b82bf70d5a4b48b7f75b1e1ed9ed4, type: 2}
   m_IsPrefabAsset: 0

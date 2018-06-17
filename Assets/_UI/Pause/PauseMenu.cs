@@ -1,6 +1,7 @@
 ﻿using Randolph.Core;
 using Randolph.Levels;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour {
@@ -17,13 +18,18 @@ public class PauseMenu : MonoBehaviour {
 
     [SerializeField] [Scene] string menuScene;
 
-    // Update is called once per frame
+    void Awake() {
+        if (pauseMenuUI.activeSelf && IsPaused == false) {
+            // Accidentaly open menu
+            pauseMenuUI.SetActive(false);
+        }
+    }
+
     void Update() {
-        if (Input.GetButtonDown(PauseKey))
-            if (!IsPaused)
-                PauseGame();
-            else
-                ResumeGame();
+        if (Input.GetButtonDown(PauseKey)) {
+            if (!IsPaused) PauseGame();
+            else ResumeGame();
+        }
     }
 
     public void ResumeGame() {
@@ -46,11 +52,17 @@ public class PauseMenu : MonoBehaviour {
     }
 
     public void LoadMenu() {
-        Debug.Log($"Loading: {menuScene}");
+        ResumeGame();
+        SceneManager.LoadScene(menuScene);
     }
 
     public void QuitGame() {
+        if (Application.isEditor) Debug.Log("Quitting game…");
         Application.Quit();
+    }
+
+    public void OpenSettings() {
+        Debug.Log("Opening settings…");
     }
 
 }

@@ -57,12 +57,12 @@ GameObject:
   - component: {fileID: 114014946121352818}
   - component: {fileID: 114690559473523720}
   m_Layer: 5
-  m_Name: Settings
+  m_Name: Settings button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1261074357664216
 GameObject:
   m_ObjectHideFlags: 1
@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 224669130945115872}
   - component: {fileID: 222685189497191224}
   - component: {fileID: 114962377846379088}
+  - component: {fileID: 95430202786699432}
   m_Layer: 5
   m_Name: Pause Menu
   m_TagString: Untagged
@@ -225,7 +226,7 @@ GameObject:
   - component: {fileID: 224060978872020204}
   - component: {fileID: 114279543011005864}
   m_Layer: 5
-  m_Name: Menu
+  m_Name: Buttons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -243,7 +244,7 @@ GameObject:
   - component: {fileID: 114052231508239890}
   - component: {fileID: 114620015048119400}
   m_Layer: 5
-  m_Name: Resume
+  m_Name: Resume button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -311,7 +312,7 @@ GameObject:
   - component: {fileID: 114552653371464766}
   - component: {fileID: 114064926251991592}
   m_Layer: 5
-  m_Name: Quit
+  m_Name: Quit button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -396,7 +397,7 @@ GameObject:
   - component: {fileID: 114474372997945142}
   - component: {fileID: 114789305630184288}
   m_Layer: 5
-  m_Name: Menu
+  m_Name: Menu button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -436,6 +437,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &95430202786699432
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1326569308464648}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4028214a05702c74dbadf7fb7ef5c5e2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114014946121352818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -582,7 +601,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114552653371464766}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114962377846379088}
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114082109854207280
@@ -956,7 +986,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114052231508239890}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114962377846379088}
+        m_MethodName: ResumeGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114637432843786134
@@ -1024,7 +1065,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114014946121352818}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114962377846379088}
+        m_MethodName: OpenSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114717430970303594
@@ -1125,7 +1177,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114474372997945142}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114962377846379088}
+        m_MethodName: LoadMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114962377846379088
@@ -1140,6 +1203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1943787871783218}
+  menuScene: Menu
 --- !u!114 &114969742847143750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1470,7 +1534,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 79.99998, y: -155}
+  m_AnchoredPosition: {x: 79.99998, y: -140}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224116245107572540
@@ -1734,7 +1798,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 79.999985, y: -110}
+  m_AnchoredPosition: {x: 79.999985, y: -80}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224776804615095938
