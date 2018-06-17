@@ -31,6 +31,7 @@ namespace Randolph.UI {
             Active = !Active;
             PlayerPrefs.SetInt(MuteKey, (Active) ? On : Off);
             AudioListener.volume = (Active) ? 0 : AudioPlayer.GlobalVolume; // swap values
+            if (Application.isEditor) Debug.Log($"The new AudioListener volume is {AudioListener.volume}.");
             SpriteSwap();
         }
 

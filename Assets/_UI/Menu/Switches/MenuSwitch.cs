@@ -31,7 +31,7 @@ namespace Randolph.UI {
 
         /// <summary>Plays a sound when the switch is clicked. Set <see cref="P:Randolph.UI.MenuSwitch.Active" /> and call <see cref="!:SpriteSwap" /> as necessary.</summary>
         public virtual void OnPointerDown(PointerEventData pointerEventData) {
-            AudioPlayer.audioPlayer.PlayGlobalSound(soundOnClick);
+            AudioPlayer.audioPlayer?.PlayGlobalSound(soundOnClick);
         }
 
         /// <summary>Sets the switch's sprite.</summary>

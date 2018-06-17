@@ -13,24 +13,27 @@ public class PauseMenu : MonoBehaviour {
     const string PauseKey = "Pause";
 
     public delegate void GamePaused();
-
     public static event GamePaused OnGamePaused;
 
+    Animator animator;
+    const string PauseTrigger = "Pause";
+    //const string UnpauseTrigger = "Unpause";
     [HideInInspector] public int toolbarIdx;
 
-    [Header("Pause")]
+    //! Pause
     public GameObject pauseMenuControls;
     public GameObject pauseUI;
     [Scene] public string menuScene;
     float oldTimeScale = 1f;
 
-    [Header("Settings")]
+    //! Settings
     public GameObject settingsUI;
 
-    [Header("Map")]
+    //! Map
     public GameObject mapUI;
 
     void Awake() {
+        Reset();
         if (pauseMenuControls.activeSelf) {
             // Accidentaly open menu
             pauseMenuControls.SetActive(false);
@@ -40,6 +43,8 @@ public class PauseMenu : MonoBehaviour {
             //! Disable quit button if it's pointless
             GetButtonWithClickMethod(QuitGame)?.gameObject.SetActive(false);
         }
+
+        animator = GetComponent<Animator>();
     }
 
     void Update() {
@@ -55,6 +60,7 @@ public class PauseMenu : MonoBehaviour {
 
         Time.timeScale = oldTimeScale;
         AudioPlayer.ResumeGlobalVolume();
+        //animator.SetTrigger(UnpauseTrigger);
 
         IsPaused = false;
     }
@@ -63,10 +69,11 @@ public class PauseMenu : MonoBehaviour {
         OnGamePaused?.Invoke();
 
         pauseMenuControls.SetActive(true);
-        oldTimeScale = Time.timeScale;
 
+        oldTimeScale = Time.timeScale;
         Time.timeScale = 0f;
         AudioPlayer.PauseGlobalVolume();
+        animator.SetTrigger(PauseTrigger);
 
         IsPaused = true;
     }
@@ -112,6 +119,13 @@ public class PauseMenu : MonoBehaviour {
     public void CloseMap() {
         pauseUI.SetActive(true);
         mapUI.SetActive(false);
+    }
+
+    /// <summary>Called when adding components for the first time or clicking 'Reset' context menu.</summary>
+    void Reset() {
+        if (toolbarIdx == 1 && pauseUI && settingsUI) CloseSettings();
+        else if (toolbarIdx == 2 && pauseUI && mapUI) CloseMap();
+        toolbarIdx = 0;
     }
 
 }
