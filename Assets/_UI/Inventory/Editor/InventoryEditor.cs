@@ -23,7 +23,7 @@ namespace Randolph.UI {
         }
 
         void DrawApplicableDistanceHandle() {
-            var player = FindObjectOfType<PlayerController>();
+            var player = Constants.Randolph;
             if (player) {
                 Handles.color = new Color32(0xE5, 0xDD, 0x35, 0xFF / 5);
                 Handles.DrawSolidDisc(player.transform.position, Vector3.forward, applicableDistance.floatValue);

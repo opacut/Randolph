@@ -19,11 +19,7 @@ namespace Randolph.UI {
         [SerializeField] ItemDatabase itemDatabase;
         [SerializeField] float applicableDistance = 6;
 
-        public float ApplicableDistance {
-            get { return applicableDistance; }
-        }
-
-        Rigidbody2D player;
+        public float ApplicableDistance => applicableDistance;
 
         List<InventoryIcon> icons = new List<InventoryIcon>();
 
@@ -47,8 +43,7 @@ namespace Randolph.UI {
             LevelManager.OnNewLevel += OnNewLevel;
         }
 
-        void OnNewLevel(Scene scene, PlayerController playerController) {
-            player = playerController.GetComponent<Rigidbody2D>();
+        void OnNewLevel(Scene scene) {
             inventory = FindObjectOfType<Inventory>();
         }
 
@@ -74,7 +69,7 @@ namespace Randolph.UI {
         }
 
         public bool IsWithinApplicableDistance(Vector2 position) {
-            return Vector2.Distance(position, player.transform.position) <= ApplicableDistance;
+            return Vector2.Distance(position, Constants.Randolph.transform.position) <= ApplicableDistance;
         }
 
         public bool IsApplicableTo(InventoryItem item, GameObject target) {
@@ -95,10 +90,12 @@ namespace Randolph.UI {
         }
 
         bool DistanceCheck(GameObject target) {
-            if (target == player.gameObject) return true;
+            if (target.tag == Constants.Tag.Player) {
+                return true;
+            }
 
             Debug.Assert(target.GetComponent<Collider2D>());
-            ColliderDistance2D result = player.Distance(target.GetComponent<Collider2D>());
+            ColliderDistance2D result = Constants.Randolph.GetComponent<Rigidbody2D>().Distance(target.GetComponent<Collider2D>());
             return result.isValid && Mathf.Abs(result.distance) < applicableDistance;
         }
 

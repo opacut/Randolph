@@ -1,4 +1,5 @@
 ﻿using Randolph.Characters;
+using Randolph.Core;
 using UnityEngine;
 using Randolph.Environment;
 
@@ -10,7 +11,7 @@ namespace Randolph.Interactable {
 
         public override void Pick() {
             base.Pick();
-            FindObjectOfType<PlayerController>().StopGrappling();
+            Constants.Randolph.StopGrappling();
             if (connectedRope) Destroy(connectedRope.gameObject);
         }
 

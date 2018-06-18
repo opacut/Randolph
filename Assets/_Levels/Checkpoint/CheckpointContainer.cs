@@ -19,16 +19,14 @@ namespace Randolph.Levels {
 
         [SerializeField, ReadonlyField] List<Checkpoint> checkpoints = new List<Checkpoint>();
         public const string CheckpointKey = "ReachedCheckpoint";
-        PlayerController player;
 
         void Awake() {
             LevelManager.OnNewLevel += OnNewLevel;
         }
 
         /// <summary>Setup the checkpoints and (optionally) move the player to the first one.</summary>        
-        async void OnNewLevel(Scene scene, PlayerController playerController) {
+        async void OnNewLevel(Scene scene) {
             Debug.Assert(FindObjectsOfType(GetType()).Length == 1, "There is always supposed to be only one <b>CheckpointContainer</b> in a level.", gameObject);
-            player = playerController;
             RefreshCheckpointList();
             Debug.Assert(checkpoints.Any(), "There are no checkpoints in the container!", gameObject);
 
@@ -39,8 +37,8 @@ namespace Randolph.Levels {
 
                 PlayerPrefs.SetInt(CheckpointKey, checkpoints.IndexOf(reached));
                 if (alignPlayer) {
-                    player.transform.position = reached.transform.position;
-                    player.transform.AlignToGround();
+                    Constants.Randolph.transform.position = reached.transform.position;
+                    Constants.Randolph.transform.AlignToGround();
                 }
             }
 
@@ -67,8 +65,8 @@ namespace Randolph.Levels {
             Constants.Camera.transition.TransitionExit();
             await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationExit));  
             
-            player.transform.position = reached.transform.position;
-            player.Killable = true;
+            Constants.Randolph.transform.position = reached.transform.position;
+            Constants.Randolph.Killable = true;
             reached.RestoreState();
 
             Constants.Camera.rooms.EnterRoom(reached.Area.MatchingCameraRoom.ID, false);
@@ -95,16 +93,13 @@ namespace Randolph.Levels {
 
         public void SetReached(Checkpoint checkpoint, bool movePlayer = false) {
             if (checkpoint == null) return;
-            else {
-                if (movePlayer) {
-                    if (!player) player = FindObjectOfType<PlayerController>();
-                    player.transform.position = checkpoint.transform.position;
-                    if (alignPlayer) {                        
-                        player.transform.AlignToGround();
-                    }
+            if (movePlayer) {
+                Constants.Randolph.transform.position = checkpoint.transform.position;
+                if (alignPlayer) {                        
+                    Constants.Randolph.transform.AlignToGround();
                 }
-                CheckpointReached(checkpoint);               
             }
+            CheckpointReached(checkpoint);
         }
 
         public void SetReached(int checkpointIndex, bool movePlayer = false) {

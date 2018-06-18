@@ -1,13 +1,9 @@
-﻿using UnityEngine;
-using UnityEngine.Assertions;
-using UnityEngine.SceneManagement;
-using static Randolph.Core.Constants;
-using Randolph.UI;
-using Randolph.Characters;
+﻿using Randolph.Core;
 using Randolph.Interactable;
-using Randolph.Levels;
+using UnityEngine;
+using UnityEngine.Assertions;
 
-//namespace Randolph.UI {
+namespace Randolph.UI {
 public class CursorManager : MonoBehaviour {
 
     public static readonly Vector2 CursorHotspot = Vector2.zero;
@@ -17,7 +13,6 @@ public class CursorManager : MonoBehaviour {
     public static GameCursor currentCursor;
 
     [SerializeField] CursorDatabase cursorDatabase;
-    PlayerController player;
     Clickable continuousTarget = null;
     bool clickHold = false;
 
@@ -65,23 +60,11 @@ public class CursorManager : MonoBehaviour {
         Clickable.OnMouseExitClickable += OnMouseExitClickable;
         Clickable.OnMouseDownClickable += OnMouseDownClickable;
         Clickable.OnMouseUpClickable += OnMouseUpClickable;
-
-        LevelManager.OnNewLevel += OnNewLevel;
     }
 
-    public bool WithinDistance(Vector2 position) {
-        if (Inventory.inventory != null) {
-            return Inventory.inventory.IsWithinApplicableDistance(position);
-        } else {
-            return Vector2.Distance(player.transform.position, position) <= ApplicableDistance;
-        }
-    }
+        public bool WithinDistance(Vector2 position) => Inventory.inventory?.IsWithinApplicableDistance(position) ?? false;
 
-    void OnNewLevel(Scene scene, PlayerController player) {
-        this.player = player;
-    }
-
-    void OnMouseEnterClickable(Clickable target) {
+        void OnMouseEnterClickable(Clickable target) {
         // Update even when player moves
         continuousTarget = target;
         clickHold = false;
@@ -100,24 +83,20 @@ public class CursorManager : MonoBehaviour {
         SetCursorDefault();
     }
 
-    void OnMouseDownClickable(Clickable target, MouseButton button) {
+    void OnMouseDownClickable(Clickable target, Constants.MouseButton button) {
         clickHold = true;
         if (WithinDistance(target.transform.position)) {
-            SetCursorPressed((button == MouseButton.Right) ? Cursors.Inspect : target.CursorType);
+            SetCursorPressed((button == Constants.MouseButton.Right) ? Cursors.Inspect : target.CursorType);
         } else {
-            SetCursorGrey((button == MouseButton.Right) ? Cursors.Inspect : target.CursorType);            
+            SetCursorGrey((button == Constants.MouseButton.Right) ? Cursors.Inspect : target.CursorType);            
         }
     }
 
-    void OnMouseUpClickable(Clickable target, MouseButton button) {
+    void OnMouseUpClickable(Clickable target, Constants.MouseButton button) {
         clickHold = false;
         if (WithinDistance(target.transform.position)) SetCursorOver(target.CursorType);
         else SetCursorGrey(target.CursorType);
     }
-
-    void OnDestroy() {
-        LevelManager.OnNewLevel -= OnNewLevel;
-    }
-
+    
 }
-//}
+}
