@@ -5,7 +5,7 @@ using UnityEngine.Assertions;
 
 namespace Randolph.UI {
 public class CursorManager : MonoBehaviour {
-
+    // TODO include mouse events on inventory icons
     public static readonly Vector2 CursorHotspot = Vector2.zero;
     public const CursorMode Mode = CursorMode.Auto;
 

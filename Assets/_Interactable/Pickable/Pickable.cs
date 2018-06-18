@@ -9,6 +9,8 @@ namespace Randolph.Interactable {
         public override Cursors CursorType { get; protected set; } = Cursors.Pick;
 
         public abstract bool IsSingleUse { get; }
+        
+        public bool IsPickedUp { get; private set; }
 
         protected override void Start() {
             base.Start();
@@ -17,12 +19,21 @@ namespace Randolph.Interactable {
 
         /// <summary>What should happen when the object is picked. The "Mouse Exit" event is invoked in the base class.</summary>
         public virtual void Pick() {
+            if (IsPickedUp) {
+                return;
+            }
+            IsPickedUp = true;
+
             ResetCursor();
             shouldOutline = false;
             outline.enabled = false;
             OnPick?.Invoke();
         }
-
         public event Action OnPick;
+        
+        public override void Restart() {
+            base.Restart();
+            IsPickedUp = false;
+        }
     }
 }
