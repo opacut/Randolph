@@ -19,7 +19,6 @@ namespace Randolph.Characters {
         private Vector2 currentDestination;
         private Queue<Vector2> destinationQueue = new Queue<Vector2>();
         [SerializeField] private List<Vector2> destinations = new List<Vector2>();
-        private Vector3 initialPosition;
         [SerializeField] private bool loop;
 
         [SerializeField] private bool movesFromStart;
@@ -28,16 +27,6 @@ namespace Randolph.Characters {
         private SpriteRenderer spriteRenderer;
         [SerializeField] private bool straightLines;
         public bool Disturbed { get; private set; }
-
-        public void Restart() {
-            transform.position = initialPosition;
-            CreateDestinationQueue();
-            Disturbed = false;
-            if (movesFromStart) {
-                StartMoving();
-            }
-            gameObject.SetActive(true);
-        }
 
         public event GlidingEnd OnGlidingEnd;
         public event DestinationChange OnDestinationChange;
@@ -49,7 +38,6 @@ namespace Randolph.Characters {
         }
 
         private void Start() {
-            initialPosition = transform.position;
             if (movesFromStart) {
                 destinations.Insert(0, initialPosition);
             }
@@ -130,6 +118,28 @@ namespace Randolph.Characters {
                 OnGlidingEnd?.Invoke(transform.position);
             }
         }
+
+        #region IRestartable
+        private Vector3 initialPosition;
+        private Quaternion initialRotation;
+        
+        public void SaveState() {
+            initialPosition = transform.position;
+            initialRotation = transform.rotation;
+        }
+
+        public void Restart() {
+            transform.position = initialPosition;
+            transform.rotation = initialRotation;
+
+            CreateDestinationQueue();
+            Disturbed = false;
+            if (movesFromStart) {
+                StartMoving();
+            }
+            gameObject.SetActive(true);
+        }
+        #endregion
 
         private void OnDrawGizmosSelected() {
             var queueCopy = new Queue<Vector2>(destinations);

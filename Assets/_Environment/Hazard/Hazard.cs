@@ -5,18 +5,9 @@ using UnityEngine;
 
 namespace Randolph.Environment {
     public class Hazard : MonoBehaviour, IRestartable {
-
-        [SerializeField, ReadonlyField] Vector2 initialPosition;
-        
         // TODO: Harmful to: layer/tag | Destroyed by: layer/tag
 
-        void Awake() {
-            initialPosition = gameObject.transform.position;
-        }
-
-        public void Restart() {           
-            gameObject.transform.position = initialPosition;
-        }
+        private void Awake() => SaveState();
 
         public void OnTriggerEnter2D(Collider2D other) {
             if (other.tag == Constants.Tag.Player) {
@@ -24,5 +15,16 @@ namespace Randolph.Environment {
             }
         }
 
+        #region IRestartable
+        private Vector2 initialPosition;
+
+        public void SaveState() {
+            initialPosition = gameObject.transform.position;
+        }
+
+        public void Restart() {
+            gameObject.transform.position = initialPosition;
+        }
+        #endregion
     }
 }

@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Assets._Interactable
-{
-    interface ISlashable
-    {
+﻿namespace Randolph.Interactable {
+    internal interface ISlashable {
         void Slash();
     }
 }

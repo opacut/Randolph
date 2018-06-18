@@ -7,37 +7,42 @@ namespace Randolph.Environment {
     [RequireComponent(typeof(SpriteRenderer))]
     public class SpikeTrap : MonoBehaviour, IRestartable {
 
-        [SerializeField] bool Up;
-        [SerializeField] Sprite activeSprite;
-        [SerializeField] Sprite inactiveSprite;
+        [SerializeField] private bool isUp;
+        [SerializeField] private Sprite activeSprite;
+        [SerializeField] private Sprite inactiveSprite;
 
-        SpriteRenderer spriteRenderer;
-        bool initialUp;
+        private SpriteRenderer spriteRenderer;
 
-        void Awake() {
-            initialUp = Up;
+        private void Awake() {
             spriteRenderer = GetComponent<SpriteRenderer>();
-            spriteRenderer.sprite = Up ? activeSprite : inactiveSprite;
-        }
+            spriteRenderer.sprite = isUp ? activeSprite : inactiveSprite;
 
-        public void Restart() {
-            if (Up != initialUp) Toggle();
-        }
-
-        public void Toggle() {
-            Toggle(!Up);
-        }
-
-        public void Toggle(bool active) {
-            Up = active;
-            spriteRenderer.sprite = active ? activeSprite : inactiveSprite;
+            SaveState();
         }
 
         public void OnTriggerStay2D(Collider2D other) {
-            if (Up && (other.tag == Constants.Tag.Player)) {
+            if (isUp && (other.tag == Constants.Tag.Player)) {
                 other.GetComponent<PlayerController>().Kill();
             }
         }
 
+        public void Toggle() => Toggle(!isUp);
+
+        public void Toggle(bool active) {
+            isUp = active;
+            spriteRenderer.sprite = active ? activeSprite : inactiveSprite;
+        }
+
+        #region IRestartable
+        private bool initialIsUp;
+
+        public void SaveState() {
+            initialIsUp = isUp;
+        }
+
+        public void Restart() {
+            Toggle(initialIsUp);
+        }
+        #endregion
     }
 }

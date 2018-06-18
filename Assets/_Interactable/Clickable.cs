@@ -8,19 +8,9 @@ namespace Randolph.Interactable {
     [RequireComponent(typeof(Outline))]
     [RequireComponent(typeof(SpriteRenderer))]
     public abstract class Clickable : MonoBehaviour, IRestartable {
-        public delegate void MouseDownClickable(Clickable target, MouseButton button);
-
-        public delegate void MouseEnterClickable(Clickable target);
-
-        public delegate void MouseExitClickable(Clickable target);
-
-        public delegate void MouseUpClickable(Clickable target, MouseButton button);
-
-        [Tooltip("Randolph's comment - keep empty if none.")][SerializeField][TextArea]
+        [Tooltip("Randolph's comment - keep empty if none.")]
+        [SerializeField, TextArea]
         private string description;
-
-        protected Vector3 initialPosition { get; private set; }
-        private Quaternion initialRotation;
 
         protected Outline outline;
         protected bool shouldOutline;
@@ -30,26 +20,45 @@ namespace Randolph.Interactable {
         /// <summary>Type of cursor to use. Override in a derived class.</summary>
         public abstract Cursors CursorType { get; protected set; }
 
-        public virtual void Restart() {
-            transform.position = initialPosition;
-            transform.rotation = initialRotation;
+        protected virtual void Awake() {
+            outline = GetComponent<Outline>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
         }
+
+        protected virtual void Start() {
+            shouldOutline = false;
+            SaveState();
+        }
+
+        protected virtual void Update() {
+            if (spriteRenderer.enabled) {
+                outline.enabled = Input.GetAxis("Highlight") != 0.0f || shouldOutline;
+            }
+        }
+
+        private void OnDestroy() {
+            // Mouse Up + Mouse Exit when deleted
+            ResetCursor();
+        }
+
+        protected void ResetCursor() => CursorManager.cursorManager.SetCursorDefault();
+
+        /// <summary>Randolph's comment.</summary>
+        public string GetDescription() => description.Trim();
+
+        #region MouseEvents
+        public delegate void MouseDownClickable(Clickable target, MouseButton button);
+
+        public delegate void MouseEnterClickable(Clickable target);
+
+        public delegate void MouseExitClickable(Clickable target);
+
+        public delegate void MouseUpClickable(Clickable target, MouseButton button);
 
         public static event MouseEnterClickable OnMouseEnterClickable;
         public static event MouseExitClickable OnMouseExitClickable;
         public static event MouseDownClickable OnMouseDownClickable;
         public static event MouseUpClickable OnMouseUpClickable;
-
-        protected void ResetCursor() { CursorManager.cursorManager.SetCursorDefault(); }
-
-        protected virtual void Awake() {
-            initialPosition = transform.position;
-            initialRotation = transform.rotation;
-            outline = GetComponent<Outline>();
-            spriteRenderer = GetComponent<SpriteRenderer>();
-        }
-
-        protected virtual void Start() { shouldOutline = false; }
 
         protected virtual void OnMouseEnter() {
             OnMouseEnterClickable?.Invoke(this);
@@ -71,19 +80,24 @@ namespace Randolph.Interactable {
                 }
             }
         }
+        #endregion
 
-        protected virtual void Update() {
-            if (spriteRenderer.enabled) {
-                outline.enabled = Input.GetAxis("Highlight") != 0.0f || shouldOutline;
-            }
+        #region IRestartable
+        private bool initialActiveState;
+        protected Vector3 initialPosition { get; private set; }
+        private Quaternion initialRotation;
+
+        public virtual void SaveState() {
+            initialActiveState = gameObject.activeSelf;
+            initialPosition = transform.position;
+            initialRotation = transform.rotation;
         }
 
-        private void OnDestroy() {
-            // Mouse Up + Mouse Exit when deleted
-            ResetCursor();
+        public virtual void Restart() {
+            gameObject.SetActive(initialActiveState);
+            transform.position = initialPosition;
+            transform.rotation = initialRotation;
         }
-
-        /// <summary>Randolph's comment.</summary>
-        public string GetDescription() { return description.Trim(); }
+        #endregion
     }
 }
