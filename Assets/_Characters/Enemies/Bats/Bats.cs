@@ -67,6 +67,7 @@ public class Bats : Clickable {
 
         animator.SetBool("Trapped", true);
         other.GetComponent<PlayerController>().Kill();
+        
     }
 
     protected override void Start() {
