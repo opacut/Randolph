@@ -11,13 +11,23 @@ public class Moonstone : Interactable, IRestartable
     [SerializeField] GameObject spawnPoint;
     [SerializeField] InventoryItem seedPrefab;
 
+    private List<GameObject> seeds = new List<GameObject>();
+
     public void Cut(GameObject target)
     {
         Debug.Log("Cutting");
         if (target.GetComponent<Pit>() != null)
         {
             Destroy(target);
-            Instantiate(seedPrefab, spawnPoint.transform.position, Quaternion.identity);
+            GameObject newSeed = Instantiate(seedPrefab, spawnPoint.transform.position, Quaternion.identity).gameObject;
+            newSeed.transform.parent = gameObject.transform.parent;
+            seeds.Add(newSeed);
         }
+    }
+
+    public override void Restart()
+    {
+        base.Restart();
+        seeds.ForEach(y => Destroy(y));
     }
 }
