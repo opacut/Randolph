@@ -54,6 +54,7 @@ namespace Randolph.Characters {
             spriteRenderer = GetComponent<SpriteRenderer>();
             audioSource = AudioPlayer.audioPlayer.AddAudioSource(gameObject);
             alive = spriteRenderer.sprite;
+            outline.color = 2;
         }
 
         private void OnTriggerEnter2D(Collider2D other) {
