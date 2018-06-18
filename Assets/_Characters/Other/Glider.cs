@@ -38,6 +38,7 @@ namespace Randolph.Characters {
         }
 
         private void Start() {
+            SaveState();
             if (movesFromStart) {
                 destinations.Insert(0, initialPosition);
             }
