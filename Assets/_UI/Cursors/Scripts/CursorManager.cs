@@ -1,8 +1,7 @@
-﻿using UnityEngine;
-using UnityEngine.Assertions;
-using static Randolph.Core.Constants;
-using Randolph.Core;
+﻿using Randolph.Core;
 using Randolph.Interactable;
+using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace Randolph.UI {
 public class CursorManager : MonoBehaviour {
@@ -63,14 +62,9 @@ public class CursorManager : MonoBehaviour {
         Clickable.OnMouseUpClickable += OnMouseUpClickable;
     }
 
-    public bool WithinDistance(Vector2 position) {
-        if (Inventory.inventory != null) {
-            return Inventory.inventory.IsWithinApplicableDistance(position);
-        }
-        return Vector2.Distance(Constants.Randolph.transform.position, position) <= ApplicableDistance;
-    }
+        public bool WithinDistance(Vector2 position) => Inventory.inventory?.IsWithinApplicableDistance(position) ?? false;
 
-    void OnMouseEnterClickable(Clickable target) {
+        void OnMouseEnterClickable(Clickable target) {
         // Update even when player moves
         continuousTarget = target;
         clickHold = false;

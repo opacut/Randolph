@@ -19,9 +19,7 @@ namespace Randolph.UI {
         [SerializeField] ItemDatabase itemDatabase;
         [SerializeField] float applicableDistance = 6;
 
-        public float ApplicableDistance {
-            get { return applicableDistance; }
-        }
+        public float ApplicableDistance => applicableDistance;
 
         List<InventoryIcon> icons = new List<InventoryIcon>();
 
