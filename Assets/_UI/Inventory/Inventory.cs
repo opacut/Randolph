@@ -24,7 +24,7 @@ namespace Randolph.UI {
         List<InventoryIcon> icons = new List<InventoryIcon>();
 
         public List<InventoryItem> Items {
-            get { return new List<InventoryItem>(icons.Select(icon => icon.item)); }
+            get { return new List<InventoryItem>(icons.Select(icon => icon.Item)); }
             set {
                 foreach (InventoryIcon icon in icons) {
                     Destroy(icon.gameObject);
@@ -55,7 +55,7 @@ namespace Randolph.UI {
         }
 
         public void Remove(InventoryItem item) {
-            InventoryIcon icon = icons.Find(ico => ico.item == item);
+            InventoryIcon icon = icons.Find(ico => ico.Item == item);
             if (icon == null) {
                 return;
             }
@@ -65,7 +65,7 @@ namespace Randolph.UI {
         }
 
         public bool Contains(InventoryItem item) {
-            return icons.Any(ico => ico.item == item);
+            return icons.Any(ico => ico.Item == item);
         }
 
         public bool IsWithinApplicableDistance(Vector2 position) {
@@ -73,7 +73,7 @@ namespace Randolph.UI {
         }
 
         public bool IsApplicableTo(InventoryItem item, GameObject target) {
-            if (Contains(item) && (DistanceCheck(target) || (target.GetComponent<InventoryItem>() && Contains(target.GetComponent<InventoryItem>())))) return item.IsApplicable(target);
+            if (Contains(item) && ((target.GetComponent<InventoryItem>() && Contains(target.GetComponent<InventoryItem>())) || DistanceCheck(target))) return item.IsApplicable(target);
             return false;
         }
 
@@ -111,9 +111,10 @@ namespace Randolph.UI {
 
         /// <summary>Saves the inventory state to <see cref="PlayerPrefs"/>.</summary>       
         public void RestorStateFromPrefs() {
-            string itemString = (PlayerPrefs.HasKey(InventoryKey)) ? PlayerPrefs.GetString(InventoryKey) : string.Empty;
-            if (itemString == string.Empty) Items = new List<InventoryItem>();
-            else {
+            var itemString = PlayerPrefs.HasKey(InventoryKey) ? PlayerPrefs.GetString(InventoryKey) : string.Empty;
+            if (itemString == string.Empty) {
+                Items = new List<InventoryItem>();
+            } else {
                 Items = GetItemsFromKey(itemString);
                 DeactivateItemsInScene(Items);
             }

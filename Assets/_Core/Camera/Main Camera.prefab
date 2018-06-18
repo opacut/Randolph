@@ -408,9 +408,9 @@ MonoBehaviour:
   lineThickness: 1
   lineIntensity: 1
   fillAmount: 0
-  lineColor0: {r: 1, g: 0.9827044, b: 0.5990566, a: 0.5019608}
-  lineColor1: {r: 0, g: 1, b: 0.00427413, a: 1}
-  lineColor2: {r: 1, g: 0, b: 0, a: 1}
+  lineColor0: {r: 1, g: 0.98039216, b: 0.5019608, a: 0.9019608}
+  lineColor1: {r: 0.5019608, g: 1, b: 0.6509804, a: 0.9019608}
+  lineColor2: {r: 1, g: 0.5019608, b: 0.54509807, a: 0.9019608}
   additiveRendering: 0
   backfaceCulling: 0
   cornerOutlines: 0
@@ -418,7 +418,7 @@ MonoBehaviour:
   scaleWithScreenSize: 0
   alphaCutoff: 0.5
   flipY: 0
-  sourceCamera: {fileID: 20160739633386284}
+  sourceCamera: {fileID: 0}
   outlineCamera: {fileID: 0}
   outlineShaderMaterial: {fileID: 0}
   renderTexture: {fileID: 0}

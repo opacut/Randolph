@@ -32,9 +32,7 @@ namespace Randolph.Levels {
             }
         }
 
-        public int Id {
-            get { return Methods.GetNumberFromString(gameObject.name); }
-        }
+        public int Id => Methods.GetNumberFromString(gameObject.name);
 
 
         public static Area GetArea(int index) {
