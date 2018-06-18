@@ -8,32 +8,35 @@ using UnityEngine;
 namespace Randolph.Environment {
     [RequireComponent(typeof(SpriteRenderer))]
     public class Switch : MonoBehaviour, IRestartable {
+        [Header("Sprites")]
+        [SerializeField]
+        private Sprite activeSprite;
+
+        private AudioSource audioSource;
+
+        [SerializeField]
+        private Sprite inactiveSprite;
+
+        [SerializeField]
+        private bool Powered;
 
         [Header("Switch")]
-        [SerializeField] List<SpikeTrap> Spikes;
-        [SerializeField] bool Powered;
-        [SerializeField] AudioClip switchSound;
-        AudioSource audioSource;
-        bool initialPowered;
+        [SerializeField]
+        private List<SpikeTrap> Spikes;
 
-        [Header("Sprites")]
-        [SerializeField] Sprite activeSprite;
-        [SerializeField] Sprite inactiveSprite;
+        private SpriteRenderer spriteRederer;
 
-        SpriteRenderer spriteRederer;
+        [SerializeField]
+        private AudioClip switchSound;
 
-        void Awake() {
+        private void Awake() {
             spriteRederer = GetComponent<SpriteRenderer>();
-            spriteRederer.sprite = (Powered) ? activeSprite : inactiveSprite;
-            initialPowered = Powered;
+            spriteRederer.sprite = Powered ? activeSprite : inactiveSprite;
             audioSource = AudioPlayer.audioPlayer.AddAudioSource(gameObject);
+            SaveState();
         }
 
-        public void Restart() {
-            Powered = initialPowered;
-        }
-
-        void OnTriggerEnter2D(Collider2D other) {
+        private void OnTriggerEnter2D(Collider2D other) {
             // Powered = !Powered;
 
             // spriteRederer.sprite = Powered ? inactiveSprite : activeSprite;
@@ -41,38 +44,34 @@ namespace Randolph.Environment {
             Flip(Powered);
         }
 
-        void Flip(bool active) {
-            Powered = !active;
-
-            spriteRederer.sprite = (active) ? activeSprite : inactiveSprite;
-            AudioPlayer.audioPlayer.PlayLocalSound(audioSource, switchSound, volume: Constants.Audio.BackgroundVolume);
-            Spikes.ForEach(s => s.Toggle());
-        }
-
-        void OnDrawGizmosSelected() {
-            if (Spikes.Count == 0) return;
-            float radius = Constants.GizmoSphereRadius;
+        private void OnDrawGizmosSelected() {
+            if (Spikes.Count == 0) {
+                return;
+            }
+            var radius = Constants.GizmoSphereRadius;
 
             //! Switch
-            Gizmos.color = (Powered) ? Color.green : Color.red;
-            Vector3 lastPosition = transform.position;
-            for (int i = 0; i < 3; i++) {
+            Gizmos.color = Powered ? Color.green : Color.red;
+            var lastPosition = transform.position;
+            for (var i = 0; i < 3; i++) {
                 // Three small circles
                 Methods.GizmosDrawCircle(lastPosition, radius * (1 - i * 0.33f));
             }
-            Vector3 nearestPosition = transform.GetNearest(Spikes.Select(spike => spike.transform).ToArray()).position;
-            Vector3 direction = (lastPosition - nearestPosition).normalized;
-            Gizmos.DrawLine(lastPosition - (direction * radius), nearestPosition + (direction * radius));
+            var nearestPosition = transform.GetNearest(Spikes.Select(spike => spike.transform).ToArray()).position;
+            var direction = (lastPosition - nearestPosition).normalized;
+            Gizmos.DrawLine(lastPosition - direction * radius, nearestPosition + direction * radius);
 
             //! Spikes
             Gizmos.color = Color.yellow;
-            for (int i = 0; i < Spikes.Count; i++) {
-                SpikeTrap spikeTrap = Spikes[i];
-                if (spikeTrap == null) continue;
+            for (var i = 0; i < Spikes.Count; i++) {
+                var spikeTrap = Spikes[i];
+                if (spikeTrap == null) {
+                    continue;
+                }
 
                 if (i != 0) {
                     direction = (lastPosition - spikeTrap.transform.position).normalized;
-                    Gizmos.DrawLine(lastPosition - (direction * radius), spikeTrap.transform.position + (direction * radius));
+                    Gizmos.DrawLine(lastPosition - direction * radius, spikeTrap.transform.position + direction * radius);
                 }
 
                 lastPosition = spikeTrap.transform.position;
@@ -80,5 +79,24 @@ namespace Randolph.Environment {
             }
         }
 
+        private void Flip(bool active) {
+            Powered = !active;
+
+            spriteRederer.sprite = active ? activeSprite : inactiveSprite;
+            AudioPlayer.audioPlayer.PlayLocalSound(audioSource, switchSound, volume: Constants.Audio.BackgroundVolume);
+            Spikes.ForEach(s => s.Toggle());
+        }
+
+        #region IRestartable
+        private bool initialPowered;
+
+        public void SaveState() {
+            initialPowered = Powered;
+        }
+
+        public void Restart() {
+            Powered = initialPowered;
+        }
+        #endregion
     }
 }

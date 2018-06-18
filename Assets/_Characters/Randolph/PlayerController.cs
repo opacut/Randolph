@@ -63,7 +63,6 @@ namespace Randolph.Characters {
             CalculateRaySpacing();
         }
 
-
         private void GetComponents() {
             animator = GetComponent<Animator>();
             rbody = GetComponent<Rigidbody2D>();
@@ -274,7 +273,9 @@ namespace Randolph.Characters {
             }
         }
 
-        private void IgnoreCollision(bool ignore) { Methods.IgnoreLayerMaskCollision(Constants.Layer.Player, groundLayers, ignore); }
+        private void IgnoreCollision(bool ignore) {
+            Methods.IgnoreLayerMaskCollision(Constants.Layer.Player, groundLayers, ignore);
+        }
         #endregion
 
         #region Grapple

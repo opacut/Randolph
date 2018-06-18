@@ -1,35 +1,24 @@
-﻿using Assets._Interactable;
-using Randolph.Interactable;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
-using System;
 
-public class Torch : InventoryItem, IFlammable
-{
-    public override bool IsSingleUse { get; } = true;
-    [SerializeField]
-    private InventoryItem burningTorchPrefab;
+namespace Randolph.Interactable {
+    public class Torch : InventoryItem, IFlammable {
+        [SerializeField] private InventoryItem burningTorchPrefab;
+        public override bool IsSingleUse { get; } = true;
 
-    public InventoryItem GetBurningVersion()
-    {
-        return burningTorchPrefab;
-    }
+        public InventoryItem GetBurningVersion() => burningTorchPrefab;
 
-    public void Ignite()
-    {
-        inventory.Remove(this);
+        public void Ignite() {
+            inventory.Remove(this);
 
-        var burningTorch = Instantiate(GetBurningVersion());
-        burningTorch.GetComponent<TorchBurning>().Pick();
-        OnCombined?.Invoke(burningTorch.gameObject);
-        Destroy(this);
-    }
+            var burningTorch = Instantiate(GetBurningVersion());
+            burningTorch.GetComponent<TorchBurning>().Pick();
+            OnCombined?.Invoke(burningTorch.gameObject);
+            Destroy(this);
+        }
 
-    public event Action<GameObject> OnCombined;
+        public event Action<GameObject> OnCombined;
 
-    public override bool IsApplicable(GameObject target)
-    {
-        return true;
+        public override bool IsApplicable(GameObject target) => true;
     }
 }

@@ -1,16 +1,11 @@
-﻿using Randolph.Interactable;
-using Randolph.UI;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Randolph.Levels {
     public class GenericRestart : MonoBehaviour, IRestartable {
+        private Vector2 initialPosition;
+        private Quaternion initialRotation;
 
-        [SerializeField, ReadonlyField] Vector2 initialPosition;
-        [SerializeField, ReadonlyField] Quaternion initialRotation;
-
-        //public override Cursors CursorType { get; protected set; } = Cursors.Inspect;
-
-        void Awake() {
+        public void SaveState() {
             initialPosition = transform.position;
             initialRotation = transform.rotation;
         }
@@ -20,5 +15,6 @@ namespace Randolph.Levels {
             transform.rotation = initialRotation;
         }
 
+        private void Awake() => SaveState();
     }
 }

@@ -19,11 +19,6 @@ namespace Randolph.Characters {
             rbody = GetComponent<Rigidbody2D>();
         }
 
-        public void Restart() {
-            if (!toBeDestroyed) spriteRenderer.enabled = false;
-            else print("X");
-        }
-
         private void Update() {
             rbody.velocity = new Vector2(speed, GetComponent<Rigidbody2D>().velocity.y);
         }
@@ -42,5 +37,13 @@ namespace Randolph.Characters {
             toBeDestroyed = true;
         }
 
+        public void Restart() {
+            if (!toBeDestroyed) spriteRenderer.enabled = false;
+            else print("X");
+        }
+
+        public void SaveState() {
+
+        }
     }
 }

@@ -1,15 +1,13 @@
-﻿using Assets._Interactable;
-using Randolph.Environment;
+﻿using Randolph.Environment;
 using UnityEngine;
 
 namespace Randolph.Interactable {
     public class TiedRope : Interactable, ISlashable {
         [SerializeField] private Sail sail;
 
-        public void Slash()
-        {
+        public void Slash() {
             sail.Slash(this);
-            Destroy(this);
+            gameObject.SetActive(false);
         }
 
         public override void Interact() => Debug.Log("Rope clicked.");
