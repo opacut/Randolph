@@ -1,8 +1,8 @@
 ﻿using cakeslice;
+using Randolph.Core;
 using Randolph.Levels;
 using Randolph.UI;
 using UnityEngine;
-using static Randolph.Core.Constants;
 
 namespace Randolph.Interactable {
     [RequireComponent(typeof(Outline))]
@@ -16,6 +16,8 @@ namespace Randolph.Interactable {
         protected bool shouldOutline;
 
         protected SpriteRenderer spriteRenderer;
+
+        public virtual bool isWithinReach => Vector2.Distance(transform.position, Constants.Randolph.transform.position) <= Inventory.inventory.ApplicableDistance;
 
         /// <summary>Type of cursor to use. Override in a derived class.</summary>
         public abstract Cursors CursorType { get; protected set; }
@@ -47,36 +49,32 @@ namespace Randolph.Interactable {
         public string GetDescription() => description.Trim();
 
         #region MouseEvents
-        public delegate void MouseDownClickable(Clickable target, MouseButton button);
+        public delegate void MouseClickable(Clickable target);
 
-        public delegate void MouseEnterClickable(Clickable target);
+        public delegate void MouseClickableButton(Clickable target, Constants.MouseButton button);
 
-        public delegate void MouseExitClickable(Clickable target);
+        public static event MouseClickable OnMouseEnterClickable;
+        public static event MouseClickable OnMouseExitClickable;
+        public static event MouseClickableButton OnMouseDownClickable;
+        public static event MouseClickableButton OnMouseUpClickable;
 
-        public delegate void MouseUpClickable(Clickable target, MouseButton button);
-
-        public static event MouseEnterClickable OnMouseEnterClickable;
-        public static event MouseExitClickable OnMouseExitClickable;
-        public static event MouseDownClickable OnMouseDownClickable;
-        public static event MouseUpClickable OnMouseUpClickable;
-
-        protected virtual void OnMouseEnter() {
+        private void OnMouseEnter() {
             OnMouseEnterClickable?.Invoke(this);
             shouldOutline = true;
         }
 
-        protected virtual void OnMouseExit() {
+        private void OnMouseExit() {
             OnMouseExitClickable?.Invoke(this);
             shouldOutline = false;
         }
 
-        protected virtual void OnMouseOver() {
+        private void OnMouseOver() {
             for (var i = 0; i <= 2; i++) {
                 // Check for all mouse buttons
                 if (Input.GetMouseButtonDown(i)) {
-                    OnMouseDownClickable?.Invoke(this, (MouseButton) i);
+                    OnMouseDownClickable?.Invoke(this, (Constants.MouseButton) i);
                 } else if (Input.GetMouseButtonUp(i)) {
-                    OnMouseUpClickable?.Invoke(this, (MouseButton) i);
+                    OnMouseUpClickable?.Invoke(this, (Constants.MouseButton) i);
                 }
             }
         }

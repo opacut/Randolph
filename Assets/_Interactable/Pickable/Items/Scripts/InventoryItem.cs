@@ -13,6 +13,8 @@ namespace Randolph.Interactable {
         protected Inventory inventory { get; private set; }
         
         Collider2D[] colliders;
+       
+        public override bool isWithinReach => IsPickedUp || base.isWithinReach;
 
         protected override void Awake() {
             base.Awake();
@@ -21,6 +23,9 @@ namespace Randolph.Interactable {
         }
 
         public override void Pick() {
+            if (IsPickedUp) {
+                return;
+            }
             base.Pick();
 
             inventory.Add(this);

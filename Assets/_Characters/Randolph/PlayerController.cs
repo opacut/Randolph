@@ -60,6 +60,7 @@ namespace Randolph.Characters {
             GetComponents();
             gravity = rbody.gravityScale;
             Clickable.OnMouseDownClickable += OnMouseDownClickable;
+            InventoryIcon.OnMouseDownClickable += OnMouseDownClickable;
             CalculateRaySpacing();
         }
 
@@ -309,35 +310,34 @@ namespace Randolph.Characters {
 
         #region MouseEvents
         private void OnMouseDownClickable(Clickable target, Constants.MouseButton button) {
-            var withinDistance = Vector2.Distance(transform.position, target.transform.position) <= Inventory.inventory.ApplicableDistance;
-
-            if (withinDistance) {
-                if (button == Constants.MouseButton.Left) {
-                    switch (target.CursorType) {
-                    case Cursors.Generic:
-                        // No specific cursor -> no action
-                        break;
-                    case Cursors.Pick:
-                        var pickable = (Pickable) target;
-                        pickable.Pick();
-                        break;
-                    case Cursors.Interact:
-                        var interactable = (Interactable.Interactable) target;
-                        interactable.Interact();
-                        break;
-                    case Cursors.Talk:
-                        var talkable = (Talkable) target;
-                        talkable.OnTalk();
-                        break;
-                    default:
-                        Debug.LogWarning($"Unhandled clickable type: {target.CursorType}");
-                        break;
-                    }
-                } else if (button == Constants.MouseButton.Right) {
-                    var description = target.GetDescription();
-                    if (description != string.Empty) {
-                        ShowDescriptionBubble(target.GetDescription(), speechDuration);
-                    }
+            if (!target.isWithinReach) {
+                return;
+            }
+            if (button == Constants.MouseButton.Left) {
+                switch (target.CursorType) {
+                case Cursors.Generic:
+                    // No specific cursor -> no action
+                    break;
+                case Cursors.Pick:
+                    var pickable = target as Pickable;
+                    pickable?.Pick();
+                    break;
+                case Cursors.Interact:
+                    var interactable = target as Interactable.Interactable; 
+                    interactable?.Interact();
+                    break;
+                case Cursors.Talk:
+                    var talkable = target as Talkable;
+                    talkable?.OnTalk();
+                    break;
+                default:
+                    Debug.LogWarning($"Unhandled clickable type: {target.CursorType}");
+                    break;
+                }
+            } else if (button == Constants.MouseButton.Right) {
+                var description = target.GetDescription();
+                if (description != string.Empty) {
+                    ShowDescriptionBubble(target.GetDescription(), speechDuration);
                 }
             }
         }

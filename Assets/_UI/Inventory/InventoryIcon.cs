@@ -9,7 +9,7 @@ namespace Randolph.UI {
     [RequireComponent(typeof(Image))]
     [RequireComponent(typeof(CanvasGroup))]
     [RequireComponent(typeof(LayoutElement))]
-    public class InventoryIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
+    public class InventoryIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerDownHandler /*, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler*/ {
         private Image image;
         private Material initialMaterial;
 
@@ -20,6 +20,10 @@ namespace Randolph.UI {
         public InventoryItem Item { get; private set; }
 
         public void OnBeginDrag(PointerEventData eventData) {
+            if (eventData.button == PointerEventData.InputButton.Right) {
+                return;
+            }
+
             GetComponent<CanvasGroup>().blocksRaycasts = false;
             GetComponent<LayoutElement>().ignoreLayout = true;
             siblingIndex = transform.GetSiblingIndex();
@@ -27,6 +31,10 @@ namespace Randolph.UI {
         }
 
         public void OnDrag(PointerEventData eventData) {
+            if (eventData.button == PointerEventData.InputButton.Right) {
+                return;
+            }
+
             var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             if (outOfReachMaterial && !IsCursorWithinApplicableDistance(mousePosition) && !IsCursoreAboveAnotherItem(eventData)) {
@@ -40,6 +48,10 @@ namespace Randolph.UI {
         }
 
         public void OnEndDrag(PointerEventData eventData) {
+            if (eventData.button == PointerEventData.InputButton.Right) {
+                return;
+            }
+
             // TODO improve failed application attempt response
             var target = FindApplicableInventoryItem(eventData.pointerCurrentRaycast) ?? FindApplicableTarget();
             if (target) {
@@ -49,12 +61,27 @@ namespace Randolph.UI {
             } else {
                 Constants.Randolph.ShowDescriptionBubble("There is nothing.", 0.5f);
             }
-            
+
             transform.SetSiblingIndex(siblingIndex);
             image.material = initialMaterial;
             GetComponent<CanvasGroup>().blocksRaycasts = true;
             GetComponent<LayoutElement>().ignoreLayout = false;
         }
+
+        public void OnPointerDown(PointerEventData eventData) {
+            Debug.Log(this);
+            OnMouseDownClickable?.Invoke(Item, (Constants.MouseButton) eventData.button);
+        }
+
+        public void OnPointerEnter(PointerEventData eventData) => OnMouseEnterClickable?.Invoke(Item);
+        public void OnPointerExit(PointerEventData eventData) => OnMouseExitClickable?.Invoke(Item);
+
+        public void OnPointerUp(PointerEventData eventData) => OnMouseUpClickable?.Invoke(Item, (Constants.MouseButton) eventData.button);
+
+        public static event Clickable.MouseClickable OnMouseEnterClickable;
+        public static event Clickable.MouseClickable OnMouseExitClickable;
+        public static event Clickable.MouseClickableButton OnMouseDownClickable;
+        public static event Clickable.MouseClickableButton OnMouseUpClickable;
 
         public void Init(Inventory initInventory, InventoryItem initItem) {
             inventory = initInventory;
