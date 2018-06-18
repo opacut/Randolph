@@ -1,6 +1,7 @@
 using Randolph.Core;
 using Randolph.Interactable;
 using Randolph.UI;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Randolph.Characters {
@@ -18,6 +19,8 @@ namespace Randolph.Characters {
         [SerializeField]
         private AudioClip closeSound;
 
+        private List<GameObject> pits = new List<GameObject>();
+
         [SerializeField] private Sprite crushed;
         [SerializeField] private InventoryItem pitPrefab;
         [SerializeField] private GameObject spawnPoint;
@@ -33,6 +36,7 @@ namespace Randolph.Characters {
 
         public override void Restart() {
             base.Restart();
+            pits.ForEach(y => Destroy(y));
             spriteRenderer.sprite = alive;
             Active = true;
         }
@@ -40,7 +44,8 @@ namespace Randolph.Characters {
         public void Feed(GameObject target) {
             if (Active) {
                 if (target.GetComponent<Fruit>() || target.GetComponent<Pit>()) {
-                    Destroy(target);
+                    //Destroy(target);
+                    target.SetActive(false);
                     SpawnPit();
                 } else if (target.GetComponent<Seed>()) {
                     Destroy(target);
@@ -81,7 +86,9 @@ namespace Randolph.Characters {
 
         public void SpawnPit() {
             spriteRenderer.sprite = closed;
-            Instantiate(pitPrefab, spawnPoint.transform.position, Quaternion.identity);
+            GameObject newPit = Instantiate(pitPrefab, spawnPoint.transform.position, Quaternion.identity).gameObject;
+            newPit.transform.parent = gameObject.transform.parent;
+            pits.Add(newPit);
             spriteRenderer.sprite = alive;
         }
     }
