@@ -73,6 +73,10 @@ namespace Com.LuisPedroFonseca.ProCamera2D
             }
             EditorGUILayout.EndHorizontal();
 
+			// Mode
+			_tooltip = new GUIContent("Influence Mode", "Choose what axis the influence affects");
+			EditorGUILayout.PropertyField(serializedObject.FindProperty("Mode"), _tooltip);
+
             serializedObject.ApplyModifiedProperties();
         }
     }

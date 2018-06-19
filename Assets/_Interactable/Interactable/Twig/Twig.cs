@@ -3,7 +3,8 @@ using UnityEngine;
 
 namespace Randolph.Interactable {
     public class Twig : InventoryItem {
-        [SerializeField] private Transform torchPrefab;
+        [SerializeField] Transform torchPrefab;
+
         public override bool IsSingleUse { get; } = true;
 
         public override bool IsApplicable(GameObject target) => target.GetComponent<DryGrass>();
@@ -17,7 +18,7 @@ namespace Randolph.Interactable {
             }
             inventory.Remove(item);
 
-            var torch = Instantiate(torchPrefab);
+            Transform torch = Instantiate(torchPrefab);
             //torch.gameObject.SetActive(true);
 
             torch.GetComponent<Torch>().Pick();
@@ -25,6 +26,6 @@ namespace Randolph.Interactable {
             Destroy(this);
         }
 
-        public event Action<GameObject> OnCombined;
+        public new event Action<GameObject> OnCombined;
     }
 }

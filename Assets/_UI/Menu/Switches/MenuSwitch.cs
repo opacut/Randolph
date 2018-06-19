@@ -9,29 +9,39 @@ namespace Randolph.UI {
     public abstract class MenuSwitch : MonoBehaviour, IPointerDownHandler {
 
         protected Image image;
+
         /// <summary>Is the switch currently turned on?</summary>
         public abstract bool Active { get; protected set; }
+
         /// <summary>The <see cref="PlayerPrefs"/> key used to load last value even after the game has been shut down.</summary>
         // public virtual string SaveKey { get { return "";} }
-
         /// <summary>The sound to play when the switch is clicked.</summary>
         [SerializeField] protected AudioClip soundOnClick;
 
         /// <summary>The sprite to use when the switch is turned on.</summary>
         [SerializeField] protected Sprite activeSprite;
+
         /// <summary>The sprite to use when the switch is turned off.</summary>
         [SerializeField] protected Sprite inactiveSprite;
 
-        /// <summary>Caches the image component and sets its sprite according to the <see cref="Active"/> property.</summary>
-        protected virtual void Start() {
+        /// <summary>Calls the <see cref="RefreshState"/> function in the objects <see cref="Awake"/>.</summary>
+        public bool DoRefresh { get; set; } = true;
+
+        /// <summary>Loads the previous state, caches the image component
+        /// and sets its sprite according to the <see cref="Active"/> property.</summary>
+        protected virtual void Awake() {
+            if (DoRefresh) RefreshState();
             image = transform.GetComponentInChildren<Image>();
             SpriteSwap();
-            // Active = LoadPlayerPrefs();
         }
+
+        /// <summary>Loads the previous switch state from the <see cref="PlayerPrefs"/>.
+        /// Called from Awake, so it is called even if the switch is inactive.</summary>
+        protected abstract void RefreshState();
 
         /// <summary>Plays a sound when the switch is clicked. Set <see cref="P:Randolph.UI.MenuSwitch.Active" /> and call <see cref="!:SpriteSwap" /> as necessary.</summary>
         public virtual void OnPointerDown(PointerEventData pointerEventData) {
-            AudioPlayer.audioPlayer.PlayGlobalSound(soundOnClick);
+            AudioPlayer.audioPlayer?.PlayGlobalSound(soundOnClick);
         }
 
         /// <summary>Sets the switch's sprite.</summary>
@@ -39,10 +49,12 @@ namespace Randolph.UI {
         protected void SpriteSwap(bool active) {
             image.sprite = (active) ? activeSprite : inactiveSprite;
         }
+
         /// <summary>Sets the switch's sprite in accordance with the <see cref="Active"/> property.</summary>
         protected void SpriteSwap() {
             SpriteSwap(Active);
         }
+
         /*
          bool LoadPlayerPrefs() {
              if (!string.IsNullOrEmpty(SaveKey) && PlayerPrefs.HasKey(SaveKey)) {
@@ -51,6 +63,6 @@ namespace Randolph.UI {
              } else return false;
          }
          */
-    }
 
+    }
 }

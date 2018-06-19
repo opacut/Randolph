@@ -11,14 +11,23 @@ namespace Randolph.Interactable {
         public Door linkedDoor;
         public int roomIndex;
 
+        AudioSource audioSource; // TODO: Make Interactables all have sound
+        [SerializeField] AudioClip lockedSound;
+
+        protected override void Start() {
+            base.Start();
+            audioSource = AudioPlayer.audioPlayer.AddAudioSource(gameObject);
+        }
+
         public override async void Interact() {
             base.Interact();
             if (!linkedDoor || isLocked) {
-                // TODO: Play locked door sound
+                //! Play locked door sound
+                AudioPlayer.audioPlayer.PlayLocalSound(audioSource, lockedSound);
                 return;
             }
 
-            var randolph = GameObject.FindGameObjectWithTag(Constants.Tag.Player);
+            GameObject randolph = Constants.Randolph.gameObject;
 
             randolph.GetComponent<PlayerController>().Freeze();
             Constants.Camera.transition.TransitionExit();
@@ -32,7 +41,7 @@ namespace Randolph.Interactable {
             randolph.GetComponent<PlayerController>().UnFreeze();
         }
 
-        private void OnDrawGizmosSelected() {
+        void OnDrawGizmosSelected() {
             if (!linkedDoor) {
                 return;
             }

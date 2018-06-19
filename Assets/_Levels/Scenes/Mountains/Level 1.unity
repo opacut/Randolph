@@ -30818,12 +30818,12 @@ Prefab:
     - target: {fileID: 61384307394846804, guid: 2167e040773f70545a511d0a3b826319,
         type: 2}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.1875
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 61384307394846804, guid: 2167e040773f70545a511d0a3b826319,
         type: 2}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.875
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 95185058616817064, guid: 2167e040773f70545a511d0a3b826319,
         type: 2}
@@ -31085,6 +31085,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!84 &728258828
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1173
+  m_Height: 564
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 0
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &761665814
 Prefab:
   m_ObjectHideFlags: 0
@@ -60251,6 +60282,37 @@ MonoBehaviour:
   Activated: 0
   fruitHolder: {fileID: 2085466185}
   thumpSound: {fileID: 8300000, guid: d2d69d3d5db170541b3fe04ef095acf7, type: 3}
+--- !u!84 &1754712451
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1173
+  m_Height: 564
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1783319660
 GameObject:
   m_ObjectHideFlags: 0
