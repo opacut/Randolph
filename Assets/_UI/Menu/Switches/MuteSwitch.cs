@@ -12,8 +12,7 @@ namespace Randolph.UI {
         const int Off = 0;        
 
         /// <inheritdoc cref="MenuSwitch.RefreshState"/>
-        protected override void RefreshState() {
-            Debug.Log("MUTE SWITCH");
+        protected override void RefreshState() {            
             if (!PlayerPrefs.HasKey(MuteKey)) {
                 PlayerPrefs.SetInt(MuteKey, Off);
             }
