@@ -80,7 +80,7 @@ namespace Randolph.Characters {
 
         private void StartMoving() {
             Disturbed = true;
-            animator.SetBool("Flying", true);
+            animator.SetBool("Move", true);
             SetNextDestination();
         }
 

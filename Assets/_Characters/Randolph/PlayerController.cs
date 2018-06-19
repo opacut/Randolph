@@ -121,11 +121,12 @@ namespace Randolph.Characters {
             }
         }
 
-        public void Kill(float delay = 0.25f) {
+        public void Kill(float delay = 0.25f, bool disappear = false) {
             if (Killable) {
                 Killable = false;
                 StopGrappling();
                 StopClimbing();
+                // TODO: Disable SpriteRenderer if "disappear" 
                 AudioPlayer.audioPlayer.PlayGlobalSound(deathSound);
                 LevelManager.levelManager.ReturnToCheckpoint(delay);
             }
@@ -346,6 +347,8 @@ namespace Randolph.Characters {
                     var talkable = target as Talkable;
                     talkable?.OnTalk();
                     break;
+                case Cursors.Inspect:
+                    break;
                 default:
                     Debug.LogWarning($"Unhandled clickable type: {target.CursorType}");
                     break;
@@ -363,6 +366,7 @@ namespace Randolph.Characters {
         /// <param name="duration">Duration in seconds.</param>
         public async void ShowDescriptionBubble(string text, float duration) {
             // TODO: Autoscroll long text (/ duration)
+            if (speechBubble == null) return;
 
             speechBubble.gameObject.SetActive(true);
             bubbleText.text = text;
