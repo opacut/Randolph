@@ -75,7 +75,7 @@ namespace Assets.Levels.Airship {
 
             howardsSpeechBubble.fullText = fifthResponse;
             deckDoor.isLocked = false;
-            Destroy(deckExitTalkTrigger);
+            deckExitTalkTrigger.gameObject.SetActive(false);
         }
 
         private void BandageCleaned(InventoryItem bandage) {
