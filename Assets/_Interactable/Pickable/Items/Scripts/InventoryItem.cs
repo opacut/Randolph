@@ -35,6 +35,18 @@ namespace Randolph.Interactable {
             CursorManager.cursorManager.SetCursorDefault();
         }
 
+        public void CombineWith(InventoryItem other, InventoryItem result) {
+            if (!inventory.Contains(other)) {
+                other.Pick();
+            }
+            if (other.IsSingleUse) {
+                inventory.Remove(other);
+            }
+            var newItem = Instantiate(result);
+            newItem.Pick();
+            OnCombined?.Invoke(newItem);
+        }
+
         public override void Restart() {
             base.Restart();
             SetComponentsActive(true);
@@ -48,6 +60,7 @@ namespace Randolph.Interactable {
         }
 
         public event Action OnApply;
+        public event Action<InventoryItem> OnCombined;
 
         public void SetComponentsActive(bool active) {
             if (spriteRenderer) spriteRenderer.enabled = active;

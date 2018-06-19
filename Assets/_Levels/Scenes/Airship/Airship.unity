@@ -258,7 +258,7 @@ Transform:
   - {fileID: 958713868}
   - {fileID: 1327749786}
   - {fileID: 1511064704}
-  m_Father: {fileID: 1493725622}
+  m_Father: {fileID: 979623062}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &108258634 stripped
@@ -371,58 +371,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4522722859018738, guid: 2e53d9291175b5c4d8fdd8757fd08940,
     type: 2}
   m_PrefabInternal: {fileID: 1085130764}
---- !u!1001 &250805098
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 979623062}
-    m_Modifications:
-    - target: {fileID: 4298525756785796, guid: e9f6e59e23d40df4caef781befb10829, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4298525756785796, guid: e9f6e59e23d40df4caef781befb10829, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4298525756785796, guid: e9f6e59e23d40df4caef781befb10829, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4298525756785796, guid: e9f6e59e23d40df4caef781befb10829, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4298525756785796, guid: e9f6e59e23d40df4caef781befb10829, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4298525756785796, guid: e9f6e59e23d40df4caef781befb10829, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4298525756785796, guid: e9f6e59e23d40df4caef781befb10829, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4298525756785796, guid: e9f6e59e23d40df4caef781befb10829, type: 2}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1049564399695654, guid: e9f6e59e23d40df4caef781befb10829, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114099338815838894, guid: e9f6e59e23d40df4caef781befb10829,
-        type: 2}
-      propertyPath: description
-      value: I did my best to disinfect the bandages, using my meager first aid skills
-        and a lot of alcohol.
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e9f6e59e23d40df4caef781befb10829, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1001 &257025769
 Prefab:
   m_ObjectHideFlags: 0
@@ -1424,6 +1372,37 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1085130764}
   m_Script: {fileID: 11500000, guid: 29bd934c668f7e948b13d9eadd705537, type: 3}
+--- !u!84 &328102655
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1067
+  m_Height: 600
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 0
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!4 &329210351 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4818417802087302, guid: 81423794d48a5544a93de134578b6762,
@@ -1974,19 +1953,8 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4683766943557540, guid: 07fa533e23d5e33458e2001c32d48227, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 114610984301081974, guid: 07fa533e23d5e33458e2001c32d48227,
-        type: 2}
-      propertyPath: description
-      value: Howard's disinfectant. It is used by various crew members for various
-        purposes.
-      objectReference: {fileID: 0}
-    - target: {fileID: 114610984301081974, guid: 07fa533e23d5e33458e2001c32d48227,
-        type: 2}
-      propertyPath: cleanedBandage
-      value: 
-      objectReference: {fileID: 734373720}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07fa533e23d5e33458e2001c32d48227, type: 2}
   m_IsPrefabAsset: 0
@@ -2024,7 +1992,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1493725622}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &485687363
 BoxCollider2D:
@@ -2276,7 +2244,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4505815670900094, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 114730066905688036, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334,
         type: 2}
@@ -2465,17 +2433,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fce30f2e362cc149bb54931c2d01498, type: 2}
   m_IsPrefabAsset: 0
---- !u!4 &734373718 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4298525756785796, guid: e9f6e59e23d40df4caef781befb10829,
-    type: 2}
-  m_PrefabInternal: {fileID: 250805098}
---- !u!114 &734373720 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114099338815838894, guid: e9f6e59e23d40df4caef781befb10829,
-    type: 2}
-  m_PrefabInternal: {fileID: 250805098}
-  m_Script: {fileID: 11500000, guid: 8a00659a1b8b8a6469cef57c525ce198, type: 3}
 --- !u!1001 &779268613
 Prefab:
   m_ObjectHideFlags: 0
@@ -2513,7 +2470,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4505815670900094, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1465402865572568, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334, type: 2}
       propertyPath: m_Name
@@ -2792,7 +2749,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 979623062}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &823633590
 Prefab:
@@ -2831,7 +2788,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4505815670900094, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114730066905688036, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334,
         type: 2}
@@ -2933,10 +2890,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68859bc255e303b4e9edec76cd7d7fa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _displayText: I should help Howard and Gerald first before heading out to the upper
-    deck.
-  _duration: 10
-  _hideOnExit: 1
+  displayText: 
+  duration: 0
+  hideOnExit: 0
 --- !u!114 &948905435 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114261594313789396, guid: 6b7facf7c583b594580d972c0fca9b73,
@@ -3003,6 +2959,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 88568477}
   - {fileID: 2110119189}
   - {fileID: 2623460}
   - {fileID: 984597632}
@@ -3013,7 +2970,6 @@ Transform:
   - {fileID: 1317129000}
   - {fileID: 821216688}
   - {fileID: 689191070}
-  - {fileID: 734373718}
   - {fileID: 108258637}
   - {fileID: 914125941}
   - {fileID: 462978445}
@@ -3027,7 +2983,7 @@ Transform:
   - {fileID: 948905437}
   - {fileID: 1196065364}
   m_Father: {fileID: 1493725622}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &984151938 stripped
 Transform:
@@ -3071,7 +3027,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4505815670900094, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1465402865572568, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334, type: 2}
       propertyPath: m_Name
@@ -3136,7 +3092,7 @@ Prefab:
     - target: {fileID: 61561947978089352, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334,
         type: 2}
       propertyPath: m_Size.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 61561947978089352, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334,
         type: 2}
@@ -3146,12 +3102,17 @@ Prefab:
     - target: {fileID: 61561947978089352, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334,
         type: 2}
       propertyPath: m_Size.x
-      value: 4.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114730066905688036, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334,
         type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 61561947978089352, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334,
+        type: 2}
+      propertyPath: m_EdgeRadius
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334, type: 2}
@@ -3299,7 +3260,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 1212827818}
+  m_TargetTexture: {fileID: 328102655}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -11259,7 +11220,7 @@ Transform:
   - {fileID: 1544541573}
   - {fileID: 1718337969}
   m_Father: {fileID: 1493725622}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1169131368 stripped
 RectTransform:
@@ -11464,37 +11425,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 3}
   m_EdgeRadius: 0
---- !u!84 &1212827818
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1163
-  m_Height: 654
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 0
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!114 &1239625333 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114933976932674698, guid: 31064e9c8835fba4696a0eeed8e4d906,
@@ -11771,7 +11701,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 979623062}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1327749785
 GameObject:
@@ -11827,7 +11757,6 @@ MonoBehaviour:
   storageKey: {fileID: 108258634}
   bandage: {fileID: 1606959015}
   alcohol: {fileID: 1384742642}
-  cleanedBandage: {fileID: 734373720}
   highlightCue: {fileID: 1439895639}
   pickUpCue: {fileID: 1380513987}
   useCue: {fileID: 680639555}
@@ -11948,7 +11877,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4505815670900094, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1465402865572568, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334, type: 2}
       propertyPath: m_Name
@@ -13394,7 +13323,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 88568477}
   - {fileID: 1154489898}
   - {fileID: 2013353043}
   - {fileID: 979623062}
@@ -13641,7 +13569,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4447610227155346, guid: ad19968e1fc332a41a11b7bda60d6f77, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114892393035265504, guid: ad19968e1fc332a41a11b7bda60d6f77,
         type: 2}
@@ -25948,7 +25876,7 @@ Transform:
   m_Children:
   - {fileID: 2016637017}
   m_Father: {fileID: 1493725622}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!199 &2013353044
 ParticleSystemRenderer:
@@ -35206,23 +35134,8 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4727662347854822, guid: 033c81bc275e7204bbb47994668b2bb7, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114429980228664258, guid: 033c81bc275e7204bbb47994668b2bb7,
-        type: 2}
-      propertyPath: description
-      value: Howard's medical supplies. Arguably the most important item on this ship.
-      objectReference: {fileID: 0}
-    - target: {fileID: 114429980228664258, guid: 033c81bc275e7204bbb47994668b2bb7,
-        type: 2}
-      propertyPath: cleanedBandage
-      value: 
-      objectReference: {fileID: 734373720}
-    - target: {fileID: 114429980228664258, guid: 033c81bc275e7204bbb47994668b2bb7,
-        type: 2}
-      propertyPath: applySound
-      value: 
-      objectReference: {fileID: 8300000, guid: 8b455f30a2cf6dd479d2acef102b26c6, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 033c81bc275e7204bbb47994668b2bb7, type: 2}
   m_IsPrefabAsset: 0
@@ -36879,6 +36792,37 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 823633590}
   m_Script: {fileID: 11500000, guid: 8e85add2731ed485ea59fc061f36d375, type: 3}
+--- !u!84 &2076032196
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1067
+  m_Height: 600
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!4 &2110119189 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4505815670900094, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334,

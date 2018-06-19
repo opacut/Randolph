@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Randolph.Interactable {
 	public class Bandage : InventoryItem {
-        [SerializeField] private Cleanedbandage cleanedBandage;
+        [SerializeField] private CleanedBandage cleanedBandage;
 
         public override bool IsSingleUse { get; } = true;
 
@@ -11,18 +11,7 @@ namespace Randolph.Interactable {
 
 		public override void Apply(GameObject target) {
             base.Apply(target);
-
-            var item = target.GetComponent<InventoryItem>();
-            if (!inventory.Contains(item)) {
-                item.Pick();
-            }
-            inventory.Remove(item);
-
-            cleanedBandage.gameObject.SetActive(true);
-            cleanedBandage.Pick();
-            OnCombined?.Invoke(cleanedBandage.gameObject);
+            CombineWith(target.GetComponent<InventoryItem>(), cleanedBandage);
 		}
-
-        public event Action<GameObject> OnCombined;
     }
 }
