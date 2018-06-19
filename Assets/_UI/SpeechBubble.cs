@@ -45,6 +45,7 @@ namespace Randolph.UI {
         }
 
         public void Speak() {
+            if (GetComponent<Animator>()) GetComponent<Animator>().SetBool("Speaking", true);
             StopAllCoroutines();
             bubbleText.text = "";
             currentText = "";
@@ -56,6 +57,7 @@ namespace Randolph.UI {
         }
 
         void StopSpeaking() {
+            if (GetComponent<Animator>()) GetComponent<Animator>().SetBool("Speaking", false);
             StopAllCoroutines();
             speechBubble.enabled = false;
             scaler.enabled = false;
