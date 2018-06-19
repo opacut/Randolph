@@ -74,6 +74,6 @@ namespace Randolph.Core {
         public const float RaycastBoundsShrinkage = RaycastSkinWidth * -2;
 
         /// <summary>Finds a <see cref="GameObject"/> with the <see cref="Tag.Player"/> tag and gets its <see cref="PlayerController"/>.</summary>
-        public static PlayerController Randolph => GameObject.FindWithTag(Tag.Player).GetComponent<PlayerController>();
+        public static PlayerController Randolph => GameObject.FindWithTag(Tag.Player)?.GetComponent<PlayerController>();
     }
 }
