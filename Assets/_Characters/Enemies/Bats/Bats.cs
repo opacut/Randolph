@@ -58,6 +58,7 @@ public class Bats : Clickable {
 
         //glider.OnPlayerDisturbed += OnPlayerDisturbed;
         audioSource = AudioPlayer.audioPlayer.AddAudioSource(gameObject);
+        outline.enabled = false;
     }
 
     public void OnTriggerEnter2D(Collider2D other) {
@@ -72,6 +73,7 @@ public class Bats : Clickable {
 
     protected override void Start() {
         base.Start();
+        outline.color = 2;
         CreateDestinationQueue();
     }
 

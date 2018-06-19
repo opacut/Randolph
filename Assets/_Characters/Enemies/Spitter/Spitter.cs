@@ -24,6 +24,7 @@ namespace Randolph.Characters {
             base.Start();
             audioSource = AudioPlayer.audioPlayer.AddAudioSource(gameObject);
             currentArea = GetComponentInParent<Area>()?.transform;
+            outline.color = 2;
         }
 
         void Fire() {
