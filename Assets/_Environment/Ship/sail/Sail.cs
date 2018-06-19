@@ -1,19 +1,18 @@
 ﻿using System;
-using Randolph.Interactable;
 using System.Linq;
-using UnityEngine;
+using Randolph.Interactable;
 using Randolph.Levels;
+using UnityEngine;
 
 namespace Randolph.Environment {
     public class Sail : MonoBehaviour, IRestartable {
-        [SerializeField] private Vector2 destination = new Vector2(-100f, 50f);
-        [SerializeField] private float speed = 20f;
-        [SerializeField] private TiedRope[] ropes;
         private Animator animator;
+        [SerializeField] private Vector2 destination = new Vector2(-100f, 50f);
+        [SerializeField] private TiedRope[] ropes;
+        [SerializeField] private float speed = 20f;
 
 
-        private void Start()
-        {
+        private void Start() {
             SaveState();
             animator = GetComponent<Animator>();
         }
@@ -46,27 +45,25 @@ namespace Randolph.Environment {
             }
         }
 
+        public event Action OnSlash;
+
         #region IRestartable
         private bool initialActiveState;
-        protected Vector3 initialPosition { get; private set; }
+        private Vector3 initialPosition;
         private Quaternion initialRotation;
 
-        public void SaveState()
-        {
+        public void SaveState() {
             initialActiveState = gameObject.activeSelf;
             initialPosition = transform.position;
             initialRotation = transform.rotation;
         }
 
-        public void Restart()
-        {
+        public void Restart() {
             animator.SetBool("CutOff", false);
             gameObject.SetActive(initialActiveState);
             transform.position = initialPosition;
             transform.rotation = initialRotation;
         }
         #endregion
-
-        public event Action OnSlash;
     }
 }

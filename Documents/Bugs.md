@@ -15,4 +15,8 @@
 * [ ] The moving platform graphics feel out of place in a cave
 * [ ] Weird sound on pickup and use
 * [ ] Bats outline not working
-* [ ] Door outline still shows when the game is paused
+* [ ] Uutline still shows when the game is paused
+* [ ] Restarting of objects created wihh Instantiate
+* [ ] You can talk to characters out of applicable range
+* [ ] Disable restarting while pause or in menus
+* [ ] Fix sail IRestartable

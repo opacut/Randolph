@@ -1,34 +1,41 @@
 ﻿using System;
 using System.Collections;
-using Assets.Core.Scenario;
 using Randolph.Characters;
+using Randolph.Levels;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Randolph.UI {
     [RequireComponent(typeof(Talkable))] // TODO: Temporary (inherit from Talkable)
-    public class SpeechBubble : MonoBehaviour {
-        [SerializeField] Canvas speechBubble;
-        CanvasScaler scaler;
+    public class SpeechBubble : MonoBehaviour, IRestartable {
+        [SerializeField] private Text bubbleText;
+        [SerializeField] private Color characterColor = Color.white;
 
-        [SerializeField] Text bubbleText;
-        [SerializeField] Color characterColor = Color.white;
-        public string fullText;
-        string currentText = "";
-        bool isSpeaking;
+        private string currentText;
 
-        [SerializeField, ReadonlyField] float delay = 0.05f;
+        [SerializeField, ReadonlyField]
+        private float delay = 0.05f;
 
-        void Start() {
+        [SerializeField, TextArea] public string fullText;
+        private bool isSpeaking;
+        private CanvasScaler scaler;
+
+        [SerializeField] private Canvas speechBubble;
+
+        private void Awake() {
             scaler = speechBubble.GetComponent<CanvasScaler>();
-            scaler.enabled = false;
-            speechBubble.enabled = false;
-            fullText = bubbleText.text;
-            bubbleText.text = "";
-            bubbleText.color = characterColor;
         }
 
-        void OnMouseDown() {
+        private void Start() {
+            scaler.enabled = false;
+            speechBubble.enabled = false;
+
+            bubbleText.text = string.Empty;
+            bubbleText.color = characterColor;
+            SaveState();
+        }
+
+        private void OnMouseDown() {
             if (!isSpeaking) {
                 Speak();
             } else {
@@ -45,32 +52,38 @@ namespace Randolph.UI {
         }
 
         public void Speak() {
-            if (GetComponent<Animator>()) GetComponent<Animator>().SetBool("Speaking", true);
             StopAllCoroutines();
-            bubbleText.text = "";
-            currentText = "";
+            bubbleText.text = string.Empty;
+            currentText = string.Empty;
             speechBubble.enabled = true;
             scaler.enabled = true;
             isSpeaking = true;
+            if (GetComponent<Animator>()) {
+                GetComponent<Animator>().SetBool("Speaking", true);
+            }
+
             OnStartedSpeaking?.Invoke();
             StartCoroutine(ShowText());
         }
 
-        void StopSpeaking() {
-            if (GetComponent<Animator>()) GetComponent<Animator>().SetBool("Speaking", false);
+        private void StopSpeaking() {
             StopAllCoroutines();
             speechBubble.enabled = false;
             scaler.enabled = false;
             isSpeaking = false;
+            if (GetComponent<Animator>()) {
+                GetComponent<Animator>().SetBool("Speaking", false);
+            }
+
             OnStoppedSpeaking?.Invoke();
         }
 
-        IEnumerator Timer() {
+        private IEnumerator Timer() {
             yield return new WaitForSeconds(5);
             StopSpeaking();
         }
 
-        public IEnumerator ShowText() {
+        private IEnumerator ShowText() {
             while (currentText.Length < fullText.Length) {
                 currentText = fullText.Substring(0, currentText.Length + 1);
                 bubbleText.text = currentText;
@@ -78,8 +91,29 @@ namespace Randolph.UI {
             }
             StartCoroutine(Timer());
         }
-        
+
         public event Action OnStartedSpeaking;
         public event Action OnStoppedSpeaking;
+
+        #region Implementation of IRestartable
+        private string savedText;
+
+        public void SaveState() {
+            savedText = fullText;
+        }
+
+        public void Restart() {
+            StopAllCoroutines();
+            fullText = savedText;
+            scaler.enabled = false;
+            speechBubble.enabled = false;
+            bubbleText.text = string.Empty;
+            bubbleText.color = characterColor;
+            isSpeaking = false;
+            if (GetComponent<Animator>()) {
+                GetComponent<Animator>().SetBool("Speaking", false);
+            }
+        }
+        #endregion
     }
 }
