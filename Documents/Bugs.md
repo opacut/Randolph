@@ -10,6 +10,6 @@
 * [ ] moving platform jumping is shite
 * [ ] Howards scenario won't reset
 * [ ] Captains scenario won't reset
-* [ ] sail stays cut off if reset
+* [x] sail stays cut off if reset
 * [ ] The moving platform graphics feel out of place in a cave
 * [ ] Weird sound on pickup and use
