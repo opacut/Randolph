@@ -7,16 +7,17 @@ namespace Randolph.UI {
     [RequireComponent(typeof(Button))]
     public class ContinueButton : MonoBehaviour {
 
-        [Scene] public string saveFromLevel;
+        // [Scene] public string saveFromLevel;
         Button thisButton;
         Text buttonText;
 
-        bool Disabled {
+        static bool Disabled {
             get {
-                Scene scene = SceneManager.GetSceneByName(saveFromLevel);
-                int minLevelToSave = scene.buildIndex;
+                // Scene scene = SceneManager.GetSceneByName(saveFromLevel);
+                int lastLevel = PlayerPrefs.GetInt(LevelManager.LevelKey, 0);
+                int minLevelToSave = 2;
 
-                return PlayerPrefs.GetInt(LevelManager.LevelKey, 0) < minLevelToSave;
+                return  lastLevel < minLevelToSave;
             }
         }
 
