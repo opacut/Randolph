@@ -68,14 +68,9 @@ namespace Randolph.UI {
             GetComponent<LayoutElement>().ignoreLayout = false;
         }
 
-        public void OnPointerDown(PointerEventData eventData) {
-            Debug.Log(this);
-            OnMouseDownClickable?.Invoke(Item, (Constants.MouseButton) eventData.button);
-        }
-
         public void OnPointerEnter(PointerEventData eventData) => OnMouseEnterClickable?.Invoke(Item);
         public void OnPointerExit(PointerEventData eventData) => OnMouseExitClickable?.Invoke(Item);
-
+        public void OnPointerDown(PointerEventData eventData) => OnMouseDownClickable?.Invoke(Item, (Constants.MouseButton) eventData.button);
         public void OnPointerUp(PointerEventData eventData) => OnMouseUpClickable?.Invoke(Item, (Constants.MouseButton) eventData.button);
 
         public static event Clickable.MouseClickable OnMouseEnterClickable;

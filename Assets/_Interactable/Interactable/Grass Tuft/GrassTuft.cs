@@ -34,7 +34,5 @@ namespace Randolph.Interactable {
             hasGrass = true;
             spriteRenderer.sprite = original;
         }
-
-        public override void Interact() { Debug.Log("Tuft clicked"); }
     }
 }
