@@ -20,3 +20,4 @@
 * [ ] You can talk to characters out of applicable range
 * [ ] Disable restarting while pause or in menus
 * [ ] Fix sail IRestartable
+* [ ] Disable camera transitions and mouse event when there is camera transition

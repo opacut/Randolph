@@ -120,6 +120,7 @@ MonoBehaviour:
   applySound: {fileID: 8300000, guid: b75e37b186aeae84898284a56e8ce01f, type: 3}
   collectSound: {fileID: 8300000, guid: 0e0339a3bac3c44488b82c87ccc26a02, type: 3}
   icon: {fileID: 21300000, guid: de6ed75f12cf18b4480f53808ade3eac, type: 3}
+  pit: {fileID: 114608641976397328, guid: 1b4c43ba064d3d74e9d2cf983346a450, type: 2}
 --- !u!114 &114563378305082238
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -8,7 +8,7 @@ namespace Randolph.Interactable {
 
         public override void Apply(GameObject target) {
             base.Apply(target);
-            target.GetComponent<IFlammable>().Ignite();
+            CombineWith(target.GetComponent<InventoryItem>(), target.GetComponent<IFlammable>().BurningVersion);
         }
     }
 }
