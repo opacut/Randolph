@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Com.LuisPedroFonseca.ProCamera2D;
-using Randolph.Characters;
 using Randolph.Levels;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,9 +20,10 @@ namespace Randolph.Core {
             set { SetGlobalVolume(value); }
         }
 
+        /// <summary>A small class for queuing sounds one after each other.</summary>
         class SoundQueue {
 
-            public Queue<AudioClip> SoundsQueue { get; private set; }
+            public Queue<AudioClip> SoundsQueue { get; }
             public Coroutine PlayingCoroutine { get; set; }
 
             public SoundQueue(IEnumerable<AudioClip> sounds) {
@@ -53,7 +53,7 @@ namespace Randolph.Core {
 
         Dictionary<AudioSource, SoundQueue> playingSounds = new Dictionary<AudioSource, SoundQueue>();
 
-        Transform player => Constants.Randolph.transform;
+        Transform player;
         ProCamera2DRooms cameraRooms;
         [SerializeField] Area currentArea;
 
@@ -64,18 +64,46 @@ namespace Randolph.Core {
             } else {
                 audioPlayer = this;
                 DontDestroyOnLoad(this);
+                SceneManager.sceneUnloaded += StopMusicOnLevelEnd;
                 LevelManager.OnNewLevel += OnNewLevel; // Only works in levels with a player
+            }
+        }
+
+        /// <summary>Makes sure the music doesn't continue to play when moving between levels (e.g. to Menu).</summary>
+        void StopMusicOnLevelEnd(Scene scene) {
+            // TODO: Edit if music should continue between levels
+            StopGlobalMusic();
+            musicSource.clip = null;
+        }
+
+        /// <summary>Stops the global music from playing and clears the music queue. Sounds are unaffected.</summary>
+        void StopGlobalMusic() {            
+            SoundQueue music;
+            if (playingSounds.TryGetValue(musicSource, out music)) {
+                StopCoroutine(music.PlayingCoroutine);                
+                playingSounds[musicSource].SoundsQueue.Clear();                
             }
         }
 
         void LateUpdate() {
             //! Required as long as the AudioPlayer also carries the listener
-            if (player && player.hasChanged) transform.position = player.position;
+            if (player != null && player.hasChanged) transform.position = player.position;
         }
 
         public static void SetGlobalVolume(float volume) {
             AudioListener.volume = volume;
             PlayerPrefs.SetFloat(VolumeKey, volume); // remember the state
+        }
+
+        /// <summary>Mutes music and sound when the game is paused.</summary>
+        public static void PauseGlobalVolume() {
+            PlayerPrefs.SetFloat(VolumeKey, AudioListener.volume); // remember the state
+            AudioListener.volume = 0f;
+        }
+
+        /// <summary>Resumes music and sound volume after the game is resumed.</summary>
+        public static void ResumeGlobalVolume() {
+            AudioListener.volume = GlobalVolume; // old value or 1f
         }
 
         float GetSpatialBlend() {
@@ -87,6 +115,11 @@ namespace Randolph.Core {
                 Debug.LogWarning($"One of the audio sources of <b>{gameObject.name}</b> is null.", gameObject);
                 return;
             }
+
+            // TODO: Get global music
+            // TODO: Add audio sources
+
+            player = Constants.Randolph.transform; // Set once a level to avoid checking multiple times
             soundSource.spatialBlend = GetSpatialBlend();
             playingSounds.Clear();
             playingSounds.Add(soundSource, new SoundQueue(new Queue<AudioClip>()));
@@ -142,9 +175,11 @@ namespace Randolph.Core {
                 }
                 playingSounds.Add(audioSource, new SoundQueue(soundsQueue));
             } else {
-                var soundsQueue = playingSounds[audioSource].SoundsQueue;
+                Queue<AudioClip> soundsQueue = playingSounds[audioSource].SoundsQueue;
                 foreach (AudioClip sound in sounds) {
-                    if (sound) soundsQueue.Enqueue(sound);
+                    // TODO: Ok?
+                    //? Allows only one instance of each sound in the queue                    
+                    if (sound && !soundsQueue.Contains(sound)) soundsQueue.Enqueue(sound);
                 }
             }
 

@@ -82,7 +82,7 @@ MonoBehaviour:
   description: 
   icon: {fileID: 21300000, guid: f97d3323baa280946ba192a360cb08a5, type: 3}
   collectSound: {fileID: 8300000, guid: 0e0339a3bac3c44488b82c87ccc26a02, type: 3}
-  applySound: {fileID: 8300000, guid: da41b3a5262389f4f968a9411119a384, type: 3}
+  applySound: {fileID: 8300000, guid: 497a1343a9518b749ae267c1093abd4c, type: 3}
 --- !u!114 &114740683183072308
 MonoBehaviour:
   m_ObjectHideFlags: 1

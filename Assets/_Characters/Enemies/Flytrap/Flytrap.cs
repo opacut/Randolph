@@ -66,7 +66,7 @@ namespace Randolph.Characters {
             if (Active) {
                 if (other.tag == Constants.Tag.Player) {
                     Deactivate();
-                    other.gameObject.GetComponent<PlayerController>().Kill(1);
+                    other.gameObject.GetComponent<PlayerController>().Kill(1, true);
                 }
 
                 var glider = other.GetComponent<Glider>();

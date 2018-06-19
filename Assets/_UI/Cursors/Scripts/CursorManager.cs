@@ -72,7 +72,8 @@ public class CursorManager : MonoBehaviour {
 
     void OnMouseOverClickable() {
         // Inside Update
-        if (continuousTarget != null && !clickHold) {
+        if (PauseMenu.IsPaused) SetCursorDefault();
+        else if (continuousTarget != null && !clickHold) {
             if (WithinDistance(continuousTarget.transform.position)) SetCursorOver(continuousTarget.CursorType);
             else SetCursorGrey(continuousTarget.CursorType);
         }
