@@ -1,25 +1,31 @@
-using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Randolph.Core;
+using UnityEngine;
 
 namespace Randolph.Interactable {
     //[CreateAssetMenu(fileName = "Item database", menuName = "Randolph/Inventory/Item database", order = 30)]
     public class ItemDatabase : ScriptableObject {
+        public const char StringSeparator = ',';
 
         //! Supports only 1 type / 1 item (e.g no 3 different Whiskeys)
 
         public static ItemDatabase itemDatabase;
-        public const char StringSeparator = ',';
 
-        [SerializeField] List<NumberedItem> numberedItemList = new List<NumberedItem>();
+        [SerializeField]
+        private Sprite activeBackground;
 
-        [SerializeField] Sprite defaultBackground;
-        [SerializeField] Sprite activeBackground;
-        [SerializeField] Sprite passiveBackground;
+        [SerializeField]
+        private Sprite defaultBackground;
 
-        void OnEnable() {
+        [SerializeField]
+        private List<NumberedItem> numberedItemList = new List<NumberedItem>();
+
+        [SerializeField]
+        private Sprite passiveBackground;
+
+        private void OnEnable() {
             if (itemDatabase != null && itemDatabase != this) {
                 Debug.LogWarning($"A duplicate ItemDatabase found. Try searching for <b>t:ItemDatabase</b> and merge them.");
             } else {
@@ -33,8 +39,8 @@ namespace Randolph.Interactable {
         }
 
         public bool PruneCheck() {
-            int newCount = numberedItemList.RemoveInvalidItems().Count;
-            return (numberedItemList.Count > newCount);
+            var newCount = numberedItemList.RemoveInvalidItems().Count;
+            return numberedItemList.Count > newCount;
         }
 
         /// <summary>Adds an item to the database and assigns an index to it.</summary>
@@ -43,17 +49,21 @@ namespace Randolph.Interactable {
             numberedItemList.Add(new NumberedItem(numberedItemList.Count, item));
         }
 
-        /// <summary>Returns a string composed from all given items to save to <see cref="PlayerPrefs"/>.</summary>
-        /// <returns>Item IDs separated with a <see cref="StringSeparator"/> – or an empty string if the inventory is empty.</returns>
+        /// <summary>Returns a string composed from all given items to save to <see cref="PlayerPrefs" />.</summary>
+        /// <returns>Item IDs separated with a <see cref="StringSeparator" /> – or an empty string if the inventory is empty.</returns>
         public string GetItemsKey(List<InventoryItem> inventoryItems) {
             var builder = new StringBuilder();
-            if (inventoryItems == null || inventoryItems.Count == 0) return string.Empty;
-            foreach (InventoryItem item in inventoryItems) {
+            if (inventoryItems == null || inventoryItems.Count == 0) {
+                return string.Empty;
+            }
+            foreach (var item in inventoryItems) {
                 if (!ContainsItem(item)) {
                     Debug.LogWarning($"Item <b>{item.GetType()}</b> isn't included in the ItemDatabase – and won't be saved.");
                 } else {
-                    int itemId = GetItemId(item);
-                    if (itemId < 0) continue;
+                    var itemId = GetItemId(item);
+                    if (itemId < 0) {
+                        continue;
+                    }
                     builder.Append($"{itemId}{StringSeparator}");
                 }
             }
@@ -79,20 +89,19 @@ namespace Randolph.Interactable {
         /// <param name="inventoryItem">Item to look for</param>
         /// <returns>True if the given item is a part of the item database.</returns>
         public bool ContainsItem(InventoryItem inventoryItem) {
-            bool containsType = numberedItemList.Any(x => x.item.GetInventoryItem().GetType() == inventoryItem.GetType());
+            var containsType = numberedItemList.Any(x => x.item.GetInventoryItem().GetType() == inventoryItem.GetType());
             return inventoryItem != null && containsType;
         }
 
-        /// <summary>Gets the item's unique ID.</summary>        
+        /// <summary>Gets the item's unique ID.</summary>
         public int GetItemId(InventoryItem inventoryItem) {
-            NumberedItem numberedItem = numberedItemList.FirstOrDefault(x => x.item.GetInventoryItem().GetType() == inventoryItem.GetType());
+            var numberedItem = numberedItemList.FirstOrDefault(x => x.item.GetInventoryItem().GetType() == inventoryItem.GetType());
             return numberedItem?.id ?? -1;
         }
 
-        /// <summary>Gets the item from its unique ID.</summary>        
+        /// <summary>Gets the item from its unique ID.</summary>
         public InventoryItem GetItemFromId(int id) {
             return numberedItemList.FirstOrDefault(x => x.id == id)?.item.GetInventoryItem();
         }
-
     }
 }

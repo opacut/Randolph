@@ -6,17 +6,15 @@ namespace Randolph.Interactable {
         [SerializeField] private GameObject spawnPoint;
         [SerializeField] public Transform twig;
 
-        private List<GameObject> twigs = new List<GameObject>();
+        private readonly List<GameObject> twigs = new List<GameObject>();
 
-        public void Slash()
-        {
-            GameObject newTwig = Instantiate(twig, spawnPoint.transform.position, Quaternion.identity).gameObject;
+        public void Slash() {
+            var newTwig = Instantiate(twig, spawnPoint.transform.position, Quaternion.identity).gameObject;
             newTwig.transform.parent = gameObject.transform.parent;
             twigs.Add(newTwig);
         }
 
-        public override void Restart()
-        {
+        public override void Restart() {
             base.Restart();
             twigs.ForEach(y => Destroy(y));
         }

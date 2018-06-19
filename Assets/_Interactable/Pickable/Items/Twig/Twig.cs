@@ -3,7 +3,8 @@ using UnityEngine;
 
 namespace Randolph.Interactable {
     public class Twig : InventoryItem {
-        [SerializeField] Transform torchPrefab;
+        [SerializeField]
+        private Transform torchPrefab;
 
         public override bool IsSingleUse { get; } = true;
 
@@ -18,7 +19,7 @@ namespace Randolph.Interactable {
             }
             inventory.Remove(item);
 
-            Transform torch = Instantiate(torchPrefab);
+            var torch = Instantiate(torchPrefab);
             //torch.gameObject.SetActive(true);
 
             torch.GetComponent<Torch>().Pick();

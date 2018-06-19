@@ -96,9 +96,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: A grappling hook! This will surely prove useful, if only to hone my
     ahletic abilities.
-  icon: {fileID: 21300000, guid: a5e6b4171264f4a00b2d27e01ad5abdb, type: 3}
-  collectSound: {fileID: 8300000, guid: 0e0339a3bac3c44488b82c87ccc26a02, type: 3}
   applySound: {fileID: 8300000, guid: 3e80e455998cd0342b535a5834bceabe, type: 3}
+  collectSound: {fileID: 8300000, guid: 0e0339a3bac3c44488b82c87ccc26a02, type: 3}
+  icon: {fileID: 21300000, guid: a5e6b4171264f4a00b2d27e01ad5abdb, type: 3}
   connectedRope: {fileID: 0}
 --- !u!212 &212514413828074514
 SpriteRenderer:

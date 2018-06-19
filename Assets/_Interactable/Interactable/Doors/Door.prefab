@@ -74,7 +74,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1465402865572568}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
   m_Name: 
@@ -97,8 +97,8 @@ MonoBehaviour:
   description: 
   isLocked: 0
   linkedDoor: {fileID: 0}
-  roomIndex: 0
   lockedSound: {fileID: 8300000, guid: 5eca2e0086a45c646b083b8edd614f29, type: 3}
+  roomIndex: 0
 --- !u!212 &212604783188050784
 SpriteRenderer:
   m_ObjectHideFlags: 1

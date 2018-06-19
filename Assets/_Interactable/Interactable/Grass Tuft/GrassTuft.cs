@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace Randolph.Interactable {
     public class GrassTuft : Interactable, ISlashable {
-        [SerializeField] public Transform Grass;
         [SerializeField] private Sprite cutGrass;
+        [SerializeField] public Transform Grass;
 
-        private List<GameObject> grasses = new List<GameObject>();
+        private readonly List<GameObject> grasses = new List<GameObject>();
 
         private bool hasGrass = true;
         private Sprite original;
@@ -17,7 +17,7 @@ namespace Randolph.Interactable {
             if (hasGrass) {
                 hasGrass = false;
                 spriteRenderer.sprite = cutGrass;
-                GameObject newGrass = Instantiate(Grass, spawnPoint.transform.position, Quaternion.identity).gameObject;
+                var newGrass = Instantiate(Grass, spawnPoint.transform.position, Quaternion.identity).gameObject;
                 newGrass.transform.parent = gameObject.transform.parent;
                 grasses.Add(newGrass);
             }

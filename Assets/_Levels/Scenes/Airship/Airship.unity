@@ -259,7 +259,7 @@ Transform:
   - {fileID: 1327749786}
   - {fileID: 1511064704}
   m_Father: {fileID: 979623062}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &108258634 stripped
 MonoBehaviour:
@@ -309,7 +309,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4588526553809378, guid: 6b7facf7c583b594580d972c0fca9b73, type: 2}
       propertyPath: m_RootOrder
-      value: 22
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 114261594313789396, guid: 6b7facf7c583b594580d972c0fca9b73,
         type: 2}
@@ -387,42 +387,6 @@ MonoBehaviour:
   MaxZoomOutAmount: 4
   DisableWhenOneTarget: 1
   CompensateForCameraPosition: 0
---- !u!84 &230539008
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1074
-  m_Height: 441
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 0
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
---- !u!50 &239296888 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 50256416751730378, guid: 81423794d48a5544a93de134578b6762,
-    type: 2}
-  m_PrefabInternal: {fileID: 1055669785}
 --- !u!4 &243457949 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4107820509919342, guid: 428c1fa437005214490b7f3a6b1cdca8,
@@ -470,13 +434,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4769712751262798, guid: 923e700ef2bf8d2419230fbd38c29701, type: 2}
       propertyPath: m_RootOrder
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 114007389621385680, guid: 923e700ef2bf8d2419230fbd38c29701,
         type: 2}
       propertyPath: description
       value: Tara, our mechanic who keeps the ship afloat. Arguing with her usually
         results in a mild concussion.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114292201643677986, guid: 923e700ef2bf8d2419230fbd38c29701,
+        type: 2}
+      propertyPath: fullText
+      value: The ship is falling apart! I don't know how much longer we can hold it
+        together!!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 923e700ef2bf8d2419230fbd38c29701, type: 2}
@@ -1534,7 +1504,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4842268154107098, guid: 284fe032702014ef49047cfb9be3dc5b, type: 2}
       propertyPath: m_RootOrder
-      value: 21
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 212514413828074514, guid: 284fe032702014ef49047cfb9be3dc5b,
         type: 2}
@@ -1629,7 +1599,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4295595455416970, guid: 1e3b2a4b709f28b48aa34679460c53b1, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 61876135758654338, guid: 1e3b2a4b709f28b48aa34679460c53b1,
         type: 2}
@@ -1664,37 +1634,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e3b2a4b709f28b48aa34679460c53b1, type: 2}
   m_IsPrefabAsset: 0
---- !u!84 &399074048
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1173
-  m_Height: 564
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &432045254
 Prefab:
   m_ObjectHideFlags: 0
@@ -1800,8 +1739,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 446788350}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 74.45, y: -11.8, z: 0.09330711}
-  m_LocalScale: {x: 0.097499736, y: 5.212496, z: 1}
+  m_LocalPosition: {x: 85, y: 8.24, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1016542040}
   m_RootOrder: 0
@@ -1882,7 +1821,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4505815670900094, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334, type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1465402865572568, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334, type: 2}
       propertyPath: m_Name
@@ -2015,7 +1954,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4683766943557540, guid: 07fa533e23d5e33458e2001c32d48227, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07fa533e23d5e33458e2001c32d48227, type: 2}
@@ -2054,7 +1993,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1493725622}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &485687363
 BoxCollider2D:
@@ -2269,6 +2208,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4667859838281882, guid: 31064e9c8835fba4696a0eeed8e4d906,
     type: 2}
   m_PrefabInternal: {fileID: 1606459565}
+--- !u!84 &571506514
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1067
+  m_Height: 600
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &587526408
 Prefab:
   m_ObjectHideFlags: 0
@@ -2306,7 +2276,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4505815670900094, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 114730066905688036, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334,
         type: 2}
@@ -2346,37 +2316,6 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 20160739633386284, guid: 8b4288b422a243a41839c1cf4f4ff9c2,
     type: 2}
   m_PrefabInternal: {fileID: 2069256919}
---- !u!84 &660726141
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1074
-  m_Height: 441
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!4 &675124298 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4993781794242014, guid: 8cd17e969939c454e839d0718b531837,
@@ -2563,7 +2502,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4505815670900094, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1465402865572568, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334, type: 2}
       propertyPath: m_Name
@@ -2842,7 +2781,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 979623062}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &823633590
 Prefab:
@@ -2881,7 +2820,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4505815670900094, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 114730066905688036, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334,
         type: 2}
@@ -3022,7 +2961,17 @@ Prefab:
     - target: {fileID: 224748501108045976, guid: 5f2c6cf0c833eae48bccffc331bd8ab3,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: -303.60785
+      value: -246.58438
+      objectReference: {fileID: 0}
+    - target: {fileID: 224042410613998830, guid: 5f2c6cf0c833eae48bccffc331bd8ab3,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -13
+      objectReference: {fileID: 0}
+    - target: {fileID: 224877742206992722, guid: 5f2c6cf0c833eae48bccffc331bd8ab3,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f2c6cf0c833eae48bccffc331bd8ab3, type: 2}
@@ -3055,7 +3004,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 979623062}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &914125942
 BoxCollider2D:
@@ -3162,6 +3111,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1154489898}
   - {fileID: 88568477}
   - {fileID: 2110119189}
   - {fileID: 2623460}
@@ -3186,7 +3136,7 @@ Transform:
   - {fileID: 1747536031}
   - {fileID: 948905437}
   m_Father: {fileID: 1493725622}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &984151938 stripped
 Transform:
@@ -3230,7 +3180,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4505815670900094, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1465402865572568, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334, type: 2}
       propertyPath: m_Name
@@ -3339,7 +3289,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 78191970}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.6, y: 21.4, z: -0.09330711}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 446788351}
@@ -3463,7 +3413,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 230539008}
+  m_TargetTexture: {fileID: 1802153320}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -11422,7 +11372,7 @@ Transform:
   - {fileID: 1534836940}
   - {fileID: 1544541573}
   - {fileID: 1718337969}
-  m_Father: {fileID: 1493725622}
+  m_Father: {fileID: 979623062}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1188437528
@@ -11498,7 +11448,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1196065364
 Transform:
   m_ObjectHideFlags: 0
@@ -11506,11 +11456,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1196065363}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15, y: 29.48, z: 0}
+  m_LocalPosition: {x: -15, y: 30.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 979623062}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1196065365
 MonoBehaviour:
@@ -11733,7 +11683,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4572209366363084, guid: f68b4039d4d9cd040bd3384c5b8af1b7, type: 2}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 114503723694159946, guid: f68b4039d4d9cd040bd3384c5b8af1b7,
         type: 2}
@@ -11741,6 +11691,12 @@ Prefab:
       value: Cohen is my Uncle's longest friend. They have embarked on countless voyages
         together. The story about his lost arm changes every time he tells it, and
         I doubt he or the Captain remember what really happened.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114374039759238390, guid: f68b4039d4d9cd040bd3384c5b8af1b7,
+        type: 2}
+      propertyPath: fullText
+      value: I have not seen a thunderstorm like this since that dreaded night when
+        I lost my arm to a cloud shark.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f68b4039d4d9cd040bd3384c5b8af1b7, type: 2}
@@ -11899,7 +11855,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 979623062}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1327749785
 GameObject:
@@ -12075,7 +12031,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4505815670900094, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1465402865572568, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334, type: 2}
       propertyPath: m_Name
@@ -12295,11 +12251,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {x: -100, y: 50}
-  speed: 20
   ropes:
   - {fileID: 1453019570}
   - {fileID: 1548121666}
   - {fileID: 819497999}
+  speed: 20
 --- !u!4 &1412512472 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4572209366363084, guid: f68b4039d4d9cd040bd3384c5b8af1b7,
@@ -12457,7 +12413,7 @@ Transform:
   - {fileID: 675124298}
   - {fileID: 245314037}
   m_Father: {fileID: 979623062}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1476130751
 GameObject:
@@ -13452,7 +13408,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1154489898}
   - {fileID: 2013353043}
   - {fileID: 979623062}
   - {fileID: 485687362}
@@ -13698,7 +13653,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4447610227155346, guid: ad19968e1fc332a41a11b7bda60d6f77, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 114892393035265504, guid: ad19968e1fc332a41a11b7bda60d6f77,
         type: 2}
@@ -13709,6 +13664,12 @@ Prefab:
     - target: {fileID: 114333008214095750, guid: ad19968e1fc332a41a11b7bda60d6f77,
         type: 2}
       propertyPath: m_Text
+      value: Randolph, dear! You're alright! Gerald here is hurt bad. He needs my
+        medical attention.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114595705842909654, guid: ad19968e1fc332a41a11b7bda60d6f77,
+        type: 2}
+      propertyPath: fullText
       value: Randolph, dear! You're alright! Gerald here is hurt bad. He needs my
         medical attention.
       objectReference: {fileID: 0}
@@ -13769,7 +13730,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4667859838281882, guid: 31064e9c8835fba4696a0eeed8e4d906, type: 2}
       propertyPath: m_RootOrder
-      value: 20
+      value: 21
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31064e9c8835fba4696a0eeed8e4d906, type: 2}
@@ -14008,6 +13969,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4803821828379234, guid: 0fce30f2e362cc149bb54931c2d01498,
     type: 2}
   m_PrefabInternal: {fileID: 733065542}
+--- !u!84 &1802153320
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1067
+  m_Height: 600
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 0
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1833780543
 GameObject:
   m_ObjectHideFlags: 0
@@ -14115,11 +14107,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {x: -100, y: 50}
-  speed: 20
   ropes:
   - {fileID: 153353676}
   - {fileID: 1723362084}
   - {fileID: 317992336}
+  speed: 20
 --- !u!1 &1840256034
 GameObject:
   m_ObjectHideFlags: 0
@@ -14150,7 +14142,7 @@ Transform:
   - {fileID: 277266527}
   - {fileID: 1131629617}
   m_Father: {fileID: 979623062}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1846408766
 Prefab:
@@ -14189,7 +14181,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4107820509919342, guid: 428c1fa437005214490b7f3a6b1cdca8, type: 2}
       propertyPath: m_RootOrder
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1652459870599456, guid: 428c1fa437005214490b7f3a6b1cdca8, type: 2}
       propertyPath: m_IsActive
@@ -14200,6 +14192,12 @@ Prefab:
       propertyPath: description
       value: My uncle and the Captain of the Nightingale. Practically living in the
         air; he can't talk normally for the best part of thirty years.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114727269428078858, guid: 428c1fa437005214490b7f3a6b1cdca8,
+        type: 2}
+      propertyPath: fullText
+      value: Boy! Thank heavens yar alive! 'Ere, snatch mine sabre an' climb the mast!
+        We need to cut the sail lest we lose control of the ship!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 428c1fa437005214490b7f3a6b1cdca8, type: 2}
@@ -25822,7 +25820,7 @@ Transform:
   m_Children:
   - {fileID: 2016637017}
   m_Father: {fileID: 1493725622}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!199 &2013353044
 ParticleSystemRenderer:
@@ -35080,7 +35078,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4727662347854822, guid: 033c81bc275e7204bbb47994668b2bb7, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 033c81bc275e7204bbb47994668b2bb7, type: 2}

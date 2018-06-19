@@ -1,19 +1,21 @@
-﻿using Randolph.Core;
+﻿using System;
+using Randolph.Core;
 using Randolph.UI;
-using System;
 using UnityEngine;
 
-namespace Randolph.Interactable
-{
+namespace Randolph.Interactable {
     public abstract class InventoryItem : Pickable {
+        [SerializeField]
+        private AudioClip applySound;
+
+        [SerializeField]
+        private AudioClip collectSound;
+
+        private Collider2D[] colliders;
 
         public Sprite icon;
-        [SerializeField] AudioClip collectSound;
-        [SerializeField] AudioClip applySound;
         protected Inventory inventory { get; private set; }
-        
-        Collider2D[] colliders;
-       
+
         public override bool isWithinReach => IsPickedUp || base.isWithinReach;
 
         protected override void Awake() {
@@ -63,12 +65,13 @@ namespace Randolph.Interactable
         public event Action<InventoryItem> OnCombined;
 
         public void SetComponentsActive(bool active) {
-            if (spriteRenderer) spriteRenderer.enabled = active;
+            if (spriteRenderer) {
+                spriteRenderer.enabled = active;
+            }
             foreach (var col in colliders) {
                 //if (collider) collider.enabled = active;
                 col.enabled = active;
             }
         }
-
     }
 }

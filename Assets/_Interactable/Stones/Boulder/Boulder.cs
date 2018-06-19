@@ -1,10 +1,10 @@
 ﻿using Randolph.Characters;
 using Randolph.Core;
-using Randolph.Levels;
+using Randolph.UI;
 using UnityEngine;
 
 namespace Randolph.Interactable {
-    public class Boulder : MonoBehaviour, IRestartable {
+    public class Boulder : Clickable {
         private AudioSource audioSource;
 
         [SerializeField]
@@ -17,12 +17,14 @@ namespace Randolph.Interactable {
         private int maxPushAngle = 45;
 
         private Rigidbody2D rbody;
+        
+        public override Cursors CursorType { get; protected set; } = Cursors.Inspect;
 
-        private void Awake() {
+        protected override void Awake() {
+            base.Awake();
+
             rbody = GetComponent<Rigidbody2D>();
             audioSource = AudioPlayer.audioPlayer.AddAudioSource(gameObject);
-
-            SaveState();
         }
 
         private void OnTriggerEnter2D(Collider2D other) {
@@ -57,17 +59,19 @@ namespace Randolph.Interactable {
         }
 
         #region IRestartable
-        private Vector3 initialPosition;
-        private Quaternion initialRotation;
+        private Vector2 savedVelocity;
+        private float savedAngularVelocity;
 
-        public void SaveState() {
-            initialPosition = gameObject.transform.position;
-            initialRotation = gameObject.transform.rotation;
+        public override void SaveState() {
+            base.SaveState();
+            savedVelocity = rbody.velocity;
+            savedAngularVelocity = rbody.angularVelocity;
         }
 
-        public void Restart() {
-            gameObject.transform.position = initialPosition;
-            gameObject.transform.rotation = initialRotation;
+        public override void Restart() {
+            base.Restart();
+            rbody.velocity = savedVelocity;
+            rbody.angularVelocity = savedAngularVelocity;
         }
         #endregion
     }

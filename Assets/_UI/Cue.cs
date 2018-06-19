@@ -18,6 +18,8 @@ namespace Randolph.UI {
 
         private bool wasActivated;
 
+        private void Start() => SaveState();
+
         private void OnTriggerEnter2D(Collider2D collision) {
             if (collision.tag == "Player") {
                 textBox.enabled = true;
@@ -48,11 +50,16 @@ namespace Randolph.UI {
         }
 
         #region IRestartable
-        public void SaveState() { }
+        protected bool savedActiveState { get; private set; }
+
+        public void SaveState() {
+            savedActiveState = gameObject.activeSelf;
+        }
 
         public void Restart() {
+            Disable();
             wasActivated = false;
-            gameObject.SetActive(true);
+            gameObject.SetActive(savedActiveState);
         }
         #endregion
     }

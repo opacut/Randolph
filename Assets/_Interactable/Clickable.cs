@@ -28,14 +28,13 @@ namespace Randolph.Interactable {
         }
 
         protected virtual void Start() {
+            outline.enabled = false;
             shouldOutline = false;
             SaveState();
         }
 
         protected virtual void Update() {
-            if (spriteRenderer.enabled) {
-                outline.enabled = Input.GetAxis("Highlight") != 0.0f || shouldOutline;
-            }
+            outline.enabled = spriteRenderer.enabled && (Input.GetAxis("Highlight") != 0.0f || shouldOutline);
         }
 
         private void OnDestroy() {
@@ -81,20 +80,20 @@ namespace Randolph.Interactable {
         #endregion
 
         #region IRestartable
-        private bool initialActiveState;
-        protected Vector3 initialPosition { get; private set; }
-        private Quaternion initialRotation;
+        protected bool savedActiveState { get; private set; }
+        protected Vector3 savedPosition { get; private set; }
+        protected Quaternion savedRotation { get; private set; }
 
         public virtual void SaveState() {
-            initialActiveState = gameObject.activeSelf;
-            initialPosition = transform.position;
-            initialRotation = transform.rotation;
+            savedActiveState = gameObject.activeSelf;
+            savedPosition = transform.position;
+            savedRotation = transform.rotation;
         }
 
         public virtual void Restart() {
-            gameObject.SetActive(initialActiveState);
-            transform.position = initialPosition;
-            transform.rotation = initialRotation;
+            gameObject.SetActive(savedActiveState);
+            transform.position = savedPosition;
+            transform.rotation = savedRotation;
         }
         #endregion
     }

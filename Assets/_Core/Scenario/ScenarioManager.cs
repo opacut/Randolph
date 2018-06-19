@@ -8,10 +8,7 @@ namespace Assets.Core.Scenario {
 
         protected abstract IEnumerable Scenario();
 
-        private void Start() {
-            scenarioEnumerator = Scenario().GetEnumerator();
-            Iterate();
-        }
+        private void Start() => Restart();
 
         protected void Iterate() => scenarioEnumerator.MoveNext();
 
@@ -20,6 +17,7 @@ namespace Assets.Core.Scenario {
 
         public virtual void Restart() {
             scenarioEnumerator = Scenario().GetEnumerator();
+            Iterate();
         }
         #endregion
     }

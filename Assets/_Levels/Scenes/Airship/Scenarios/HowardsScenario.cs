@@ -27,6 +27,7 @@ namespace Assets.Levels.Airship {
         [SerializeField] private RandolphTalkTrigger deckExitTalkTrigger;
 
         protected override IEnumerable Scenario() {
+            howardsSpeechBubble.OnStoppedSpeaking -= Iterate;
             howardsSpeechBubble.OnStoppedSpeaking += Iterate;
             yield return null;
             howardsSpeechBubble.OnStoppedSpeaking -= Iterate;
@@ -36,7 +37,8 @@ namespace Assets.Levels.Airship {
             storageKey.gameObject.SetActive(true);
             highlightCue.gameObject.SetActive(true);
             pickUpCue.gameObject.SetActive(true);
-
+            
+            storageKey.OnPick -= Iterate;
             storageKey.OnPick += Iterate;
             yield return null;
             storageKey.OnPick -= Iterate;
@@ -45,13 +47,16 @@ namespace Assets.Levels.Airship {
             pickUpCue.Disable();
             howardsSpeechBubble.fullText = secondResponse;
             useCue.gameObject.SetActive(true);
-
+            
+            storageKey.OnApply -= Iterate;
             storageKey.OnApply += Iterate;
             yield return null;
             storageKey.OnApply -= Iterate;
 
             useCue.Disable();
-
+            
+            bandage.OnPick -= Iterate;
+            alcohol.OnPick -= Iterate;
             bandage.OnPick += Iterate;
             alcohol.OnPick += Iterate;
             yield return null;
@@ -61,6 +66,8 @@ namespace Assets.Levels.Airship {
             
             howardsSpeechBubble.fullText = thirdResponse;
             
+            bandage.OnCombined -= BandageCleaned;
+            alcohol.OnCombined -= BandageCleaned;
             bandage.OnCombined += BandageCleaned;
             alcohol.OnCombined += BandageCleaned;
             yield return null;
@@ -68,7 +75,8 @@ namespace Assets.Levels.Airship {
             alcohol.OnCombined -= BandageCleaned;
             
             howardsSpeechBubble.fullText = fourthResponse;
-
+            
+            cleanedBandage.OnPick -= Iterate;
             cleanedBandage.OnApply += Iterate;
             yield return null;
             cleanedBandage.OnPick -= Iterate;
@@ -83,4 +91,8 @@ namespace Assets.Levels.Airship {
             Iterate();
         }
     }
+
+    #region IRestartable
+
+    #endregion
 }
