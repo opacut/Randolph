@@ -124,7 +124,7 @@ namespace Randolph.UI {
             foreach (InventoryItem item in items) {
                 Type itemType = item.GetType();
                 var sceneItem = (InventoryItem) FindObjectOfType(itemType);
-                sceneItem.SetComponentsActive(false);
+                if (sceneItem) sceneItem.SetComponentsActive(false); //? Null
             }
         }
 

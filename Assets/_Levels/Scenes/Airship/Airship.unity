@@ -190,8 +190,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2586c95a00464b11b99738dcde3c937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textBox: {fileID: 1949271391}
-  textElement: {fileID: 1446234342}
+  textBox: {fileID: 181317795}
+  textElement: {fileID: 492855500}
   updateText: Click on characters to talk to them
   isManual: 1
   cancellationButton: 0
@@ -356,11 +356,34 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1351565694}
   m_Script: {fileID: 11500000, guid: 29bd934c668f7e948b13d9eadd705537, type: 3}
---- !u!50 &239296888 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 50256416751730378, guid: 81423794d48a5544a93de134578b6762,
+--- !u!114 &181317795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 114644675345825698, guid: 5f2c6cf0c833eae48bccffc331bd8ab3,
     type: 2}
-  m_PrefabInternal: {fileID: 1055669785}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
 --- !u!4 &243457949 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4107820509919342, guid: 428c1fa437005214490b7f3a6b1cdca8,
@@ -1366,6 +1389,37 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!84 &297433008
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1173
+  m_Height: 564
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!114 &317992336 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114351232546757812, guid: 2e53d9291175b5c4d8fdd8757fd08940,
@@ -1561,6 +1615,37 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 284fe032702014ef49047cfb9be3dc5b, type: 2}
   m_IsPrefabAsset: 0
+--- !u!84 &386226180
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1173
+  m_Height: 564
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 0
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &389482034
 Prefab:
   m_ObjectHideFlags: 0
@@ -2069,6 +2154,12 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.911743, y: 59.289375}
   m_EdgeRadius: 0
+--- !u!114 &492855500 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114825242401241754, guid: 5f2c6cf0c833eae48bccffc331bd8ab3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1606110987}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!4 &502611182 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4803821828379234, guid: 0fce30f2e362cc149bb54931c2d01498,
@@ -2331,7 +2422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 1949271391}
-  textElement: {fileID: 1446234342}
+  textElement: {fileID: 492855500}
   updateText: Drag and drop items from inventory onto objects to use them
   isManual: 1
   cancellationButton: -1
@@ -2572,7 +2663,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &815299406
 Prefab:
@@ -3141,7 +3232,7 @@ Transform:
   m_Children:
   - {fileID: 446788351}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1055669785
 Prefab:
@@ -3180,7 +3271,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4818417802087302, guid: 81423794d48a5544a93de134578b6762, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 114757297167601836, guid: 81423794d48a5544a93de134578b6762,
         type: 2}
@@ -11222,11 +11313,6 @@ Transform:
   m_Father: {fileID: 1493725622}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!224 &1169131368 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 224236843724284554, guid: 5f2c6cf0c833eae48bccffc331bd8ab3,
-    type: 2}
-  m_PrefabInternal: {fileID: 1606110987}
 --- !u!1001 &1188437528
 Prefab:
   m_ObjectHideFlags: 0
@@ -11393,8 +11479,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2586c95a00464b11b99738dcde3c937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textBox: {fileID: 1949271391}
-  textElement: {fileID: 1446234342}
+  textBox: {fileID: 181317795}
+  textElement: {fileID: 492855500}
   updateText: Use A and D to move around
   isManual: 0
   cancellationButton: -1
@@ -11952,8 +12038,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2586c95a00464b11b99738dcde3c937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textBox: {fileID: 1949271391}
-  textElement: {fileID: 1446234342}
+  textBox: {fileID: 181317795}
+  textElement: {fileID: 492855500}
   updateText: Click items to pick them up
   isManual: 1
   cancellationButton: 0
@@ -12185,81 +12271,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4993781794242014, guid: 8cd17e969939c454e839d0718b531837,
     type: 2}
   m_PrefabInternal: {fileID: 1351565694}
---- !u!1 &1446234340
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1446234341}
-  - component: {fileID: 1446234343}
-  - component: {fileID: 1446234342}
-  m_Layer: 5
-  m_Name: Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1446234341
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1446234340}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1949271390}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1446234342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1446234340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 45ef97e4f772deb45b717a277a03909b, type: 3}
-    m_FontSize: 20
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 
---- !u!222 &1446234343
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1446234340}
-  m_CullTransparentMesh: 0
 --- !u!1 &1452660419
 GameObject:
   m_ObjectHideFlags: 0
@@ -12290,7 +12301,7 @@ Transform:
   - {fileID: 502611182}
   - {fileID: 1797642576}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1453019570 stripped
 MonoBehaviour:
@@ -12417,7 +12428,7 @@ RectTransform:
   m_Children:
   - {fileID: 2012715385}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -13328,7 +13339,7 @@ Transform:
   - {fileID: 979623062}
   - {fileID: 485687362}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1511064703
 GameObject:
@@ -13452,8 +13463,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2586c95a00464b11b99738dcde3c937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textBox: {fileID: 1949271391}
-  textElement: {fileID: 1446234342}
+  textBox: {fileID: 181317795}
+  textElement: {fileID: 492855500}
   updateText: Press SPACE to jump
   isManual: 0
   cancellationButton: -1
@@ -13501,7 +13512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 1949271391}
-  textElement: {fileID: 1446234342}
+  textElement: {fileID: 492855500}
   updateText: Use W/S to climb and SPACE to jump off
   isManual: 0
   cancellationButton: -1
@@ -13648,7 +13659,7 @@ Prefab:
     - target: {fileID: 224236843724284554, guid: 5f2c6cf0c833eae48bccffc331bd8ab3,
         type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 224236843724284554, guid: 5f2c6cf0c833eae48bccffc331bd8ab3,
         type: 2}
@@ -13704,7 +13715,7 @@ Prefab:
         type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 239296888}
+      objectReference: {fileID: 0}
     - target: {fileID: 223955007248001530, guid: 5f2c6cf0c833eae48bccffc331bd8ab3,
         type: 2}
       propertyPath: m_Camera
@@ -13812,8 +13823,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2586c95a00464b11b99738dcde3c937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textBox: {fileID: 1949271391}
-  textElement: {fileID: 1446234342}
+  textBox: {fileID: 181317795}
+  textElement: {fileID: 492855500}
   updateText: Click on highlighted objects to interact with them
   isManual: 1
   cancellationButton: 0
@@ -13886,7 +13897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 1949271391}
-  textElement: {fileID: 1446234342}
+  textElement: {fileID: 492855500}
   updateText: Use your hook to grab on to various objects and swing around!
   isManual: 0
   cancellationButton: -1
@@ -25654,10 +25665,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1446234341}
-  m_Father: {fileID: 1169131368}
-  m_RootOrder: 4
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -25761,7 +25771,7 @@ Transform:
   - {fileID: 290156171}
   - {fileID: 1478245753}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2012715384
 GameObject:

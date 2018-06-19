@@ -1,10 +1,10 @@
-﻿using System;
-using cakeslice;
-using Randolph.Core;
+﻿using Randolph.Core;
 using Randolph.UI;
+using System;
 using UnityEngine;
 
-namespace Randolph.Interactable {
+namespace Randolph.Interactable
+{
     public abstract class InventoryItem : Pickable {
 
         public Sprite icon;

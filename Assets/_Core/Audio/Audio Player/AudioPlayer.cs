@@ -23,7 +23,7 @@ namespace Randolph.Core {
 
         class SoundQueue {
 
-            public Queue<AudioClip> SoundsQueue { get; private set; }
+            public Queue<AudioClip> SoundsQueue { get; }
             public Coroutine PlayingCoroutine { get; set; }
 
             public SoundQueue(IEnumerable<AudioClip> sounds) {
@@ -76,6 +76,16 @@ namespace Randolph.Core {
         public static void SetGlobalVolume(float volume) {
             AudioListener.volume = volume;
             PlayerPrefs.SetFloat(VolumeKey, volume); // remember the state
+        }
+
+        /// <summary>Mutes music and sound when the game is paused.</summary>
+        public static void PauseGlobalVolume() {
+            PlayerPrefs.SetFloat(VolumeKey, AudioListener.volume); // remember the state
+            AudioListener.volume = 0f;
+        }
+        /// <summary>Resumes music and sound volume after the game is resumed.</summary>
+        public static void ResumeGlobalVolume() {
+            AudioListener.volume = GlobalVolume; // old value or 1f
         }
 
         float GetSpatialBlend() {
@@ -142,7 +152,7 @@ namespace Randolph.Core {
                 }
                 playingSounds.Add(audioSource, new SoundQueue(soundsQueue));
             } else {
-                var soundsQueue = playingSounds[audioSource].SoundsQueue;
+                Queue<AudioClip> soundsQueue = playingSounds[audioSource].SoundsQueue;
                 foreach (AudioClip sound in sounds) {
                     if (sound) soundsQueue.Enqueue(sound);
                 }

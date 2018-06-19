@@ -649,34 +649,7 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114095905926580988, guid: 0cffbcb66eb4caf42bf3f8c83ec32e26,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300008, guid: b021ef875616207489033df51e4493a2,
-        type: 3}
-    - target: {fileID: 114095905926580988, guid: 0cffbcb66eb4caf42bf3f8c83ec32e26,
-        type: 2}
-      propertyPath: m_PreserveAspect
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 61104818027401346, guid: 0cffbcb66eb4caf42bf3f8c83ec32e26,
-        type: 2}
-      propertyPath: m_Offset.y
-      value: -21
-      objectReference: {fileID: 0}
-    - target: {fileID: 61104818027401346, guid: 0cffbcb66eb4caf42bf3f8c83ec32e26,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 61104818027401346, guid: 0cffbcb66eb4caf42bf3f8c83ec32e26,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 40
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114370276479285868, guid: 0cffbcb66eb4caf42bf3f8c83ec32e26, type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cffbcb66eb4caf42bf3f8c83ec32e26, type: 2}
   m_IsPrefabAsset: 0
 --- !u!224 &131405001 stripped

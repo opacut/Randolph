@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Randolph.Levels;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Randolph.UI {
@@ -10,7 +11,7 @@ namespace Randolph.UI {
             button = GetComponent<Button>();
             button.onClick.AddListener(QuitGame);
 
-            if (!CanQuitGame()) {
+            if (!LevelManager.CanQuitGame()) {
                 gameObject.SetActive(false);
             }
         }
@@ -18,12 +19,6 @@ namespace Randolph.UI {
         void QuitGame() {
             Application.Quit();
             button.gameObject.SetActive(false);
-        }
-
-        /// <summary>Checks whether pressing a quit button would make sense.</summary>
-        /// <returns>True if pressing the quit button quits the application.</returns>
-        bool CanQuitGame() {
-            return !(Application.platform == RuntimePlatform.WebGLPlayer || Application.isEditor);
         }
 
     }
