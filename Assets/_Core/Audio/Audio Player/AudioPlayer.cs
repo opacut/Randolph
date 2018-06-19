@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 namespace Randolph.Core {
     public class AudioPlayer : MonoBehaviour {
 
-        public static AudioPlayer audioPlayer;
+        public static AudioPlayer audioPlayer; // TODO: Property; create automatically if null
         public const string VolumeKey = "Volume";
 
         public static float GlobalVolume {
@@ -77,11 +77,12 @@ namespace Randolph.Core {
         }
 
         /// <summary>Stops the global music from playing and clears the music queue. Sounds are unaffected.</summary>
-        void StopGlobalMusic() {            
+        void StopGlobalMusic() {
+            //! Not used → music is not set via a queue to play (to enable looping)
             SoundQueue music;
             if (playingSounds.TryGetValue(musicSource, out music)) {
-                StopCoroutine(music.PlayingCoroutine);                
-                playingSounds[musicSource].SoundsQueue.Clear();                
+                StopCoroutine(music.PlayingCoroutine);
+                playingSounds[musicSource].SoundsQueue.Clear();
             }
         }
 
@@ -90,6 +91,7 @@ namespace Randolph.Core {
             if (player != null && player.hasChanged) transform.position = player.position;
         }
 
+        /// <summary>Sets the <see cref="AudioListener"/>'s volume to a specified value and saves it in <see cref="PlayerPrefs"/>.</summary>
         public static void SetGlobalVolume(float volume) {
             AudioListener.volume = volume;
             PlayerPrefs.SetFloat(VolumeKey, volume); // remember the state
@@ -145,6 +147,8 @@ namespace Randolph.Core {
             currentArea?.SetAreaSpatialBlend(SpatialBlendGlobal);
         }
 
+        /// <summary>Adds a new <see cref="AudioSource"/> component to the specified <see cref="GameObject"/>.</summary>
+        /// <param name="audioGameObject">The object which should be the source of sounds.</param>
         public AudioSource AddAudioSource(GameObject audioGameObject) {
             var audioSource = audioGameObject.AddComponent<AudioSource>();
             //! Settings
@@ -152,6 +156,15 @@ namespace Randolph.Core {
             audioSource.spatialBlend = GetSpatialBlend();
             audioSource.loop = false;
             return audioSource;
+        }
+
+        /// <summary>Sets the global music clip and makes sure it loops.</summary>
+        /// <param name="clip"></param>
+        public void SetGlobalMusic(AudioClip clip) {
+            musicSource.Stop();            
+            musicSource.loop = true;
+            musicSource.clip = clip;
+            musicSource.Play();
         }
 
         /// <summary>Plays multiple local sounds, one after each other with (optionally) a randomly altered pitch.</summary>
