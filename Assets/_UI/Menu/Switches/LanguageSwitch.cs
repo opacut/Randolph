@@ -19,14 +19,12 @@ namespace Randolph.UI {
 
         public override bool Active { get; protected set; } // Czech
 
-        protected override void Start() {
+        /// <inheritdoc cref="MenuSwitch.RefreshState"/>
+        protected override void RefreshState() {
             // Active = (TextManager.textManager.Language == Languages.Česky); // Check current language
             if (!PlayerPrefs.HasKey(LanguageKey)) {
                 PlayerPrefs.SetString(LanguageKey, English);
             }
-
-
-            base.Start();
         }
 
         public override void OnPointerDown(PointerEventData pointerEventData) {

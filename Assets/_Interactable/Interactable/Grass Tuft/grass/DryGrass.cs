@@ -22,13 +22,13 @@ public class DryGrass : InventoryItem
         }
         inventory.Remove(item);
 
-        var torch = Instantiate(torchPrefab);
+        Transform torch = Instantiate(torchPrefab);
         //torch.gameObject.SetActive(true);
 
         torch.GetComponent<Torch>().Pick();
         OnCombined?.Invoke(torch.gameObject);
     }
 
-    public event Action<GameObject> OnCombined;
+    public new event Action<GameObject> OnCombined;
 
 }

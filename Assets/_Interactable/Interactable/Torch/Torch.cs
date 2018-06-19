@@ -17,7 +17,7 @@ namespace Randolph.Interactable {
             Destroy(this);
         }
 
-        public event Action<GameObject> OnCombined;
+        public new event Action<GameObject> OnCombined;
 
         public override bool IsApplicable(GameObject target) => true;
     }

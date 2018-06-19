@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Randolph.Core;
 using Randolph.Levels;
+using Randolph.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -34,17 +35,25 @@ public class PauseMenu : MonoBehaviour {
 
     void Awake() {
         Reset();
-        if (pauseMenuControls.activeSelf) {
-            // Accidentaly open menu
-            pauseMenuControls.SetActive(false);
-        }
+        animator = GetComponent<Animator>();
 
+        /*
         if (!LevelManager.CanQuitGame()) {
             //! Disable quit button if it's pointless
             GetButtonWithClickMethod(QuitGame)?.gameObject.SetActive(false);
         }
+        */
 
-        animator = GetComponent<Animator>();
+        // Make sure the switches don't haphazardly change once the game is paused for the first time
+        var switches = new List<MenuSwitch>();
+        settingsUI.transform.GetComponentsInChildren(switches);
+        switches.ForEach(s => s.DoRefresh = false);
+        
+
+        if (pauseMenuControls.activeSelf) {
+            // Accidentaly open menu
+            pauseMenuControls.SetActive(false);
+        }
     }
 
     void Update() {

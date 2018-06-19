@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Com.LuisPedroFonseca.ProCamera2D;
-using Randolph.Characters;
 using Randolph.Levels;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -72,7 +71,7 @@ namespace Randolph.Core {
             //! Required as long as the AudioPlayer also carries the listener
             if (player != null && player.hasChanged) transform.position = player.position;
         }
-
+        
         public static void SetGlobalVolume(float volume) {
             AudioListener.volume = volume;
             PlayerPrefs.SetFloat(VolumeKey, volume); // remember the state

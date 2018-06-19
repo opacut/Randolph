@@ -5,16 +5,17 @@ using UnityEngine;
 
 namespace Randolph.Environment {
     public class InvisibleSwitch : MonoBehaviour, IRestartable {
-        private AudioSource audioSource;
-        [SerializeField] private Bats bats;
-        [SerializeField] private bool isOn;
-        [SerializeField] private AudioClip thumpSound;
+        AudioSource audioSource;
+        [SerializeField] Bats bats;
+        // ReSharper disable once NotAccessedField.Local
+        [SerializeField] bool isOn;
+        [SerializeField] AudioClip thumpSound;
 
-        private void Awake() {
+        void Awake() {
             audioSource = AudioPlayer.audioPlayer.AddAudioSource(gameObject);
         }
 
-        private void OnTriggerEnter2D(Collider2D other) {
+        void OnTriggerEnter2D(Collider2D other) {
             if (!other.GetComponent<Boulder>()) {
                 return;
             }
@@ -23,7 +24,7 @@ namespace Randolph.Environment {
             bats.StartMoving();
         }
 
-        private void Flip(bool active) {
+        void Flip(bool active) {
             isOn = active;
         }
 

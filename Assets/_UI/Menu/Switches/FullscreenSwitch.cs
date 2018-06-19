@@ -12,9 +12,12 @@ namespace Randolph.UI {
             protected set { Screen.fullScreen = value; }
         }
 
-        protected override void Start() {
+        /// <summary>Does nothing. The fullscreen state does not need to be refreshed when the game starts.</summary>
+        protected override void RefreshState() { }
+
+        protected override void Awake() {
+            base.Awake();
             screenSize = new Vector2(Screen.width, Screen.height);
-            base.Start();
         }
 
         void Update() {
@@ -31,5 +34,6 @@ namespace Randolph.UI {
             if (Application.isEditor) Debug.Log("Switching fullscreen.");
             // base.OnPointerDown(); ← Don't play any sound
         }
+
     }
 }

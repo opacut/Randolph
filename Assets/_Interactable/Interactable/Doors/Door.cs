@@ -17,7 +17,7 @@ namespace Randolph.Interactable {
                 return;
             }
 
-            var randolph = GameObject.FindGameObjectWithTag(Constants.Tag.Player);
+            GameObject randolph = Constants.Randolph.gameObject;
 
             Constants.Camera.transition.TransitionExit();
             await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationExit));
@@ -29,7 +29,7 @@ namespace Randolph.Interactable {
             await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationEnter));
         }
 
-        private void OnDrawGizmosSelected() {
+        void OnDrawGizmosSelected() {
             if (!linkedDoor) {
                 return;
             }

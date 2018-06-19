@@ -9,16 +9,16 @@ namespace Randolph.UI {
         public override bool Active { get; protected set; }
 
         const int On = 1;
-        const int Off = 0;
+        const int Off = 0;        
 
-        protected override void Start() {
-            // Save/load previous mute state
+        /// <inheritdoc cref="MenuSwitch.RefreshState"/>
+        protected override void RefreshState() {
+            Debug.Log("MUTE SWITCH");
             if (!PlayerPrefs.HasKey(MuteKey)) {
                 PlayerPrefs.SetInt(MuteKey, Off);
             }
             Active = PlayerPrefs.GetInt(MuteKey) == On;
             AudioListener.volume = (Active) ? 0 : AudioPlayer.GlobalVolume;
-            base.Start();
         }
 
         public override void OnPointerDown(PointerEventData pointerEventData) {

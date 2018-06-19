@@ -72,6 +72,8 @@ namespace Randolph.Core {
 
         const float RaycastSkinWidth = 0.015f; // overlapping tolerance
         public const float RaycastBoundsShrinkage = RaycastSkinWidth * -2;
+
+        /// <summary>Finds a <see cref="GameObject"/> with the <see cref="Tag.Player"/> tag and gets its <see cref="PlayerController"/>.</summary>
         public static PlayerController Randolph => GameObject.FindWithTag(Tag.Player).GetComponent<PlayerController>();
     }
 }
