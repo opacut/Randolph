@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Randolph.Core;
 using UnityEngine;
+using Randolph.Characters;
 
 namespace Randolph.Interactable {
     [RequireComponent(typeof(BoxCollider2D))]
@@ -19,14 +20,16 @@ namespace Randolph.Interactable {
 
             var randolph = GameObject.FindGameObjectWithTag(Constants.Tag.Player);
 
+            randolph.GetComponent<PlayerController>().Freeze();
             Constants.Camera.transition.TransitionExit();
-            await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationExit));
-
             randolph.transform.position = linkedDoor.transform.position;
+            await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationExit));
+            
             Constants.Camera.rooms.EnterRoom(linkedDoor.roomIndex, false);
 
             Constants.Camera.transition.TransitionEnter();
             await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationEnter));
+            randolph.GetComponent<PlayerController>().UnFreeze();
         }
 
         private void OnDrawGizmosSelected() {

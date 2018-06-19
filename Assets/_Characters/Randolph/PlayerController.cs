@@ -131,6 +131,25 @@ namespace Randolph.Characters {
             }
         }
 
+        #region Freeze
+        [ContextMenu("Freeze")]
+        public void Freeze()
+        {
+            //rbody.isKinematic = true;
+            //gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+            rbody.constraints = RigidbodyConstraints2D.FreezeAll;
+            //animator.StopPlayback();
+        }
+
+        [ContextMenu("Unfreeze")]
+        public void UnFreeze()
+        {
+            //rbody.isKinematic = false;
+            rbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+            //animator.StartPlayback();
+        }
+        #endregion
+
         #region Debug
         private void DebugCommands() {
             if (Input.GetKeyDown(KeyCode.R)) {
