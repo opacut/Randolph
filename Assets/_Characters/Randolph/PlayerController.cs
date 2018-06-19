@@ -12,7 +12,7 @@ namespace Randolph.Characters {
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(DistanceJoint2D))]
     public class PlayerController : MonoBehaviour {
-        private const float SkinWidth = 0.015f; // overlapping tolerance    
+        private const float SkinWidth = 0.015f; // ground overlapping tolerance    
 
         private Animator animator;
         [SerializeField][ReadonlyField] private Text bubbleText;
@@ -26,7 +26,7 @@ namespace Randolph.Characters {
         private LineRenderer grappleRopeRenderer;
         private DistanceJoint2D grapplingJoint;
         private float gravity;
-        [SerializeField] private float groundCheckRayLength = 0.2f;
+        [SerializeField, Range(0, 1)] float groundCheckRayLength = 0.35f;
 
         [Header("Jumping")][SerializeField] private LayerMask groundLayers;
 
@@ -81,7 +81,7 @@ namespace Randolph.Characters {
         }
 
         private void Update() {
-            jump = Input.GetButtonDown("Jump");
+            jump = Input.GetButton("Jump");
 
             //! Debug
             DebugCommands();
@@ -91,7 +91,7 @@ namespace Randolph.Characters {
             var horizontal = Input.GetAxisRaw("Horizontal");
             var vertical = Input.GetAxisRaw("Vertical");
 
-            isOnGround = GroundCheck(groundCheckRayLength, groundLayers);
+            isOnGround = GroundCheck(groundCheckRayLength, groundLayers); // TODO: Property
 
             Moving(horizontal);
             Jumping();
@@ -230,12 +230,17 @@ namespace Randolph.Characters {
             public Vector2 bottomRight;
         }
 
+        /// <summary>Casts a ray downwards to see if the player stands on the ground.</summary>
+        /// <param name="rayLength">Length of the ray to use. Too short makes jumping unresponsive, 
+        /// too long makes the player jump on air.</param>
+        /// <param name="layerMask"><see cref="LayerMask"/> for the ground level.</param>
+        /// <returns>True if the player is very close to the ground.</returns>
         public bool GroundCheck(float rayLength, int layerMask) {
             UpdateRaycastOrigins();
 
-            var rayOrigin = raycastOrigins.bottomLeft;
-            for (var i = 0; i < groundRayCount; i++) {
-                var hit = Physics2D.Raycast(rayOrigin, Vector2.down, rayLength, layerMask);
+            Vector2 rayOrigin = raycastOrigins.bottomLeft;
+            for (int i = 0; i < groundRayCount; i++) {
+                RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, rayLength, layerMask);
                 // Debug.DrawRay(rayOrigin, Vector2.down * rayLength, Color.red);
                 if (hit.collider) {
                     return true;
@@ -247,6 +252,7 @@ namespace Randolph.Characters {
             return false;
         }
 
+        /// <summary>Calculates how far should rays checking for ground be apart from each other.</summary>
         public void CalculateRaySpacing() {
             var bounds = collider.bounds;
             bounds.Expand(Constants.RaycastBoundsShrinkage);

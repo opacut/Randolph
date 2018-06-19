@@ -92,7 +92,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1930887738408268}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 85, y: 8.25, z: 0}
+  m_LocalPosition: {x: -14.5, y: -7.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224802909288399900}
@@ -211,19 +211,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82462bf5ac001d64cab6dd2dd2586ae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathSound: {fileID: 8300000, guid: 2f3191692858eaa4abfbdddea9fac71f, type: 3}
+  bubbleText: {fileID: 0}
   climbingSpeed: 6
-  movementSpeed: 6
-  jumpForce: 800
+  deathSound: {fileID: 8300000, guid: 2f3191692858eaa4abfbdddea9fac71f, type: 3}
+  groundCheckRayLength: 0.35
   groundLayers:
     serializedVersion: 2
     m_Bits: 256
   groundRayCount: 4
-  groundCheckRayLength: 0.3
+  jumpForce: 800
   maximumRopeLength: 20
-  speechDuration: 0.8
+  movementSpeed: 6
   speechBubble: {fileID: 223887255153147806}
-  bubbleText: {fileID: 0}
+  speechDuration: 0.8
 --- !u!114 &114790603119331034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -498,8 +498,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.38, y: 3.78}
-  m_SizeDelta: {x: 10, y: 3}
+  m_AnchoredPosition: {x: 0.405, y: 4.581}
+  m_SizeDelta: {x: 10.862, y: 4.604}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!232 &232961190563193066
 DistanceJoint2D:
