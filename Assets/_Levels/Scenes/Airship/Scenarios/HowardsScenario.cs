@@ -19,7 +19,7 @@ namespace Assets.Levels.Airship {
         [SerializeField] private Key storageKey;
         [SerializeField] private Bandage bandage;
         [SerializeField] private Alcohol alcohol;
-        [SerializeField] private Cleanedbandage cleanedBandage;
+        private CleanedBandage cleanedBandage;
         [SerializeField] private Cue highlightCue;
         [SerializeField] private Cue pickUpCue;
         [SerializeField] private Cue useCue;
@@ -60,10 +60,12 @@ namespace Assets.Levels.Airship {
             alcohol.OnPick -= Iterate;
             
             howardsSpeechBubble.fullText = thirdResponse;
-
-            cleanedBandage.OnPick += Iterate;
+            
+            bandage.OnCombined += BandageCleaned;
+            alcohol.OnCombined += BandageCleaned;
             yield return null;
-            cleanedBandage.OnPick -= Iterate;
+            bandage.OnCombined -= BandageCleaned;
+            alcohol.OnCombined -= BandageCleaned;
             
             howardsSpeechBubble.fullText = fourthResponse;
 
@@ -73,7 +75,12 @@ namespace Assets.Levels.Airship {
 
             howardsSpeechBubble.fullText = fifthResponse;
             deckDoor.isLocked = false;
-            Destroy(deckExitTalkTrigger);
+            deckExitTalkTrigger.gameObject.SetActive(false);
+        }
+
+        private void BandageCleaned(InventoryItem bandage) {
+            cleanedBandage = bandage as CleanedBandage;
+            Iterate();
         }
     }
 }

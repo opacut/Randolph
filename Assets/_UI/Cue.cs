@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using Randolph.Core;
+using Randolph.Levels;
 
 namespace Randolph.UI {
     [RequireComponent(typeof(Collider2D))]
-    public class Cue : MonoBehaviour {
+    public class Cue : MonoBehaviour, IRestartable {
         [SerializeField] private Image textBox;
         [SerializeField] private Text textElement;
         [SerializeField, TextArea] private string updateText;
@@ -43,7 +44,16 @@ namespace Randolph.UI {
         public void Disable() {
             textBox.enabled = false;
             textElement.text = "";
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
+
+        #region IRestartable
+        public void SaveState() { }
+
+        public void Restart() {
+            wasActivated = false;
+            gameObject.SetActive(true);
+        }
+        #endregion
     }
 }

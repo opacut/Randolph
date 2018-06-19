@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Randolph.Characters {
     [RequireComponent(typeof(Glider))]
-    public class Crows : Clickable, IRestartable {
+    public class Crows : Clickable {
         private Animator animator;
         private AudioSource audioSource;
 
