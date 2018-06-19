@@ -53,7 +53,7 @@ namespace Randolph.Core {
 
         Dictionary<AudioSource, SoundQueue> playingSounds = new Dictionary<AudioSource, SoundQueue>();
 
-        Transform player => Constants.Randolph.transform;
+        Transform player;
         ProCamera2DRooms cameraRooms;
         [SerializeField] Area currentArea;
 
@@ -70,7 +70,7 @@ namespace Randolph.Core {
 
         void LateUpdate() {
             //! Required as long as the AudioPlayer also carries the listener
-            if (player && player.hasChanged) transform.position = player.position;
+            if (player != null && player.hasChanged) transform.position = player.position;
         }
 
         public static void SetGlobalVolume(float volume) {
@@ -97,6 +97,7 @@ namespace Randolph.Core {
                 Debug.LogWarning($"One of the audio sources of <b>{gameObject.name}</b> is null.", gameObject);
                 return;
             }
+            player = Constants.Randolph.transform; // Set once a level to avoid checking multiple times
             soundSource.spatialBlend = GetSpatialBlend();
             playingSounds.Clear();
             playingSounds.Add(soundSource, new SoundQueue(new Queue<AudioClip>()));
