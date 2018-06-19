@@ -14,10 +14,13 @@ public class PauseMenu : MonoBehaviour {
     const string PauseKey = "Pause";
 
     public delegate void GamePaused();
+
     public static event GamePaused OnGamePaused;
 
     Animator animator;
+
     const string PauseTrigger = "Pause";
+
     //const string UnpauseTrigger = "Unpause";
     [HideInInspector] public int toolbarIdx;
 
@@ -48,7 +51,7 @@ public class PauseMenu : MonoBehaviour {
         var switches = new List<MenuSwitch>();
         settingsUI.transform.GetComponentsInChildren(switches);
         switches.ForEach(s => s.DoRefresh = false);
-        
+
 
         if (pauseMenuControls.activeSelf) {
             // Accidentaly open menu
