@@ -125,8 +125,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: A dried grass tuft. I assume it signifies fresh water will not be all
     that easy to come by.
-  Grass: {fileID: 4577185122705872, guid: 8db4a067c6abb53459c6e3347b2e5dc9, type: 2}
   cutGrass: {fileID: 21300000, guid: db780aeeb5c80ff4cb035cafc9d3b8f8, type: 3}
+  Grass: {fileID: 4577185122705872, guid: 8db4a067c6abb53459c6e3347b2e5dc9, type: 2}
   spawnPoint: {fileID: 1984844999048162}
 --- !u!212 &212612001601812004
 SpriteRenderer:

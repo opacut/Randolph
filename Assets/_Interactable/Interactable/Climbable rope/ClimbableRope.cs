@@ -4,14 +4,16 @@ using UnityEngine;
 namespace Randolph.Interactable {
     [RequireComponent(typeof(LineRenderer))]
     public class ClimbableRope : Interactable {
-        [SerializeField] Transform tiePosition;
-        LineRenderer lineRenderer;
-        
+        private LineRenderer lineRenderer;
+
+        [SerializeField]
+        private Transform tiePosition;
+
 
         protected override void Awake() {
             base.Awake();
             lineRenderer = GetComponent<LineRenderer>();
-            lineRenderer.SetPositions(new[] {transform.position, tiePosition.position});
+            lineRenderer.SetPositions(new[] { transform.position, tiePosition.position });
             Constants.Randolph.OnStoppedGrappling += OnStoppedGrappling;
         }
 

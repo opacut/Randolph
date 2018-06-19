@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace Randolph.Interactable {
     public class Whiskey : InventoryItem {
-
         public override bool IsSingleUse => true;
 
         public override bool IsApplicable(GameObject target) => target.GetComponent<Flytrap>()?.Active ?? false;
@@ -12,6 +11,5 @@ namespace Randolph.Interactable {
             base.Apply(target);
             target.GetComponent<Flytrap>().Deactivate();
         }
-
     }
 }

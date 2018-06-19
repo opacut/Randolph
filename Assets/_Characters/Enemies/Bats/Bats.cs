@@ -5,6 +5,7 @@ using Randolph.Interactable;
 using Randolph.UI;
 using UnityEngine;
 
+// TODO Use glider
 //[RequireComponent(typeof(Glider))]
 public class Bats : Clickable {
     public delegate void DestinationChange(Vector2 position, Vector2 nextDestination);
@@ -18,30 +19,13 @@ public class Bats : Clickable {
 
     private Queue<Vector2> destinationQueue = new Queue<Vector2>();
     [SerializeField] private List<Vector2> destinations = new List<Vector2>();
-    
+
     [SerializeField] private bool loop;
     [SerializeField] private float speed = 20;
     [SerializeField] private AudioClip swooshSound;
     public override Cursors CursorType { get; protected set; } = Cursors.Inspect;
 
     public bool Disturbed { get; private set; }
-
-    /*
-    void OnPlayerDisturbed(PlayerController player)
-    {
-        return;
-    }
-    */
-
-    public override void Restart() {
-        base.Restart();
-        animator.SetBool("Trapped", false);
-        animator.SetBool("Flying", false);
-
-        CreateDestinationQueue();
-        Disturbed = false;
-        gameObject.SetActive(true);
-    }
 
     public event DestinationChange OnDestinationChange;
 
@@ -52,13 +36,12 @@ public class Bats : Clickable {
 
     protected override void Awake() {
         base.Awake();
-        
+
         animator = GetComponent<Animator>();
         //glider = GetComponent<Glider>();
 
         //glider.OnPlayerDisturbed += OnPlayerDisturbed;
         audioSource = AudioPlayer.audioPlayer.AddAudioSource(gameObject);
-        outline.enabled = false;
     }
 
     public void OnTriggerEnter2D(Collider2D other) {
@@ -68,7 +51,6 @@ public class Bats : Clickable {
 
         animator.SetBool("Trapped", true);
         other.GetComponent<PlayerController>().Kill();
-        
     }
 
     protected override void Start() {
@@ -108,14 +90,16 @@ public class Bats : Clickable {
         }
     }
 
-    private void SetDestination(Vector2 value) { currentDestination = value; }
+    private void SetDestination(Vector2 value) {
+        currentDestination = value;
+    }
 
     private void CreateDestinationQueue() {
         // Add all destinations to queue            
         destinationQueue = new Queue<Vector2>(destinations);
 
         // Set the destination to be the object's initial position so it will not start off moving            
-        SetDestination(initialPosition);
+        SetDestination(savedPosition);
     }
 
     private void IncrementPosition() {
@@ -126,8 +110,20 @@ public class Bats : Clickable {
         transform.position = Vector2.MoveTowards(transform.position, currentDestination, delta);
     }
 
+    #region IRestartable
+    public override void Restart() {
+        base.Restart();
+        animator.SetBool("Trapped", false);
+        animator.SetBool("Flying", false);
+
+        CreateDestinationQueue();
+        Disturbed = false;
+        gameObject.SetActive(true);
+    }
+    #endregion
+
     private void OnDrawGizmosSelected() {
-        for (int i = 0; i < destinations.Count - 1; ++i) {
+        for (var i = 0; i < destinations.Count - 1; ++i) {
             Gizmos.DrawLine(destinations[i], destinations[i + 1]);
         }
         if (loop) {

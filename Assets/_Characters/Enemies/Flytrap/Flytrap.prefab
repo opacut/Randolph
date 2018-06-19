@@ -52,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1084936229586974}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 34.92, y: -10.2, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4721777577771252}
@@ -102,8 +102,8 @@ MonoBehaviour:
     in the botany gardens back home...except this one is big enough to swallow a man
     whole!
   closed: {fileID: 21300008, guid: 999e294dec536e049bfa10f4624bc0cd, type: 3}
-  crushed: {fileID: 21300010, guid: 999e294dec536e049bfa10f4624bc0cd, type: 3}
   closeSound: {fileID: 8300000, guid: b987a60a58e2a6f48b5066592d3da48d, type: 3}
+  crushed: {fileID: 21300010, guid: 999e294dec536e049bfa10f4624bc0cd, type: 3}
   pitPrefab: {fileID: 114608641976397328, guid: 1b4c43ba064d3d74e9d2cf983346a450,
     type: 2}
   spawnPoint: {fileID: 1805693269108156}

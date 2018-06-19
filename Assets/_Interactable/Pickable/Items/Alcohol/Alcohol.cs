@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Randolph.Interactable {
     public class Alcohol : InventoryItem {

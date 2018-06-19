@@ -149,14 +149,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d927fa3563201534296b6ee879d38417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  continuous: 0
   destinations:
   - {x: 40.37601, y: 1.5178937}
   - {x: 53.32101, y: 2.6880555}
-  straightLines: 0
-  movesFromStart: 0
   loop: 1
-  continuous: 0
+  movesFromStart: 0
+  speed: 20
+  straightLines: 0
 --- !u!212 &212545606783568906
 SpriteRenderer:
   m_ObjectHideFlags: 1

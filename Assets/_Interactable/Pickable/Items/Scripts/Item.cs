@@ -1,20 +1,16 @@
 ﻿using UnityEngine;
 
 namespace Randolph.Interactable {
-
-    [CreateAssetMenu(fileName = "Item", menuName = "Randolph/Inventory/Item", order = 33)]    
+    [CreateAssetMenu(fileName = "Item", menuName = "Randolph/Inventory/Item", order = 33)]
     public class Item : ScriptableObject {
+        [SerializeField]
+        private bool initialized;
 
-        [SerializeField] GameObject prefab;
-        [SerializeField] bool initialized = false;
+        [SerializeField]
+        private GameObject prefab;
 
-        public bool IsInitialized() {
-            return initialized;           
-        }
+        public bool IsInitialized() => initialized;
 
-        public InventoryItem GetInventoryItem() {
-            return prefab.GetComponent<InventoryItem>();
-        }
-
+        public InventoryItem GetInventoryItem() => prefab.GetComponent<InventoryItem>();
     }
 }

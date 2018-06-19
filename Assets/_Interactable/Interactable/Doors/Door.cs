@@ -1,18 +1,20 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Randolph.Characters;
 using Randolph.Core;
 using UnityEngine;
-using Randolph.Characters;
 
 namespace Randolph.Interactable {
     [RequireComponent(typeof(BoxCollider2D))]
     public class Door : Interactable {
+        private AudioSource audioSource; // TODO: Make Interactables all have sound
         public bool isLocked;
         public Door linkedDoor;
-        public int roomIndex;
 
-        AudioSource audioSource; // TODO: Make Interactables all have sound
-        [SerializeField] AudioClip lockedSound;
+        [SerializeField]
+        private AudioClip lockedSound;
+
+        public int roomIndex;
 
         protected override void Start() {
             base.Start();
@@ -27,13 +29,13 @@ namespace Randolph.Interactable {
                 return;
             }
 
-            GameObject randolph = Constants.Randolph.gameObject;
+            var randolph = Constants.Randolph.gameObject;
 
             randolph.GetComponent<PlayerController>().Freeze();
             Constants.Camera.transition.TransitionExit();
             randolph.transform.position = linkedDoor.transform.position;
             await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationExit));
-            
+
             Constants.Camera.rooms.EnterRoom(linkedDoor.roomIndex, false);
 
             Constants.Camera.transition.TransitionEnter();
@@ -41,7 +43,7 @@ namespace Randolph.Interactable {
             randolph.GetComponent<PlayerController>().UnFreeze();
         }
 
-        void OnDrawGizmosSelected() {
+        private void OnDrawGizmosSelected() {
             if (!linkedDoor) {
                 return;
             }

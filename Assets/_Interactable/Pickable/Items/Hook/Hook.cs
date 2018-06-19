@@ -1,7 +1,5 @@
-﻿using Randolph.Characters;
-using Randolph.Core;
+﻿using Randolph.Core;
 using UnityEngine;
-using Randolph.Environment;
 
 namespace Randolph.Interactable {
     public class Hook : InventoryItem {
@@ -12,7 +10,9 @@ namespace Randolph.Interactable {
         public override void Pick() {
             base.Pick();
             Constants.Randolph.StopGrappling();
-            if (connectedRope) Destroy(connectedRope.gameObject);
+            if (connectedRope) {
+                Destroy(connectedRope.gameObject);
+            }
         }
 
         public override bool IsApplicable(GameObject target) => target.GetComponent<HookEye>();
