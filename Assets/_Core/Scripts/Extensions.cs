@@ -81,6 +81,18 @@ namespace Randolph.Core {
             return ((Vector3) vector).Multiply(multiplier);
         }
 
+        /// <summary>Returns a vector pointing from the source to target. Optionally normalized.</summary>
+        /// <returns>Normalized direction vector, or the full-length distance vector.</returns>
+        public static Vector3 DirectionTo(this Transform source, Transform target, bool normalize = true) {
+            Vector3 direction = target.position - source.position;
+            if (!normalize) return direction;
+            else {
+                float distance = direction.magnitude;
+                return direction / distance;
+            }
+
+        }
+
         /// <summary>Checks whether a number in within given bounds.</summary>
         public static bool IsRange(this float value, float lowerBound, float upperBound) {
             return value >= lowerBound && value <= upperBound;
@@ -141,6 +153,11 @@ namespace Randolph.Core {
 
         public static float RemapRange(this float value, Tuple<float, float> from, Tuple<float, float> to) {
             return (value - @from.Item1) / (@from.Item2 - @from.Item1) * (to.Item2 - to.Item1) + to.Item1;
+        }
+
+        /// <inheritdoc cref="AudioPlayer.AddAudioSource"/>
+        public static AudioSource AddAudioSource(this GameObject audioGameObject) {
+            return AudioPlayer.audioPlayer.AddAudioSource(audioGameObject);
         }
 
     }
