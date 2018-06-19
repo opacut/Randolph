@@ -135,18 +135,15 @@ namespace Randolph.Characters {
         [ContextMenu("Freeze")]
         public void Freeze()
         {
-            //rbody.isKinematic = true;
-            //gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+            animator.speed = 0;
             rbody.constraints = RigidbodyConstraints2D.FreezeAll;
-            //animator.StopPlayback();
         }
 
         [ContextMenu("Unfreeze")]
         public void UnFreeze()
         {
-            //rbody.isKinematic = false;
+            animator.speed = 1;
             rbody.constraints = RigidbodyConstraints2D.FreezeRotation;
-            //animator.StartPlayback();
         }
         #endregion
 
