@@ -154,7 +154,9 @@ namespace Randolph.Core {
             } else {
                 Queue<AudioClip> soundsQueue = playingSounds[audioSource].SoundsQueue;
                 foreach (AudioClip sound in sounds) {
-                    if (sound) soundsQueue.Enqueue(sound);
+                    // TODO: Ok?
+                    //? Allows only one instance of each sound in the queue                    
+                    if (sound && !soundsQueue.Contains(sound)) soundsQueue.Enqueue(sound);
                 }
             }
 

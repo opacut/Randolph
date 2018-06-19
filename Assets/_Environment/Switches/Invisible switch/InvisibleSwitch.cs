@@ -3,11 +3,13 @@ using Randolph.Interactable;
 using Randolph.Levels;
 using UnityEngine;
 
+#pragma warning disable 0414
+
 namespace Randolph.Environment {
     public class InvisibleSwitch : MonoBehaviour, IRestartable {
+
         AudioSource audioSource;
         [SerializeField] Bats bats;
-        // ReSharper disable once NotAccessedField.Local
         [SerializeField] bool isOn;
         [SerializeField] AudioClip thumpSound;
 
@@ -29,11 +31,14 @@ namespace Randolph.Environment {
         }
 
         #region IRestartable
+
         public void SaveState() { }
 
         public void Restart() {
             isOn = false;
         }
+
         #endregion
+
     }
 }

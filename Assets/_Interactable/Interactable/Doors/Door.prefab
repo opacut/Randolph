@@ -95,9 +95,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: 
+  isLocked: 0
   linkedDoor: {fileID: 0}
   roomIndex: 0
-  isLocked: 0
+  lockedSound: {fileID: 8300000, guid: 5eca2e0086a45c646b083b8edd614f29, type: 3}
 --- !u!212 &212604783188050784
 SpriteRenderer:
   m_ObjectHideFlags: 1
