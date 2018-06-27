@@ -30350,6 +30350,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4158617650232730, guid: ca24f88a5abf1e34f98cc4dfb930536a,
     type: 2}
   m_PrefabInternal: {fileID: 1980562314}
+--- !u!84 &463606500
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1173
+  m_Height: 564
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &512503191
 Prefab:
   m_ObjectHideFlags: 0
@@ -30937,8 +30968,8 @@ MonoBehaviour:
   firstResponse: What I gave ya is all we can spare. Easy with the whiskey, 'tis me
     own special blend. Can really stretch ya bones if ye'r not caferul. Go now, we're
     counting on ya!
-  knife: {fileID: 1229783073}
   lighter: {fileID: 594473168}
+  knife: {fileID: 1229783073}
   whiskey: {fileID: 1156718593}
 --- !u!4 &630540243 stripped
 Transform:
@@ -31259,7 +31290,7 @@ Prefab:
         type: 2}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 051c0379586f9a14887f999c9a387fa3, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 82712016552097764, guid: 2756ed9da1f4d8146ba57d55d64cf887,
         type: 2}
       propertyPath: m_PlayOnAwake
@@ -59620,6 +59651,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1493725622}
+  - component: {fileID: 1493725623}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -59647,6 +59679,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1493725623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1493725621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a683928abf095294fafb6180654de452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  areaFold: 1
+  levelMusic: {fileID: 8300000, guid: 051c0379586f9a14887f999c9a387fa3, type: 3}
 --- !u!4 &1497634634 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4545614191761702, guid: 2cf4f1403084fb540b2fc1dfca75987a,
@@ -59961,7 +60006,7 @@ Prefab:
     - target: {fileID: 224748501108045976, guid: 5f2c6cf0c833eae48bccffc331bd8ab3,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: -246.58438
+      value: -303.60785
       objectReference: {fileID: 0}
     - target: {fileID: 224042410613998830, guid: 5f2c6cf0c833eae48bccffc331bd8ab3,
         type: 2}
@@ -60222,6 +60267,37 @@ MonoBehaviour:
   Activated: 0
   fruitHolder: {fileID: 2085466185}
   thumpSound: {fileID: 8300000, guid: d2d69d3d5db170541b3fe04ef095acf7, type: 3}
+--- !u!84 &1750094204
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1173
+  m_Height: 564
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 0
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &1760926432
 Prefab:
   m_ObjectHideFlags: 0

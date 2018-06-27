@@ -65,5 +65,12 @@ namespace Randolph.Core {
             return folderPath;
         }
 
+        /// <summary>Make a bold label field with space above.</summary>
+        /// <param name="label">The header text.</param>
+        public static void HeaderField(string label) {
+            EditorGUILayout.Space();
+            EditorGUILayout.LabelField(label, new GUIStyle(GUI.skin.label) { fontStyle = FontStyle.Bold });
+        }
+
     }
 }
