@@ -12,10 +12,9 @@ public class PauseMenu : MonoBehaviour {
 
     public static bool IsPaused { get; private set; }
     const string PauseKey = "Pause";
-
-    public delegate void GamePaused();
-
-    public static event GamePaused OnGamePaused;
+    
+    public static event Action OnGamePaused;
+    public static event Action OnGameResumed;
 
     Animator animator;
 
@@ -75,6 +74,7 @@ public class PauseMenu : MonoBehaviour {
         //animator.SetTrigger(UnpauseTrigger);
 
         IsPaused = false;
+        OnGameResumed?.Invoke();
     }
 
     public void PauseGame() {

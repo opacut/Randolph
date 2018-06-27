@@ -34,7 +34,9 @@ namespace Randolph.Interactable {
         }
 
         protected virtual void Update() {
-            outline.enabled = spriteRenderer.enabled && (Input.GetAxis("Highlight") != 0.0f || shouldOutline);
+            if (!PauseMenu.IsPaused) {
+                outline.enabled = spriteRenderer.enabled && (Input.GetAxis("Highlight") != 0.0f || shouldOutline);
+            }
         }
 
         private void OnDestroy() {
