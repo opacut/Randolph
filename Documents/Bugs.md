@@ -22,3 +22,4 @@
 * [ ] Fix sail IRestartable
 * [ ] Disable camera transitions and mouse event when there is camera transition
 * [ ] Hide colliders around ladders
+* [ ] Fix missing captains message on level 1
