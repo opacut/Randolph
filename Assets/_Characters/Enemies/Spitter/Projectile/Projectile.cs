@@ -1,7 +1,6 @@
 ﻿using Randolph.Core;
 using Randolph.Levels;
 using UnityEngine;
-using UnityEngine.Experimental.U2D;
 
 namespace Randolph.Characters {
     public class Projectile : MonoBehaviour, IRestartable {
@@ -12,28 +11,22 @@ namespace Randolph.Characters {
 
         SpriteRenderer spriteRenderer;
         Rigidbody2D rbody;
-        bool toBeDestroyed = false;
+        bool toBeDestroyed;
 
 
-        void Awake() {
+        private void Awake() {
             spriteRenderer = GetComponent<SpriteRenderer>();
             rbody = GetComponent<Rigidbody2D>();
         }
 
-        public void Restart() {
-            if (!toBeDestroyed) spriteRenderer.enabled = false;
-            else print("X");
-        }
-
-        void Update() {
+        private void Update() {
             rbody.velocity = new Vector2(speed, GetComponent<Rigidbody2D>().velocity.y);
         }
 
-        void OnTriggerEnter2D(Collider2D other) {
+        private void OnTriggerEnter2D(Collider2D other) {
             if (other.tag == Constants.Tag.Player) {
                 other.gameObject.GetComponent<PlayerController>().Kill();
             }
-
             if (other.tag != Constants.Tag.Ladder) {                
                 Destroy(gameObject);
             }
@@ -44,5 +37,13 @@ namespace Randolph.Characters {
             toBeDestroyed = true;
         }
 
+        public void Restart() {
+            if (!toBeDestroyed) spriteRenderer.enabled = false;
+            else print("X");
+        }
+
+        public void SaveState() {
+
+        }
     }
 }

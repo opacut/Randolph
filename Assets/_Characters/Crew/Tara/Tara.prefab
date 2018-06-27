@@ -73,10 +73,9 @@ GameObject:
   - component: {fileID: 4769712751262798}
   - component: {fileID: 212509649539170716}
   - component: {fileID: 95659605850371934}
-  - component: {fileID: 114292201643677986}
-  - component: {fileID: 114142818157055600}
-  - component: {fileID: 114007389621385680}
   - component: {fileID: 61196705290070016}
+  - component: {fileID: 114876011742003982}
+  - component: {fileID: 114579341724207784}
   m_Layer: 0
   m_Name: Tara
   m_TagString: Untagged
@@ -141,7 +140,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114007389621385680
+--- !u!114 &114579341724207784
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,41 +148,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1495932651679168}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb416e39b4d06784390e1c8089b8e162, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a0f3b444be38d141ab657a5a17c9d69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   description: Tara, our mechanic who keeps this airship afloat. Arguing with her
     usually results in a mild concussion.
---- !u!114 &114142818157055600
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1495932651679168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  color: 0
-  eraseRenderer: 0
-  originalLayer: 0
-  originalMaterials: []
---- !u!114 &114292201643677986
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1495932651679168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0934d28b683d4424e90cad1a6e91f9de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speechBubble: {fileID: 223754803600003726}
   bubbleText: {fileID: 114690228054489126}
+  bubbleCanvas: {fileID: 223754803600003726}
   characterColor: {r: 0.46666667, g: 0.34509805, b: 1, a: 1}
-  delay: 0.05
+  fullText: The ship is falling apart! I don't know how much longer we can hold it
+    together!!
 --- !u!114 &114690228054489126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -265,6 +239,21 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 800
+--- !u!114 &114876011742003982
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1495932651679168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []
 --- !u!114 &114887876341171054
 MonoBehaviour:
   m_ObjectHideFlags: 1

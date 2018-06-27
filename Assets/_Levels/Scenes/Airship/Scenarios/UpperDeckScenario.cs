@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Assets.Levels.Airship {
     public class UpperDeckScenario : ScenarioManager {
-        [SerializeField] private SpeechBubble captainsSpeechBubble;
+        [SerializeField] private Talkable captainsSpeechBubble;
 
         [Header("Responses")]
         [SerializeField, TextArea] private string firstResponse;
@@ -24,6 +24,7 @@ namespace Assets.Levels.Airship {
         [SerializeField] private TutorialEnd tutorialEndTrigger;
 
         protected override IEnumerable Scenario() {
+            captainsSpeechBubble.OnStoppedSpeaking -= Iterate;
             captainsSpeechBubble.OnStoppedSpeaking += Iterate;
             yield return null;
             captainsSpeechBubble.OnStoppedSpeaking -= Iterate;
@@ -31,20 +32,23 @@ namespace Assets.Levels.Airship {
             sabre.gameObject.SetActive(true);
             sabre.Pick();
             captainsSpeechBubble.fullText = firstResponse;
-
+            
+            frontSail.OnSlash -= Iterate;
             frontSail.OnSlash += Iterate;
             yield return null;
             yield return null;
             frontSail.OnSlash -= Iterate;
 
             climbableRope.gameObject.SetActive(true);
-
+            
+            climbableRope.OnInteract -= Iterate;
             climbableRope.OnInteract += Iterate;
             yield return null;
             climbableRope.OnInteract -= Iterate;
 
             climbCue.gameObject.SetActive(true);
-
+            
+            hook.OnPick -= Iterate;
             hook.OnPick += Iterate;
             yield return null;
             hook.OnPick -= Iterate;

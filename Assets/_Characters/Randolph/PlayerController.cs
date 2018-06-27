@@ -1,6 +1,6 @@
-﻿using System.Threading.Tasks;
-using Randolph.Core;
 ﻿using System;
+using System.Threading.Tasks;
+using Randolph.Core;
 using Randolph.Interactable;
 using Randolph.Levels;
 using Randolph.UI;
@@ -12,57 +12,59 @@ namespace Randolph.Characters {
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(DistanceJoint2D))]
     public class PlayerController : MonoBehaviour {
+        private const float SkinWidth = 0.015f; // ground overlapping tolerance    
 
-        [Header("Movement")]
-        [SerializeField] AudioClip deathSound;
-        [SerializeField] float climbingSpeed = 6;
-        [SerializeField] float movementSpeed = 6;
-        [SerializeField] float jumpForce = 600;
+        private Animator animator;
+        [SerializeField][ReadonlyField] private Text bubbleText;
+        [SerializeField] private float climbingSpeed = 6;
+        private new Collider2D collider;
 
-        [Header("Jumping")]
-        [SerializeField] LayerMask groundLayers;
-        [SerializeField, Range(2, 12)] int groundRayCount = 4;
-        [SerializeField] float groundCheckRayLength = 0.2f;
-        
-        [Header("Grappling")]
-        [SerializeField] float maximumRopeLength = 15f;
+        private int currentLadder;
 
-        float groundRaySpacing;
-        const float SkinWidth = 0.015f; // overlapping tolerance    
-        RaycastOrigins2D raycastOrigins;
-        new Collider2D collider;
+        [Header("Movement")][SerializeField] private AudioClip deathSound;
 
-        [Header("Interaction")] [SerializeField, Range(0, 5)] float speechDuration = 1.5f;
-        [SerializeField] Canvas speechBubble;
-        [SerializeField, ReadonlyField] Text bubbleText;
+        private LineRenderer grappleRopeRenderer;
+        private DistanceJoint2D grapplingJoint;
+        private float gravity;
+        [SerializeField, Range(0, 1)] float groundCheckRayLength = 0.35f;
+
+        [Header("Jumping")][SerializeField] private LayerMask groundLayers;
+
+        [SerializeField][Range(2, 12)] private int groundRayCount = 4;
+
+        private float groundRaySpacing;
+        private bool isClimbing;
 
 
-        bool isOnGround = false;
-        bool jump = false;
-        float gravity = 0;
+        private bool isOnGround;
+        private bool jump;
+        [SerializeField] private float jumpForce = 600;
 
-        int currentLadder = 0;
-        bool isClimbing = false;
+        [Header("Grappling")][SerializeField] private float maximumRopeLength = 15f;
 
-        Animator animator;
-        Rigidbody2D rbody;
-        SpriteRenderer spriteRenderer;
-        DistanceJoint2D grapplingJoint;
-        LineRenderer grappleRopeRenderer;
+        [SerializeField] private float movementSpeed = 6;
+        private RaycastOrigins2D raycastOrigins;
+        private Rigidbody2D rbody;
+        [SerializeField] private Canvas speechBubble;
 
-        bool IsGrappled => grapplingJoint.isActiveAndEnabled;
+        [Header("Interaction")][SerializeField][Range(0, 5)]
+        private float speechDuration = 1.5f;
+
+        private SpriteRenderer spriteRenderer;
+
+        private bool IsGrappled => grapplingJoint.isActiveAndEnabled;
 
         public bool Killable { get; set; } = true;
 
-        void Awake() {
+        private void Awake() {
             GetComponents();
             gravity = rbody.gravityScale;
             Clickable.OnMouseDownClickable += OnMouseDownClickable;
+            InventoryIcon.OnMouseDownClickable += OnMouseDownClickable;
             CalculateRaySpacing();
         }
 
-
-        void GetComponents() {
+        private void GetComponents() {
             animator = GetComponent<Animator>();
             rbody = GetComponent<Rigidbody2D>();
             collider = GetComponent<Collider2D>();
@@ -72,22 +74,24 @@ namespace Randolph.Characters {
 
             if (speechBubble != null) {
                 bubbleText = speechBubble?.GetComponentInChildren<Text>();
-                if (bubbleText != null) bubbleText.text = "";
+                if (bubbleText != null) {
+                    bubbleText.text = "";
+                }
             }
         }
 
-        void Update() {
-            jump = Input.GetButtonDown("Jump");
+        private void Update() {
+            jump = Input.GetButton("Jump");
 
             //! Debug
             DebugCommands();
         }
 
-        void FixedUpdate() {
-            float horizontal = Input.GetAxisRaw("Horizontal");
-            float vertical = Input.GetAxisRaw("Vertical");
+        private void FixedUpdate() {
+            var horizontal = Input.GetAxisRaw("Horizontal");
+            var vertical = Input.GetAxisRaw("Vertical");
 
-            isOnGround = GroundCheck(groundCheckRayLength, groundLayers);
+            isOnGround = GroundCheck(groundCheckRayLength, groundLayers); // TODO: Property
 
             Moving(horizontal);
             Jumping();
@@ -104,15 +108,6 @@ namespace Randolph.Characters {
             if (other.tag == Constants.Tag.Deadly) {
                 Kill();
             }
-
-            /*
-            if (other.tag == Constants.Tag.Pickable) {
-                // TODO: Remove to make items only on click
-                var pickable = other.GetComponent<Pickable>();
-                Debug.Assert(pickable, "An object with a Pickable tag doesn't have a Pickable script attached", other.gameObject);
-                pickable.OnPick();
-            }
-            */
         }
 
         private void OnTriggerExit2D(Collider2D other) {
@@ -126,22 +121,71 @@ namespace Randolph.Characters {
             }
         }
 
-        public void Kill(float delay = 0.25f) {
+        public void Kill(float delay = 0.25f, bool disappear = false) {
             if (Killable) {
                 Killable = false;
                 StopGrappling();
                 StopClimbing();
+                // TODO: Disable SpriteRenderer if "disappear" 
                 AudioPlayer.audioPlayer.PlayGlobalSound(deathSound);
                 LevelManager.levelManager.ReturnToCheckpoint(delay);
             }
         }
 
+        #region Freeze
+        [ContextMenu("Freeze")]
+        public void Freeze()
+        {
+            animator.speed = 0;
+            rbody.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+
+        [ContextMenu("Unfreeze")]
+        public void UnFreeze()
+        {
+            animator.speed = 1;
+            rbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+        #endregion
+
+        #region Debug
+        private void DebugCommands() {
+            if (Input.GetKeyDown(KeyCode.R)) {
+                // DEBUG: Restart
+                Kill();
+            }
+
+            if (Input.GetKeyDown(KeyCode.KeypadPlus)) {
+                // DEBUG: Go to the next room
+                var checkpointContainer = FindObjectOfType<CheckpointContainer>();
+                var nextCheckpoint = checkpointContainer.GetNext();
+                if (nextCheckpoint) {
+                    transform.position = nextCheckpoint.transform.position;
+                    checkpointContainer.SetReached(nextCheckpoint);
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.KeypadMinus)) {
+                // DEBUG: Go to the previous room
+                var checkpointContainer = FindObjectOfType<CheckpointContainer>();
+                var previousCheckpoint = checkpointContainer.GetPrevious();
+                if (previousCheckpoint) {
+                    transform.position = previousCheckpoint.transform.position;
+                    checkpointContainer.SetReached(previousCheckpoint);
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.KeypadMultiply)) {
+                LevelManager.LoadNextLevel();
+            }
+        }
+        #endregion
+
         // TODO: Break into components
 
         #region Move
-
         private void Moving(float horizontal) {
-            float hSpeed = horizontal * movementSpeed;
+            var hSpeed = horizontal * movementSpeed;
 
             animator.SetBool("Running", isOnGround && !Mathf.Approximately(hSpeed, 0f));
             animator.SetFloat("RunningSpeed", Mathf.Abs(hSpeed));
@@ -152,17 +196,15 @@ namespace Randolph.Characters {
             }
         }
 
-        void Flipping() {
-            if ((rbody.velocity.x > 0 && spriteRenderer.flipX) || (rbody.velocity.x < 0 && !spriteRenderer.flipX)) {
+        private void Flipping() {
+            if (rbody.velocity.x > 0 && spriteRenderer.flipX || rbody.velocity.x < 0 && !spriteRenderer.flipX) {
                 // Look the other way (doesn't affect child objects and colliders)
                 spriteRenderer.flipX = !spriteRenderer.flipX;
             }
         }
-
         #endregion
 
         #region Jump
-
         private void Jumping() {
             if (!jump) {
                 return;
@@ -180,18 +222,19 @@ namespace Randolph.Characters {
             rbody.AddForce(Vector2.up * jumpForce);
             animator.SetTrigger("Jump");
         }
-
         #endregion
 
         #region Raycasting
-
         public struct RaycastOrigins2D {
-
             public Vector2 bottomLeft;
             public Vector2 bottomRight;
-
         }
 
+        /// <summary>Casts a ray downwards to see if the player stands on the ground.</summary>
+        /// <param name="rayLength">Length of the ray to use. Too short makes jumping unresponsive, 
+        /// too long makes the player jump on air.</param>
+        /// <param name="layerMask"><see cref="LayerMask"/> for the ground level.</param>
+        /// <returns>True if the player is very close to the ground.</returns>
         public bool GroundCheck(float rayLength, int layerMask) {
             UpdateRaycastOrigins();
 
@@ -209,26 +252,25 @@ namespace Randolph.Characters {
             return false;
         }
 
+        /// <summary>Calculates how far should rays checking for ground be apart from each other.</summary>
         public void CalculateRaySpacing() {
-            Bounds bounds = collider.bounds;
+            var bounds = collider.bounds;
             bounds.Expand(Constants.RaycastBoundsShrinkage);
 
             groundRaySpacing = bounds.size.x / (groundRayCount - 1);
         }
 
-        void UpdateRaycastOrigins() {
-            Bounds bounds = collider.bounds;
+        private void UpdateRaycastOrigins() {
+            var bounds = collider.bounds;
             bounds.Expand(Constants.RaycastBoundsShrinkage);
 
             raycastOrigins.bottomLeft = new Vector2(bounds.min.x, bounds.min.y);
             raycastOrigins.bottomRight = new Vector2(bounds.max.x, bounds.min.y);
         }
-
         #endregion
 
         #region Climb
-
-        void Climbing(float vertical, float horizontal) {
+        private void Climbing(float vertical, float horizontal) {
             if (!isClimbing && currentLadder > 0 && Mathf.Abs(vertical) > Mathf.Epsilon) {
                 isClimbing = true;
                 rbody.gravityScale = 0;
@@ -240,33 +282,33 @@ namespace Randolph.Characters {
             }
 
             if (isClimbing) {
-                float vSpeed = vertical * climbingSpeed;
-                float hSpeed = horizontal * climbingSpeed;
+                var vSpeed = vertical * climbingSpeed;
+                var hSpeed = horizontal * climbingSpeed;
                 rbody.velocity = new Vector2(hSpeed, vSpeed);
                 animator.SetFloat("ClimbingSpeed", vSpeed);
             }
         }
 
-        void StopClimbing(float vSpeed = 1f) {
+        private void StopClimbing(float vSpeed = 1f) {
             isClimbing = false;
             rbody.gravityScale = gravity;
-            if (gameObject.activeSelf) animator.SetBool("Climbing", false);
+            if (gameObject.activeSelf) {
+                animator.SetBool("Climbing", false);
+            }
         }
 
-        void IgnoreCollision(bool ignore) {
+        private void IgnoreCollision(bool ignore) {
             Methods.IgnoreLayerMaskCollision(Constants.Layer.Player, groundLayers, ignore);
         }
-
         #endregion
 
         #region Grapple
-
         public void GrappleTo(Vector3 position) {
             grapplingJoint.connectedAnchor = position;
             grapplingJoint.enabled = true;
             grapplingJoint.distance = Vector2.Distance(transform.position, position);
             grappleRopeRenderer.enabled = true;
-            grappleRopeRenderer.SetPositions(new Vector3[] {transform.position, position});
+            grappleRopeRenderer.SetPositions(new[] { transform.position, position });
         }
 
         private void Grappling(float vertical, float horizontal) {
@@ -279,48 +321,48 @@ namespace Randolph.Characters {
             grapplingJoint.distance = Math.Min(grapplingJoint.distance - vertical * 0.1f, maximumRopeLength);
             grappleRopeRenderer.SetPosition(0, transform.position);
         }
-        
+
         public event Action OnStoppedGrappling;
+
         public void StopGrappling() {
             grapplingJoint.enabled = false;
             grappleRopeRenderer.enabled = false;
             OnStoppedGrappling?.Invoke();
         }
-
         #endregion
 
         #region MouseEvents
-
-        void OnMouseDownClickable(Clickable target, Constants.MouseButton button) {
-            bool withinDistance = Vector2.Distance(transform.position, target.transform.position) <= Inventory.inventory.ApplicableDistance;
-
-            if (withinDistance) {
-                if (button == Constants.MouseButton.Left) {
-                    switch (target.CursorType) {
-                        case Cursors.Generic:
-                            // No specific cursor -> no action
-                            break;
-                        case Cursors.Pick:
-                            var pickable = (Pickable) target;
-                            pickable.Pick();
-                            break;
-                        case Cursors.Interact:
-                            var interactable = (Interactable.Interactable) target;
-                            interactable.Interact();
-                            break;
-                        case Cursors.Talk:
-                            var talkable = (Talkable) target;
-                            talkable.OnTalk();
-                            break;
-                        default:
-                            Debug.LogWarning($"Unhandled clickable type: {target.CursorType}");
-                            break;
-                    }
-                } else if (button == Constants.MouseButton.Right) {
-                    string description = target.GetDescription();
-                    if (description != string.Empty) {
-                        ShowDescriptionBubble(target.GetDescription(), speechDuration);
-                    }
+        private void OnMouseDownClickable(Clickable target, Constants.MouseButton button) {
+            if (!target.isWithinReach) {
+                return;
+            }
+            if (button == Constants.MouseButton.Left) {
+                switch (target.CursorType) {
+                case Cursors.Generic:
+                    // No specific cursor -> no action
+                    break;
+                case Cursors.Pick:
+                    var pickable = target as Pickable;
+                    pickable?.Pick();
+                    break;
+                case Cursors.Interact:
+                    var interactable = target as Interactable.Interactable; 
+                    interactable?.Interact();
+                    break;
+                case Cursors.Talk:
+                    var talkable = target as Talkable;
+                    talkable?.OnTalk();
+                    break;
+                case Cursors.Inspect:
+                    break;
+                default:
+                    Debug.LogWarning($"Unhandled clickable type: {target.CursorType}");
+                    break;
+                }
+            } else if (button == Constants.MouseButton.Right) {
+                var description = target.GetDescription();
+                if (description != string.Empty) {
+                    ShowDescriptionBubble(target.GetDescription(), speechDuration);
                 }
             }
         }
@@ -330,6 +372,7 @@ namespace Randolph.Characters {
         /// <param name="duration">Duration in seconds.</param>
         public async void ShowDescriptionBubble(string text, float duration) {
             // TODO: Autoscroll long text (/ duration)
+            if (speechBubble == null) return;
 
             speechBubble.gameObject.SetActive(true);
             bubbleText.text = text;
@@ -347,46 +390,9 @@ namespace Randolph.Characters {
                 return;
             }
 
-            bubbleText.text = String.Empty;
+            bubbleText.text = string.Empty;
             speechBubble.gameObject.SetActive(false);
         }
-
         #endregion
-
-        #region Debug
-
-        void DebugCommands() {
-            if (Input.GetKeyDown(KeyCode.R)) {
-                // DEBUG: Restart
-                Kill();
-            }
-
-            if (Input.GetKeyDown(KeyCode.KeypadPlus)) {
-                // DEBUG: Go to the next room
-                var checkpointContainer = FindObjectOfType<CheckpointContainer>();
-                Checkpoint nextCheckpoint = checkpointContainer.GetNext();
-                if (nextCheckpoint) {
-                    transform.position = nextCheckpoint.transform.position;
-                    checkpointContainer.SetReached(nextCheckpoint);
-                }
-            }
-
-            if (Input.GetKeyDown(KeyCode.KeypadMinus)) {
-                // DEBUG: Go to the previous room
-                var checkpointContainer = FindObjectOfType<CheckpointContainer>();
-                Checkpoint previousCheckpoint = checkpointContainer.GetPrevious();
-                if (previousCheckpoint) {
-                    transform.position = previousCheckpoint.transform.position;
-                    checkpointContainer.SetReached(previousCheckpoint);
-                }
-            }
-
-            if (Input.GetKeyDown(KeyCode.KeypadMultiply)) {
-                LevelManager.LoadNextLevel();
-            }
-        }
-
-        #endregion
-
     }
 }

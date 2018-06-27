@@ -10,15 +10,17 @@ namespace Assets.Levels.Airship {
         [SerializeField] private Cue speakCue;
 
         [SerializeField] private Door quartersDoor;
-        [SerializeField] private SpeechBubble howardsSpeechBubble;
+        [SerializeField] private Talkable howardsSpeechBubble;
 
         protected override IEnumerable Scenario() {
+            quartersDoor.OnInteract -= Iterate;
             quartersDoor.OnInteract += Iterate;
             yield return null;
             quartersDoor.OnInteract -= Iterate;
 
             interactCue.Disable();
-
+            
+            howardsSpeechBubble.OnStartedSpeaking -= Iterate;
             howardsSpeechBubble.OnStartedSpeaking += Iterate;
             yield return null;
             howardsSpeechBubble.OnStartedSpeaking -= Iterate;

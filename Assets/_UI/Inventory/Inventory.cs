@@ -19,16 +19,12 @@ namespace Randolph.UI {
         [SerializeField] ItemDatabase itemDatabase;
         [SerializeField] float applicableDistance = 6;
 
-        public float ApplicableDistance {
-            get { return applicableDistance; }
-        }
-
-        Rigidbody2D player;
+        public float ApplicableDistance => applicableDistance;
 
         List<InventoryIcon> icons = new List<InventoryIcon>();
 
         public List<InventoryItem> Items {
-            get { return new List<InventoryItem>(icons.Select(icon => icon.item)); }
+            get { return new List<InventoryItem>(icons.Select(icon => icon.Item)); }
             set {
                 foreach (InventoryIcon icon in icons) {
                     Destroy(icon.gameObject);
@@ -47,8 +43,7 @@ namespace Randolph.UI {
             LevelManager.OnNewLevel += OnNewLevel;
         }
 
-        void OnNewLevel(Scene scene, PlayerController playerController) {
-            player = playerController.GetComponent<Rigidbody2D>();
+        void OnNewLevel(Scene scene) {
             inventory = FindObjectOfType<Inventory>();
         }
 
@@ -60,7 +55,7 @@ namespace Randolph.UI {
         }
 
         public void Remove(InventoryItem item) {
-            InventoryIcon icon = icons.Find(ico => ico.item == item);
+            InventoryIcon icon = icons.Find(ico => ico.Item == item);
             if (icon == null) {
                 return;
             }
@@ -70,15 +65,15 @@ namespace Randolph.UI {
         }
 
         public bool Contains(InventoryItem item) {
-            return icons.Any(ico => ico.item == item);
+            return icons.Any(ico => ico.Item == item);
         }
 
         public bool IsWithinApplicableDistance(Vector2 position) {
-            return Vector2.Distance(position, player.transform.position) <= ApplicableDistance;
+            return Vector2.Distance(position, Constants.Randolph.transform.position) <= ApplicableDistance;
         }
 
         public bool IsApplicableTo(InventoryItem item, GameObject target) {
-            if (Contains(item) && (DistanceCheck(target) || (target.GetComponent<InventoryItem>() && Contains(target.GetComponent<InventoryItem>())))) return item.IsApplicable(target);
+            if (Contains(item) && ((target.GetComponent<InventoryItem>() && Contains(target.GetComponent<InventoryItem>())) || DistanceCheck(target))) return item.IsApplicable(target);
             return false;
         }
 
@@ -95,10 +90,12 @@ namespace Randolph.UI {
         }
 
         bool DistanceCheck(GameObject target) {
-            if (target == player.gameObject) return true;
+            if (target.tag == Constants.Tag.Player) {
+                return true;
+            }
 
             Debug.Assert(target.GetComponent<Collider2D>());
-            ColliderDistance2D result = player.Distance(target.GetComponent<Collider2D>());
+            ColliderDistance2D result = Constants.Randolph.GetComponent<Rigidbody2D>().Distance(target.GetComponent<Collider2D>());
             return result.isValid && Mathf.Abs(result.distance) < applicableDistance;
         }
 
@@ -114,9 +111,10 @@ namespace Randolph.UI {
 
         /// <summary>Saves the inventory state to <see cref="PlayerPrefs"/>.</summary>       
         public void RestorStateFromPrefs() {
-            string itemString = (PlayerPrefs.HasKey(InventoryKey)) ? PlayerPrefs.GetString(InventoryKey) : string.Empty;
-            if (itemString == string.Empty) Items = new List<InventoryItem>();
-            else {
+            var itemString = PlayerPrefs.HasKey(InventoryKey) ? PlayerPrefs.GetString(InventoryKey) : string.Empty;
+            if (itemString == string.Empty) {
+                Items = new List<InventoryItem>();
+            } else {
                 Items = GetItemsFromKey(itemString);
                 DeactivateItemsInScene(Items);
             }
@@ -126,7 +124,7 @@ namespace Randolph.UI {
             foreach (InventoryItem item in items) {
                 Type itemType = item.GetType();
                 var sceneItem = (InventoryItem) FindObjectOfType(itemType);
-                sceneItem.SetComponentsActive(false);
+                if (sceneItem) sceneItem.SetComponentsActive(false); //? Null
             }
         }
 

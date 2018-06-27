@@ -1,23 +1,13 @@
-﻿using Assets._Interactable;
-using Randolph.Interactable;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Shrub : Interactable, ISlashable
-{
-    [SerializeField]
-    public Transform twig;
-    [SerializeField]
-    private GameObject spawnPoint;
+namespace Randolph.Interactable {
+    public class Shrub : Interactable, ISlashable {
+        [SerializeField] public Twig twig;
 
-    public override void Interact()
-    {
-        Debug.Log("Shrubbery clicked");
-    }
-
-    public void Slash()
-    {
-        Instantiate(twig, spawnPoint.transform.position, Quaternion.identity);
+        public void Slash() {
+            var newTwig = Instantiate(twig);
+            newTwig.Pick();
+            gameObject.SetActive(false);
+        }
     }
 }

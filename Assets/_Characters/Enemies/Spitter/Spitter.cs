@@ -20,9 +20,11 @@ namespace Randolph.Characters {
 
         public override Cursors CursorType { get; protected set; } = Cursors.Inspect;
 
-        void Start() {
+        protected override void Start() {
+            base.Start();
             audioSource = AudioPlayer.audioPlayer.AddAudioSource(gameObject);
             currentArea = GetComponentInParent<Area>()?.transform;
+            outline.color = 2;
         }
 
         void Fire() {

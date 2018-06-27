@@ -1,18 +1,7 @@
-﻿using Randolph.Interactable;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Randolph.UI;
-using Randolph.Levels;
+﻿using Randolph.UI;
 
-public class Slab : Clickable, IRestartable
-{
-    public override Cursors CursorType { get; protected set; } = Cursors.Inspect;
-
-    /*
-    public override void Restart()
-    {
-        base.Restart();
+namespace Randolph.Interactable {
+    public class Slab : Clickable {
+        public override Cursors CursorType { get; protected set; } = Cursors.Inspect;
     }
-    */
 }

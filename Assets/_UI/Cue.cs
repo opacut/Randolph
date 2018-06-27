@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using Randolph.Core;
+using Randolph.Levels;
 
 namespace Randolph.UI {
     [RequireComponent(typeof(Collider2D))]
-    public class Cue : MonoBehaviour {
+    public class Cue : MonoBehaviour, IRestartable {
         [SerializeField] private Image textBox;
         [SerializeField] private Text textElement;
         [SerializeField, TextArea] private string updateText;
@@ -16,6 +17,8 @@ namespace Randolph.UI {
         [SerializeField] private bool cancelOnAreaExit;
 
         private bool wasActivated;
+
+        private void Start() => SaveState();
 
         private void OnTriggerEnter2D(Collider2D collision) {
             if (collision.tag == "Player") {
@@ -43,7 +46,21 @@ namespace Randolph.UI {
         public void Disable() {
             textBox.enabled = false;
             textElement.text = "";
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
+
+        #region IRestartable
+        protected bool savedActiveState { get; private set; }
+
+        public void SaveState() {
+            savedActiveState = gameObject.activeSelf;
+        }
+
+        public void Restart() {
+            Disable();
+            wasActivated = false;
+            gameObject.SetActive(savedActiveState);
+        }
+        #endregion
     }
 }

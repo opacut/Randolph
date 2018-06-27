@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Assets.Levels.Airship {
     public class HowardsScenario : ScenarioManager {
-        [SerializeField] private SpeechBubble howardsSpeechBubble;
+        [SerializeField] private Talkable howardsSpeechBubble;
 
         [Header("Responses")]
         [SerializeField, TextArea] private string firstResponse;
@@ -19,13 +19,15 @@ namespace Assets.Levels.Airship {
         [SerializeField] private Key storageKey;
         [SerializeField] private Bandage bandage;
         [SerializeField] private Alcohol alcohol;
-        [SerializeField] private Cleanedbandage cleanedBandage;
+        private CleanedBandage cleanedBandage;
+        [SerializeField] private Cue highlightCue;
         [SerializeField] private Cue pickUpCue;
         [SerializeField] private Cue useCue;
         [SerializeField] private Door deckDoor;
         [SerializeField] private RandolphTalkTrigger deckExitTalkTrigger;
 
         protected override IEnumerable Scenario() {
+            howardsSpeechBubble.OnStoppedSpeaking -= Iterate;
             howardsSpeechBubble.OnStoppedSpeaking += Iterate;
             yield return null;
             howardsSpeechBubble.OnStoppedSpeaking -= Iterate;
@@ -33,22 +35,28 @@ namespace Assets.Levels.Airship {
             howardsSpeechBubble.fullText = firstResponse;
             howardsSpeechBubble.Speak();
             storageKey.gameObject.SetActive(true);
+            highlightCue.gameObject.SetActive(true);
             pickUpCue.gameObject.SetActive(true);
-
+            
+            storageKey.OnPick -= Iterate;
             storageKey.OnPick += Iterate;
             yield return null;
             storageKey.OnPick -= Iterate;
             
+            highlightCue.Disable();
             pickUpCue.Disable();
             howardsSpeechBubble.fullText = secondResponse;
             useCue.gameObject.SetActive(true);
-
+            
+            storageKey.OnApply -= Iterate;
             storageKey.OnApply += Iterate;
             yield return null;
             storageKey.OnApply -= Iterate;
 
             useCue.Disable();
-
+            
+            bandage.OnPick -= Iterate;
+            alcohol.OnPick -= Iterate;
             bandage.OnPick += Iterate;
             alcohol.OnPick += Iterate;
             yield return null;
@@ -57,20 +65,34 @@ namespace Assets.Levels.Airship {
             alcohol.OnPick -= Iterate;
             
             howardsSpeechBubble.fullText = thirdResponse;
-
-            cleanedBandage.OnPick += Iterate;
+            
+            bandage.OnCombined -= BandageCleaned;
+            alcohol.OnCombined -= BandageCleaned;
+            bandage.OnCombined += BandageCleaned;
+            alcohol.OnCombined += BandageCleaned;
             yield return null;
-            cleanedBandage.OnPick -= Iterate;
+            bandage.OnCombined -= BandageCleaned;
+            alcohol.OnCombined -= BandageCleaned;
             
             howardsSpeechBubble.fullText = fourthResponse;
-
+            
+            cleanedBandage.OnPick -= Iterate;
             cleanedBandage.OnApply += Iterate;
             yield return null;
             cleanedBandage.OnPick -= Iterate;
 
             howardsSpeechBubble.fullText = fifthResponse;
             deckDoor.isLocked = false;
-            Destroy(deckExitTalkTrigger);
+            deckExitTalkTrigger.gameObject.SetActive(false);
+        }
+
+        private void BandageCleaned(InventoryItem bandage) {
+            cleanedBandage = bandage as CleanedBandage;
+            Iterate();
         }
     }
+
+    #region IRestartable
+
+    #endregion
 }

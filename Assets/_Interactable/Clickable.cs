@@ -1,76 +1,40 @@
 ﻿using cakeslice;
+using Randolph.Core;
 using Randolph.Levels;
 using Randolph.UI;
 using UnityEngine;
-using static Randolph.Core.Constants;
 
 namespace Randolph.Interactable {
     [RequireComponent(typeof(Outline))]
+    [RequireComponent(typeof(SpriteRenderer))]
     public abstract class Clickable : MonoBehaviour, IRestartable {
-        public delegate void MouseDownClickable(Clickable target, MouseButton button);
-
-        public delegate void MouseEnterClickable(Clickable target);
-
-        public delegate void MouseExitClickable(Clickable target);
-
-        public delegate void MouseUpClickable(Clickable target, MouseButton button);
-
-        [Tooltip("Randolph's comment - keep empty if none.")][SerializeField][TextArea]
+        [Tooltip("Randolph's comment - keep empty if none.")]
+        [SerializeField, TextArea]
         private string description;
 
-        private Vector3 initialPosition;
-        private Quaternion initialRotation;
-
         protected Outline outline;
-        private bool shouldOutline;
+        protected bool shouldOutline;
+
+        protected SpriteRenderer spriteRenderer;
+
+        public virtual bool isWithinReach => Vector2.Distance(transform.position, Constants.Randolph.transform.position) <= Inventory.inventory.ApplicableDistance;
 
         /// <summary>Type of cursor to use. Override in a derived class.</summary>
         public abstract Cursors CursorType { get; protected set; }
 
-        public virtual void Restart()
-        {
-            transform.position = initialPosition;
-            transform.rotation = initialRotation;
-        }
-
-        public static event MouseEnterClickable OnMouseEnterClickable;
-        public static event MouseExitClickable OnMouseExitClickable;
-        public static event MouseDownClickable OnMouseDownClickable;
-        public static event MouseUpClickable OnMouseUpClickable;
-
-        protected void ResetCursor() { CursorManager.cursorManager.SetCursorDefault(); }
-
         protected virtual void Awake() {
-            initialPosition = transform.position;
-            initialRotation = transform.rotation;
             outline = GetComponent<Outline>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        protected virtual void Start() { shouldOutline = false; }
-
-        protected virtual void OnMouseEnter() {
-            OnMouseEnterClickable?.Invoke(this);
-            shouldOutline = true;
-        }
-
-        protected virtual void OnMouseExit() {
-            OnMouseExitClickable?.Invoke(this);
+        protected virtual void Start() {
+            outline.enabled = false;
             shouldOutline = false;
+            SaveState();
         }
 
-        protected virtual void OnMouseOver() {
-            for (var i = 0; i <= 2; i++) {
-                // Check for all mouse buttons
-                if (Input.GetMouseButtonDown(i)) {
-                    OnMouseDownClickable?.Invoke(this, (MouseButton) i);
-                } else if (Input.GetMouseButtonUp(i)) {
-                    OnMouseUpClickable?.Invoke(this, (MouseButton) i);
-                }
-            }
-        }
-
-        protected void Update() {
-            outline.enabled = Input.GetAxis("Highlight") != 0.0f || shouldOutline;
+        protected virtual void Update() {
+            outline.enabled = spriteRenderer.enabled && (Input.GetAxis("Highlight") != 0.0f || shouldOutline);
         }
 
         private void OnDestroy() {
@@ -78,7 +42,59 @@ namespace Randolph.Interactable {
             ResetCursor();
         }
 
+        protected void ResetCursor() => CursorManager.cursorManager.SetCursorDefault();
+
         /// <summary>Randolph's comment.</summary>
-        public string GetDescription() { return description.Trim(); }
+        public string GetDescription() => description.Trim();
+
+        #region MouseEvents
+        public delegate void MouseClickable(Clickable target);
+
+        public delegate void MouseClickableButton(Clickable target, Constants.MouseButton button);
+
+        public static event MouseClickable OnMouseEnterClickable;
+        public static event MouseClickable OnMouseExitClickable;
+        public static event MouseClickableButton OnMouseDownClickable;
+        public static event MouseClickableButton OnMouseUpClickable;
+
+        private void OnMouseEnter() {
+            OnMouseEnterClickable?.Invoke(this);
+            shouldOutline = true;
+        }
+
+        private void OnMouseExit() {
+            OnMouseExitClickable?.Invoke(this);
+            shouldOutline = false;
+        }
+
+        private void OnMouseOver() {
+            for (var i = 0; i <= 2; i++) {
+                // Check for all mouse buttons
+                if (Input.GetMouseButtonDown(i)) {
+                    OnMouseDownClickable?.Invoke(this, (Constants.MouseButton) i);
+                } else if (Input.GetMouseButtonUp(i)) {
+                    OnMouseUpClickable?.Invoke(this, (Constants.MouseButton) i);
+                }
+            }
+        }
+        #endregion
+
+        #region IRestartable
+        protected bool savedActiveState { get; private set; }
+        protected Vector3 savedPosition { get; private set; }
+        protected Quaternion savedRotation { get; private set; }
+
+        public virtual void SaveState() {
+            savedActiveState = gameObject.activeSelf;
+            savedPosition = transform.position;
+            savedRotation = transform.rotation;
+        }
+
+        public virtual void Restart() {
+            gameObject.SetActive(savedActiveState);
+            transform.position = savedPosition;
+            transform.rotation = savedRotation;
+        }
+        #endregion
     }
 }

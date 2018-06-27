@@ -9,8 +9,7 @@ using UnityEngine.SceneManagement;
 
 namespace Randolph.Levels {
     public class Area : MonoBehaviour {
-
-        ProCamera2DRooms cameraRooms;
+        
         Room matchingCameraRoom;
 
         public Room MatchingCameraRoom {
@@ -33,9 +32,7 @@ namespace Randolph.Levels {
             }
         }
 
-        public int Id {
-            get { return Methods.GetNumberFromString(gameObject.name); }
-        }
+        public int Id => Methods.GetNumberFromString(gameObject.name);
 
 
         public static Area GetArea(int index) {
@@ -48,7 +45,7 @@ namespace Randolph.Levels {
             LevelManager.OnNewLevel += OnNewLevel;
         }
 
-        void OnNewLevel(Scene scene, PlayerController player) {
+        void OnNewLevel(Scene scene) {
             RefreshCameraData();
             if (HasNestedAreas()) {
                 Debug.LogError($"<b>{gameObject.name}</b> is nested in another area. This can cause problems.", gameObject);
@@ -57,8 +54,7 @@ namespace Randolph.Levels {
         }
 
         public void RefreshCameraData() {
-            cameraRooms = FindObjectOfType<ProCamera2DRooms>();
-            MatchingCameraRoom = cameraRooms.GetRoom($"{Methods.GetNumberFromString(gameObject.name)}");
+            MatchingCameraRoom = Constants.Camera.rooms.GetRoom($"{Methods.GetNumberFromString(gameObject.name)}");
             if (Application.isPlaying && matchingCameraRoom == null) Debug.LogError($"No corresponding camera room found for <b>{gameObject.name}</b>.");
         }
 

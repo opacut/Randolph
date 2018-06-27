@@ -9,8 +9,10 @@ namespace Randolph.Levels {
     [AddComponentMenu("Randolph/Levels/Checkpoint", 30)]
     public class Checkpoint : MonoBehaviour {
 
+
         [Help("An area represents all objects which will be reverted back to their initial states after a restart.")]
-        [SerializeField] Area area;
+        [SerializeField] private Area _area;
+        public Area Area => _area;
 
         Inventory inventory;
         CheckpointContainer container;
@@ -25,7 +27,7 @@ namespace Randolph.Levels {
                 Debug.LogWarning("Checkpoints should be made children of a <b>CheckpointContainter</b>, otherwise they won't work properly.", gameObject);
             }
 
-            Debug.Assert(area != null, "The checkpoint isn't linked to any area of the level – therefore is useless.", gameObject);            
+            Debug.Assert(_area != null, "The checkpoint isn't linked to any area of the level – therefore is useless.", gameObject);            
         }
 
         void Start() {
@@ -51,14 +53,14 @@ namespace Randolph.Levels {
         public void RestoreState() {
             inventory.Items = inventoryState;
 
-            foreach (IRestartable restartable in restartables) {
+            foreach (var restartable in restartables) {
                 restartable.Restart();
             }
         }
 
         void RefreshRestartables() {
             restartables.Clear();
-            restartables.AddRange(area.transform.GetComponentsInChildren<IRestartable>());
+            restartables.AddRange(_area.transform.GetComponentsInChildren<IRestartable>());
         }
 
     }

@@ -1,4 +1,5 @@
-﻿using Randolph.Core;
+﻿using System.Linq;
+using Randolph.Core;
 using Randolph.Interactable;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -8,23 +9,32 @@ namespace Randolph.UI {
     [RequireComponent(typeof(Image))]
     [RequireComponent(typeof(CanvasGroup))]
     [RequireComponent(typeof(LayoutElement))]
-    public class InventoryIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
+    public class InventoryIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerDownHandler /*, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler*/ {
         private Image image;
         private Material initialMaterial;
 
         private Inventory inventory;
 
         [SerializeField] private Material outOfReachMaterial;
-        private Vector2 position;
-        public InventoryItem item { get; private set; }
+        private int siblingIndex;
+        public InventoryItem Item { get; private set; }
 
         public void OnBeginDrag(PointerEventData eventData) {
-            position = transform.position;
+            if (eventData.button == PointerEventData.InputButton.Right) {
+                return;
+            }
+
             GetComponent<CanvasGroup>().blocksRaycasts = false;
             GetComponent<LayoutElement>().ignoreLayout = true;
+            siblingIndex = transform.GetSiblingIndex();
+            transform.SetAsLastSibling();
         }
 
         public void OnDrag(PointerEventData eventData) {
+            if (eventData.button == PointerEventData.InputButton.Right) {
+                return;
+            }
+
             var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             if (outOfReachMaterial && !IsCursorWithinApplicableDistance(mousePosition) && !IsCursoreAboveAnotherItem(eventData)) {
@@ -38,43 +48,60 @@ namespace Randolph.UI {
         }
 
         public void OnEndDrag(PointerEventData eventData) {
-            var target = FindApplicableTarget() ?? eventData?.pointerCurrentRaycast.gameObject?.GetComponent<InventoryIcon>()?.item.gameObject;
-            if (target) {
-                inventory.ApplyTo(item, target);
+            if (eventData.button == PointerEventData.InputButton.Right) {
+                return;
             }
 
-            transform.position = position;
+            // TODO improve failed application attempt response
+            var target = FindApplicableInventoryItem(eventData.pointerCurrentRaycast) ?? FindApplicableTarget();
+            if (target) {
+                if (!inventory.ApplyTo(Item, target)) {
+                    Constants.Randolph.ShowDescriptionBubble("I can't do that.", 0.5f);
+                }
+            } else {
+                Constants.Randolph.ShowDescriptionBubble("There is nothing.", 0.5f);
+            }
+
+            transform.SetSiblingIndex(siblingIndex);
             image.material = initialMaterial;
             GetComponent<CanvasGroup>().blocksRaycasts = true;
             GetComponent<LayoutElement>().ignoreLayout = false;
         }
 
-        public void Init(Inventory inventory, InventoryItem item) {
-            this.inventory = inventory;
-            this.item = item;
+        public void OnPointerEnter(PointerEventData eventData) => OnMouseEnterClickable?.Invoke(Item);
+        public void OnPointerExit(PointerEventData eventData) => OnMouseExitClickable?.Invoke(Item);
+        public void OnPointerDown(PointerEventData eventData) => OnMouseDownClickable?.Invoke(Item, (Constants.MouseButton) eventData.button);
+        public void OnPointerUp(PointerEventData eventData) => OnMouseUpClickable?.Invoke(Item, (Constants.MouseButton) eventData.button);
+
+        public static event Clickable.MouseClickable OnMouseEnterClickable;
+        public static event Clickable.MouseClickable OnMouseExitClickable;
+        public static event Clickable.MouseClickableButton OnMouseDownClickable;
+        public static event Clickable.MouseClickableButton OnMouseUpClickable;
+
+        public void Init(Inventory initInventory, InventoryItem initItem) {
+            inventory = initInventory;
+            Item = initItem;
 
             image = GetComponent<Image>();
             initialMaterial = image.material;
-            image.sprite = item.icon;
+            image.sprite = initItem.icon;
             image.preserveAspect = true;
         }
 
-        private bool IsCursorWithinApplicableDistance(Vector2 mousePosition) { return inventory.IsWithinApplicableDistance(mousePosition); }
+        private bool IsCursorWithinApplicableDistance(Vector2 mousePosition) => inventory.IsWithinApplicableDistance(mousePosition);
 
-        private bool IsCursoreAboveAnotherItem(PointerEventData eventData) { return eventData.pointerCurrentRaycast.gameObject?.GetComponent<InventoryIcon>() ?? false; }
+        private bool IsCursoreAboveAnotherItem(PointerEventData eventData) => eventData.pointerCurrentRaycast.gameObject?.GetComponent<InventoryIcon>() ?? false;
 
-        private GameObject FindApplicableTarget() {
+        private static GameObject FindApplicableTarget() {
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            return Physics2D.RaycastAll(ray.origin, ray.direction)
+                            .Select(x => x.collider.gameObject)
+                            .FirstOrDefault(x => x.GetComponent<Clickable>());
+        }
 
-            foreach (var hit in Physics2D.RaycastAll(ray.origin, ray.direction)) {
-                if (inventory.IsApplicableTo(item, hit.collider.gameObject)) {
-                    return hit.collider.gameObject;
-                }
-            }
-            
-            // TODO Move to better spot and improve with more describing response
-            Constants.Randolph.ShowDescriptionBubble("I can't do that.", 2.5f);
-            return null;
+        private static GameObject FindApplicableInventoryItem(RaycastResult raycastResult) {
+            var icon = raycastResult.gameObject?.GetComponent<InventoryIcon>();
+            return icon ? icon.Item.gameObject : null;
         }
     }
 }

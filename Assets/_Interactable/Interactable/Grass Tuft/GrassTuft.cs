@@ -1,49 +1,32 @@
-﻿using Assets._Interactable;
-using Randolph.Interactable;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class GrassTuft : Interactable, ISlashable
-{
-    [SerializeField]
-    public Transform grass;
-    [SerializeField]
-    private GameObject spawnPoint;
-    [SerializeField]
-    private Sprite cutGrass;
-    private Sprite original;
+namespace Randolph.Interactable {
+    public class GrassTuft : Interactable, ISlashable {
+        [SerializeField] private Sprite cutGrass;
+        [SerializeField] private DryGrass grass;
 
-    private SpriteRenderer spriteRenderer;
-    private bool hasGrass = true;
+        private bool hasGrass = true;
+        private Sprite original;
 
-    public void Awake()
-    {
-        base.Awake();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        original = spriteRenderer.sprite;
-    }
-
-    public override void Restart()
-    {
-        base.Restart();
-        hasGrass = true;
-        spriteRenderer.sprite = original;
-    }
-
-    public override void Interact()
-    {
-        Debug.Log("Tuft clicked");
-    }
-
-    public void Slash()
-    {
-        if (hasGrass)
-        {
+        public void Slash() {
+            if (!hasGrass) {
+                return;
+            }
             hasGrass = false;
             spriteRenderer.sprite = cutGrass;
-            Instantiate(grass, spawnPoint.transform.position, Quaternion.identity);
-        }        
-    }
+            var newGrass = Instantiate(grass);
+            newGrass.Pick();
+        }
 
+        protected override void Awake() {
+            base.Awake();
+            original = spriteRenderer.sprite;
+        }
+
+        public override void Restart() {
+            base.Restart();
+            hasGrass = true;
+            spriteRenderer.sprite = original;
+        }
+    }
 }

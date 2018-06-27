@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114886188598453910}
   - component: {fileID: 61966772011453060}
   m_Layer: 0
-  m_Name: lighter
+  m_Name: Lighter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,9 +82,9 @@ MonoBehaviour:
   description: My trusty lighter. It was a gift from my father upon my reaching adulthood.
     I have kept it on myself at all times since. I feel at home any time I look at
     it.
-  icon: {fileID: 21300000, guid: 1f2a43ebf7364fa4c98dafbc7c632ef7, type: 3}
-  collectSound: {fileID: 8300000, guid: 0e0339a3bac3c44488b82c87ccc26a02, type: 3}
   applySound: {fileID: 8300000, guid: 8f8b6716eb58b0344b28b46c96225ede, type: 3}
+  collectSound: {fileID: 8300000, guid: 0e0339a3bac3c44488b82c87ccc26a02, type: 3}
+  icon: {fileID: 21300000, guid: 1f2a43ebf7364fa4c98dafbc7c632ef7, type: 3}
 --- !u!114 &114893037644339014
 MonoBehaviour:
   m_ObjectHideFlags: 1

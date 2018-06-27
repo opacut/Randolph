@@ -1,28 +1,17 @@
-﻿using Assets._Interactable;
+﻿using Randolph.Characters;
 using Randolph.Interactable;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Fruit : InventoryItem
-{
-    
+public class Fruit : InventoryItem {
+    [SerializeField] private Pit pit;
 
     public override bool IsSingleUse => true;
 
-    public override bool IsApplicable(GameObject target) => target.GetComponent<IFeedable>() != null;
+    public override bool IsApplicable(GameObject target) => target.GetComponent<Flytrap>() != null;
 
-    public override void Apply(GameObject target)
-    {
+    public override void Apply(GameObject target) {
         base.Apply(target);
-        target.GetComponent<IFeedable>().Feed(gameObject);
+        var newItem = Instantiate(pit);
+        newItem.Pick();
     }
-
-    /*
-    public override void Restart()
-    {
-        base.Restart();
-        SetComponentsActive(true);
-    }
-    */
 }

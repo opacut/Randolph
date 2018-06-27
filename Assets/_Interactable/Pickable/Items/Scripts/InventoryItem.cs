@@ -1,31 +1,33 @@
 ﻿using System;
-using cakeslice;
 using Randolph.Core;
 using Randolph.UI;
 using UnityEngine;
 
 namespace Randolph.Interactable {
     public abstract class InventoryItem : Pickable {
+        [SerializeField]
+        private AudioClip applySound;
+
+        [SerializeField]
+        private AudioClip collectSound;
+
+        private Collider2D[] colliders;
 
         public Sprite icon;
-        [SerializeField] AudioClip collectSound;
-        [SerializeField] AudioClip applySound;
         protected Inventory inventory { get; private set; }
 
-        SpriteRenderer spriteRenderer;
-        Collider2D[] colliders;
-        Collider2D boxCollider;
+        public override bool isWithinReach => IsPickedUp || base.isWithinReach;
 
         protected override void Awake() {
             base.Awake();
             inventory = FindObjectOfType<Inventory>();
-
-            spriteRenderer = GetComponent<SpriteRenderer>();
             colliders = GetComponents<Collider2D>();
-            boxCollider = GetComponent<Collider2D>();
         }
 
         public override void Pick() {
+            if (IsPickedUp) {
+                return;
+            }
             base.Pick();
 
             inventory.Add(this);
@@ -33,6 +35,18 @@ namespace Randolph.Interactable {
             // gameObject.SetActive(false);
             SetComponentsActive(false);
             CursorManager.cursorManager.SetCursorDefault();
+        }
+
+        public void CombineWith(InventoryItem other, InventoryItem result) {
+            if (!inventory.Contains(other)) {
+                other.Pick();
+            }
+            if (other.IsSingleUse) {
+                inventory.Remove(other);
+            }
+            var newItem = Instantiate(result);
+            newItem.Pick();
+            OnCombined?.Invoke(newItem);
         }
 
         public override void Restart() {
@@ -48,16 +62,16 @@ namespace Randolph.Interactable {
         }
 
         public event Action OnApply;
+        public event Action<InventoryItem> OnCombined;
 
         public void SetComponentsActive(bool active) {
-            if (spriteRenderer) spriteRenderer.enabled = active;
-            if (boxCollider) boxCollider.enabled = active;
-            foreach (Collider2D collider in colliders)
-            {
+            if (spriteRenderer) {
+                spriteRenderer.enabled = active;
+            }
+            foreach (var col in colliders) {
                 //if (collider) collider.enabled = active;
-                collider.enabled = active;
+                col.enabled = active;
             }
         }
-
     }
 }

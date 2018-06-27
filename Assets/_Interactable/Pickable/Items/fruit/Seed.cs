@@ -1,18 +1,15 @@
-﻿using Assets._Interactable;
-using Randolph.Interactable;
-using System.Collections;
-using System.Collections.Generic;
+﻿using Randolph.Characters;
 using UnityEngine;
 
-public class Seed : InventoryItem
-{
-    public override bool IsSingleUse => true;
+namespace Randolph.Interactable {
+    public class Seed : InventoryItem {
+        public override bool IsSingleUse => true;
 
-    public override bool IsApplicable(GameObject target) => target.GetComponent<IFeedable>() != null;
+        public override bool IsApplicable(GameObject target) => target.GetComponent<Flytrap>() != null;
 
-    public override void Apply(GameObject target)
-    {
-        base.Apply(target);
-        target.GetComponent<IFeedable>().Feed(gameObject);
+        public override void Apply(GameObject target) {
+            base.Apply(target);
+            target.GetComponent<Flytrap>().Kill();
+        }
     }
 }

@@ -1,39 +1,44 @@
 ﻿using Randolph.Core;
 using Randolph.Interactable;
 using Randolph.Levels;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class InvisibleSwitch : MonoBehaviour, IRestartable
-{
-    [SerializeField] AudioClip thumpSound;
-    AudioSource audioSource;
-    [SerializeField] bool On;
-    [SerializeField] Bats bats;
+#pragma warning disable 0414
 
-    void Awake()
-    {
-        audioSource = AudioPlayer.audioPlayer.AddAudioSource(gameObject);
-    }
+namespace Randolph.Environment {
+    public class InvisibleSwitch : MonoBehaviour, IRestartable {
 
-    public void Restart()
-    {
-        On = false;
-    }
+        AudioSource audioSource;
+        [SerializeField] Bats bats;
+        [SerializeField] bool isOn;
+        [SerializeField] AudioClip thumpSound;
 
-    void Flip(bool active)
-    {
-        On = active;
-    }
+        void Awake() {
+            audioSource = AudioPlayer.audioPlayer.AddAudioSource(gameObject);
+        }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.GetComponent<Boulder>())
-        {
+        void OnTriggerEnter2D(Collider2D other) {
+            if (!other.GetComponent<Boulder>()) {
+                return;
+            }
             AudioPlayer.audioPlayer.PlayLocalSound(audioSource, thumpSound);
             Flip(true);
             bats.StartMoving();
         }
+
+        void Flip(bool active) {
+            isOn = active;
+        }
+
+        #region IRestartable
+
+        public void SaveState() { }
+
+        public void Restart() {
+            isOn = false;
+        }
+
+        #endregion
+
     }
 }
