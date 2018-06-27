@@ -14,7 +14,7 @@
 * [x] Sail stays cut off if reset
 * [ ] The moving platform graphics feel out of place in a cave
 * [ ] Weird sound on pickup and use
-* [ ] Bats outline not working
+* [x] Bats outline not working
 * [x] Outline still shows when the game is paused
 * [ ] Restarting of objects created wihh Instantiate
 * [x] You can talk to characters out of applicable range
@@ -28,3 +28,4 @@
 * [ ] Nullref exception if game is restarted while player is on `ClimbableRope`
     * Need to disable instead of destroying
 * [x] Clickable objest don't reset their `ShouldOutline` attribute
+* [ ] Bats animation playing even when static and doesn't reset
