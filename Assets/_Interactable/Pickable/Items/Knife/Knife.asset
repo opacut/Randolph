@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c50aafc69e63e4294daa8177ec4b88, type: 3}
   m_Name: Knife
   m_EditorClassIdentifier: 
-  initialized: 0
-  prefab: {fileID: 0}
+  initialized: 1
+  prefab: {fileID: 1041246937332086, guid: 4a98910142107b44d933ca8f2e2263cc, type: 2}

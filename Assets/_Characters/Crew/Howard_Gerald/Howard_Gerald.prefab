@@ -20,10 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4447610227155346}
   - component: {fileID: 212206909038551694}
-  - component: {fileID: 114595705842909654}
-  - component: {fileID: 114124640471720790}
-  - component: {fileID: 114892393035265504}
   - component: {fileID: 61503852336786060}
+  - component: {fileID: 114124640471720790}
+  - component: {fileID: 114752719745910584}
   m_Layer: 0
   m_Name: Howard_Gerald
   m_TagString: Untagged
@@ -170,23 +169,7 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Randolph, dear! You're alright! Gerald here is hurt bad. He needs my medical
-    attention. You must climb upstairs and see if the Captain needs help saving the
-    ship...and our behinds!!
---- !u!114 &114595705842909654
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1069364359867702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0934d28b683d4424e90cad1a6e91f9de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speechBubble: {fileID: 223462421730427426}
-  bubbleText: {fileID: 114333008214095750}
-  characterColor: {r: 0, g: 0.9607844, b: 0.227451, a: 1}
-  delay: 0.05
+    attention.
 --- !u!114 &114747543123926462
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -208,6 +191,24 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 800
+--- !u!114 &114752719745910584
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1069364359867702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a0f3b444be38d141ab657a5a17c9d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: Gerald appears to have been hit by a falling wood beam! I should offer
+    my help to our medic, Howard - Gerald seems to be badly hurt!
+  bubbleText: {fileID: 114333008214095750}
+  bubbleCanvas: {fileID: 223462421730427426}
+  characterColor: {r: 0, g: 0.9607843, b: 0.22745098, a: 1}
+  fullText: Randolph, dear! You're alright! Gerald here is hurt bad. He needs my medical
+    attention.
 --- !u!114 &114842786124894420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -251,18 +252,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114892393035265504
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1069364359867702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb416e39b4d06784390e1c8089b8e162, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  description: 
 --- !u!212 &212206909038551694
 SpriteRenderer:
   m_ObjectHideFlags: 1

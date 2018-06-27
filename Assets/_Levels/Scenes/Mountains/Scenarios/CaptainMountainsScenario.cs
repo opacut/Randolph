@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Assets.Levels.Mountains {
     public class CaptainMountainsScenario : ScenarioManager {
-        [SerializeField] private SpeechBubble captainsSpeechBubble;
+        [SerializeField] private Talkable captainsSpeechBubble;
 
         [Header("Responses")]
         [SerializeField, TextArea]

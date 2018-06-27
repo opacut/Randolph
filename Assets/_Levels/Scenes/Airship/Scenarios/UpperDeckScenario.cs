@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Assets.Levels.Airship {
     public class UpperDeckScenario : ScenarioManager {
-        [SerializeField] private SpeechBubble captainsSpeechBubble;
+        [SerializeField] private Talkable captainsSpeechBubble;
 
         [Header("Responses")]
         [SerializeField, TextArea] private string firstResponse;

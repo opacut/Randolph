@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Assets.Levels.Airship {
     public class HowardsScenario : ScenarioManager {
-        [SerializeField] private SpeechBubble howardsSpeechBubble;
+        [SerializeField] private Talkable howardsSpeechBubble;
 
         [Header("Responses")]
         [SerializeField, TextArea] private string firstResponse;
