@@ -1,9 +1,9 @@
-### Bugs
+# Bugs
 
-* [ ] Captains scenario in Mountains wont reset 
+* [x] Captains scenario in Mountains wont reset
 * [ ] Crows' sprite won't reset properly
 * [x] Spacebar works like shit
-   * [ ] Now only like a doo-doo
+    * [ ] Now only like a doo-doo
 * [x] Can't jump off moonstone
 * [ ] Apple restart weird if killed when in inventory
 * [x] Outline color for spitter
@@ -22,4 +22,4 @@
 * [ ] Fix sail IRestartable
 * [ ] Disable camera transitions and mouse event when there is camera transition
 * [ ] Hide colliders around ladders
-* [ ] Fix missing captains message on level 1
+* [x] Fix missing captains message on level 1

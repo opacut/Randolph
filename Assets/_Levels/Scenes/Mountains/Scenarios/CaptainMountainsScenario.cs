@@ -12,13 +12,10 @@ namespace Assets.Levels.Mountains {
         [SerializeField, TextArea]
         private string firstResponse;
 
-        [SerializeField] private Sabre knife;
-
         [Header("Items")]
-        [SerializeField]
-        private Lighter lighter;
-
-        [SerializeField] private Whiskey whiskey;
+        [SerializeField] private Sabre knifePrefab;
+        [SerializeField] private Lighter lighterPrefab;
+        [SerializeField] private Whiskey whiskeyPrefab;
 
         protected override IEnumerable Scenario() {
             captainsSpeechBubble.OnStoppedSpeaking -= Iterate;
@@ -28,11 +25,12 @@ namespace Assets.Levels.Mountains {
 
             captainsSpeechBubble.fullText = firstResponse;
             captainsSpeechBubble.Speak();
-            lighter.gameObject.SetActive(true);
-            knife.gameObject.SetActive(true);
-            whiskey.gameObject.SetActive(true);
-            lighter.Pick();
+
+            var knife = Instantiate(knifePrefab);
             knife.Pick();
+            var lighter = Instantiate(lighterPrefab);
+            lighter.Pick();
+            var whiskey = Instantiate(whiskeyPrefab);
             whiskey.Pick();
         }
     }
