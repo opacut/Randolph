@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Randolph.Characters {
     [RequireComponent(typeof(SpriteRenderer))]
-    public class Flytrap : Clickable, IEnemy, IFeedable {
+    public class Flytrap : Clickable, IEnemy {
         private Sprite alive;
 
         private AudioSource audioSource;
@@ -14,44 +14,21 @@ namespace Randolph.Characters {
         [Header("Sprites")]
         [SerializeField]
         private Sprite closed;
+        [SerializeField]
+        private Sprite crushed;
 
         [Header("Audio")]
         [SerializeField]
         private AudioClip closeSound;
 
-        private List<GameObject> pits = new List<GameObject>();
-
-        [SerializeField] private Sprite crushed;
-        [SerializeField] private InventoryItem pitPrefab;
-        [SerializeField] private GameObject spawnPoint;
-
         public bool Active { get; private set; } = true;
 
         public override Cursors CursorType { get; protected set; } = Cursors.Inspect;
 
-        public void Kill() {
-            spriteRenderer.sprite = crushed;
-            Active = false;
-        }
-
         public override void Restart() {
             base.Restart();
-            pits.ForEach(y => Destroy(y));
             spriteRenderer.sprite = alive;
             Active = true;
-        }
-
-        public void Feed(GameObject target) {
-            if (Active) {
-                if (target.GetComponent<Fruit>() || target.GetComponent<Pit>()) {
-                    //Destroy(target);
-                    target.SetActive(false);
-                    SpawnPit();
-                } else if (target.GetComponent<Seed>()) {
-                    Destroy(target);
-                    Kill();
-                }
-            }
         }
 
         protected override void Start() {
@@ -84,12 +61,9 @@ namespace Randolph.Characters {
             Active = false;
         }
 
-        public void SpawnPit() {
-            spriteRenderer.sprite = closed;
-            GameObject newPit = Instantiate(pitPrefab, spawnPoint.transform.position, Quaternion.identity).gameObject;
-            newPit.transform.parent = gameObject.transform.parent;
-            pits.Add(newPit);
-            spriteRenderer.sprite = alive;
+        public void Kill() {
+            spriteRenderer.sprite = crushed;
+            Active = false;
         }
     }
 }

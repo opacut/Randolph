@@ -5,7 +5,5 @@ using UnityEngine;
 public class TorchBurning : InventoryItem {
     public override bool IsSingleUse => false;
 
-    public override bool IsApplicable(GameObject target) {
-        throw new NotImplementedException();
-    }
+    public override bool IsApplicable(GameObject target) => false;
 }

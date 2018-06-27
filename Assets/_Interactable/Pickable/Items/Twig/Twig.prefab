@@ -95,10 +95,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: Some people see a twig, others see a potential tool.
-  icon: {fileID: 21300000, guid: 6eabb7980c052504e90e1abf696431b7, type: 3}
-  collectSound: {fileID: 8300000, guid: 0e0339a3bac3c44488b82c87ccc26a02, type: 3}
   applySound: {fileID: 8300000, guid: 4603899b037c420489419da56ce2ba59, type: 3}
-  torchPrefab: {fileID: 4745642300909830, guid: 12ad3c7143575f7499f02aec2823117f,
+  collectSound: {fileID: 8300000, guid: 0e0339a3bac3c44488b82c87ccc26a02, type: 3}
+  icon: {fileID: 21300000, guid: 6eabb7980c052504e90e1abf696431b7, type: 3}
+  torchPrefab: {fileID: 114692129458803480, guid: 12ad3c7143575f7499f02aec2823117f,
     type: 2}
 --- !u!212 &212418290601396456
 SpriteRenderer:

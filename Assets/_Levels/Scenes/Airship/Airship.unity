@@ -309,7 +309,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4588526553809378, guid: 6b7facf7c583b594580d972c0fca9b73, type: 2}
       propertyPath: m_RootOrder
-      value: 24
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 114261594313789396, guid: 6b7facf7c583b594580d972c0fca9b73,
         type: 2}
@@ -434,19 +434,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4769712751262798, guid: 923e700ef2bf8d2419230fbd38c29701, type: 2}
       propertyPath: m_RootOrder
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 114007389621385680, guid: 923e700ef2bf8d2419230fbd38c29701,
-        type: 2}
-      propertyPath: description
-      value: Tara, our mechanic who keeps the ship afloat. Arguing with her usually
-        results in a mild concussion.
-      objectReference: {fileID: 0}
-    - target: {fileID: 114292201643677986, guid: 923e700ef2bf8d2419230fbd38c29701,
-        type: 2}
-      propertyPath: fullText
-      value: The ship is falling apart! I don't know how much longer we can hold it
-        together!!
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 923e700ef2bf8d2419230fbd38c29701, type: 2}
@@ -1504,7 +1492,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4842268154107098, guid: 284fe032702014ef49047cfb9be3dc5b, type: 2}
       propertyPath: m_RootOrder
-      value: 23
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 212514413828074514, guid: 284fe032702014ef49047cfb9be3dc5b,
         type: 2}
@@ -1634,6 +1622,37 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e3b2a4b709f28b48aa34679460c53b1, type: 2}
   m_IsPrefabAsset: 0
+--- !u!84 &392819887
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1067
+  m_Height: 600
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 0
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &432045254
 Prefab:
   m_ObjectHideFlags: 0
@@ -1821,7 +1840,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4505815670900094, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334, type: 2}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1465402865572568, guid: 5fdbb329ee7e74ee8a172a3bb1dd6334, type: 2}
       propertyPath: m_Name
@@ -2367,38 +2386,7 @@ BoxCollider2D:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4447610227155346, guid: ad19968e1fc332a41a11b7bda60d6f77,
     type: 2}
-  m_PrefabInternal: {fileID: 1544679363}
---- !u!84 &719623110
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1011
-  m_Height: 385
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
+  m_PrefabInternal: {fileID: 1132365926}
 --- !u!1001 &733065542
 Prefab:
   m_ObjectHideFlags: 0
@@ -2542,12 +2530,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 779268613}
   m_Script: {fileID: 11500000, guid: 8e85add2731ed485ea59fc061f36d375, type: 3}
---- !u!114 &780231382 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114727269428078858, guid: 428c1fa437005214490b7f3a6b1cdca8,
-    type: 2}
-  m_PrefabInternal: {fileID: 1846408766}
-  m_Script: {fileID: 11500000, guid: 0934d28b683d4424e90cad1a6e91f9de, type: 3}
 --- !u!1 &788430839
 GameObject:
   m_ObjectHideFlags: 0
@@ -2606,37 +2588,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!84 &815147503
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1011
-  m_Height: 385
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 0
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &815299406
 Prefab:
   m_ObjectHideFlags: 0
@@ -2992,7 +2943,7 @@ Prefab:
     - target: {fileID: 224748501108045976, guid: 5f2c6cf0c833eae48bccffc331bd8ab3,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: -373.57538
+      value: -246.58438
       objectReference: {fileID: 0}
     - target: {fileID: 224042410613998830, guid: 5f2c6cf0c833eae48bccffc331bd8ab3,
         type: 2}
@@ -3157,11 +3108,11 @@ Transform:
   - {fileID: 914125941}
   - {fileID: 108258637}
   - {fileID: 1840256035}
-  - {fileID: 1473574387}
   - {fileID: 462978445}
   - {fileID: 1559225194}
   - {fileID: 1412512472}
   - {fileID: 243457949}
+  - {fileID: 1473574387}
   - {fileID: 1196065364}
   - {fileID: 557537992}
   - {fileID: 1747536031}
@@ -3444,7 +3395,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 815147503}
+  m_TargetTexture: {fileID: 392819887}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -11369,6 +11320,48 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4522722859018738, guid: 2e53d9291175b5c4d8fdd8757fd08940,
     type: 2}
   m_PrefabInternal: {fileID: 509779677}
+--- !u!1001 &1132365926
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 979623062}
+    m_Modifications:
+    - target: {fileID: 4447610227155346, guid: ad19968e1fc332a41a11b7bda60d6f77, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -26.739998
+      objectReference: {fileID: 0}
+    - target: {fileID: 4447610227155346, guid: ad19968e1fc332a41a11b7bda60d6f77, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 7.8190002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4447610227155346, guid: ad19968e1fc332a41a11b7bda60d6f77, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4447610227155346, guid: ad19968e1fc332a41a11b7bda60d6f77, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4447610227155346, guid: ad19968e1fc332a41a11b7bda60d6f77, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4447610227155346, guid: ad19968e1fc332a41a11b7bda60d6f77, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4447610227155346, guid: ad19968e1fc332a41a11b7bda60d6f77, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4447610227155346, guid: ad19968e1fc332a41a11b7bda60d6f77, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ad19968e1fc332a41a11b7bda60d6f77, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1154489897
 GameObject:
   m_ObjectHideFlags: 0
@@ -11714,20 +11707,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4572209366363084, guid: f68b4039d4d9cd040bd3384c5b8af1b7, type: 2}
       propertyPath: m_RootOrder
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 114503723694159946, guid: f68b4039d4d9cd040bd3384c5b8af1b7,
-        type: 2}
-      propertyPath: description
-      value: Cohen is my Uncle's longest friend. They have embarked on countless voyages
-        together. The story about his lost arm changes every time he tells it, and
-        I doubt he or the Captain remember what really happened.
-      objectReference: {fileID: 0}
-    - target: {fileID: 114374039759238390, guid: f68b4039d4d9cd040bd3384c5b8af1b7,
-        type: 2}
-      propertyPath: fullText
-      value: I have not seen a thunderstorm like this since that dreaded night when
-        I lost my arm to a cloud shark.
+      value: 17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f68b4039d4d9cd040bd3384c5b8af1b7, type: 2}
@@ -11954,10 +11934,10 @@ Transform:
   m_PrefabInternal: {fileID: 555807482}
 --- !u!114 &1333758447 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114595705842909654, guid: ad19968e1fc332a41a11b7bda60d6f77,
+  m_CorrespondingSourceObject: {fileID: 114752719745910584, guid: ad19968e1fc332a41a11b7bda60d6f77,
     type: 2}
-  m_PrefabInternal: {fileID: 1544679363}
-  m_Script: {fileID: 11500000, guid: 0934d28b683d4424e90cad1a6e91f9de, type: 3}
+  m_PrefabInternal: {fileID: 1132365926}
+  m_Script: {fileID: 11500000, guid: 6a0f3b444be38d141ab657a5a17c9d69, type: 3}
 --- !u!1001 &1351565694
 Prefab:
   m_ObjectHideFlags: 0
@@ -12444,7 +12424,7 @@ Transform:
   - {fileID: 675124298}
   - {fileID: 245314037}
   m_Father: {fileID: 979623062}
-  m_RootOrder: 15
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1476130751
 GameObject:
@@ -13485,7 +13465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57eb72e2a596fbf418ee07f0acd3d5e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  captainsSpeechBubble: {fileID: 780231382}
+  captainsSpeechBubble: {fileID: 0}
   firstResponse: There is no time to waste, laddie. Off ya go to the top, else She
     crumbles to pieces!
   sabre: {fileID: 1239625333}
@@ -13647,66 +13627,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4, y: 6}
   m_EdgeRadius: 0
---- !u!1001 &1544679363
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 979623062}
-    m_Modifications:
-    - target: {fileID: 4447610227155346, guid: ad19968e1fc332a41a11b7bda60d6f77, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -26.739998
-      objectReference: {fileID: 0}
-    - target: {fileID: 4447610227155346, guid: ad19968e1fc332a41a11b7bda60d6f77, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 7.8190002
-      objectReference: {fileID: 0}
-    - target: {fileID: 4447610227155346, guid: ad19968e1fc332a41a11b7bda60d6f77, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4447610227155346, guid: ad19968e1fc332a41a11b7bda60d6f77, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4447610227155346, guid: ad19968e1fc332a41a11b7bda60d6f77, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4447610227155346, guid: ad19968e1fc332a41a11b7bda60d6f77, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4447610227155346, guid: ad19968e1fc332a41a11b7bda60d6f77, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4447610227155346, guid: ad19968e1fc332a41a11b7bda60d6f77, type: 2}
-      propertyPath: m_RootOrder
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 114892393035265504, guid: ad19968e1fc332a41a11b7bda60d6f77,
-        type: 2}
-      propertyPath: description
-      value: Gerald appears to have been hit by a falling wood beam! I should offer
-        my help to our medic, Howard - Gerald seems to be badly hurt!
-      objectReference: {fileID: 0}
-    - target: {fileID: 114333008214095750, guid: ad19968e1fc332a41a11b7bda60d6f77,
-        type: 2}
-      propertyPath: m_Text
-      value: Randolph, dear! You're alright! Gerald here is hurt bad. He needs my
-        medical attention.
-      objectReference: {fileID: 0}
-    - target: {fileID: 114595705842909654, guid: ad19968e1fc332a41a11b7bda60d6f77,
-        type: 2}
-      propertyPath: fullText
-      value: Randolph, dear! You're alright! Gerald here is hurt bad. He needs my
-        medical attention.
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ad19968e1fc332a41a11b7bda60d6f77, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!114 &1548121666 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114767869725489784, guid: 8cd17e969939c454e839d0718b531837,
@@ -13761,7 +13681,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4667859838281882, guid: 31064e9c8835fba4696a0eeed8e4d906, type: 2}
       propertyPath: m_RootOrder
-      value: 22
+      value: 21
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31064e9c8835fba4696a0eeed8e4d906, type: 2}
@@ -13929,6 +13849,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4842268154107098, guid: 284fe032702014ef49047cfb9be3dc5b,
     type: 2}
   m_PrefabInternal: {fileID: 360955619}
+--- !u!84 &1770563258
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1067
+  m_Height: 600
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &1780191222
 Prefab:
   m_ObjectHideFlags: 0
@@ -14181,23 +14132,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4107820509919342, guid: 428c1fa437005214490b7f3a6b1cdca8, type: 2}
       propertyPath: m_RootOrder
-      value: 19
-      objectReference: {fileID: 0}
-    - target: {fileID: 1652459870599456, guid: 428c1fa437005214490b7f3a6b1cdca8, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114454061324127166, guid: 428c1fa437005214490b7f3a6b1cdca8,
-        type: 2}
-      propertyPath: description
-      value: My uncle and the Captain of the Nightingale. Practically living in the
-        air; he can't talk normally for the best part of thirty years.
-      objectReference: {fileID: 0}
-    - target: {fileID: 114727269428078858, guid: 428c1fa437005214490b7f3a6b1cdca8,
-        type: 2}
-      propertyPath: fullText
-      value: Boy! Thank heavens yar alive! 'Ere, snatch mine sabre an' climb the mast!
-        We need to cut the sail lest we lose control of the ship!
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 428c1fa437005214490b7f3a6b1cdca8, type: 2}

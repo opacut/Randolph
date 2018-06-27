@@ -9,20 +9,20 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1084936229586974}
+  m_RootGameObject: {fileID: 1816392609614664}
   m_IsPrefabAsset: 1
---- !u!1 &1084936229586974
+--- !u!1 &1816392609614664
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4271403816942618}
-  - component: {fileID: 212474487302465716}
-  - component: {fileID: 70340078406059728}
-  - component: {fileID: 114468566570237948}
-  - component: {fileID: 114594719665066606}
+  - component: {fileID: 4408822669654906}
+  - component: {fileID: 212927331537481086}
+  - component: {fileID: 70595381598555402}
+  - component: {fileID: 114930408782462994}
+  - component: {fileID: 114817164122335164}
   m_Layer: 0
   m_Name: Flytrap
   m_TagString: Enemy
@@ -30,54 +30,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1805693269108156
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4721777577771252}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4271403816942618
+--- !u!4 &4408822669654906
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1084936229586974}
+  m_GameObject: {fileID: 1816392609614664}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4721777577771252}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4721777577771252
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1805693269108156}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.64, y: 0.57, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4271403816942618}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &70340078406059728
+--- !u!70 &70595381598555402
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1084936229586974}
+  m_GameObject: {fileID: 1816392609614664}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -87,32 +58,12 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 1.32}
   m_Size: {x: 2.63, y: 2.64}
   m_Direction: 0
---- !u!114 &114468566570237948
+--- !u!114 &114817164122335164
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1084936229586974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b7ee36e7ec198949858b9d6991d12a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  description: What a peculiar plant! It looks unlike the venus flytraps I have observed
-    in the botany gardens back home...except this one is big enough to swallow a man
-    whole!
-  closed: {fileID: 21300008, guid: 999e294dec536e049bfa10f4624bc0cd, type: 3}
-  closeSound: {fileID: 8300000, guid: b987a60a58e2a6f48b5066592d3da48d, type: 3}
-  crushed: {fileID: 21300010, guid: 999e294dec536e049bfa10f4624bc0cd, type: 3}
-  pitPrefab: {fileID: 114608641976397328, guid: 1b4c43ba064d3d74e9d2cf983346a450,
-    type: 2}
-  spawnPoint: {fileID: 1805693269108156}
---- !u!114 &114594719665066606
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1084936229586974}
+  m_GameObject: {fileID: 1816392609614664}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
@@ -122,12 +73,29 @@ MonoBehaviour:
   eraseRenderer: 0
   originalLayer: 0
   originalMaterials: []
---- !u!212 &212474487302465716
+--- !u!114 &114930408782462994
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1816392609614664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b7ee36e7ec198949858b9d6991d12a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: What a peculiar plant! It looks unlike the venus flytraps I have observed
+    in the botany gardens back home...except this one is big enough to swallow a man
+    whole!
+  closed: {fileID: 21300008, guid: 999e294dec536e049bfa10f4624bc0cd, type: 3}
+  crushed: {fileID: 21300010, guid: 999e294dec536e049bfa10f4624bc0cd, type: 3}
+  closeSound: {fileID: 8300000, guid: b987a60a58e2a6f48b5066592d3da48d, type: 3}
+--- !u!212 &212927331537481086
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1084936229586974}
+  m_GameObject: {fileID: 1816392609614664}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0

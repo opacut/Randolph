@@ -1,41 +1,44 @@
 ﻿using System;
 using System.Collections;
-using Randolph.Characters;
-using Randolph.Levels;
+using Randolph.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Randolph.UI {
-    [RequireComponent(typeof(Talkable))] // TODO: Temporary (inherit from Talkable)
-    public class SpeechBubble : MonoBehaviour, IRestartable {
+namespace Randolph.Interactable {
+    public class Talkable: Clickable {
+        [Header("Speech Bubble")]
         [SerializeField] private Text bubbleText;
+        [SerializeField] private Canvas bubbleCanvas;
         [SerializeField] private Color characterColor = Color.white;
+        [SerializeField, TextArea] public string fullText;
 
         private string currentText;
-
-        [SerializeField, ReadonlyField]
         private float delay = 0.05f;
-
-        [SerializeField, TextArea] public string fullText;
-        private bool isSpeaking;
         private CanvasScaler scaler;
 
-        [SerializeField] private Canvas speechBubble;
+        private bool isSpeaking;
 
-        private void Awake() {
-            scaler = speechBubble.GetComponent<CanvasScaler>();
+        public override Cursors CursorType { get; protected set; } = Cursors.Talk;
+
+        protected override void Awake() {
+            base.Awake();
+            scaler = bubbleCanvas.GetComponent<CanvasScaler>();
         }
 
-        private void Start() {
+        protected override void Start() {
+            base.Start();
+
+            outline.color = 1;
+
             scaler.enabled = false;
-            speechBubble.enabled = false;
+            bubbleCanvas.enabled = false;
 
             bubbleText.text = string.Empty;
             bubbleText.color = characterColor;
             SaveState();
         }
 
-        private void OnMouseDown() {
+        public virtual void OnTalk() {
             if (!isSpeaking) {
                 Speak();
             } else {
@@ -55,7 +58,7 @@ namespace Randolph.UI {
             StopAllCoroutines();
             bubbleText.text = string.Empty;
             currentText = string.Empty;
-            speechBubble.enabled = true;
+            bubbleCanvas.enabled = true;
             scaler.enabled = true;
             isSpeaking = true;
             if (GetComponent<Animator>()) {
@@ -68,7 +71,7 @@ namespace Randolph.UI {
 
         private void StopSpeaking() {
             StopAllCoroutines();
-            speechBubble.enabled = false;
+            bubbleCanvas.enabled = false;
             scaler.enabled = false;
             isSpeaking = false;
             if (GetComponent<Animator>()) {
@@ -98,15 +101,18 @@ namespace Randolph.UI {
         #region Implementation of IRestartable
         private string savedText;
 
-        public void SaveState() {
+        public override void SaveState() {
+            base.SaveState();
             savedText = fullText;
         }
 
-        public void Restart() {
+        public override void Restart() {
+            base.Restart();
+
             StopAllCoroutines();
             fullText = savedText;
             scaler.enabled = false;
-            speechBubble.enabled = false;
+            bubbleCanvas.enabled = false;
             bubbleText.text = string.Empty;
             bubbleText.color = characterColor;
             isSpeaking = false;

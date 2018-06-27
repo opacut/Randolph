@@ -57,9 +57,8 @@ GameObject:
   - component: {fileID: 212869276539352046}
   - component: {fileID: 95122895109438578}
   - component: {fileID: 61890292486507168}
-  - component: {fileID: 114374039759238390}
-  - component: {fileID: 114503723694159946}
-  - component: {fileID: 114381172951053028}
+  - component: {fileID: 114093716297225382}
+  - component: {fileID: 114970728574996136}
   m_Layer: 0
   m_Name: Cohen
   m_TagString: Untagged
@@ -141,6 +140,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114093716297225382
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437444215039784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []
 --- !u!114 &114339133453254166
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -168,36 +182,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114374039759238390
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1437444215039784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0934d28b683d4424e90cad1a6e91f9de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speechBubble: {fileID: 223390660100681566}
-  bubbleText: {fileID: 114465657795678048}
-  characterColor: {r: 0.67058825, g: 0.2784314, b: 0, a: 1}
-  delay: 0.05
---- !u!114 &114381172951053028
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1437444215039784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  color: 0
-  eraseRenderer: 0
-  originalLayer: 0
-  originalMaterials: []
 --- !u!114 &114465657795678048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -232,19 +216,6 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: I have not seen a thunderstorm like this since that dreaded night when I
     lost my arm to a cloud shark.
---- !u!114 &114503723694159946
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1437444215039784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb416e39b4d06784390e1c8089b8e162, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  description: Cohen is Uncle's longest friend. The story about his lost arm changes
-    every time he tells it.
 --- !u!114 &114656555950916308
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -282,6 +253,24 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114970728574996136
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437444215039784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a0f3b444be38d141ab657a5a17c9d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: Cohen is Uncle's longest friend. The story about his lost arm changes
+    every time he tells it.
+  bubbleText: {fileID: 114465657795678048}
+  bubbleCanvas: {fileID: 223390660100681566}
+  characterColor: {r: 0.67058825, g: 0.2784314, b: 0, a: 1}
+  fullText: I have not seen a thunderstorm like this since that dreaded night when
+    I lost my arm to a cloud shark.
 --- !u!212 &212869276539352046
 SpriteRenderer:
   m_ObjectHideFlags: 1
