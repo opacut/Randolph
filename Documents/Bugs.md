@@ -29,3 +29,7 @@
     * Need to disable instead of destroying
 * [x] Clickable objest don't reset their `ShouldOutline` attribute
 * [ ] Bats animation playing even when static and doesn't reset
+* [ ] Put apple on a dead tree to fall from
+* [ ] Add cut shrub asset
+* [ ] Add dead tree and background boulders assets
+* [ ] Add missing items to item database

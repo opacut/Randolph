@@ -3,7 +3,7 @@
 namespace Randolph.Interactable {
     public class GrassTuft : Interactable, ISlashable {
         [SerializeField] private Sprite cutGrass;
-        [SerializeField] private DryGrass grass;
+        [SerializeField] private DryGrass grassPrefab;
 
         private bool hasGrass = true;
         private Sprite original;
@@ -14,7 +14,7 @@ namespace Randolph.Interactable {
             }
             hasGrass = false;
             spriteRenderer.sprite = cutGrass;
-            var newGrass = Instantiate(grass);
+            var newGrass = Instantiate(grassPrefab);
             newGrass.Pick();
         }
 
