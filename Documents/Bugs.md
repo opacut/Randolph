@@ -19,8 +19,12 @@
 * [ ] Restarting of objects created wihh Instantiate
 * [ ] You can talk to characters out of applicable range
 * [ ] Disable restarting while pause or in menus
-* [ ] Fix sail IRestartable
+* [x] Fix sail IRestartable
 * [ ] Disable camera transitions and mouse event when there is camera transition
+    * Now player disapears for a moment before transition exit finishes
 * [ ] Hide colliders around ladders
 * [x] Fix missing captains message on level 1
 * [ ] When grappling and camera is transitioning, hook is still changing length
+* [ ] Nullref exception if game is restarted while player is on `ClimbableRope`
+    * Need to disable instead of destroying
+* [ ] Clickable objest don't reset their `ShouldOutline` attribute
