@@ -94,6 +94,7 @@ namespace Randolph.Interactable {
             gameObject.SetActive(savedActiveState);
             transform.position = savedPosition;
             transform.rotation = savedRotation;
+            shouldOutline = false;
         }
         #endregion
     }
