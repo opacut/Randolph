@@ -27,4 +27,4 @@
 * [ ] When grappling and camera is transitioning, hook is still changing length
 * [ ] Nullref exception if game is restarted while player is on `ClimbableRope`
     * Need to disable instead of destroying
-* [ ] Clickable objest don't reset their `ShouldOutline` attribute
+* [x] Clickable objest don't reset their `ShouldOutline` attribute
