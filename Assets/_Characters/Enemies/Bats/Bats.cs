@@ -44,6 +44,12 @@ public class Bats : Clickable {
         audioSource = AudioPlayer.audioPlayer.AddAudioSource(gameObject);
     }
 
+    protected override void Start() {
+        base.Start();
+        outline.color = 2;
+        CreateDestinationQueue();
+    }
+
     public void OnTriggerEnter2D(Collider2D other) {
         if (other.tag != Constants.Tag.Player) {
             return;
@@ -53,13 +59,9 @@ public class Bats : Clickable {
         other.GetComponent<PlayerController>().Kill();
     }
 
-    protected override void Start() {
-        base.Start();
-        outline.color = 2;
-        CreateDestinationQueue();
-    }
-
     protected override void Update() {
+        base.Update();
+        
         // If the object is not at the target destination
         if ((Vector2) transform.position != currentDestination) {
             // Move towards the destination each frame until the object reaches it

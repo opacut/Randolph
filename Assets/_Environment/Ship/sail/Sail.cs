@@ -51,11 +51,13 @@ namespace Randolph.Environment {
         private bool initialActiveState;
         private Vector3 initialPosition;
         private Quaternion initialRotation;
+        private TiedRope[] initialRopes;
 
         public void SaveState() {
             initialActiveState = gameObject.activeSelf;
             initialPosition = transform.position;
             initialRotation = transform.rotation;
+            initialRopes = ropes;
         }
 
         public void Restart() {
@@ -63,6 +65,7 @@ namespace Randolph.Environment {
             gameObject.SetActive(initialActiveState);
             transform.position = initialPosition;
             transform.rotation = initialRotation;
+            ropes = initialRopes;
         }
         #endregion
     }

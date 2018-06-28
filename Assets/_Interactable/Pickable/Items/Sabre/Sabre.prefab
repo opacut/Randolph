@@ -29,20 +29,20 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4667859838281882
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1273615618570730}
-  m_LocalRotation: {x: -0, y: -0, z: 0.568061, w: 0.8229865}
-  m_LocalPosition: {x: 53.61, y: 7.86, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 69.23}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &61771054690310792
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -96,9 +96,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: A rusty worn-out sabre. It reminds me of the adventure novels about
     pirates I was so infatuated with in my younger years.
-  icon: {fileID: 21300000, guid: 3b4565dd8b0c67d479a7783c300f6416, type: 3}
-  collectSound: {fileID: 8300000, guid: 7cf481d5150f98a4eb931c35e852619b, type: 3}
   applySound: {fileID: 8300000, guid: 3e80e455998cd0342b535a5834bceabe, type: 3}
+  collectSound: {fileID: 8300000, guid: 7cf481d5150f98a4eb931c35e852619b, type: 3}
+  icon: {fileID: 21300000, guid: 3b4565dd8b0c67d479a7783c300f6416, type: 3}
 --- !u!212 &212633119809244774
 SpriteRenderer:
   m_ObjectHideFlags: 1

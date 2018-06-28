@@ -14,7 +14,7 @@ namespace Assets.Levels.Airship {
         [SerializeField, TextArea] private string firstResponse;
 
         [Header("Items")]
-        [SerializeField] private Sabre sabre;
+        [SerializeField] private Sabre sabrePrefab;
         [SerializeField] private ClimbableRope climbableRope;
         [SerializeField] private Hook hook;
         [SerializeField] private Cue climbCue;
@@ -28,8 +28,8 @@ namespace Assets.Levels.Airship {
             captainsSpeechBubble.OnStoppedSpeaking += Iterate;
             yield return null;
             captainsSpeechBubble.OnStoppedSpeaking -= Iterate;
-            
-            sabre.gameObject.SetActive(true);
+
+            var sabre = Instantiate(sabrePrefab);
             sabre.Pick();
             captainsSpeechBubble.fullText = firstResponse;
             

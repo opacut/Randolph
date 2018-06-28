@@ -2,10 +2,10 @@
 
 namespace Randolph.Interactable {
     public class Shrub : Interactable, ISlashable {
-        [SerializeField] public Twig twig;
+        [SerializeField] public Twig twigPrefab;
 
         public void Slash() {
-            var newTwig = Instantiate(twig);
+            var newTwig = Instantiate(twigPrefab);
             newTwig.Pick();
             gameObject.SetActive(false);
         }
