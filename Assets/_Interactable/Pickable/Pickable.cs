@@ -1,10 +1,9 @@
 ﻿using System;
 using Randolph.Core;
-using Randolph.Levels;
 using Randolph.UI;
 
 namespace Randolph.Interactable {
-    public abstract class Pickable : Clickable, IPickable {
+    public abstract class Pickable : Clickable {
         public override Cursors CursorType { get; protected set; } = Cursors.Pick;
 
         public bool IsPickedUp { get; private set; }
@@ -23,16 +22,18 @@ namespace Randolph.Interactable {
             OnPick?.Invoke();
         }
 
-        public override void Restart() {
-            base.Restart();
-            IsPickedUp = false;
-        }
-
         protected override void Start() {
             base.Start();
             gameObject.tag = Constants.Tag.Pickable;
         }
 
         public event Action OnPick;
+
+        #region IRestartable
+        public override void Restart() {
+            base.Restart();
+            IsPickedUp = false;
+        }
+        #endregion
     }
 }

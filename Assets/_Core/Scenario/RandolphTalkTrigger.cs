@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Assets.Core.Scenario {
     [RequireComponent(typeof(Collider2D))]
-    public class RandolphTalkTrigger : MonoBehaviour, IRestartable {
+    public class RandolphTalkTrigger : RestartableBase {
         [SerializeField, TextArea] private string displayText;
         [SerializeField] private float duration;
         [SerializeField] private bool hideOnExit;
@@ -23,13 +23,5 @@ namespace Assets.Core.Scenario {
                 other.GetComponent<PlayerController>().HideDescriptionBubble(displayText);
             }
         }
-
-        #region IRestartable
-        public void SaveState() { }
-
-        public void Restart() {
-            gameObject.SetActive(true);
-        }
-        #endregion
     }
 }

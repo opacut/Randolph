@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114005164585348862}
   - component: {fileID: 61818160472256752}
   m_Layer: 0
-  m_Name: Plant_Projectile
+  m_Name: PlantProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

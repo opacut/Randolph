@@ -6,7 +6,7 @@ using Randolph.Interactable;
 using Randolph.UI;
 
 namespace Randolph.Characters {
-    public class Spitter : Clickable, IRestartable {
+    public class Spitter : Clickable {
 
         [SerializeField] GameObject shot;
         [SerializeField] Transform shotSpawn;
@@ -39,8 +39,6 @@ namespace Randolph.Characters {
                 yield return new WaitForSeconds(fireRate);
             }
         }
-
-        //public void Restart() { }
 
         public void Kill() { }
 

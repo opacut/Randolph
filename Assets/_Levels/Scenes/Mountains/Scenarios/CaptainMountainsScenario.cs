@@ -26,11 +26,11 @@ namespace Assets.Levels.Mountains {
             captainsSpeechBubble.fullText = firstResponse;
             captainsSpeechBubble.Speak();
 
-            var knife = Instantiate(knifePrefab);
+            var knife = Instantiate(knifePrefab, transform.parent);
             knife.Pick();
-            var lighter = Instantiate(lighterPrefab);
+            var lighter = Instantiate(lighterPrefab, transform.parent);
             lighter.Pick();
-            var whiskey = Instantiate(whiskeyPrefab);
+            var whiskey = Instantiate(whiskeyPrefab, transform.parent);
             whiskey.Pick();
         }
     }

@@ -44,7 +44,7 @@ namespace Randolph.Interactable {
             if (other.IsSingleUse) {
                 inventory.Remove(other);
             }
-            var newItem = Instantiate(result);
+            var newItem = Instantiate(result, transform.parent);
             newItem.Pick();
             OnCombined?.Invoke(newItem);
         }

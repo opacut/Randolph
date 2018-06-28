@@ -33,7 +33,6 @@ namespace Randolph.Environment {
             spriteRederer = GetComponent<SpriteRenderer>();
             spriteRederer.sprite = Powered ? activeSprite : inactiveSprite;
             audioSource = AudioPlayer.audioPlayer.AddAudioSource(gameObject);
-            SaveState();
         }
 
         private void OnTriggerEnter2D(Collider2D other) {

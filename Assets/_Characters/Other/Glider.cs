@@ -7,7 +7,9 @@ using UnityEngine;
 
 namespace Randolph.Characters {
     [RequireComponent(typeof(Collider2D))]
-    public class Glider : MonoBehaviour, IRestartable {
+    public class Glider : RestartableBase {
+        // TODO: Replace queue with iterator, refactor
+
         public delegate void DestinationChange(Vector2 position, Vector2 nextDestination);
 
         public delegate void GlidingEnd(Vector2 position);
@@ -37,10 +39,11 @@ namespace Randolph.Characters {
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        private void Start() {
-            SaveState();
+        protected override void Start() {
+            base.Start();
+
             if (movesFromStart) {
-                destinations.Insert(0, initialPosition);
+                destinations.Insert(0, transform.position);
             }
 
             CreateDestinationQueue();
@@ -58,11 +61,11 @@ namespace Randolph.Characters {
                 SetNextDestination();
             } else {
                 animator.SetBool("Flying", false);
-                //transform.localScale.x = 1;
             }
         }
 
         private void OnCollisionEnter2D(Collision2D collision) {
+            // TODO: Move out of Glider script
             if (collision.gameObject.tag == Constants.Tag.Player && (!Disturbed || !continuous)) {
                 OnPlayerDisturbed?.Invoke();
                 spriteRenderer.flipX = !spriteRenderer.flipX;
@@ -71,6 +74,7 @@ namespace Randolph.Characters {
         }
 
         private void OnTriggerEnter2D(Collider2D other) {
+            // TODO: Move out of Glider script
             if (other.tag == Constants.Tag.Player && (!Disturbed || !continuous)) {
                 OnPlayerDisturbed?.Invoke();
                 spriteRenderer.flipX = !spriteRenderer.flipX;
@@ -91,7 +95,7 @@ namespace Randolph.Characters {
             destinationQueue = new Queue<Vector2>(destinations);
 
             // Set the destination to be the object's initial position so it will not start off moving            
-            SetDestination(initialPosition);
+            currentDestination = transform.position;
         }
 
         /// <summary>Moves the object one step towards its destination.</summary>
@@ -103,13 +107,10 @@ namespace Randolph.Characters {
             transform.position = Vector2.MoveTowards(transform.position, currentDestination, delta);
         }
 
-        /// <summary>Set the destination to cause the object to smoothly glide to the specified location.</summary>
-        private void SetDestination(Vector2 value) { currentDestination = value; }
-
         /// <summary>Sets the destination to the next one.</summary>
         private void SetNextDestination() {
             if (destinationQueue.Count > 0) {
-                SetDestination(destinationQueue.Dequeue());
+                currentDestination = destinationQueue.Dequeue();
                 OnDestinationChange?.Invoke(transform.position, currentDestination);
             } else if (loop) {
                 CreateDestinationQueue();
@@ -121,24 +122,15 @@ namespace Randolph.Characters {
         }
 
         #region IRestartable
-        private Vector3 initialPosition;
-        private Quaternion initialRotation;
-        
-        public void SaveState() {
-            initialPosition = transform.position;
-            initialRotation = transform.rotation;
-        }
+        public override void Restart() {
+            base.Restart();
 
-        public void Restart() {
-            transform.position = initialPosition;
-            transform.rotation = initialRotation;
-
+            // TODO: Test if working properly
             CreateDestinationQueue();
             Disturbed = false;
             if (movesFromStart) {
                 StartMoving();
             }
-            gameObject.SetActive(true);
         }
         #endregion
 

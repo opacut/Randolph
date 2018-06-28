@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Randolph.Interactable {
     [RequireComponent(typeof(Outline))]
     [RequireComponent(typeof(SpriteRenderer))]
-    public abstract class Clickable : MonoBehaviour, IRestartable {
+    public abstract class Clickable : RestartableBase {
         [Tooltip("Randolph's comment - keep empty if none.")]
         [SerializeField, TextArea]
         private string description;
@@ -27,10 +27,10 @@ namespace Randolph.Interactable {
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        protected virtual void Start() {
+        protected override void Start() {
+            base.Start();
             outline.enabled = false;
             shouldOutline = false;
-            SaveState();
         }
 
         protected virtual void Update() {
@@ -39,7 +39,7 @@ namespace Randolph.Interactable {
             }
         }
 
-        private void OnDestroy() {
+        private void OnDisable() {
             // Mouse Up + Mouse Exit when deleted
             ResetCursor();
         }
@@ -82,20 +82,8 @@ namespace Randolph.Interactable {
         #endregion
 
         #region IRestartable
-        protected bool savedActiveState { get; private set; }
-        protected Vector3 savedPosition { get; private set; }
-        protected Quaternion savedRotation { get; private set; }
-
-        public virtual void SaveState() {
-            savedActiveState = gameObject.activeSelf;
-            savedPosition = transform.position;
-            savedRotation = transform.rotation;
-        }
-
-        public virtual void Restart() {
-            gameObject.SetActive(savedActiveState);
-            transform.position = savedPosition;
-            transform.rotation = savedRotation;
+        public override void Restart() {
+            base.Restart();
             shouldOutline = false;
         }
         #endregion

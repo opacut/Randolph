@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Randolph.Characters;
 using Randolph.Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,21 +10,23 @@ namespace Randolph.Levels {
     [ExecuteInEditMode]
     [AddComponentMenu("Randolph/Levels/Checkpoint Container", 20)]
     public class CheckpointContainer : MonoBehaviour {
-
-        [SerializeField, ReadonlyField] Checkpoint reached;
-
-        [SerializeField, Tooltip("Aligns the player's position to the first checkpoint in the list.")]
-        bool alignPlayer = true;
-
-        [SerializeField, ReadonlyField] List<Checkpoint> checkpoints = new List<Checkpoint>();
         public const string CheckpointKey = "ReachedCheckpoint";
 
-        void Awake() {
+        [SerializeField, Tooltip("Aligns the player's position to the first checkpoint in the list.")]
+        private bool alignPlayer = true;
+
+        [SerializeField, ReadonlyField]
+        private List<Checkpoint> checkpoints = new List<Checkpoint>();
+
+        [SerializeField, ReadonlyField]
+        private Checkpoint reached;
+
+        private void Awake() {
             LevelManager.OnNewLevel += OnNewLevel;
         }
 
-        /// <summary>Setup the checkpoints and (optionally) move the player to the first one.</summary>        
-        async void OnNewLevel(Scene scene) {
+        /// <summary>Setup the checkpoints and (optionally) move the player to the first one.</summary>
+        private async void OnNewLevel(Scene scene) {
             Debug.Assert(FindObjectsOfType(GetType()).Length == 1, "There is always supposed to be only one <b>CheckpointContainer</b> in a level.", gameObject);
             RefreshCheckpointList();
             Debug.Assert(checkpoints.Any(), "There are no checkpoints in the container!", gameObject);
@@ -46,13 +47,13 @@ namespace Randolph.Levels {
             Constants.Camera.transition.TransitionEnter();
         }
 
-        void Update() {
+        private void Update() {
             if (transform.hasChanged) {
                 RefreshCheckpointList();
             }
         }
 
-        void RefreshCheckpointList() {
+        private void RefreshCheckpointList() {
             checkpoints.Clear();
             GetComponentsInChildren(checkpoints);
         }
@@ -63,39 +64,35 @@ namespace Randolph.Levels {
             }
 
             Constants.Camera.transition.TransitionExit();
-            await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationExit));  
-            
+            await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationExit));
+
             Constants.Randolph.transform.position = reached.transform.position;
             Constants.Randolph.Killable = true;
             reached.RestoreState();
 
             Constants.Camera.rooms.EnterRoom(reached.Area.MatchingCameraRoom.ID, false);
             Constants.Camera.transition.TransitionEnter();
-            await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationEnter)); 
+            await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationEnter));
             // TODO disable player's movement until respawned
         }
 
         public void CheckpointReached(Checkpoint checkpoint) {
-            //if (!IsCheckpointVisited(checkpoint)) {
             reached = checkpoint;
             reached.SaveState();
             PlayerPrefs.SetInt(CheckpointKey, checkpoints.IndexOf(reached));
-            //}
         }
 
-        public Checkpoint GetNext() {
-            return checkpoints.GetNextItem(reached);
-        }
+        public Checkpoint GetNext() => checkpoints.GetNextItem(reached);
 
-        public Checkpoint GetPrevious() {
-            return checkpoints.GetPreviousItem(reached);
-        }
+        public Checkpoint GetPrevious() => checkpoints.GetPreviousItem(reached);
 
         public void SetReached(Checkpoint checkpoint, bool movePlayer = false) {
-            if (checkpoint == null) return;
+            if (checkpoint == null) {
+                return;
+            }
             if (movePlayer) {
                 Constants.Randolph.transform.position = checkpoint.transform.position;
-                if (alignPlayer) {                        
+                if (alignPlayer) {
                     Constants.Randolph.transform.AlignToGround();
                 }
             }
@@ -103,34 +100,33 @@ namespace Randolph.Levels {
         }
 
         public void SetReached(int checkpointIndex, bool movePlayer = false) {
-            Checkpoint checkpoint = checkpoints[checkpointIndex];
+            var checkpoint = checkpoints[checkpointIndex];
             SetReached(checkpoint, movePlayer);
         }
 
-        public bool IsCheckpointVisited(Checkpoint checkpoint) {
-            return reached && checkpoints.IndexOf(checkpoint) <= checkpoints.IndexOf(reached);
-        }
+        public bool IsCheckpointVisited(Checkpoint checkpoint) => reached && checkpoints.IndexOf(checkpoint) <= checkpoints.IndexOf(reached);
 
-        void OnDrawGizmosSelected() {
-            if (checkpoints.Count < 1) return;
+        private void OnDrawGizmosSelected() {
+            if (checkpoints.Count < 1) {
+                return;
+            }
             Gizmos.color = Color.green;
 
-            Vector3 startPoint = checkpoints[0].transform.position;
-            for (int i = 1; i < checkpoints.Count; i++) {
-                Vector3 endPoint = checkpoints[i].transform.position;
+            var startPoint = checkpoints[0].transform.position;
+            for (var i = 1; i < checkpoints.Count; i++) {
+                var endPoint = checkpoints[i].transform.position;
                 Gizmos.DrawLine(startPoint, endPoint);
                 startPoint = endPoint;
             }
 
-            Vector3? levelExit = FindObjectOfType<LevelExit>()?.transform.position;
+            var levelExit = FindObjectOfType<LevelExit>()?.transform.position;
             if (levelExit.HasValue) {
                 Gizmos.DrawLine(startPoint, levelExit.Value);
             }
         }
 
-        void OnDestroy() {
+        private void OnDestroy() {
             LevelManager.OnNewLevel -= OnNewLevel;
         }
-
     }
 }

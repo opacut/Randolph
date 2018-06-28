@@ -14,10 +14,10 @@ namespace Randolph.Interactable {
         public override void Apply(GameObject target) {
             base.Apply(target);
             if (target.GetComponent<Flytrap>() != null) {
-                var newItem = Instantiate(this);
+                var newItem = Instantiate(this, transform.parent);
                 newItem.Pick();
             } else if (target.GetComponent<Moonstone>() != null) {
-                var newItem = Instantiate(seed);
+                var newItem = Instantiate(seed, transform.parent);
                 newItem.Pick();
             }
         }

@@ -33,7 +33,6 @@ namespace Randolph.Characters {
         private void Awake() {
             spriteRenderer = GetComponent<SpriteRenderer>();
             animator = GetComponent<Animator>();
-            SaveState();
         }
 
         private void Update() {
