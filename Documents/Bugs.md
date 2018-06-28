@@ -2,10 +2,7 @@
 
 ## H1 Critical
 
-* [ ] The tutorial does not end with the story screen
 * [ ] Passage into cave is not blocked
-* [ ] Nullref exception if game is restarted while player is on `ClimbableRope`
-    * Need to disable instead of destroying
 * [ ] Add missing items to item database
 
 ## H1 Major
@@ -14,15 +11,14 @@
 * [ ] The orange boxes around the ladders
 * [ ] On death, Randolph doesn't disappear and keeps moving
 * [ ] On moving platforms, R is jumping like crazy and moving weird
+* [ ] Fix camera transitions
+* [ ] Sometimes in conversations, full text pops out immediately
 
 ## H1 Minor
 
 * [ ] Add cut shrub asset
 * [ ] Locked sound not playing on locked doors in airship
-* [ ] Hanging rope does not reset when randolph dies in airship
 * [ ] Randolphs bubble does not disappear on death
-* [ ] When you walk through door, Randolph transports to other location before camera shift
-    * Probably the same thing as the following one
 * [ ] Disable camera transitions and mouse event when there is camera transition
     * Now player disapears for a moment before transition exit finishes
 * [ ] Moving platform is not in cave style
@@ -58,3 +54,7 @@
 * [x] Crows don't restart facing the right direction
 * [x] Bats animation playing even when static and doesn't reset
 * [x] Mountains Area 2, if R dies with seed or pit in inventory, apple won't reset but fall down through the canvas
+* [x] When you walk through door, Randolph transports to other location before camera shift
+* [x] Hanging rope does not reset when randolph dies in airship
+* [x] The tutorial does not end with the story screen
+* [x] Nullref exception if game is restarted while player is on `ClimbableRope`

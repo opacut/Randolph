@@ -26,7 +26,9 @@ namespace Randolph.Levels.Airship {
         private async void Transition() {
             Constants.Camera.transition.TransitionExit();
             await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationExit));
-            Constants.Camera.rooms.EnterRoom(7);
+
+            Constants.Randolph.gameObject.SetActive(false);
+            Constants.Camera.rooms.EnterRoom(7, false);
             Constants.Camera.transition.TransitionEnter();
             
             await Task.Delay(TimeSpan.FromSeconds(5));

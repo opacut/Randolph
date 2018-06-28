@@ -3,16 +3,11 @@ using UnityEngine;
 
 namespace Randolph.Interactable {
     public class Hook : InventoryItem {
-        [SerializeField] private ClimbableRope connectedRope;
-
         public override bool IsSingleUse => false;
 
         public override void Pick() {
             base.Pick();
             Constants.Randolph.StopGrappling();
-            if (connectedRope) {
-                Destroy(connectedRope.gameObject);
-            }
         }
 
         public override bool IsApplicable(GameObject target) => target.GetComponent<HookEye>();

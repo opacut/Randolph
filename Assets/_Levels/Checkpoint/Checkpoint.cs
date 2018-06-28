@@ -16,7 +16,7 @@ namespace Randolph.Levels {
 
         private Inventory inventory;
         private CheckpointContainer container;
-        private IEnumerable<IRestartable> restartables => area.transform.GetComponentsInChildren<IRestartable>();
+        private IEnumerable<IRestartable> restartables => area.transform.GetComponentsInChildren<IRestartable>(true);
         private List<InventoryItem> inventoryState = new List<InventoryItem>();
 
         void Awake() {
