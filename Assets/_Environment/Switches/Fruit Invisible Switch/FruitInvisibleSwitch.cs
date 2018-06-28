@@ -23,7 +23,8 @@ public class FruitInvisibleSwitch : RestartableBase {
         fruitHolderCollider.enabled = value;
     }
 
-    private void Start() {
+    protected override void Start() {
+        base.Start();
         fruitHolderCollider = fruitHolder.GetComponent<Collider2D>();
     }
 
