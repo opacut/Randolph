@@ -1,35 +1,63 @@
 # Bugs
 
+# H1 Critical
+
+* [ ] The tutorial does not end with the story screen
+* [ ] Passage into cave is not blocked
+* [ ] Mountains Area 2, if R dies with seed or pit in inventory, apple won't reset but fall down through the canvas
+* [ ] Nullref exception if game is restarted while player is on `ClimbableRope`
+    * Need to disable instead of destroying
+* [ ] Add missing items to item database
+
+# H1 Major
+
+* [ ] Missing text when entering upper deck
+* [ ] The orange boxes around the ladders
+* [ ] On death, Randolph doesn't disappear and keeps moving
+* [ ] On moving platforms, R is jumping like crazy and moving weird
+* [ ] Bats animation playing even when static and doesn't reset
+
+# H1 Minor
+
+* [ ] Add cut shrub asset
+* [ ] Locked sound not playing on locked doors in airship
+* [ ] Hanging rope does not reset when randolph dies in airship
+* [ ] Randolphs bubble does not disappear on death
+* [ ] When you walk through door, Randolph transports to other location before camera shift
+    * Probably the same thing as the following one
+* [ ] Disable camera transitions and mouse event when there is camera transition
+    * Now player disapears for a moment before transition exit finishes
+* [ ] Crows don't restart facing the right direction
+* [ ] Moving platform is not in cave style
+* [ ] Sometimes can't see the whole bubble when R too high
+* [ ] Jumping is a bit chaotic still
+* [ ] Disable restarting while pause or in menus
+* [ ] When grappling and camera is transitioning, hook is still changing length
+
+# H1 Cosmetic
+
+* [ ] Crows' sprite doesn't look like they're touching the ground
+* [ ] Boulders are outlined (shouldn't be)
+* [ ] Pickup sound could be better
+* [ ] Put apple on a dead tree to fall from
+* [ ] Add dead tree and background boulders assets
+
+
+
+# H1 Solved
+
 * [x] Captains scenario in Mountains wont reset
-* [ ] Crows' sprite won't reset properly
-* [x] Spacebar works like shit
-    * [ ] Now only like a doo-doo
 * [x] Can't jump off moonstone
-* [ ] Apple restart weird if killed when in inventory
 * [x] Outline color for spitter
 * [x] Bats and boulder always outlined
-* [ ] Moving platform jumping is shite
 * [x] Howards scenario won't reset
 * [x] Captains scenario won't reset
 * [x] Sail stays cut off if reset
-* [ ] The moving platform graphics feel out of place in a cave
-* [ ] Weird sound on pickup and use
 * [x] Bats outline not working
 * [x] Outline still shows when the game is paused
-* [ ] Restarting of objects created wihh Instantiate
+* [?] Restarting of objects created wihh Instantiate
+	* NOTE: solved by getting rid of all such objects
 * [x] You can talk to characters out of applicable range
-* [ ] Disable restarting while pause or in menus
 * [x] Fix sail IRestartable
-* [ ] Disable camera transitions and mouse event when there is camera transition
-    * Now player disapears for a moment before transition exit finishes
-* [ ] Hide colliders around ladders
 * [x] Fix missing captains message on level 1
-* [ ] When grappling and camera is transitioning, hook is still changing length
-* [ ] Nullref exception if game is restarted while player is on `ClimbableRope`
-    * Need to disable instead of destroying
 * [x] Clickable objest don't reset their `ShouldOutline` attribute
-* [ ] Bats animation playing even when static and doesn't reset
-* [ ] Put apple on a dead tree to fall from
-* [ ] Add cut shrub asset
-* [ ] Add dead tree and background boulders assets
-* [ ] Add missing items to item database
