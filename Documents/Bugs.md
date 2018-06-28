@@ -9,10 +9,11 @@
 
 * [ ] Missing text when entering upper deck
 * [ ] The orange boxes around the ladders
-* [ ] On death, Randolph doesn't disappear and keeps moving
 * [ ] On moving platforms, R is jumping like crazy and moving weird
 * [ ] Fix camera transitions
 * [ ] Sometimes in conversations, full text pops out immediately
+* [ ] Polish camera transitions
+    * Proposal: Make camera rooms overlap so after transition Randolph isn't off screen
 
 ## H1 Minor
 
@@ -58,3 +59,5 @@
 * [x] Hanging rope does not reset when randolph dies in airship
 * [x] The tutorial does not end with the story screen
 * [x] Nullref exception if game is restarted while player is on `ClimbableRope`
+* [x] On death, Randolph doesn't disappear and keeps moving
+* [x] Camera transitions in mountains level
