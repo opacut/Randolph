@@ -14,12 +14,22 @@
 * [x] Sail stays cut off if reset
 * [ ] The moving platform graphics feel out of place in a cave
 * [ ] Weird sound on pickup and use
-* [ ] Bats outline not working
-* [ ] Outline still shows when the game is paused
+* [x] Bats outline not working
+* [x] Outline still shows when the game is paused
 * [ ] Restarting of objects created wihh Instantiate
-* [ ] You can talk to characters out of applicable range
+* [x] You can talk to characters out of applicable range
 * [ ] Disable restarting while pause or in menus
-* [ ] Fix sail IRestartable
+* [x] Fix sail IRestartable
 * [ ] Disable camera transitions and mouse event when there is camera transition
+    * Now player disapears for a moment before transition exit finishes
 * [ ] Hide colliders around ladders
 * [x] Fix missing captains message on level 1
+* [ ] When grappling and camera is transitioning, hook is still changing length
+* [ ] Nullref exception if game is restarted while player is on `ClimbableRope`
+    * Need to disable instead of destroying
+* [x] Clickable objest don't reset their `ShouldOutline` attribute
+* [ ] Bats animation playing even when static and doesn't reset
+* [ ] Put apple on a dead tree to fall from
+* [ ] Add cut shrub asset
+* [ ] Add dead tree and background boulders assets
+* [ ] Add missing items to item database

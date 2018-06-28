@@ -36,7 +36,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1382341687232548}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -66,7 +66,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.0001, y: 0.0001}
+  m_Size: {x: 0.9, y: 0.5}
   m_EdgeRadius: 0
 --- !u!114 &114452954836269510
 MonoBehaviour:
@@ -79,10 +79,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d28f60009260364692a08319de27773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
-  icon: {fileID: 21300000, guid: f97d3323baa280946ba192a360cb08a5, type: 3}
-  collectSound: {fileID: 8300000, guid: 0e0339a3bac3c44488b82c87ccc26a02, type: 3}
+  description: Key to the storage room. Irresponsible if convenient to have it laying
+    on the ground like that.
   applySound: {fileID: 8300000, guid: 497a1343a9518b749ae267c1093abd4c, type: 3}
+  collectSound: {fileID: 8300000, guid: 0e0339a3bac3c44488b82c87ccc26a02, type: 3}
+  icon: {fileID: 21300000, guid: f97d3323baa280946ba192a360cb08a5, type: 3}
 --- !u!114 &114740683183072308
 MonoBehaviour:
   m_ObjectHideFlags: 1

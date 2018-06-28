@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114736037507946836}
   - component: {fileID: 114592847311087398}
   m_Layer: 0
-  m_Name: shrub
+  m_Name: Shrub
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +81,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: For some people, a shrubbery is naught but a collection of twigs and
     birches. But for a creative mind, it can bring about the solution to many a problem.
-  twig: {fileID: 114898993507565042, guid: 0c0d440f63a786a40b9813da2263bab5, type: 2}
+  twigPrefab: {fileID: 114898993507565042, guid: 0c0d440f63a786a40b9813da2263bab5,
+    type: 2}
 --- !u!114 &114736037507946836
 MonoBehaviour:
   m_ObjectHideFlags: 1

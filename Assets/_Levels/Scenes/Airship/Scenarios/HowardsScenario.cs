@@ -16,7 +16,8 @@ namespace Assets.Levels.Airship {
         [SerializeField, TextArea] private string fifthResponse;
 
         [Header("Items")]
-        [SerializeField] private Key storageKey;
+        [SerializeField] private Transform storageKeySpawn;
+        [SerializeField] private Key storageKeyPrefab;
         [SerializeField] private Bandage bandage;
         [SerializeField] private Alcohol alcohol;
         private CleanedBandage cleanedBandage;
@@ -34,7 +35,8 @@ namespace Assets.Levels.Airship {
 
             howardsSpeechBubble.fullText = firstResponse;
             howardsSpeechBubble.Speak();
-            storageKey.gameObject.SetActive(true);
+
+            var storageKey = Instantiate(storageKeyPrefab, storageKeySpawn);
             highlightCue.gameObject.SetActive(true);
             pickUpCue.gameObject.SetActive(true);
             
