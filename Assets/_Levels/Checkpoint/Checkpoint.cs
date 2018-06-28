@@ -11,43 +11,38 @@ namespace Randolph.Levels {
 
 
         [Help("An area represents all objects which will be reverted back to their initial states after a restart.")]
-        [SerializeField] private Area _area;
-        public Area Area => _area;
+        [SerializeField] private Area area;
+        public Area Area => area;
 
-        Inventory inventory;
-        CheckpointContainer container;
-        readonly List<IRestartable> restartables = new List<IRestartable>();
-        List<InventoryItem> inventoryState = new List<InventoryItem>();
+        private Inventory inventory;
+        private CheckpointContainer container;
+        private IEnumerable<IRestartable> restartables => area.transform.GetComponentsInChildren<IRestartable>();
+        private List<InventoryItem> inventoryState = new List<InventoryItem>();
 
         void Awake() {
             inventory = FindObjectOfType<Inventory>();
-            container = transform.parent?.GetComponent<CheckpointContainer>();
+            container = transform.parent.GetComponent<CheckpointContainer>();
 
-            if (container == null) {
-                Debug.LogWarning("Checkpoints should be made children of a <b>CheckpointContainter</b>, otherwise they won't work properly.", gameObject);
-            }
-
-            Debug.Assert(_area != null, "The checkpoint isn't linked to any area of the level – therefore is useless.", gameObject);            
-        }
-
-        void Start() {
-            RefreshRestartables();
+            Debug.Assert(container, "Checkpoints should be made children of a <b>CheckpointContainter</b>, otherwise they won't work properly.", gameObject);
+            Debug.Assert(area, "The checkpoint isn't linked to any area of the level – therefore is useless.", gameObject);            
         }
 
         void OnTriggerEnter2D(Collider2D other) {
-            if (other.tag == Constants.Tag.Player) {
-                if (!container.IsCheckpointVisited(this)) {
-                    container.CheckpointReached(this);
-                    SaveState();
-                }
+            if (!other.CompareTag(Constants.Tag.Player) || container.IsCheckpointVisited(this)) {
+                return;
             }
+
+            container.CheckpointReached(this);
+            SaveState();
         }
 
         public void SaveState() {
-            RefreshRestartables();
-           
             inventory.SaveStateToPrefs(inventory.Items);
             inventoryState = inventory.Items;
+
+            foreach (var restartable in restartables) {
+                restartable.SaveState();
+            }
         }
 
         public void RestoreState() {
@@ -57,11 +52,5 @@ namespace Randolph.Levels {
                 restartable.Restart();
             }
         }
-
-        void RefreshRestartables() {
-            restartables.Clear();
-            restartables.AddRange(_area.transform.GetComponentsInChildren<IRestartable>());
-        }
-
     }
 }

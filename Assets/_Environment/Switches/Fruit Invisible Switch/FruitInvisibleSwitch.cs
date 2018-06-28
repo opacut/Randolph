@@ -5,7 +5,8 @@ using Randolph.Levels;
 using UnityEngine;
 
 
-public class FruitInvisibleSwitch : MonoBehaviour, IRestartable {
+// TODO: Refactor
+public class FruitInvisibleSwitch : RestartableBase {
     public bool Activated;
     private AudioSource audioSource;
     public GameObject fruitHolder;
@@ -37,11 +38,8 @@ public class FruitInvisibleSwitch : MonoBehaviour, IRestartable {
 
     // TODO Implement
     #region IRestartable
-    public void SaveState() {
-        throw new NotImplementedException();
-    }
-
-    public void Restart() {
+    public override void Restart() {
+        base.Restart();
         SetPickable(true);
     }
     #endregion

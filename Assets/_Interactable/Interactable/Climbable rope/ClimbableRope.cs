@@ -27,7 +27,7 @@ namespace Randolph.Interactable {
             gameObject.SetActive(true);
         }
 
-        private void OnDestroy() {
+        private void OnDisable() {
             Constants.Randolph.OnStoppedGrappling -= OnStoppedGrappling;
         }
 
