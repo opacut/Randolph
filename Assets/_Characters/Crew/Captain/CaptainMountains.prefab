@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 114153465503328792}
   - component: {fileID: 114594066948263780}
   m_Layer: 0
-  m_Name: Captain_mountains
+  m_Name: CaptainMountains
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

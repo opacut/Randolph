@@ -59,6 +59,7 @@ namespace Randolph.Levels {
         }
 
         public async void ReturnToCheckpoint(float delay) {
+            Constants.Randolph.Freeze();
             if (delay > 0) {
                 await Task.Delay(TimeSpan.FromSeconds(delay));
             }
@@ -67,13 +68,14 @@ namespace Randolph.Levels {
             await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationExit));
 
             Constants.Randolph.transform.position = reached.transform.position;
+            Constants.Randolph.transform.AlignToGround();
             Constants.Randolph.Killable = true;
             reached.RestoreState();
 
             Constants.Camera.rooms.EnterRoom(reached.Area.MatchingCameraRoom.ID, false);
             Constants.Camera.transition.TransitionEnter();
             await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationEnter));
-            // TODO disable player's movement until respawned
+            Constants.Randolph.UnFreeze();
         }
 
         public void CheckpointReached(Checkpoint checkpoint) {

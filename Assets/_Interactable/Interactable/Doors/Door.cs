@@ -29,18 +29,17 @@ namespace Randolph.Interactable {
                 return;
             }
 
-            var randolph = Constants.Randolph.gameObject;
-            randolph.transform.position = linkedDoor.transform.position;
-            randolph.GetComponent<PlayerController>().Freeze();
+            Constants.Randolph.Freeze();
             Constants.Camera.transition.TransitionExit();
             await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationExit));
             
-            //randolph.transform.position = linkedDoor.transform.position;
+            Constants.Randolph.transform.position = linkedDoor.transform.position;
+            Constants.Randolph.transform.AlignToGround();
             Constants.Camera.rooms.EnterRoom(linkedDoor.roomIndex, false);
 
             Constants.Camera.transition.TransitionEnter();
             await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationEnter));
-            randolph.GetComponent<PlayerController>().UnFreeze();
+            Constants.Randolph.UnFreeze();
         }
 
         private void OnDrawGizmosSelected() {

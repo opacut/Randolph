@@ -19,7 +19,7 @@ namespace Randolph.UI {
         private bool wasActivated;
 
         private void OnTriggerEnter2D(Collider2D collision) {
-            if (collision.tag == "Player") {
+            if (collision.CompareTag("Player")) {
                 textBox.enabled = true;
                 textElement.text = updateText;
                 wasActivated = true;
@@ -49,10 +49,9 @@ namespace Randolph.UI {
 
         #region IRestartable
         public override void Restart() {
-            base.Restart();
-
             Disable();
             wasActivated = false;
+            base.Restart();
         }
         #endregion
     }

@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114124640471720790}
   - component: {fileID: 114752719745910584}
   m_Layer: 0
-  m_Name: Howard_Gerald
+  m_Name: HowardAndGerald
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
