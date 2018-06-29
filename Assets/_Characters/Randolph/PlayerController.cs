@@ -26,7 +26,9 @@ namespace Randolph.Characters {
         private LineRenderer grappleRopeRenderer;
         private DistanceJoint2D grapplingJoint;
         private float gravity;
-        [SerializeField, Range(0, 1)] float groundCheckRayLength = 0.35f;
+
+        [SerializeField, Range(0, 1)]
+        private float groundCheckRayLength = 0.35f;
 
         [Header("Jumping")][SerializeField] private LayerMask groundLayers;
 
@@ -132,22 +134,6 @@ namespace Randolph.Characters {
             }
         }
 
-        #region Freeze
-        [ContextMenu("Freeze")]
-        public void Freeze()
-        {
-            animator.speed = 0;
-            rbody.constraints = RigidbodyConstraints2D.FreezeAll;
-        }
-
-        [ContextMenu("Unfreeze")]
-        public void UnFreeze()
-        {
-            animator.speed = 1;
-            rbody.constraints = RigidbodyConstraints2D.FreezeRotation;
-        }
-        #endregion
-
         #region Debug
         private void DebugCommands() {
             if (Input.GetKeyDown(KeyCode.R)) {
@@ -178,6 +164,20 @@ namespace Randolph.Characters {
             if (Input.GetKeyDown(KeyCode.KeypadMultiply)) {
                 LevelManager.LoadNextLevel();
             }
+        }
+        #endregion
+
+        #region Freeze
+        [ContextMenu("Freeze")]
+        public void Freeze() {
+            animator.speed = 0;
+            rbody.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+
+        [ContextMenu("Unfreeze")]
+        public void UnFreeze() {
+            animator.speed = 1;
+            rbody.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
         #endregion
 
@@ -231,16 +231,18 @@ namespace Randolph.Characters {
         }
 
         /// <summary>Casts a ray downwards to see if the player stands on the ground.</summary>
-        /// <param name="rayLength">Length of the ray to use. Too short makes jumping unresponsive, 
-        /// too long makes the player jump on air.</param>
-        /// <param name="layerMask"><see cref="LayerMask"/> for the ground level.</param>
+        /// <param name="rayLength">
+        ///    Length of the ray to use. Too short makes jumping unresponsive,
+        ///    too long makes the player jump on air.
+        /// </param>
+        /// <param name="layerMask"><see cref="LayerMask" /> for the ground level.</param>
         /// <returns>True if the player is very close to the ground.</returns>
         public bool GroundCheck(float rayLength, int layerMask) {
             UpdateRaycastOrigins();
 
-            Vector2 rayOrigin = raycastOrigins.bottomLeft;
-            for (int i = 0; i < groundRayCount; i++) {
-                RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, rayLength, layerMask);
+            var rayOrigin = raycastOrigins.bottomLeft;
+            for (var i = 0; i < groundRayCount; i++) {
+                var hit = Physics2D.Raycast(rayOrigin, Vector2.down, rayLength, layerMask);
                 // Debug.DrawRay(rayOrigin, Vector2.down * rayLength, Color.red);
                 if (hit.collider) {
                     return true;
@@ -346,7 +348,7 @@ namespace Randolph.Characters {
                     pickable?.Pick();
                     break;
                 case Cursors.Interact:
-                    var interactable = target as Interactable.Interactable; 
+                    var interactable = target as Interactable.Interactable;
                     interactable?.Interact();
                     break;
                 case Cursors.Talk:
@@ -372,7 +374,9 @@ namespace Randolph.Characters {
         /// <param name="duration">Duration in seconds.</param>
         public async void ShowDescriptionBubble(string text, float duration) {
             // TODO: Autoscroll long text (/ duration)
-            if (speechBubble == null) return;
+            if (speechBubble == null) {
+                return;
+            }
 
             speechBubble.gameObject.SetActive(true);
             bubbleText.text = text;

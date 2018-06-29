@@ -14,7 +14,7 @@ namespace Randolph.Interactable {
             }
             hasGrass = false;
             spriteRenderer.sprite = cutGrass;
-            var newGrass = Instantiate(grassPrefab);
+            var newGrass = Instantiate(grassPrefab, transform.parent);
             newGrass.Pick();
         }
 

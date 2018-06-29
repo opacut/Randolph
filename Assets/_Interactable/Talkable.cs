@@ -35,7 +35,6 @@ namespace Randolph.Interactable {
 
             bubbleText.text = string.Empty;
             bubbleText.color = characterColor;
-            SaveState();
         }
 
         public virtual void OnTalk() {

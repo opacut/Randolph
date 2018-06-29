@@ -1,7 +1,6 @@
 using Randolph.Core;
 using Randolph.Interactable;
 using Randolph.UI;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Randolph.Characters {
@@ -12,14 +11,12 @@ namespace Randolph.Characters {
         private AudioSource audioSource;
 
         [Header("Sprites")]
-        [SerializeField]
-        private Sprite closed;
-        [SerializeField]
-        private Sprite crushed;
+        [SerializeField] private Sprite closed;
 
         [Header("Audio")]
-        [SerializeField]
-        private AudioClip closeSound;
+        [SerializeField] private AudioClip closeSound;
+
+        [SerializeField] private Sprite crushed;
 
         public bool Active { get; private set; } = true;
 
@@ -29,6 +26,11 @@ namespace Randolph.Characters {
             base.Restart();
             spriteRenderer.sprite = alive;
             Active = true;
+        }
+
+        public void Kill() {
+            spriteRenderer.sprite = crushed;
+            Active = false;
         }
 
         protected override void Start() {
@@ -41,7 +43,7 @@ namespace Randolph.Characters {
 
         private void OnTriggerEnter2D(Collider2D other) {
             if (Active) {
-                if (other.tag == Constants.Tag.Player) {
+                if (other.CompareTag(Constants.Tag.Player)) {
                     Deactivate();
                     other.gameObject.GetComponent<PlayerController>().Kill(1, true);
                 }
@@ -50,6 +52,7 @@ namespace Randolph.Characters {
                 if (glider) {
                     //! Crows flying into the flytrap
                     Deactivate();
+                    // TODO: Make flytrap eat only crows and not any glider
                     glider.Kill();
                 }
             }
@@ -58,11 +61,6 @@ namespace Randolph.Characters {
         public void Deactivate() {
             spriteRenderer.sprite = closed;
             AudioPlayer.audioPlayer.PlayLocalSound(audioSource, closeSound);
-            Active = false;
-        }
-
-        public void Kill() {
-            spriteRenderer.sprite = crushed;
             Active = false;
         }
     }

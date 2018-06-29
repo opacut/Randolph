@@ -29,7 +29,7 @@ namespace Assets.Levels.Airship {
             yield return null;
             captainsSpeechBubble.OnStoppedSpeaking -= Iterate;
 
-            var sabre = Instantiate(sabrePrefab);
+            var sabre = Instantiate(sabrePrefab, transform.parent);
             sabre.Pick();
             captainsSpeechBubble.fullText = firstResponse;
             

@@ -5,7 +5,7 @@ using Randolph.Levels;
 
 namespace Randolph.UI {
     [RequireComponent(typeof(Collider2D))]
-    public class Cue : MonoBehaviour, IRestartable {
+    public class Cue : RestartableBase {
         [SerializeField] private Image textBox;
         [SerializeField] private Text textElement;
         [SerializeField, TextArea] private string updateText;
@@ -18,10 +18,8 @@ namespace Randolph.UI {
 
         private bool wasActivated;
 
-        private void Start() => SaveState();
-
         private void OnTriggerEnter2D(Collider2D collision) {
-            if (collision.tag == "Player") {
+            if (collision.CompareTag("Player")) {
                 textBox.enabled = true;
                 textElement.text = updateText;
                 wasActivated = true;
@@ -50,16 +48,10 @@ namespace Randolph.UI {
         }
 
         #region IRestartable
-        protected bool savedActiveState { get; private set; }
-
-        public void SaveState() {
-            savedActiveState = gameObject.activeSelf;
-        }
-
-        public void Restart() {
+        public override void Restart() {
             Disable();
             wasActivated = false;
-            gameObject.SetActive(savedActiveState);
+            base.Restart();
         }
         #endregion
     }

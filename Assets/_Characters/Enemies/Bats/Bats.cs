@@ -8,6 +8,7 @@ using UnityEngine;
 // TODO Use glider
 //[RequireComponent(typeof(Glider))]
 public class Bats : Clickable {
+    // TODO: Rework with the use of glider
     public delegate void DestinationChange(Vector2 position, Vector2 nextDestination);
 
     public delegate void GlidingEnd(Vector2 position);
@@ -51,7 +52,7 @@ public class Bats : Clickable {
     }
 
     public void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag != Constants.Tag.Player) {
+        if (!other.CompareTag(Constants.Tag.Player)) {
             return;
         }
 
@@ -81,7 +82,7 @@ public class Bats : Clickable {
 
     private void SetNextDestination() {
         if (destinationQueue.Count > 0) {
-            SetDestination(destinationQueue.Dequeue());
+            currentDestination = destinationQueue.Dequeue();
             OnDestinationChange?.Invoke(transform.position, currentDestination);
         } else if (loop) {
             CreateDestinationQueue();
@@ -92,16 +93,12 @@ public class Bats : Clickable {
         }
     }
 
-    private void SetDestination(Vector2 value) {
-        currentDestination = value;
-    }
-
     private void CreateDestinationQueue() {
         // Add all destinations to queue            
         destinationQueue = new Queue<Vector2>(destinations);
 
         // Set the destination to be the object's initial position so it will not start off moving            
-        SetDestination(savedPosition);
+        currentDestination = transform.position;
     }
 
     private void IncrementPosition() {

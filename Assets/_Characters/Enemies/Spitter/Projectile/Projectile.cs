@@ -6,6 +6,7 @@ namespace Randolph.Characters {
     public class Projectile : MonoBehaviour, IRestartable {
 
         // TODO: Object pool
+        // TODO: Better solve restarting
         
         [SerializeField] float speed = 8.5f;
 
@@ -24,10 +25,10 @@ namespace Randolph.Characters {
         }
 
         private void OnTriggerEnter2D(Collider2D other) {
-            if (other.tag == Constants.Tag.Player) {
+            if (other.CompareTag(Constants.Tag.Player)) {
                 other.gameObject.GetComponent<PlayerController>().Kill();
             }
-            if (other.tag != Constants.Tag.Ladder) {                
+            if (!other.CompareTag(Constants.Tag.Ladder)) {                
                 Destroy(gameObject);
             }
         }

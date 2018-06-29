@@ -5,15 +5,14 @@ using Randolph.Levels;
 using UnityEngine;
 
 namespace Randolph.Environment {
-    public class Sail : MonoBehaviour, IRestartable {
+    public class Sail : RestartableBase {
         private Animator animator;
         [SerializeField] private Vector2 destination = new Vector2(-100f, 50f);
         [SerializeField] private TiedRope[] ropes;
         [SerializeField] private float speed = 20f;
 
 
-        private void Start() {
-            SaveState();
+        private void Awake() {
             animator = GetComponent<Animator>();
         }
 
@@ -48,23 +47,18 @@ namespace Randolph.Environment {
         public event Action OnSlash;
 
         #region IRestartable
-        private bool initialActiveState;
-        private Vector3 initialPosition;
-        private Quaternion initialRotation;
         private TiedRope[] initialRopes;
 
-        public void SaveState() {
-            initialActiveState = gameObject.activeSelf;
-            initialPosition = transform.position;
-            initialRotation = transform.rotation;
+        public override void SaveState() {
+            base.SaveState();
+
             initialRopes = ropes;
         }
 
-        public void Restart() {
+        public override void Restart() {
+            base.Restart();
+            
             animator.SetBool("CutOff", false);
-            gameObject.SetActive(initialActiveState);
-            transform.position = initialPosition;
-            transform.rotation = initialRotation;
             ropes = initialRopes;
         }
         #endregion

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Randolph.Environment {
     [RequireComponent(typeof(SpriteRenderer))]
-    public class SpikeTrap : MonoBehaviour, IRestartable {
+    public class SpikeTrap : RestartableBase {
 
         [SerializeField] private bool isUp;
         [SerializeField] private Sprite activeSprite;
@@ -16,12 +16,10 @@ namespace Randolph.Environment {
         private void Awake() {
             spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.sprite = isUp ? activeSprite : inactiveSprite;
-
-            SaveState();
         }
 
         public void OnTriggerStay2D(Collider2D other) {
-            if (isUp && (other.tag == Constants.Tag.Player)) {
+            if (isUp && (other.CompareTag(Constants.Tag.Player))) {
                 other.GetComponent<PlayerController>().Kill();
             }
         }
@@ -34,14 +32,16 @@ namespace Randolph.Environment {
         }
 
         #region IRestartable
-        private bool initialIsUp;
+        private bool savedIsUp;
 
-        public void SaveState() {
-            initialIsUp = isUp;
+        public override void SaveState() {
+            base.SaveState();
+            savedIsUp = isUp;
         }
 
-        public void Restart() {
-            Toggle(initialIsUp);
+        public override void Restart() {
+            base.Restart();
+            Toggle(savedIsUp);
         }
         #endregion
     }

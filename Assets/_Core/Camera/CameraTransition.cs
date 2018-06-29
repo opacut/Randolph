@@ -5,11 +5,11 @@ namespace Randolph.Core {
     [RequireComponent(typeof(BoxCollider2D))]
     public class CameraTransition : MonoBehaviour {
         [SerializeField] private TransitionDirection _direction;
-        [SerializeField] private int _positiveRoomId;
-        [SerializeField] private int _negativeRoomId;
+        [SerializeField] private int positiveRoomId;
+        [SerializeField] private int negativeRoomId;
 
         private void OnTriggerStay2D(Collider2D other) {
-            if (other.tag != Constants.Tag.Player) {
+            if (!other.CompareTag(Constants.Tag.Player)) {
                 return;
             }
 
@@ -24,16 +24,16 @@ namespace Randolph.Core {
             default:
                 throw new ArgumentOutOfRangeException();
             }
-
+            
             if (transitionDirection > 0.1) {
-                Constants.Camera.rooms.EnterRoom(_positiveRoomId);
+                Constants.Camera.rooms.EnterRoom(positiveRoomId);
             } else if (transitionDirection < -0.1) {
-                Constants.Camera.rooms.EnterRoom(_negativeRoomId);
+                Constants.Camera.rooms.EnterRoom(negativeRoomId);
             }
         }
 
         private void OnTriggerExit2D(Collider2D other) {
-            if (other.tag != Constants.Tag.Player) {
+            if (!other.CompareTag(Constants.Tag.Player)) {
                 return;
             }
 
@@ -49,7 +49,7 @@ namespace Randolph.Core {
                 throw new ArgumentOutOfRangeException();
             }
 
-            Constants.Camera.rooms.EnterRoom(enteredPositiveRoom ? _positiveRoomId : _negativeRoomId);
+            Constants.Camera.rooms.EnterRoom(enteredPositiveRoom ? positiveRoomId : negativeRoomId);
         }
 
         private enum TransitionDirection {
@@ -66,8 +66,8 @@ namespace Randolph.Core {
         }
 
         private void OnDrawGizmosSelected() {
-            var positiveRoom = Constants.Camera.rooms.GetRoom(_positiveRoomId.ToString())?.Dimensions;
-            var negativeRoom = Constants.Camera.rooms.GetRoom(_negativeRoomId.ToString())?.Dimensions;
+            var positiveRoom = Constants.Camera.rooms.GetRoom(positiveRoomId.ToString())?.Dimensions;
+            var negativeRoom = Constants.Camera.rooms.GetRoom(negativeRoomId.ToString())?.Dimensions;
 
             if (positiveRoom.HasValue) {
                 Gizmos.color = new Color(0f, 1f, 0f, 0.2f);

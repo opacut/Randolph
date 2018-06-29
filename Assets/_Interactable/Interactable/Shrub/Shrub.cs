@@ -5,7 +5,7 @@ namespace Randolph.Interactable {
         [SerializeField] public Twig twigPrefab;
 
         public void Slash() {
-            var newTwig = Instantiate(twigPrefab);
+            var newTwig = Instantiate(twigPrefab, transform.parent);
             newTwig.Pick();
             gameObject.SetActive(false);
         }

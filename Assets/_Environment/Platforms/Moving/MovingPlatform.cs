@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Randolph.Environment {
     [RequireComponent(typeof(Glider))]
-    public class MovingPlatform : MonoBehaviour, IRestartable {
+    public class MovingPlatform : RestartableBase {
         private Animator animator;
         private Transform attachedPlayer;
 
@@ -29,7 +29,6 @@ namespace Randolph.Environment {
             if (visibleChain) {
                 ConstructChain();
             }
-            SaveState();
         }
 
         private void FixedUpdate() {
@@ -77,21 +76,12 @@ namespace Randolph.Environment {
         }
 
         #region IRestartable
-        private Vector3 initialPosition;
-        private Quaternion initialRotation;
+        public override void Restart() {
+            base.Restart();
 
-        public void SaveState() {
-            initialPosition = transform.position;
-            initialRotation = transform.rotation;
-        }
-
-        public void Restart() {
             // Position handled by the glider
             attachedPlayer = null;
             animator.SetBool("Move", false);
-
-            transform.position = initialPosition;
-            transform.rotation = initialRotation;
         }
         #endregion
     }

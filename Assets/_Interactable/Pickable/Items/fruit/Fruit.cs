@@ -11,7 +11,7 @@ public class Fruit : InventoryItem {
 
     public override void Apply(GameObject target) {
         base.Apply(target);
-        var newItem = Instantiate(pit);
+        var newItem = Instantiate(pit, transform.parent);
         newItem.Pick();
     }
 }
