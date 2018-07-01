@@ -11,6 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a7623d59b3daea499a03c0e6d777ae7, type: 3}
   m_Name: Item database
   m_EditorClassIdentifier: 
+  activeBackground: {fileID: 21300002, guid: ad47ebc203273f549abde8ec295a9a98, type: 3}
+  defaultBackground: {fileID: 21300000, guid: ad47ebc203273f549abde8ec295a9a98, type: 3}
   numberedItemList:
   - id: 0
     item: {fileID: 11400000, guid: ce30100aa3afe6548bc68dc7a1c456a2, type: 2}
@@ -28,6 +30,16 @@ MonoBehaviour:
     item: {fileID: 11400000, guid: da5adf8d7d51b214d9c7b4a0280e7193, type: 2}
   - id: 7
     item: {fileID: 11400000, guid: 6f532f034bdf11d4db4a871be93c08c4, type: 2}
-  defaultBackground: {fileID: 21300000, guid: ad47ebc203273f549abde8ec295a9a98, type: 3}
-  activeBackground: {fileID: 21300002, guid: ad47ebc203273f549abde8ec295a9a98, type: 3}
+  - id: 8
+    item: {fileID: 11400000, guid: c6af4a92e18b53a4a88c5fa23a0739f3, type: 2}
+  - id: 9
+    item: {fileID: 11400000, guid: cb408075268cd7e4787e3d348e5aa67d, type: 2}
+  - id: 10
+    item: {fileID: 11400000, guid: 9508b55a4a3ee054ca1fe7fc33f38ab6, type: 2}
+  - id: 11
+    item: {fileID: 11400000, guid: 2728cffc2dc6f894885e24e143eb4563, type: 2}
+  - id: 12
+    item: {fileID: 11400000, guid: aa7f84559ad6b424daa1ad09faaded5f, type: 2}
+  - id: 13
+    item: {fileID: 11400000, guid: 9a6033890353b3f4aa321b6ff023c94d, type: 2}
   passiveBackground: {fileID: 21300004, guid: ad47ebc203273f549abde8ec295a9a98, type: 3}

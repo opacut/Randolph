@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 60764106127709454}
   - component: {fileID: 114022901851328276}
   m_Layer: 0
-  m_Name: SpitterPlant
+  m_Name: spitterplant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
