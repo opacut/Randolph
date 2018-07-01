@@ -82,9 +82,10 @@ MonoBehaviour:
   description: "This might be but a makeshift instrument, but I'm sure I can make
     do\r with it as my weapon against the darkness...I just need to light it."
   applySound: {fileID: 0}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 0e0339a3bac3c44488b82c87ccc26a02, type: 3}
   icon: {fileID: 21300000, guid: 8eb51bae6171bb14fbc10735d7793dd1, type: 3}
-  burningTorchPrefab: {fileID: 0}
+  burningTorchPrefab: {fileID: 114363145499156528, guid: 83557e7015f0b86469c01eb35060b8aa,
+    type: 2}
 --- !u!114 &114958059180429494
 MonoBehaviour:
   m_ObjectHideFlags: 1

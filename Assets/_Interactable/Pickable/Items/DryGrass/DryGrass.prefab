@@ -81,7 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: A bale of dry grass. It can be used for various purposes.
   applySound: {fileID: 8300000, guid: 5240bae26843e114abae8fb99e6061dc, type: 3}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 0e0339a3bac3c44488b82c87ccc26a02, type: 3}
   icon: {fileID: 21300000, guid: 7bbb860c739d951438202ba86fe8e6ad, type: 3}
   torchPrefab: {fileID: 114319044710265900, guid: 12ad3c7143575f7499f02aec2823117f,
     type: 2}

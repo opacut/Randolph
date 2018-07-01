@@ -97,7 +97,7 @@ MonoBehaviour:
   description: "This might be but a makeshift instrument, but I'm sure I can make
     do\r with it as my weapon against the darkness."
   applySound: {fileID: 0}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 0e0339a3bac3c44488b82c87ccc26a02, type: 3}
   icon: {fileID: 21300000, guid: 84b2e8b1c04e4a840bfafb0b4b74aa73, type: 3}
 --- !u!212 &212839234364938178
 SpriteRenderer:

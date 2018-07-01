@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c50aafc69e63e4294daa8177ec4b88, type: 3}
   m_Name: Pit
   m_EditorClassIdentifier: 
-  initialized: 0
-  prefab: {fileID: 0}
+  initialized: 1
+  prefab: {fileID: 1847058836398310, guid: c0d3a93d95f7cce4fa85776215ee99e9, type: 2}
