@@ -17,19 +17,32 @@
 
 ## H1 Minor
 
-* [ ] Add cut shrub asset
 * [ ] Locked sound not playing on locked doors in airship
 * [ ] Randolphs bubble does not disappear on death
 * [ ] Disable camera transitions and mouse event when there is camera transition
     * Now player disapears for a moment before transition exit finishes
-* [ ] Moving platform is not in cave style
 * [ ] Sometimes can't see the whole bubble when R too high
 * [ ] Jumping is a bit chaotic still
 * [ ] Disable restarting while pause or in menus
 * [ ] When grappling and camera is transitioning, hook is still changing length
+* [ ] Investigate null ref exception:
+
+```txt
+System.NullReferenceException: Object reference not set to an instance of an object
+  at Randolph.Core.EditorMethods.<FindComponentsOfPrefabs`1>m__1[T] (UnityEngine.GameObject prefab) [0x00001] in C:\Projects\Randolph\Assets\_Core\Scripts\Editor\EditorMethods.cs:24 
+  at System.Linq.Enumerable+SelectListIterator`2[TSource,TResult].MoveNext () [0x00048] in <839a3cb835c04d14aeb58d83bb7bc4bd>:0 
+  at System.Linq.Enumerable+WhereEnumerableIterator`1[TSource].ToList () [0x00030] in <839a3cb835c04d14aeb58d83bb7bc4bd>:0 
+  at System.Linq.Enumerable.ToList[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x0001f] in <839a3cb835c04d14aeb58d83bb7bc4bd>:0 
+  at Randolph.Core.EditorMethods.FindComponentsOfPrefabs[T] (System.String[] relativeFolderPaths) [0x00029] in C:\Projects\Randolph\Assets\_Core\Scripts\Editor\EditorMethods.cs:24 
+  at Randolph.Core.EditorInitializer.CheckSpriteRenderers () [0x00002] in C:\Projects\Randolph\Assets\_Core\Scripts\Editor\Initializers\EditorInitializer.cs:47 
+  at Randolph.Core.EditorInitializer..cctor () [0x00006] in C:\Projects\Randolph\Assets\_Core\Scripts\Editor\Initializers\EditorInitializer.cs:14 
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes()
+```
 
 ## H1 Cosmetic
 
+* [ ] Moving platform is not in cave style
+* [ ] Add cut shrub asset
 * [ ] Crows' sprite doesn't look like they're touching the ground
 * [ ] Boulders are outlined (shouldn't be)
 * [ ] Pickup sound could be better

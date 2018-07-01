@@ -95,13 +95,13 @@ namespace Randolph.Interactable {
 
         /// <summary>Gets the item's unique ID.</summary>
         public int GetItemId(InventoryItem inventoryItem) {
-            var numberedItem = numberedItemList.FirstOrDefault(x => x.item.GetInventoryItem().GetType() == inventoryItem.GetType());
+            var numberedItem = numberedItemList.FirstOrDefault(x => x.item.InventoryItem.GetType() == inventoryItem.GetType());
             return numberedItem?.id ?? -1;
         }
 
         /// <summary>Gets the item from its unique ID.</summary>
         public InventoryItem GetItemFromId(int id) {
-            return numberedItemList.FirstOrDefault(x => x.id == id)?.item.GetInventoryItem();
+            return numberedItemList.FirstOrDefault(x => x.id == id)?.item.InventoryItem;
         }
     }
 }

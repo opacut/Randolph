@@ -9,8 +9,7 @@ namespace Randolph.Interactable {
         [SerializeField]
         private GameObject prefab;
 
-        public bool IsInitialized() => initialized;
-
-        public InventoryItem GetInventoryItem() => prefab.GetComponent<InventoryItem>();
+        public bool IsInitialized => initialized;
+        public InventoryItem InventoryItem => prefab.GetComponent<InventoryItem>();
     }
 }
