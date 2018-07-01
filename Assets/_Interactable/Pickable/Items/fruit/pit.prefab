@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114608641976397328}
   - component: {fileID: 61092099033596546}
   m_Layer: 0
-  m_Name: Pit
+  m_Name: pit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
