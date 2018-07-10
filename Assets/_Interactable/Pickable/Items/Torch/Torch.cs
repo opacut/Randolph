@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Randolph.Interactable {
     public class Torch : InventoryItem, IFlammable {
-        [SerializeField] private TorchBurning burningTorchPrefab;
+        [SerializeField] private Torchburning burningTorchPrefab;
 
         public override bool IsSingleUse => true;
 

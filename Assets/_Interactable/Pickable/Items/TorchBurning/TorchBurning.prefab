@@ -9,71 +9,71 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1658511073485674}
+  m_RootGameObject: {fileID: 1298496077894406}
   m_IsPrefabAsset: 1
---- !u!1 &1658511073485674
+--- !u!1 &1298496077894406
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4709218540179388}
-  - component: {fileID: 212464048564452866}
-  - component: {fileID: 61240873842329122}
-  - component: {fileID: 114337504767554168}
-  - component: {fileID: 114939784279562762}
+  - component: {fileID: 4510555547008856}
+  - component: {fileID: 212839234364938178}
+  - component: {fileID: 61220944738441042}
+  - component: {fileID: 114023967458264902}
+  - component: {fileID: 114363145499156528}
   m_Layer: 0
-  m_Name: Seed
+  m_Name: TorchBurning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4709218540179388
+--- !u!4 &4510555547008856
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1658511073485674}
+  m_GameObject: {fileID: 1298496077894406}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 84.34, y: -6.91, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61240873842329122
+--- !u!61 &61220944738441042
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1658511073485674}
+  m_GameObject: {fileID: 1298496077894406}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 2, y: 2}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 0.0001, y: 0.0001}
   m_EdgeRadius: 0
---- !u!114 &114337504767554168
+--- !u!114 &114023967458264902
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1658511073485674}
+  m_GameObject: {fileID: 1298496077894406}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
@@ -83,28 +83,28 @@ MonoBehaviour:
   eraseRenderer: 0
   originalLayer: 0
   originalMaterials: []
---- !u!114 &114939784279562762
+--- !u!114 &114363145499156528
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1658511073485674}
+  m_GameObject: {fileID: 1298496077894406}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aeeb0ec2f77aa864cbfcc1069bffb406, type: 3}
+  m_Script: {fileID: 11500000, guid: ddb6e4bfc9deef44da3d61476b19c0fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Alas, the seed from whence a tree grows. Plants protect these direly.
-    Oftentimes, these seeds are quite poisonous.
-  applySound: {fileID: 8300000, guid: b75e37b186aeae84898284a56e8ce01f, type: 3}
+  description: "This might be but a makeshift instrument, but I'm sure I can make
+    do\r with it as my weapon against the darkness."
+  applySound: {fileID: 0}
   collectSound: {fileID: 8300000, guid: 0e0339a3bac3c44488b82c87ccc26a02, type: 3}
-  icon: {fileID: 21300000, guid: 7a6440d7271f38e4eabd575fac96a67f, type: 3}
---- !u!212 &212464048564452866
+  icon: {fileID: 21300000, guid: 84b2e8b1c04e4a840bfafb0b4b74aa73, type: 3}
+--- !u!212 &212839234364938178
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1658511073485674}
+  m_GameObject: {fileID: 1298496077894406}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -134,12 +134,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7a6440d7271f38e4eabd575fac96a67f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0f21b839929206644804c688ea4cfc8e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

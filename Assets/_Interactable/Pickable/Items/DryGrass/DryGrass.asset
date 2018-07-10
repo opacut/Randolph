@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0c50aafc69e63e4294daa8177ec4b88, type: 3}
-  m_Name: Knife
+  m_Name: DryGrass
   m_EditorClassIdentifier: 
   initialized: 1
-  prefab: {fileID: 1958227348316854, guid: 4a98910142107b44d933ca8f2e2263cc, type: 2}
+  prefab: {fileID: 1030904675474396, guid: 8db4a067c6abb53459c6e3347b2e5dc9, type: 2}
