@@ -68,6 +68,11 @@ namespace Randolph.UI {
             return icons.Any(ico => ico.Item == item);
         }
 
+        public bool Contains<T>()
+        {
+            return icons.Any(ico => ico.Item.GetType() == typeof(T));
+        }
+
         public bool IsWithinApplicableDistance(Vector2 position) {
             return Vector2.Distance(position, Constants.Randolph.transform.position) <= ApplicableDistance;
         }

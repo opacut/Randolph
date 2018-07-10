@@ -30,11 +30,13 @@ namespace Randolph.Interactable {
             }
 
             Constants.Randolph.Freeze();
+            Constants.Randolph.transform.position = linkedDoor.transform.position;
             Constants.Camera.transition.TransitionExit();
+            //Constants.Randolph.transform.AlignToGround();
             await Task.Delay(TimeSpan.FromSeconds(Constants.Camera.transition.DurationExit));
             
             Constants.Randolph.transform.position = linkedDoor.transform.position;
-            Constants.Randolph.transform.AlignToGround();
+            //Constants.Randolph.transform.AlignToGround();
             Constants.Camera.rooms.EnterRoom(linkedDoor.roomIndex, false);
 
             Constants.Camera.transition.TransitionEnter();
