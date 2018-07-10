@@ -2,12 +2,10 @@
 
 ## H1 Critical
 
-* [ ] Passage into cave is not blocked
-* [ ] Add missing items to item database
 
 ## H1 Major
 
-* [ ] Missing text when entering upper deck
+* [ ] Game crashes when you end Airship while holding item under cursor
 * [ ] The orange boxes around the ladders
 * [ ] On moving platforms, R is jumping like crazy and moving weird
 * [ ] Fix camera transitions
@@ -38,6 +36,9 @@
 
 ## H1 Solved
 
+* [x] Missing text when entering upper deck
+* [x] Add missing items to item database
+* [x] Passage into cave is not blocked
 * [x] Captains scenario in Mountains wont reset
 * [x] Can't jump off moonstone
 * [x] Outline color for spitter
